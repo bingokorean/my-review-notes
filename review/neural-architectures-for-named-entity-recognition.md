@@ -1,6 +1,7 @@
 # [Neural Architectures for Named Entity Recognition (2016)](https://arxiv.org/pdf/1603.01360.pdf)
 
 # Review note
+The figures and tables in this paper are arranged in this [[PPT]](https://1drv.ms/p/s!AllPqyV9kKUrgju5EEGUgHB7-3gy). 
 
 ## Keyword
 * hand-crafted features & domain-specific knolwedge & resources
@@ -56,17 +57,17 @@ Named entity recognision (NER) is a **challenging** learning problem because in 
 [우리 연구]
 In this paper, we present neural architectures for NER that use **no language-specific resources or features** beyond a small amount of supervised training data and unlabeled corpora. `Our models are designed to capture two intuitions`:
 1. Since names often consist of multiple tokens, reasoning **jointly over tagging decisions** for each token is important. We use a bidirectional LSTM with a sequential conditional random layer above it (LSTM-CRF)
-2. Token-level evidence for "being a name" includes both orthographic evidence and distributional evidence. To capture orthographic sensitivity, we use **character-based** word representation model and to capture distributional sensitivity, we combine these representations with **distributional** representations. Our word representations combine both of these, and **dropout** training is used to encourage the model to learn to trust both sources of ecidence. (무분별한 concatenation을 하기 때문에 dropout이 유용할듯...) [모델 그림 참조]
+2. Token-level evidence for "being a name" includes both orthographic evidence and distributional evidence. To capture orthographic sensitivity, we use **character-based** word representation model and to capture distributional sensitivity, we combine these representations with **distributional** representations. Our word representations combine both of these, and **dropout** training is used to encourage the model to learn to trust both sources of ecidence. (무분별한 concatenation을 하기 때문에 dropout이 유용할듯...) [[PPT]](https://1drv.ms/p/s!AllPqyV9kKUrgju5EEGUgHB7-3gy)
 
 > 우리 연구는 (언어) 도메인-지식을 전혀사용하지 않는다. 그리고 크게 2가지 컨셉을 가진다. 1.여러개의 단어들로 이뤄진 ENTITY를 잘 표현하기 위해 jointly over tagging decision을 한다. 2. 형태학적인 문자 특징을 잘 표현하기 위해 charactoer-based representation과 distibutional representation 사용, 위 2가지 컨셉을 잘 보면 모두 **데이터 특징** 을 잘표현한 거에 지나지 않는다. 따라서, 모델 설계든 자질 설계든 데이터 특징을 이해하는 것이 매우 중요하다.
 
 ### 2. LSTM-CRF model
-[모델 그림 참조]
-#### 2.1 LSTM
+[[PPT]](https://1drv.ms/p/s!AllPqyV9kKUrgju5EEGUgHB7-3gy)
+### 2.1 LSTM
 We use Two kinds of LSTMs such as the forward LSTM and the backward LSTM. `These are two distinct networks with different parameters`. As one unified model, it is referred to a bidirectional LSTM, simply concatenating both LSTMs.
 
 #### 2.2 CRF Tagging Models
-For solving POS tagging task, independent classification decisions are limiting when there are strong dependencies across output labels. Therefore, instead of modeling tagging decisions independently, we model them jointly using a conditional random field (CRF). How to train LSTM-CRF model? -> 모델 그림 참조
+For solving POS tagging task, independent classification decisions are limiting when there are strong dependencies across output labels. Therefore, instead of modeling tagging decisions independently, we model them jointly using a conditional random field (CRF). How to train LSTM-CRF model? -> [[PPT]](https://1drv.ms/p/s!AllPqyV9kKUrgju5EEGUgHB7-3gy)
 
 #### 2.3 Parameterization and Training
 The parameters in the LSTM-CRF:
@@ -86,7 +87,7 @@ However we decide to use the IOBES tagging scheme, a variant of IOB commonly use
 ### ~~3. Transition-Based Chunking Model~~
 
 ### 4. Input Word Embeddings
-[모델 그림 참조] [전략1] Since many languages have **orthographic or morphological evidence** that something is a name (or not a name), we want representations that are sensitive to the spelling of words. We therefore use a model that constructs representations of words from representations of the ***characters***. [전략2] Secondly, names which may individually be quite varied, appear in **regular contexts** in large corpora. Therefore, we use ***embeddings*** learned from a large corpus that are sensitive to word order. [전략3] Finally, to prevent the models from depending on one representations or the other too strongly (=good generalization), we use ***dropout*** training.
+[[PPT]](https://1drv.ms/p/s!AllPqyV9kKUrgju5EEGUgHB7-3gy) [전략1] Since many languages have **orthographic or morphological evidence** that something is a name (or not a name), we want representations that are sensitive to the spelling of words. We therefore use a model that constructs representations of words from representations of the ***characters***. [전략2] Secondly, names which may individually be quite varied, appear in **regular contexts** in large corpora. Therefore, we use ***embeddings*** learned from a large corpus that are sensitive to word order. [전략3] Finally, to prevent the models from depending on one representations or the other too strongly (=good generalization), we use ***dropout*** training.
 
 #### 4.1 Charater-based models of words
 Instead of hand-engineering prefix and suffix information about words, we use character-level word representations.
@@ -134,7 +135,7 @@ Initial experiments showed that character-level embeddings did not improve our o
 * We did not perform any dataset preprocessing, apart from replacing every digit with a zero in the English NER dataset.
 
 #### 5.3 Results
-[PPT 참조]
+[[PPT]](https://1drv.ms/p/s!AllPqyV9kKUrgju5EEGUgHB7-3gy)
 
 ### ~~6. Related Work~~
 
