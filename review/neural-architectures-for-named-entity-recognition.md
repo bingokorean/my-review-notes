@@ -69,6 +69,8 @@ We use Two kinds of LSTMs such as the forward LSTM and the backward LSTM. `These
 #### 2.2 CRF Tagging Models
 For solving POS tagging task, independent classification decisions are limiting when there are strong dependencies across output labels. Therefore, instead of modeling tagging decisions independently, we model them jointly using a conditional random field (CRF). How to train LSTM-CRF model? -> [[PPT]](https://1drv.ms/p/s!AllPqyV9kKUrgju5EEGUgHB7-3gy)
 
+> 확률들의 sequence 가장 확률값이 높게 나와야 하므로 dynamic programming (ex. viterbi algorithm)을 사용한다.
+ 
 #### 2.3 Parameterization and Training
 The parameters in the LSTM-CRF:
   * Biagram compatibility scores A
