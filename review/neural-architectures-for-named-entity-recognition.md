@@ -1,7 +1,7 @@
-# [Neural Architectures for Named Entity Recognition (2016)](https://arxiv.org/pdf/1603.01360.pdf)
+# [Neural Architectures for Named Entity Recognition](https://arxiv.org/pdf/1603.01360.pdf) (2016.03)
 
 # Review note
-The figures and tables in this paper are arranged in this [[PPT]](https://1drv.ms/p/s!AllPqyV9kKUrgju5EEGUgHB7-3gy). 
+The figures and tables in this paper are arranged in this [[PPT Slides]](https://1drv.ms/p/s!AllPqyV9kKUrgju5EEGUgHB7-3gy). 
 
 ## Keyword
 * hand-crafted features & domain-specific knolwedge & resources
