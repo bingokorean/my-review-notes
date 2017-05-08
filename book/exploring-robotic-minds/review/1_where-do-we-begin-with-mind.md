@@ -5,6 +5,7 @@ Someone says understading human mechanism is as difficult as the universe mechan
 
 The aim of his research is to find the mind/cognition mechanism (compositionality, autonomy, free will) through synthetic neurorobotics studies. His weapons for this aim are neurodynamic system and circular causality. The former is from physics, useful for making compositionality by using the principle of self-organization. The latter is inspired from the fundamential philosophical problem, that is dualism (Descartes Saying: "I think, therefore I am."), which (he believe) can be solved by circular causality. It arises between the subjective mind (=I think -nonmatter) and the objective world (=I am -matter) after several iterations. The former may be constructed by top-down intentionality similar to 'MAP' which has prior knolwedge just like subjective mind and the latter may be constructed by bottom-up recognition similar to 'ML' which only considers the environments (=data). 
 
+
 ## Contents
 * Having questions about brian mechanism
 * Epiphanies of brian mechanism
