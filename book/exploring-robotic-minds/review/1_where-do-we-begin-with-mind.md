@@ -1,5 +1,9 @@
 # 1. Where Do We Begin with Mind?
 
+## Review
+Someone says understading human mechanism is as difficult as the universe mechanism. However, we want to understand the core of human mechanism (=brain) so as to build the aritifical system acting like human. The author is especially interested in understanding the mind/cognition. So, he wants to model the aritificial brain inspired by various disciplines, not only science but also philosophy because he believe that each discipline seemed too narrow to exchange ideas and views with other disciplinesd. 
+
+The aim of his research is to find the mind/cognition mechanism (compositionality, autonomy, free will) through synthetic neurorobotics studies. His weapons for this aim are neurodynamic system and circular causality. The former is from physics, useful for making compositionality by using the principle of self-organization. The latter is inspired from the fundamential philosophical problem, that is dualism (Descartes Saying: "I think, therefore I am."), which (he believe) can be solved by circular causality. It arises between the subjective mind (=I think -nonmatter) and the objective world (=I am -matter) after several iterations. The former may be constructed by top-down intentionality similar to 'MAP' which has prior knolwedge just like subjective mind and the latter may be constructed by bottom-up recognition similar to 'ML' which only considers the environments (=data). 
 
 ## Contents
 * Having questions about brian mechanism
@@ -90,11 +94,5 @@ _[Focus of Synthetic neurorobotics studies]_
 * (The author believe that) The key to **unlocking all of the mysteries of the mind** (including consciousness, free will) is hidden in this structure (=neurodynamic system) whithin which circular causality occurs. Also, it might help the fundamental philosophical problem, **mind/body dualism** (how the subjective mind and the objective world are related). 
 
 
-## Summary with My View
-Someone says understading human mechanism is as difficult as the universe mechanism. However, we want to understand the core of human mechanism (=brain) so as to build the aritifical system acting like human. The author is especially interested in understanding the mind/cognition. So, he wants to model the aritificial brain inspired by various disciplines, not only science but also philosophy because he believe that each discipline seemed too narrow to exchange ideas and views with other disciplinesd. 
-
-The aim of his research is to find the mind/cognition mechanism (compositionality, autonomy, free will) through synthetic neurorobotics studies. His weapons for this aim are neurodynamic system and circular causality. The former is from physics, useful for making compositionality by using the principle of self-organization. The latter is inspired from the fundamential philosophical problem, that is dualism (Descartes Saying: "I think, therefore I am."), which (he believe) can be solved by circular causality. It arises between the subjective mind (=I think -nonmatter) and the objective world (=I am -matter) after several iterations. The former may be constructed by top-down intentionality similar to 'MAP' which has prior knolwedge just like subjective mind and the latter may be constructed by bottom-up recognition similar to 'ML' which only considers the environments (=data). 
-
-
 ## Reference
-> This chapter is a part of 'Exploring Robotic Minds' written by Jun Tani. I wrote this summary while taking his class, 'EE817-Deep Learning and Dynamic Neural Network Models'. 
+This chapter is a part of 'Exploring Robotic Minds' written by Jun Tani. I wrote this summary while taking his class, 'EE817-Deep Learning and Dynamic Neural Network Models'. 
