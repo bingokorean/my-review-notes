@@ -1,7 +1,10 @@
 # Preface
 
-## Contents
-None
+## Review
+How to construct the minds of robots, which are nonmaterial things? We need to make a nice frame to account for the various fundamental aspects of the cognition/mind (such as humanoid robots, Heidegger's philosophy, deep learning neural net, etc) because it is not simple one. In order to represent the minds we borrow some ideas from Descartes saying "I think, therefore I am." (called cogito), meaning that there is an interaction between material and nonmaterial things. Given this idea, we can avoid the problem of Cartesian dualism like how a nonmaterial mind can cause anything in a material body and vice versa. Of course, we can think of Descartes saying as the cognition/mind, which can interact with the external world (ex. the body). 
+
+Then, how to build the cogito? The author suppose that it is comprised of emergent phenomena or matter in the open-ended world (not nonmatter in the closed-ended world), which appear via conflictive interactions between the top-down subjective view and the bottom-up recognition. Also, the cogito appears to be embedded in dynamic neural structures where we can find a point of compromise in conflictive situations through iterative dynamics. And we can think of the point as the core of robot mind. 
+
 
 ## Keyword
 * mind
@@ -29,11 +32,5 @@ None
 * Before exploring the **subjects** spefically in relation to the emergent phenomena which the author believe constitute the mind, each of the chapters start by presenting general concepts or tutorials on each discipline (cognitive science, phenomenology, neuroscience and brain science, nonlinear dynamics, and neural network modeling)
 
 
-## Summary with My View
-How to construct the minds of robots, which are nonmaterial things? We need to make a nice frame to account for the various fundamental aspects of the cognition/mind (such as humanoid robots, Heidegger's philosophy, deep learning neural net, etc) because it is not simple one. In order to represent the minds we borrow some ideas from Descartes saying "I think, therefore I am." (called cogito), meaning that there is an interaction between material and nonmaterial things. Given this idea, we can avoid the problem of Cartesian dualism like how a nonmaterial mind can cause anything in a material body and vice versa. Of course, we can think of Descartes saying as the cognition/mind, which can interact with the external world (ex. the body). 
-
-Then, how to build the cogito? The author suppose that it is comprised of emergent phenomena or matter in the open-ended world (not nonmatter in the closed-ended world), which appear via conflictive interactions between the top-down subjective view and the bottom-up recognition. Also, the cogito appears to be embedded in dynamic neural structures where we can find a point of compromise in conflictive situations through iterative dynamics. And we can think of the point as the core of robot mind. 
-
-
 ## Reference
-> This chapter is a part of 'Exploring Robotic Minds' written by Jun Tani. I wrote this summary while taking his class, 'EE817-Deep Learning and Dynamic Neural Network Models'. 
+This chapter is a part of 'Exploring Robotic Minds' written by Jun Tani. I wrote this summary while taking his class, 'EE817-Deep Learning and Dynamic Neural Network Models'. 
