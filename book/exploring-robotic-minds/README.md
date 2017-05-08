@@ -1,26 +1,18 @@
-# Review books related to deep learning & natural language processing
+# Exploring Robotic Minds (2016)
 
-
-
-## Content 
-* [Exploring Robotic Minds](#Exploring-Robotic-Minds)
-
-* * *
-
-## Exploring Robotic Minds
-0. [Forword](https://github.com/gritmind/review-ml-dl-nlp-books/blob/master/review/exploring-robotic-minds/01_foreword.md) and [Preface](https://github.com/gritmind/review-ml-dl-nlp-books/blob/master/review/exploring-robotic-minds/02_preface.md)
+0. [Forword](https://github.com/gritmind/review-paper/blob/master/book/exploring-robotic-minds/review/01_foreword.md) and [Preface](https://github.com/gritmind/review-paper/blob/master/book/exploring-robotic-minds/review/02_preface.md)
 
 *Part I On the Mind*
 
-1. [Where Do We Begin with Mind?](https://github.com/gritmind/review-ml-dl-nlp-books/blob/master/review/exploring-robotic-minds/1_where-do-we-begin-with-mind.md)
+1. [Where Do We Begin with Mind?](https://github.com/gritmind/review-paper/blob/master/book/exploring-robotic-minds/review/1_where-do-we-begin-with-mind.md)
 2. Cognitivism
 3. Phenomenology
    * Direct Experience
    * The Subjective Mind and Objective World
 4. Introducing the Brain and Brain Science
-5. [Dynamical Systems Approach for Modeling Embodied Cognition](https://github.com/gritmind/review-ml-dl-nlp-books/blob/master/review/exploring-robotic-minds/50_intro.md)
-   * [Dynamical Systems](https://github.com/gritmind/review-dlp-book/blob/master/review/exploring-robotic-minds/51_dynamical-systems.md)
-   * [Gibsonian and Neo-Gibsonian Approaches](https://github.com/gritmind/review-dlp-book/blob/master/review/exploring-robotic-minds/52_gibsonain-neo-gibsonian-approaches.md)
+5. Dynamical Systems Approach for Modeling Embodied Cognition
+   * Dynamical Systems
+   * Gibsonian and Neo-Gibsonian Approaches
    * Behavior-Based Robotics
    * Modeling the Brain at Different Levels
    * Neural Network Models
