@@ -8,4 +8,4 @@
 
 ## Named Entity Recognition
 * [Neural Architectures for Named Entity Recognition](https://github.com/gritmind/review-paper/blob/master/paper/neural-architectures-for-named-entity-recognition.md) (2016.04)
-* [Named Entity Recognition with bidirectional LSTM-CNNs](https://1drv.ms/p/s!AllPqyV9kKUrgkmsSb76RJbzJSor) (2015.11)
+* [Named Entity Recognition with bidirectional LSTM-CNNs](https://github.com/gritmind/review-paper/blob/master/paper/named-entity-recognition-with-bidirectional-lstm-cnns.md) (2015.11)
