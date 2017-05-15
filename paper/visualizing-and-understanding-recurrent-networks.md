@@ -75,8 +75,7 @@ Therefore, **Our goal is..** with the source of their performance + their shortc
     * -> Our work complements their results and provides additional types of analysis
   * (heavily influenced by work on in-depth analysis of errors) the final mean average precision is similarly broken down and studied in detail (object detection, Hoiem et al. 2012)
 
-## 3. Experimental Setup
-[[PPT Slides]](https://1drv.ms/p/s!AllPqyV9kKUrgkvfr_bd7b6LKoK-)
+## 3. Experimental Setup [[PPT Slides]](https://1drv.ms/p/s!AllPqyV9kKUrgkvfr_bd7b6LKoK-)
 * In particular, it was observed that the backpropagation dynamics caused the gradients in an RNN to either **vanish** or **explode**.
   * It was later found that the exploding gradient concern can be alleviated with a heuristic of **clipping** the gradients at some maximum value Pascanu et al. (2012).
   * `On the other hand, **LSTMs** were designed to mitigate the vanishing gradient problem.`
@@ -97,8 +96,8 @@ Therefore, **Our goal is..** with the source of their performance + their shortc
 
 
 
-## 4. Experiments
-[[PPT Slides]](https://1drv.ms/p/s!AllPqyV9kKUrgkvfr_bd7b6LKoK-)
+## 4. Experiments [[PPT Slides]](https://1drv.ms/p/s!AllPqyV9kKUrgkvfr_bd7b6LKoK-)
+
 
 #1
 > Output probability vector를 t-SNE을 사용해 2D로 mapping할 수도 있다. (RNN은 고유의 cluster를 가지고, LSTM과 GRU는 비슷한 cluster를 가진다.)
