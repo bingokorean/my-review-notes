@@ -20,10 +20,7 @@
 * Experiments
 * Conclusion
 
-
-## Summary
-
-### 0. Abstract
+## 0. Abstract
 * LSTM을 포함한 RNN 계열 모델들이 sequential data를 해결하는 기계학습 문제에서 성공적인 실험 결과를 보이고 있다.
 * 현실에서(in practice) LSTMs이 좋은 성능을 내고 있지만, the source of their performance and their limitations remain rather poorly understood.
 * Character-level language model를 interpretable testbed로 하고, LSTM 모델의 성능측면으로 장/단점을 파악해보자. (LSTM의 representations, predictions, error types을 분석함으로써)
@@ -32,7 +29,7 @@
   * We provide analysis of the remaining errors and suggests areas for further study.
 
 
-### 1. Introduction
+## 1. Introduction
 * RNNs (specifically LSTM) are effective models in applications that involve sequential data
   * Language modeling (Mikolov et al. 2010)
   * handwriting recognition and generation (Graves et al. 2013)
@@ -56,8 +53,8 @@ Therefore, **Our goal is..** with the source of their performance + their shortc
 
 > LSTM의 output을 보고 (단순 성능) 판단할 뿐만 아니라, LSTM의 내부적인 module들의 output (=memory cell)도 보고 판단해서 LSTM의 원리를 좀 더 정확히 이해하고자 한다. 그리고 이를 통해 새로운 아키텍쳐 설계하는데 도움을 주고자 한다.
 
-### 2. Related Work
-#### 2.1 Recurrent Networks
+## 2. Related Work
+### 2.1 Recurrent Networks
 * Despite RNNs’ early successes, the difficulty of training naïve recurrent network has encouraged various proposal for improvements where we can store and retrieve information over long time
   * LSTM with explicit gating mechanisms (Hochreiter & Schmidhuber. 1997)
   * GRU with functional forms (Cho et al. 2014)
@@ -68,7 +65,7 @@ Therefore, **Our goal is..** with the source of their performance + their shortc
 
 > RNN -> LSTM, GRU로 진화되는 과정을 보면, 모델의 일반성을 높여주는 작업이라고 생각할 수 있다. RNN은 단순히 과거 신호를 받을 수만 있다고 하면, LSTM은 과거 신호를 받고, 수정할 수 있도록 모델이 설계되었다. 즉, 일반성을 더 높여주었다. 물론, 여기에 따른 파라미터 개수를 늘려야되는 단점이 있다. (-> 데이터량 증가 필요)
 
-#### 2.2 Understanding Recurrent Networks
+### 2.2 Understanding Recurrent Networks
 * basic LSTM architecture의 extended 연구는 활발하지만, relatively little attention has been paid to understanding the properties of its representations and predictions.
   * a comprehensive study of LSTM components (Greff et al. 2015)
   * evaluated GRU compared to LSTMs (Chung et al. 2014)
@@ -79,7 +76,7 @@ Therefore, **Our goal is..** with the source of their performance + their shortc
     * -> Our work complements their results and provides additional types of analysis
   * (heavily influenced by work on in-depth analysis of errors) the final mean average precision is similarly broken down and studied in detail (object detection, Hoiem et al. 2012)
 
-### 3. Experimental Setup
+## 3. Experimental Setup
 [[PPT Slides]](https://1drv.ms/p/s!AllPqyV9kKUrgkvfr_bd7b6LKoK-)
 * In particular, it was observed that the backpropagation dynamics caused the gradients in an RNN to either **vanish** or **explode**.
   * It was later found that the exploding gradient concern can be alleviated with a heuristic of **clipping** the gradients at some maximum value Pascanu et al. (2012).
@@ -101,7 +98,7 @@ Therefore, **Our goal is..** with the source of their performance + their shortc
 
 
 
-### 4. Experiments
+## 4. Experiments
 [[PPT Slides]](https://1drv.ms/p/s!AllPqyV9kKUrgkvfr_bd7b6LKoK-)
 
 #1
@@ -133,7 +130,7 @@ Therefore, **Our goal is..** with the source of their performance + their shortc
 
 
 
-### 5. Conclusion
+## 5. Conclusion
 * Character-level language models as interpretable testbed
   * For analyzing the predictions, representations training dynamics and error types present in RNNs
 * Long-range dependency on real-world data (LSTM 장점 확인)
