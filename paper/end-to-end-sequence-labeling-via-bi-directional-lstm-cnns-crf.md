@@ -28,7 +28,7 @@
 
 > POS & NER를 풀기 위한 모델 hyper-parameter set이 동일하다. (learning rate만 빼고) Multi-task learning approach가 된다.
 
-> Embedding의 효과가 POS보다 NER에 월등히 뛰어나다. POS 문제에서는 semantic information이 NER보다 덜 필요하다고 생각할 수 있다.
+> Embedding의 효과가 POS보다 NER에 월등히 뛰어나다. 이유는 word embedding은 semantic representation이다 하지만 모양은 보지 못한다. POS의 경우 모양을 파악하는게 더 중요하다고 생각할 수 있다.
 
 > CRF 성능을 Out-of-vocabulary test 방식으로 확인하였다. 즉, 양옆 dependency를 이용해 CRF는 사전에 없는 새로운 단어에 대해서도 잘 예측할 수 있다.
 
