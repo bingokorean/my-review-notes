@@ -1,10 +1,9 @@
 # [Visualizing and Understanding Recurrent Networks](https://arxiv.org/pdf/1506.02078.pdf) (2015.11)
 
 # Review note
-[[PPT Slides]](https://1drv.ms/p/s!AllPqyV9kKUrgkvfr_bd7b6LKoK-)
+## [[PPT Slides]](https://1drv.ms/p/s!AllPqyV9kKUrgkvfr_bd7b6LKoK-)
 
 ## Keyword
-
 
 ## Review
 
