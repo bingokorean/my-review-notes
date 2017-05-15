@@ -98,32 +98,22 @@ Therefore, **Our goal is..** with the source of their performance + their shortc
 
 ## 4. Experiments [[PPT Slides]](https://1drv.ms/p/s!AllPqyV9kKUrgkvfr_bd7b6LKoK-)
 
-
-#1
 > Output probability vector를 t-SNE을 사용해 2D로 mapping할 수도 있다. (RNN은 고유의 cluster를 가지고, LSTM과 GRU는 비슷한 cluster를 가진다.)
 
-#2
 > backpropagation 때문에 LSTM이라도 dependency가 100 character가 넘어가면 gradient signal이 거의 없어지는데, 실험에서 dependency가 ~230이더라도 학습이 되는 것을 확인할 수 있다. (LSTM이 longer sequence에 대해 approximately하게 generalize를 잘 한다고 볼 수 있다.)
 
-#3
 > gate들이 right-saturated됐는지 left-saturated됐는지에 따라서 정보의 흐름를 파악할 수 있다. (예를 들어, forget gate가 완전히 right-saturated된다면, remember values for very long time periods, 어느쪽으로 saturated하지 않는다면 그냥 feed-forward한다고 생각할 수 있다.)
 
-#4
 > LSTM은 Long-range dependency를 잘하고, baseline(n-gram, n-NN) short-rage dependency를 잘한다. 물론 n이 클 경우 long-range dependency도 잘한다. 하지만, n이 매우 커야되는데, 이는 모델 capacity가 비약적으로 커진다는 문제가 있다. 반면, LSTM은 작은 사이즈의 모델 capacity만으로도 long-range dependency를 가질 수 있다.
 
-#5
 > LSTM이 n-gram보다 long-rage dependency를 측정하는 task에 대해 성능이 더 좋을 순 있지만, (비율은 작을지라도) LSTM이 못하는 것을 n-gram이 할 수 있는 경우도 있다. 즉, LSTM이 n-gram한테 배울 건 배워야한다.
 
-#6
 > LSTM은 closing brace, carriage return 등 long-range dependency가 필요한 character를 특히나 예측을 잘한다.
 
-#7
 > 학습 epoch이 진행될수록 LSTM의 long-range dependency에 대한 성능은 높아진다 (LSTM 특징). 이는 seq2seq 논문에서 input 문장을 reverse하면 성능이 더 잘나왔다는 현상?에 뒷바침해준다. 왜냐면 더 가까이 있는 것들은 더욱 더 잘나오고, 더 멀리 있는 것들은 충분한 학습으로 long-rage dependency를 획득하기 때문이다. The inversion introduces short-term dependencies that the LSTM can model first, and then longer dependencies are learned over time.
 
-#8
 > 무엇보다, 이렇게 LSTM 에러를 categorize하고 이해함으로써 LSTM의 약점을 파악할 수 있어 새로운 architecture를 설계하는데 도움을 준다.
 
-#9
 > LSTM 모델을 scaling up하면, n-gram error를 많이 줄일 수 있다. (위에서 에러 차이에서 n-gram이 차지하는 비율이 매우 높다.) 즉, 모델을 scaling up하면 short-range dependency를 더 잘할 수 있다.
 
 
