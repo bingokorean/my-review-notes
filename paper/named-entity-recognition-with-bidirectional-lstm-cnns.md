@@ -1,8 +1,6 @@
 # [Named Entity Recognition with bidirectional LSTM-CNNs](https://arxiv.org/pdf/1511.08308.pdf) (2015.11)
 
 # Review note
-The parts of Model & Evaluation with some figures and tables are illustrated in [[PPT Slides]](https://1drv.ms/p/s!AllPqyV9kKUrgkmsSb76RJbzJSor)
-
 ## Keyword
 * hybrid bidirectional LSTM and CNN architecture
 * encoding partial lexicon matches
@@ -12,7 +10,7 @@ The key points are using a hybrid of bi-directional LSTMs and CNNs that learns b
 
 ---
 
-# Summary note
+# Summary note [[PPT Slides]](https://1drv.ms/p/s!AllPqyV9kKUrgkmsSb76RJbzJSor)
 
 ## Content
 * Abstract
