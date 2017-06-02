@@ -6,7 +6,7 @@
 ## Summary note [[.doc]](https://1drv.ms/w/s!AllPqyV9kKUrghOCc3_ZxbGjx1Ao)
 
 
-## Reference
+### Reference
 Nadeau, David, and Satoshi Sekine. "A survey of named entity recognition and classification." Lingvisticae Investigationes 30.1 (2007): 3-26.
 
 
