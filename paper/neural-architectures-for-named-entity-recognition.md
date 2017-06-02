@@ -1,7 +1,6 @@
 # [Neural Architectures for Named Entity Recognition](https://arxiv.org/pdf/1603.01360.pdf) (2016.03)
 
 # Review note
-The figures and tables in this paper are arranged in this [[PPT Slides]](https://1drv.ms/p/s!AllPqyV9kKUrgju5EEGUgHB7-3gy). 
 
 ## Keyword
 * hand-crafted features & domain-specific knolwedge & resources
@@ -11,12 +10,11 @@ The figures and tables in this paper are arranged in this [[PPT Slides]](https:/
 * dropout
 
 ## Review
-For solving NER task, the problem is small lableded data and such entities have various kinds of contexts. The crucial is we have small labeled data, so generalization is difficult. To overcome these, the previous works tried to use unsupervisded learning and hand-crafted features, requiring domain-specific knowledge and resources. However, designing hand-crafted features is coslty. In this paper, they present new neural architecture, that is Bi-LSTM-CRF, which use both supervised and unsupervised, and that do not require domain-specific knolwedge and resources. In detail, for incorporating dependencies they add CRF layer on the top. For more expressing orthographic or morphological evidence, they use character-level word representation. Lastly, for getting good generalization among various kinds of word representations, they add dropout layer. This model has state-of-the-art score on CoNLL-2003 data, which is a representative NER data.      
-
+For solving NER task, the problem is small lableded data and such entities have various kinds of contexts. The crucial is we have small labeled data, so generalization is difficult. To overcome these, the previous works tried to use unsupervisded learning and hand-crafted features, requiring domain-specific knowledge and resources. However, designing hand-crafted features is coslty. In this paper, they present new neural architecture, that is Bi-LSTM-CRF, which use both supervised and unsupervised, and that do not require domain-specific knolwedge and resources. In detail, for incorporating dependencies they add CRF layer on the top. For more expressing orthographic or morphological evidence, they use character-level word representation. Lastly, for getting good generalization among various kinds of word representations, they add dropout layer. This model has state-of-the-art score on CoNLL-2003 data, which is a representative NER data.
 
 ---
 
-# Summary note
+# Summary note [[.ppt]](https://1drv.ms/p/s!AllPqyV9kKUrgju5EEGUgHB7-3gy)
 
 ## Content
 * Abstract
@@ -93,13 +91,10 @@ However we decide to use the IOBES tagging scheme, a variant of IOB commonly use
 
 #### 4.1 Charater-based models of words
 Instead of hand-engineering prefix and suffix information about words, we use character-level word representations.
-```diff
-- hand-engineering prefix and suffix informatino about words
-+ character-level word representations
-```
+
 Advantage of character-level word representations:
-  * Useful for morphologically rich languages
-  * To handle the out-of-vocabulary problem (ex. UNK embedding) for tasks liks part-of-speech tagging and laguage modeling or dependency parsing. (In word-level, we just use UNK embedding with a probability 0.5)
+  * Useful for **morphologically rich languages**
+  * To handle the **out-of-vocabulary problem** (ex. UNK embedding) for tasks liks part-of-speech tagging and laguage modeling or dependency parsing. (In word-level, we just use UNK embedding with a probability 0.5)
 
 To make character-level word representations, we use LSTM. Why?
 
@@ -136,8 +131,7 @@ Initial experiments showed that character-level embeddings did not improve our o
 * Although POS tags were made available for all datasets, we did not include them in our models.
 * We did not perform any dataset preprocessing, apart from replacing every digit with a zero in the English NER dataset.
 
-#### 5.3 Results
-[[PPT]](https://1drv.ms/p/s!AllPqyV9kKUrgju5EEGUgHB7-3gy)
+#### 5.3 Results [[.ppt]](https://1drv.ms/p/s!AllPqyV9kKUrgju5EEGUgHB7-3gy)
 
 ### ~~6. Related Work~~
 
