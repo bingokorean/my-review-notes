@@ -1,9 +1,7 @@
 # [A survey of named entity recognition and classification](http://nlp.cs.nyu.edu/sekine/papers/li07.pdf) (2007.01)
 
-## Review note
 
-
-## Summary note [[.doc]](https://1drv.ms/w/s!AllPqyV9kKUrghOCc3_ZxbGjx1Ao)
+## Summary [[review-note]](https://1drv.ms/w/s!AllPqyV9kKUrghOCc3_ZxbGjx1Ao)
 
 
 ### Reference
