@@ -14,3 +14,10 @@ _Named Entity Recognition_
 * [Neural Architectures for Named Entity Recognition](https://github.com/gritmind/review-paper/blob/master/paper/neural-architectures-for-named-entity-recognition.md) (2016.04)
 * [Named Entity Recognition with bidirectional LSTM-CNNs](https://github.com/gritmind/review-paper/blob/master/paper/named-entity-recognition-with-bidirectional-lstm-cnns.md) (2015.11)
 * [A survey of named entity recognition and classification](https://github.com/gritmind/review-paper/blob/master/paper/a-survey-of-named-entity-recognition-and-classification.md) (2007.01)
+
+
+# Blog
+
+
+_KAKAO AI REPORT_
+* [KAKAO AI REPORT vol.01](https://github.com/gritmind/review-paper/blob/master/blog/kakao_ai_report/kakao_ai_report_v1.md)
