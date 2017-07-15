@@ -30,7 +30,7 @@ Vol.01 <br> 2017. 03
 * AI 연구의 1차 붐 시대는 'if-then rule'을 활용한 탐색과 추론을 통한 지능 향상이 목적
 * 디지털화된 지식/정보를 컴퓨터에 반영하면서 지능을 향상시키는 시스템이 전문가 시스템 (Expert System)이다. 전문가 시스템은 지식 기반(Knowledge Base)에 지식과 정보를 저장하고, 추론 엔진(Inference Engine)에서 기존의 지식을 통해 새로운 지식을 추론하는 두 가지 시스템으로 구성된다. 예를 들어, IBM 왓슨(Watson)이 있다.
   
-![]()
+![](https://github.com/gritmind/review-paper/blob/master/blog/kakao_ai_report/assets/figure_v1.PNG)
   
   
 ### 2.3 AI의 겨울 (=IF-THEN RULE의 한계)
