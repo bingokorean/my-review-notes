@@ -18,6 +18,11 @@ _Named Entity Recognition_
 
 # Blog
 
+_Colah Blog_
+* [Deep Learning and NLP and Representations](https://github.com/gritmind/review-paper/blob/master/blog/colah/dl-and-nlp-and-representations.md) (July 7, 2014)
+* [Understanding LSTM Networks](https://github.com/gritmind/review-paper/blob/master/blog/colah/understanding-lstm-networks.md) (Aug 27, 2015)
 
 _KAKAO AI REPORT_
 * [KAKAO AI REPORT vol.01](https://github.com/gritmind/review-paper/blob/master/blog/kakao_ai_report/kakao_ai_report_v1.md)
+
+_etc_
