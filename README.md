@@ -24,8 +24,8 @@ _Colah_
 * [Deep Learning and NLP and Representations](https://github.com/gritmind/review-paper/blob/master/blog/colah/dl-and-nlp-and-representations.md) (July 7, 2014)
 
 _WILDML_
-
-
+* [Attention and Memory in Deep Learning and NLP](https://github.com/gritmind/review-paper/blob/master/blog/wildml/attention-and-memory-in-deep-learning-and-nlp.md) (Jan 3, 2016)
+* [Understanding Convolutional Neural Networks for NLP](https://github.com/gritmind/review-paper/blob/master/blog/wildml/understanding-convolutional-neural-networks-for-nlp.md) (Nov 7, 2015)
 
 _KAKAO AI REPORT_
 * [KAKAO AI REPORT vol.01](https://github.com/gritmind/review-paper/blob/master/blog/kakao_ai_report/kakao_ai_report_v1.md)
