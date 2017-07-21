@@ -27,6 +27,9 @@ _WILDML_
 * [Attention and Memory in Deep Learning and NLP](https://github.com/gritmind/review-paper/blob/master/blog/wildml/attention-and-memory-in-deep-learning-and-nlp.md) (Jan 3, 2016)
 * [Understanding Convolutional Neural Networks for NLP](https://github.com/gritmind/review-paper/blob/master/blog/wildml/understanding-convolutional-neural-networks-for-nlp.md) (Nov 7, 2015)
 
+_Slideshare_
+* [프로그래머를 위한 알파고](https://github.com/gritmind/review-paper/blob/master/blog/slideshare/alphago-for-programmer.md) (Mar 13, 2016)
+
 _KAKAO AI REPORT_
 * [KAKAO AI REPORT vol.01](https://github.com/gritmind/review-paper/blob/master/blog/kakao_ai_report/kakao_ai_report_v1.md)
 
