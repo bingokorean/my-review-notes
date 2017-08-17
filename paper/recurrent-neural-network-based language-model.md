@@ -1,8 +1,12 @@
 # [Recurrent neural network based language model](http://www.fit.vutbr.cz/research/groups/speech/publi/2010/mikolov_interspeech2010_IS100722.pdf)
 
-## [Review-note](https://1drv.ms/w/s!AllPqyV9kKUrgiNcJ6evHVW1AH9e)
+## Review
+Review-note written by both korean and english is [**here**](https://1drv.ms/w/s!AllPqyV9kKUrgiNcJ6evHVW1AH9e).
 
-This review post is based on both the original paper and my review-note translated into Korean. Summary involves not only the content of paper but also my subjective notion (e.g, especially, why?). Instead, Main Point and Keyword are totally based on the content of paper. My reading process for understanding is as follows: First, I have several intensive reading for getting 70% understanding. Second, I try to get 80% understanding while translating it into Korean. Third, I write Main Point and Keyword for repetition. Finally, I write summary with my subjective notion for getting 85% understanding. To reach over 90% understanding, I need to combine all the knowledge related to this fields. Warning: since this learning process is just my goal, I may misunderstand some concepts. 
+
+## Summary
+
+Summary involves not only the content of paper but also my subjective notion (e.g, especially, why?). Instead, Main Point and Keyword are totally based on the content of paper. My reading process for understanding is as follows: First, I have several intensive reading for getting 70% understanding. Second, I try to get 80% understanding while translating it into Korean. Third, I write Main Point and Keyword for repetition. Finally, I write summary with my subjective notion for getting 85% understanding. To reach over 90% understanding, I need to combine all the knowledge related to this fields. Warning: since this learning process is just my goal, I may misunderstand some concepts. 
 
 ### Keyword
 * Sequential data prediction
@@ -27,7 +31,7 @@ This review post is based on both the original paper and my review-note translat
 * Simple or standard RNNs suffer from long-term dependency problem.
 * Similar to n-gram models, RNN LM does not have specific assumptions. The input of RNN LM is just 1-of-N encoding. So, they are easily adapted to new domain.
 
-### Summary
+### Sum-up
 In Artificial Intelligence and Machine Learning, sequential data prediction is considered as difficult problem because the prediction is not just a single number or integer number for classification problem, but like sentence, image for generating problem.
 
 Even though n-gram based models have weak linguistic assumption (e.g., language consists of atomic symbols or words), those kinds of models (cache-based, class-based n-gram language model) are state-of-the-art for language modeling at that time (2010 when the paper is written). That means n-gram-based models work better than models which have strong linguistic assumption such as parse tree, morphology (e.g., syntax, semantic). I think, co-occurrence is important for language modeling. However, in practice those n-gram-based models do not work well and they work in specific dataset or domain.
