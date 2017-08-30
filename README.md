@@ -6,6 +6,7 @@
 
 # Paper
 
+_Deep Learning_
 * [Visualizing and Understanding Recurrent Networks](https://github.com/gritmind/review-paper/blob/master/paper/visualizing-and-understanding-recurrent-networks.md) (2015.11)
 * [Recurrent neural network based language model](https://github.com/gritmind/review-paper/blob/master/paper/recurrent-neural-network-based%20language-model.md) (2010)
 
@@ -14,6 +15,9 @@ _Named Entity Recognition_
 * [Neural Architectures for Named Entity Recognition](https://github.com/gritmind/review-paper/blob/master/paper/neural-architectures-for-named-entity-recognition.md) (2016.04)
 * [Named Entity Recognition with bidirectional LSTM-CNNs](https://github.com/gritmind/review-paper/blob/master/paper/named-entity-recognition-with-bidirectional-lstm-cnns.md) (2015.11)
 * [A survey of named entity recognition and classification](https://github.com/gritmind/review-paper/blob/master/paper/a-survey-of-named-entity-recognition-and-classification.md) (2007.01)
+
+_etc_
+* [A survey of named entity recognition and classification](https://github.com/gritmind/review-paper/blob/master/paper/an-empirical-study-of-semantic-similarity-in-WordNet-and-Word2Vec.md) (2014) 
 
 
 # Blog
