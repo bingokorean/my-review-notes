@@ -17,7 +17,7 @@ _Named Entity Recognition_
 * [A survey of named entity recognition and classification](https://github.com/gritmind/review-paper/blob/master/paper/a-survey-of-named-entity-recognition-and-classification.md) (2007.01)
 
 _etc_
-* [A survey of named entity recognition and classification](https://github.com/gritmind/review-paper/blob/master/paper/an-empirical-study-of-semantic-similarity-in-WordNet-and-Word2Vec.md) (2014) 
+* [An empirical study of semantic similarity in WordNet and Word2Vec](https://github.com/gritmind/review-paper/blob/master/paper/an-empirical-study-of-semantic-similarity-in-WordNet-and-Word2Vec.md) (2014) 
 
 
 # Blog
