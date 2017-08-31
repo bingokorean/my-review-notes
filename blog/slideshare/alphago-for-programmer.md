@@ -3,8 +3,8 @@
 Donghun Lee (이동헌) <br>
 Donghun2014@gmail.com
 
-## Review
-The review note for this post is [**here**](https://onedrive.live.com/view.aspx?resid=2BA5907D25AB4F59!285&ithint=file%2cdocx&app=Word&authkey=!AJbJavozqxoNvnI).
+## Note
+The ppt-note for this slideshare is [**HERE**](https://onedrive.live.com/view.aspx?resid=2BA5907D25AB4F59!285&ithint=file%2cdocx&app=Word&authkey=!AJbJavozqxoNvnI).
 
 ## Summary
 알파고의 기초지식을 습득하기에 좋은 자료이다. 모든 내용을 수식과 그리고 그림과 함께 친절하게 설명해주고 있다. 알파고 논문을 보기전에 참고하면 좋을 것 같다.
