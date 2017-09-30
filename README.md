@@ -5,10 +5,11 @@
 
 # Thesis 
 
-_Long Paper_
+
+# Long Paper
 
 
-# Paper
+# Short Paper
 
 _Deep Learning_
 * [Visualizing and Understanding Recurrent Networks](https://github.com/gritmind/review-paper/blob/master/paper/visualizing-and-understanding-recurrent-networks.md) (2015.11)
@@ -25,6 +26,11 @@ _etc_
 * [An empirical study of semantic similarity in WordNet and Word2Vec](https://github.com/gritmind/review-paper/blob/master/paper/an-empirical-study-of-semantic-similarity-in-WordNet-and-Word2Vec.md) (2014) 
 
 
+# Article
+
+_KAKAO AI REPORT_
+* [KAKAO AI REPORT vol.01](https://github.com/gritmind/review-paper/blob/master/blog/kakao_ai_report/kakao_ai_report_v1.md)
+
 # Blog
 
 _Colah_
@@ -39,7 +45,5 @@ _WILDML_
 _Slideshare_
 * [프로그래머를 위한 알파고](https://github.com/gritmind/review-paper/blob/master/blog/slideshare/alphago-for-programmer.md) (Mar 13, 2016)
 
-_KAKAO AI REPORT_
-* [KAKAO AI REPORT vol.01](https://github.com/gritmind/review-paper/blob/master/blog/kakao_ai_report/kakao_ai_report_v1.md)
 
 
