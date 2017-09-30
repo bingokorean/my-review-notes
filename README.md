@@ -3,6 +3,10 @@
 * [Machine Learning In Action](https://github.com/gritmind/review-paper/tree/master/book/machine-learning-in-action) (2012)
 
 
+# Thesis 
+
+_Long Paper_
+
 
 # Paper
 
