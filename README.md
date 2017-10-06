@@ -12,10 +12,17 @@
 
 # Short Paper
 
-_Deep Learning_
+_Deep Learning Model_
 * [Visualizing and Understanding Recurrent Networks](https://github.com/gritmind/review-paper/blob/master/paper/visualizing-and-understanding-recurrent-networks.md) (2015.11)
 * [Sequence to Sequence Learning with Neural Networks](https://github.com/gritmind/review-paper/blob/master/paper/seq2seq_with_nn.md) (2014)
+
+
+_Neuro based Language Model and Word Distributed Representation_
+* A Neural Probabilistic Language Model (2003)
 * [Recurrent neural network based language model](https://github.com/gritmind/review-paper/blob/master/paper/recurrent-neural-network-based%20language-model.md) (2010)
+* Linguistic Regularities in Continuous Space Word Representations (2013.06)
+* Efficient Estimation of Word Representations in Vector Space (2013.09)
+* Distributed Representations of Words and Phrases and their Compositionality (2013.10)
 
 _Named Entity Recognition_
 * [End-to-end Sequence Labeling vis Bi-directional LSTM-CNNs-CRF](https://github.com/gritmind/review-paper/blob/master/paper/end-to-end-sequence-labeling-via-bi-directional-lstm-cnns-crf.md) (2016.06)
