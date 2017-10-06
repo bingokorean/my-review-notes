@@ -18,11 +18,11 @@ _Deep Learning Model_
 
 
 _Neuro based Language Model and Word Distributed Representation_
-* A Neural Probabilistic Language Model (2003)
-* [Recurrent neural network based language model](https://github.com/gritmind/review-paper/blob/master/paper/recurrent-neural-network-based%20language-model.md) (2010)
-* Linguistic Regularities in Continuous Space Word Representations (2013.06)
-* Efficient Estimation of Word Representations in Vector Space (2013.09)
-* Distributed Representations of Words and Phrases and their Compositionality (2013.10)
+* A Neural Probabilistic Language Model (Y.Bengio, 2003)
+* [Recurrent neural network based language model](https://github.com/gritmind/review-paper/blob/master/paper/recurrent-neural-network-based%20language-model.md) (T.Mikolov, 2010)
+* Linguistic Regularities in Continuous Space Word Representations (T.Mikolov, 2013.06)
+* Efficient Estimation of Word Representations in Vector Space (T.Mikolov, 2013.09)
+* Distributed Representations of Words and Phrases and their Compositionality (T.Mikolov, 2013.10)
 
 _Named Entity Recognition_
 * [End-to-end Sequence Labeling vis Bi-directional LSTM-CNNs-CRF](https://github.com/gritmind/review-paper/blob/master/paper/end-to-end-sequence-labeling-via-bi-directional-lstm-cnns-crf.md) (2016.06)
