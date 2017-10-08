@@ -7,10 +7,10 @@
 # Thesis 
 
 
-# Long Paper
+# Paper
+## Long Paper
 
-
-# Short Paper
+## Short Paper
 
 _Deep Learning Model_
 * [Visualizing and Understanding Recurrent Networks](https://github.com/gritmind/review-paper/blob/master/paper/visualizing-and-understanding-recurrent-networks.md) (2015.11)
