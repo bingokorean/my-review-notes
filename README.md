@@ -23,6 +23,7 @@ _Neuro based Language Model & Word Distributed Representation_
 * [Linguistic Regularities in Continuous Space Word Representations](https://github.com/gritmind/review-paper/blob/master/paper/linguistic-regularities-in-continuous-space-word-representations.md) (T.Mikolov, 2013.06)
 * Efficient Estimation of Word Representations in Vector Space (T.Mikolov, 2013.09)
 * Distributed Representations of Words and Phrases and their Compositionality (T.Mikolov, 2013.10)
+* Distributed Representations of Sentences and Documents (QV.Le, 2014.05)
 
 _Named Entity Recognition_
 * [End-to-end Sequence Labeling vis Bi-directional LSTM-CNNs-CRF](https://github.com/gritmind/review-paper/blob/master/paper/end-to-end-sequence-labeling-via-bi-directional-lstm-cnns-crf.md) (2016.06)
