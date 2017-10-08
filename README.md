@@ -36,8 +36,6 @@ _etc_
 
 # Article
 
-_KAKAO AI REPORT_
-* [KAKAO AI REPORT vol.01](https://github.com/gritmind/review-paper/blob/master/blog/kakao_ai_report/kakao_ai_report_v1.md)
 
 # Blog
 
@@ -53,5 +51,7 @@ _WILDML_
 _Slideshare_
 * [프로그래머를 위한 알파고](https://github.com/gritmind/review-paper/blob/master/blog/slideshare/alphago-for-programmer.md) (Mar 13, 2016)
 
+_KAKAO AI REPORT_
+* [KAKAO AI REPORT vol.01](https://github.com/gritmind/review-paper/blob/master/blog/kakao_ai_report/kakao_ai_report_v1.md)
 
 
