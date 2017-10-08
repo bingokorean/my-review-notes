@@ -17,7 +17,7 @@ _Deep Learning Model_
 * [Sequence to Sequence Learning with Neural Networks](https://github.com/gritmind/review-paper/blob/master/paper/seq2seq_with_nn.md) (2014)
 
 
-_Neuro based Language Model & Word Distributed Representation_
+_Distributed Representations for Language_
 * A Neural Probabilistic Language Model (Y.Bengio, 2003)
 * [Recurrent neural network based language model](https://github.com/gritmind/review-paper/blob/master/paper/recurrent-neural-network-based%20language-model.md) (T.Mikolov, 2010)
 * [Linguistic Regularities in Continuous Space Word Representations](https://github.com/gritmind/review-paper/blob/master/paper/linguistic-regularities-in-continuous-space-word-representations.md) (T.Mikolov, 2013.06)
