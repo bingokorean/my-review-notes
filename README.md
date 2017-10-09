@@ -15,12 +15,17 @@ _Deep Learning Model_
 
 
 _Distributed Representations for Language_
-* A Neural Probabilistic Language Model (Y.Bengio, 2003)
-* [Recurrent neural network based language model](https://github.com/gritmind/review-paper/blob/master/paper/recurrent-neural-network-based%20language-model.md) (T.Mikolov, 2010)
-* [Linguistic Regularities in Continuous Space Word Representations](https://github.com/gritmind/review-paper/blob/master/paper/linguistic-regularities-in-continuous-space-word-representations.md) (T.Mikolov, 2013.06)
-* Efficient Estimation of Word Representations in Vector Space (T.Mikolov, 2013.09)
-* Distributed Representations of Words and Phrases and their Compositionality (T.Mikolov, 2013.10)
 * Distributed Representations of Sentences and Documents (QV.Le, 2014.05)
+* Distributed Representations of Words and Phrases and their Compositionality (T.Mikolov, 2013.10)
+* Efficient Estimation of Word Representations in Vector Space (T.Mikolov, 2013.09)
+* [Linguistic Regularities in Continuous Space Word Representations](https://github.com/gritmind/review-paper/blob/master/paper/linguistic-regularities-in-continuous-space-word-representations.md) (T.Mikolov, 2013.06)
+* [Recurrent neural network based language model](https://github.com/gritmind/review-paper/blob/master/paper/recurrent-neural-network-based%20language-model.md) (T.Mikolov, 2010)
+* A Neural Probabilistic Language Model (Y.Bengio, 2003)
+
+
+
+
+
 
 _Named Entity Recognition_
 * [End-to-end Sequence Labeling vis Bi-directional LSTM-CNNs-CRF](https://github.com/gritmind/review-paper/blob/master/paper/end-to-end-sequence-labeling-via-bi-directional-lstm-cnns-crf.md) (2016.06)
