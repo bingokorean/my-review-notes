@@ -1,6 +1,6 @@
 # Linguistic Regularities in Continuous Space Word Representations (2013)
 
-A paper note written in korean is in [**HERE (.ppt)**](https://1drv.ms/p/s!AllPqyV9kKUrhBg0yG4S2XFXNNxz) 
+A paper note (written in korean) is in [**HERE (.ppt)**](https://1drv.ms/p/s!AllPqyV9kKUrhBg0yG4S2XFXNNxz) 
 
 ## Summary
 * (FNN, RNN based) Neural Network Language Model을 학습하면 distributed word representation을 추출할 수 있음. (ex.RNNLM에서 input과 hidden을 연결하는 weight matrix 그 자체를 continuous word representation으로 사용)
