@@ -9,10 +9,13 @@
 
 # Paper
 
-_Deep Learning Model_
-* [Visualizing and Understanding Recurrent Networks](https://github.com/gritmind/review-paper/blob/master/paper/visualizing-and-understanding-recurrent-networks.md) (2015.11)
-* [Sequence to Sequence Learning with Neural Networks](https://github.com/gritmind/review-paper/blob/master/paper/seq2seq_with_nn.md) (2014)
+_Deep Learning Models_
+* [Sequence to Sequence Learning with Neural Networks](https://github.com/gritmind/review-paper/blob/master/paper/seq2seq_with_nn.md) (I.Sutskever, 2014)
+* Convolutional neural networks for sentence classification (Y.Kim, 2014)
+* Playing Atari with Deep Reinforcement Learning (V.Mnih, 2013)
 
+_Understanding Recurrent Neural Networks_
+* [Visualizing and Understanding Recurrent Networks](https://github.com/gritmind/review-paper/blob/master/paper/visualizing-and-understanding-recurrent-networks.md) (A.Karpathy, 2015.11)
 
 _Distributed Representations for Language_
 * Distributed Representations of Sentences and Documents (QV.Le, 2014.05)
@@ -21,9 +24,6 @@ _Distributed Representations for Language_
 * [Linguistic Regularities in Continuous Space Word Representations](https://github.com/gritmind/review-paper/blob/master/paper/linguistic-regularities-in-continuous-space-word-representations.md) (T.Mikolov, 2013.06)
 * [Recurrent neural network based language model](https://github.com/gritmind/review-paper/blob/master/paper/recurrent-neural-network-based%20language-model.md) (T.Mikolov, 2010)
 * A Neural Probabilistic Language Model (Y.Bengio, 2003)
-
-
-
 
 
 
