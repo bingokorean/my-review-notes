@@ -1,6 +1,6 @@
 # Efficient Estimation of Word Representations in Vector Space
 
-My note for this paper (written korean) is in [**HERE (.ppt)**]()
+My note for this paper (written korean) is in [**HERE (.ppt)**](https://1drv.ms/p/s!AllPqyV9kKUrhB3mMhq_mxhcVi6m)
 
 ## Summary
 * continuous vector representation of words (줄여서 word vector)를 좀 더 빠르고 정확하게 만들 수 있는 모델을 제시
