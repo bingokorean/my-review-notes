@@ -38,7 +38,7 @@ _etc_
 
 
 # Article
-
+* Jumping NLP Curves (E.Cambria, 2014.04)
 
 # Blog
 
