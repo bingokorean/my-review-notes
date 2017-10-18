@@ -9,13 +9,11 @@
 
 # Paper
 
-_Deep Learning Models_
-* [Sequence to Sequence Learning with Neural Networks](https://github.com/gritmind/review-paper/blob/master/paper/seq2seq_with_nn.md) (I.Sutskever, 2014)
-* Convolutional neural networks for sentence classification (Y.Kim, 2014)
-* Playing Atari with Deep Reinforcement Learning (V.Mnih, 2013)
-
-_Understanding Recurrent Neural Networks_
+_Deep Learning_
 * [Visualizing and Understanding Recurrent Networks](https://github.com/gritmind/review-paper/blob/master/paper/visualizing-and-understanding-recurrent-networks.md) (A.Karpathy, 2015.11)
+* [Sequence to Sequence Learning with Neural Networks](https://github.com/gritmind/review-paper/blob/master/paper/seq2seq_with_nn.md) (I.Sutskever, 2014)
+* Convolutional Neural Networks for Sentence Classification (Y.Kim, 2014)
+* Playing Atari with Deep Reinforcement Learning (V.Mnih, 2013)
 
 _Distributed Representations for Language_
 * Distributed Representations of Sentences and Documents (QV.Le, 2014.05)
@@ -33,8 +31,8 @@ _Named Entity Recognition_
 * [Named Entity Recognition with bidirectional LSTM-CNNs](https://github.com/gritmind/review-paper/blob/master/paper/named-entity-recognition-with-bidirectional-lstm-cnns.md) (2015.11)
 * [A survey of named entity recognition and classification](https://github.com/gritmind/review-paper/blob/master/paper/a-survey-of-named-entity-recognition-and-classification.md) (2007.01)
 
-_etc_
-* [An empirical study of semantic similarity in WordNet and Word2Vec](https://github.com/gritmind/review-paper/blob/master/paper/an-empirical-study-of-semantic-similarity-in-WordNet-and-Word2Vec.md) (2014) 
+_ETC._
+* [An Empirical Study of Semantic Similarity in WordNet and Word2Vec](https://github.com/gritmind/review-paper/blob/master/paper/an-empirical-study-of-semantic-similarity-in-WordNet-and-Word2Vec.md) (2014) 
 
 
 # Article
