@@ -27,7 +27,7 @@ _Distributed Representations for Language_
 * Distributed Representations of Words and Phrases and their Compositionality (T.Mikolov, 2013.10)
 * [Efficient Estimation of Word Representations in Vector Space](https://github.com/gritmind/review-paper/blob/master/paper/efficient-estimation-of-word-representations-in-vector-space.md) (T.Mikolov, 2013.09)
 * [Linguistic Regularities in Continuous Space Word Representations](https://github.com/gritmind/review-paper/blob/master/paper/linguistic-regularities-in-continuous-space-word-representations.md) (T.Mikolov, 2013.06)
-* [Recurrent neural network based language model](https://github.com/gritmind/review-paper/blob/master/paper/recurrent-neural-network-based%20language-model.md) (T.Mikolov, 2010)
+* [Recurrent Neural Network based Language Model](https://github.com/gritmind/review-paper/blob/master/paper/recurrent-neural-network-based%20language-model.md) (T.Mikolov, 2010)
 * A Neural Probabilistic Language Model (Y.Bengio, 2003)
 
 
