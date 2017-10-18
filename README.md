@@ -36,7 +36,7 @@ _Named Entity Recognition_
 * [End-to-end Sequence Labeling vis Bi-directional LSTM-CNNs-CRF](https://github.com/gritmind/review-paper/blob/master/paper/end-to-end-sequence-labeling-via-bi-directional-lstm-cnns-crf.md) (2016.06)
 * [Neural Architectures for Named Entity Recognition](https://github.com/gritmind/review-paper/blob/master/paper/neural-architectures-for-named-entity-recognition.md) (2016.04)
 * [Named Entity Recognition with bidirectional LSTM-CNNs](https://github.com/gritmind/review-paper/blob/master/paper/named-entity-recognition-with-bidirectional-lstm-cnns.md) (2015.11)
-* [A survey of named entity recognition and classification](https://github.com/gritmind/review-paper/blob/master/paper/a-survey-of-named-entity-recognition-and-classification.md) (2007.01)
+* [A Survey of Named Entity Recognition and Classification](https://github.com/gritmind/review-paper/blob/master/paper/a-survey-of-named-entity-recognition-and-classification.md) (2007.01)
 
 _ETC._
 * [An Empirical Study of Semantic Similarity in WordNet and Word2Vec](https://github.com/gritmind/review-paper/blob/master/paper/an-empirical-study-of-semantic-similarity-in-WordNet-and-Word2Vec.md) (2014) 
