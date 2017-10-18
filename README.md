@@ -9,11 +9,18 @@
 
 # Paper
 
-_Deep Learning_
+_Deep Learning Models_
 * [Visualizing and Understanding Recurrent Networks](https://github.com/gritmind/review-paper/blob/master/paper/visualizing-and-understanding-recurrent-networks.md) (A.Karpathy, 2015.11)
+* Visualizing and Understanding Convolutional Networks (MD.Jeiler, 2014)
 * [Sequence to Sequence Learning with Neural Networks](https://github.com/gritmind/review-paper/blob/master/paper/seq2seq_with_nn.md) (I.Sutskever, 2014)
 * Convolutional Neural Networks for Sentence Classification (Y.Kim, 2014)
 * Playing Atari with Deep Reinforcement Learning (V.Mnih, 2013)
+
+
+_Probabilistic Graphical Models_
+* Application of Deep Belief Networks for Natural Language Understanding (R.Sarikaya, 2014)
+* Latent Dirichlet Allocation (MD.Blei, 2003)
+* Probabilistic Latent Semantic Analysis (T.Hofmann, 1999)
 
 _Distributed Representations for Language_
 * Distributed Representations of Sentences and Documents (QV.Le, 2014.05)
