@@ -33,10 +33,12 @@ _Distributed Representations for Language_
 
 
 _Named Entity Recognition_
-* Named Entity Recognition with stack residual LSTM and trainable bias decoding (Q.Tran, 2017.07)
-* [End-to-end Sequence Labeling via Bi-directional LSTM-CNNs-CRF](https://github.com/gritmind/review-paper/blob/master/paper/end-to-end-sequence-labeling-via-bi-directional-lstm-cnns-crf.md) (X.Ma and E.Hovy, 2016.06)
-* [Neural Architectures for Named Entity Recognition](https://github.com/gritmind/review-paper/blob/master/paper/neural-architectures-for-named-entity-recognition.md) (G.Lample, 2016.04)
-* [Named Entity Recognition with bidirectional LSTM-CNNs](https://github.com/gritmind/review-paper/blob/master/paper/named-entity-recognition-with-bidirectional-lstm-cnns.md) (2015.11)
+* Named Entity Recognition with stack residual LSTM and trainable bias decoding (Q.Tran, 2017.07) (91.69)
+* Semi-supervised Sequence Tagging with Bidirectional Language Models (ME.Peters, 2017.04) (91.93)
+* Transfer Learning for Sequence Tagging with Hierarchical Recurrent Networks (Z.Yang, 2017.03) (91.26)
+* [End-to-end Sequence Labeling via Bi-directional LSTM-CNNs-CRF](https://github.com/gritmind/review-paper/blob/master/paper/end-to-end-sequence-labeling-via-bi-directional-lstm-cnns-crf.md) (X.Ma and E.Hovy, 2016.06) (91.21)
+* [Neural Architectures for Named Entity Recognition](https://github.com/gritmind/review-paper/blob/master/paper/neural-architectures-for-named-entity-recognition.md) (G.Lample, 2016.04) (90.94)
+* [Named Entity Recognition with bidirectional LSTM-CNNs](https://github.com/gritmind/review-paper/blob/master/paper/named-entity-recognition-with-bidirectional-lstm-cnns.md) (JPC.Chiu, 2015.11) (91.62)
 * [A Survey of Named Entity Recognition and Classification](https://github.com/gritmind/review-paper/blob/master/paper/a-survey-of-named-entity-recognition-and-classification.md) (2007.01)
 
 _ETC._
