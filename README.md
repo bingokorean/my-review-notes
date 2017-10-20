@@ -9,6 +9,11 @@
 
 # Paper
 
+_Review Papers_
+* A Primer on Neural Network Models for Natural Language Processing (Y.Goldberg, 2015.10)
+* A Critical Review of Recurrent Neural Networks for Sequence Learning (ZC.Lipton, 2015.05)
+
+
 _Deep Learning Models_
 * [Visualizing and Understanding Recurrent Networks](https://github.com/gritmind/review-paper/blob/master/paper/visualizing-and-understanding-recurrent-networks.md) (A.Karpathy, 2015.11)
 * Visualizing and Understanding Convolutional Networks (MD.Jeiler, 2014)
@@ -39,6 +44,7 @@ _Named Entity Recognition_
 * [End-to-end Sequence Labeling via Bi-directional LSTM-CNNs-CRF](https://github.com/gritmind/review-paper/blob/master/paper/end-to-end-sequence-labeling-via-bi-directional-lstm-cnns-crf.md) (X.Ma and E.Hovy, 2016.06) (91.21)
 * [Neural Architectures for Named Entity Recognition](https://github.com/gritmind/review-paper/blob/master/paper/neural-architectures-for-named-entity-recognition.md) (G.Lample, 2016.04) (90.94)
 * [Named Entity Recognition with bidirectional LSTM-CNNs](https://github.com/gritmind/review-paper/blob/master/paper/named-entity-recognition-with-bidirectional-lstm-cnns.md) (JPC.Chiu, 2015.11) (91.62)
+* Natural Language Processing (almost) from Scratch (R.Collobert, 2011)
 * [A Survey of Named Entity Recognition and Classification](https://github.com/gritmind/review-paper/blob/master/paper/a-survey-of-named-entity-recognition-and-classification.md) (2007.01)
 
 _ETC._
