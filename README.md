@@ -4,9 +4,6 @@
 * [Machine Learning In Action](https://github.com/gritmind/review-paper/tree/master/book/machine-learning-in-action) (2012)
 
 
-# Thesis 
-
-
 # Paper
 
 _Review Papers_
