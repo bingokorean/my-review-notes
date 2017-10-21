@@ -1,7 +1,8 @@
 # [A survey of named entity recognition and classification](http://nlp.cs.nyu.edu/sekine/papers/li07.pdf) (2007.01)
 
 
-## [[Review-note]](https://1drv.ms/w/s!AllPqyV9kKUrghOCc3_ZxbGjx1Ao)
+## Note
+[[Review-note (.doc)]](https://1drv.ms/w/s!AllPqyV9kKUrghOCc3_ZxbGjx1Ao)
 
 ## Summary
 (survey논문 특징이지만) NER연구들이 시간순으로 어떻게 발전해왔는지 알 수 있었고 (2007년까지), 구체적으로 예시를 들어주면서 설명해주고 있어서 쉽게 이해할 수 있었다. 더불어 NER관점에서 기계학습의 기초(e.g., SL, SSL, USL)도 배울 수 있었다. 특히 NER with SSL의 연구역사 부분이 흥미로웠다.
