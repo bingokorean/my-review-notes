@@ -22,7 +22,6 @@ _Deep Learning Models_
 _Probabilistic Graphical Models_
 * Application of Deep Belief Networks for Natural Language Understanding (R.Sarikaya, 2014)
 * Latent Dirichlet Allocation (MD.Blei, 2003)
-* Probabilistic Latent Semantic Analysis (T.Hofmann, 1999)
 
 _Distributed Representations for Language_
 * Distributed Representations of Sentences and Documents (QV.Le, 2014.05)
