@@ -14,7 +14,7 @@ _Review Papers_
 _Deep Learning Models_
 * [Visualizing and Understanding Recurrent Networks](https://github.com/gritmind/review-paper/blob/master/paper/visualizing-and-understanding-recurrent-networks.md) (A.Karpathy, 2015.11)
 * Visualizing and Understanding Convolutional Networks (MD.Jeiler, 2014)
-* [Sequence to Sequence Learning with Neural Networks](https://github.com/gritmind/review-paper/blob/master/paper/seq2seq_with_nn.md) (I.Sutskever, NIPS, 2014)
+* [Sequence to Sequence Learning with Neural Networks](https://github.com/gritmind/review-paper/blob/master/paper/seq2seq_with_nn.md) (I.Sutskever, *NIPS*, 2014)
 * Convolutional Neural Networks for Sentence Classification (Y.Kim, 2014)
 * [Playing Atari with Deep Reinforcement Learning](https://github.com/gritmind/review-paper/blob/master/paper/playing-atari-with-deep-reinforcement-learning.md) (V.Mnih, 2013)
 
