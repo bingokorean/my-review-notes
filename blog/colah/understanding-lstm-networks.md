@@ -1,7 +1,8 @@
 # Understanding LSTM Networks
 Colah Blog (Aug 27, 2015)
 
-## [Review-note](https://onedrive.live.com/view.aspx?resid=2BA5907D25AB4F59!282&ithint=file%2cdocx&app=Word&authkey=!ACX3_SzAnuGJmjI)
+* The review note for this blog is in [**here**](https://onedrive.live.com/view.aspx?resid=2BA5907D25AB4F59!282&ithint=file%2cdocx&app=Word&authkey=!ACX3_SzAnuGJmjI)
+* Also, the presentation is in [**here**](https://1drv.ms/p/s!AllPqyV9kKUrhFeUY9qtEqflUyP1)
 
 ## Summary
 LSTM 구조를 자세하게 step-by-step으로 설명하고 있다. LSTM 구조를 이해하는데 읽어야될 필수적인 문서가 아닐까 생각해본다.
