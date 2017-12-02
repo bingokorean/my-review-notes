@@ -8,7 +8,7 @@ Jan 3, 2016
 The review note for this post is [**here**](https://onedrive.live.com/view.aspx?resid=2BA5907D25AB4F59!261&ithint=file%2cdocx&app=Word&authkey=!AGWbqV-wgtjk4gs)
 
 ## Summary
-NMT에서의 attention 메카니즘을 설명하고 있다. attention이 memory 메카니즘과 다름없다고 설명하였고 나도 동의한다. RNN에서LSTM진화과정, seq2seq에서attention seq2seq진화과정과 같이 학습할 가중치 개수를 내부 구조적으로 늘려 모델학습이 조금 더 상세히/구체적으로 될 수 있는 '여지'를 만들어주는게 attention이나 memory 메카니즘의 핵심이 아닐까 생각해본다.
+NMT에서의 attention 메카니즘을 설명하고 있다. attention이 memory 메카니즘과 다름없다고 설명한다. RNN에서LSTM진화과정, seq2seq에서attention seq2seq진화과정과 같이 학습할 가중치 개수를 내부 구조적으로 늘려 모델학습이 조금 더 상세히/구체적으로 될 수 있는 '여지'를 만들어주는게 attention이나 memory 메카니즘의 핵심이 아닐까 생각해본다.
 * MT에서 정교한 feature engineering을 하는 고전 모델과 다르게 NMT는 하지 않는다. (end-to-end 방법으로 전형적인 딥러닝 철학을 가진다.)
 * Seq2seq의 encoder의 last hidden state(=node)로부터 sentence embedding 추출가능
 * 긴 한 문장을 하나의 vector로 압축하기엔 Long-dependency 문제: LSTM사용(기본), Reversing input sentence -> 일본-영어 같은 경우 reversing하면 오히려 독 -> attention 메커니즘 등장 
