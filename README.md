@@ -6,7 +6,7 @@
 
 # Paper
 
-_Review Papers_
+___Review Papers___
 * A Primer on Neural Network Models for Natural Language Processing (Y.Goldberg, 2015.10)
 * A Critical Review of Recurrent Neural Networks for Sequence Learning (ZC.Lipton, 2015.05)
 
@@ -17,17 +17,17 @@ _Deep Learning Models_
 * [Sequence to Sequence Learning with Neural Networks](https://github.com/gritmind/review-paper/blob/master/paper/seq2seq_with_nn.md) (I.Sutskever, *NIPS*, 2014)
 * Convolutional Neural Networks for Sentence Classification (Y.Kim, 2014)
 * [Playing Atari with Deep Reinforcement Learning](https://github.com/gritmind/review-paper/blob/master/paper/playing-atari-with-deep-reinforcement-learning.md) (V.Mnih, 2013)
+* Generating Text with Recurrent Neural Networks (I.Sutskever, 2011)
 
 
 _Probabilistic Graphical Models_
 * Application of Deep Belief Networks for Natural Language Understanding (R.Sarikaya, 2014)
 * Latent Dirichlet Allocation (MD.Blei, 2003)
 
-_Text Generation with Deep Learning Models_
-* Generating Text with Recurrent Neural Networks (I.Sutskever, 2011)
 
 
 _Distributed Representations for Language_
+* Enriching Word Vectors with Subword Information (P.Bojanowski, 2016)
 * Glove: Global vectors for word representation (J.Pennington, 2014.10)
 * Distributed Representations of Sentences and Documents (QV.Le, 2014.05)
 * Distributed Representations of Words and Phrases and their Compositionality (T.Mikolov, 2013.10)
