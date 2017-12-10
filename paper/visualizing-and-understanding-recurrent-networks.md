@@ -2,7 +2,7 @@
 
 The review note for this paper is [**HERE(.ppt)**]()
 
-# Summary note
+## Summary note
 * Character-level language model를 interpretable testbed로 하고, long-range dependencies (ex. line lengths, quotes, brackets)를 keep track하는 LSTM의 interpretable cells의 값을 직접적으로 보여주면서 분석한다.
 * RNN -> LSTM, GRU로 진화되는 과정을 보면, 모델의 일반성을 높여주는 작업이라고 생각할 수 있다. RNN은 단순히 과거 신호를 받을 수만 있다고 하면, LSTM은 과거 신호를 받고, 수정할 수 있도록 모델이 설계되었다. 즉, 일반성을 더 높여주었다. 물론, 여기에 따른 파라미터 개수를 늘려야되는 단점이 있다. (-> 데이터량 증가 필요)
 * RNN, LSTM, GRU를 구분하는 잣대는 coupling form에 있다. 어떻게 coupling form을 수식으로 설계하느냐에 따라 모델이 달라진다. 즉, 한 단계 아래의 input과 이전 시간의 input을 어떻게 결합시키느냐에 따라 모델이 달라진다. RNN은 가장 간단하게 결합하고, LSTM은 gating mechanism을 통해 결합하고, GRU는 functional form으로 결함한다.
