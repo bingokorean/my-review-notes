@@ -1,6 +1,6 @@
-# [Visualizing and Understanding Recurrent Networks](https://arxiv.org/pdf/1506.02078.pdf) (2015.11)
+# Visualizing and Understanding Recurrent Networks (2015.11)
 
-The review note for this paper is [**HERE(.ppt)**]()
+The review note for this paper is [**HERE(.ppt)**](https://1drv.ms/p/s!AllPqyV9kKUrhFw0znTNxbabCT_v)
 
 ## Summary
 * Character-level language model를 interpretable testbed로 하고, long-range dependencies (ex. line lengths, quotes, brackets)를 keep track하는 LSTM의 interpretable cells의 값을 직접적으로 보여주면서 분석한다.
