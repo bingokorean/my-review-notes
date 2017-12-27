@@ -14,7 +14,7 @@ ___Review Papers___
 _Various kinds of Deep Learning Models_
 * Neural machine translation by jointly learning to align and translate (D.Bahdanau, *ICLR*, 2014)
 * [Sequence to Sequence Learning with Neural Networks](https://github.com/gritmind/review-paper/blob/master/paper/seq2seq_with_nn.md) (I.Sutskever, *NIPS*, 2014)
-* Convolutional Neural Networks for Sentence Classification (Y.Kim, 2014)
+* [Going Deeper with Convolutions](https://github.com/gritmind/review-paper/blob/master/paper/going-deeper-with-convolutions.md) (C.Szegedy, 2014)
 * [Playing Atari with Deep Reinforcement Learning](https://github.com/gritmind/review-paper/blob/master/paper/playing-atari-with-deep-reinforcement-learning.md) (V.Mnih, 2013)
 * Generating Text with Recurrent Neural Networks (I.Sutskever, 2011)
 
@@ -25,6 +25,14 @@ _Understanding Deep Learning Models_
 _Probabilistic Graphical Models_
 * Application of Deep Belief Networks for Natural Language Understanding (R.Sarikaya, 2014)
 * Latent Dirichlet Allocation (MD.Blei, 2003)
+
+
+
+
+_Text Classification with Dearning Models_
+* Convolutional Neural Networks for Sentence Classification (Y.Kim, 2014)
+
+
 
 
 
