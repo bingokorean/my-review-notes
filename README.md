@@ -29,7 +29,7 @@ _Probabilistic Graphical Models_
 
 
 
-_Text Classification with Dearning Models_
+_Text Classification with Deep Learning Models_
 * Convolutional Neural Networks for Sentence Classification (Y.Kim, 2014)
 
 
