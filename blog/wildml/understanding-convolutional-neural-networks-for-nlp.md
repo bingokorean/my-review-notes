@@ -4,8 +4,8 @@ WILDML <br>
 Denny Britz <br>
 Nov 7, 2015
 
-## Review
-The review note for this post is [**here**](https://onedrive.live.com/view.aspx?resid=2BA5907D25AB4F59!262&ithint=file%2cdocx&app=Word&authkey=!AMiCI19UuQcRrVM)
+## myNote
+The note for this post is [**here**](https://onedrive.live.com/view.aspx?resid=2BA5907D25AB4F59!262&ithint=file%2cdocx&app=Word&authkey=!AMiCI19UuQcRrVM)
 
 ## Summary
 * 왜 Convolution? Location Invariance, Local Compositionality, Sparsitiy Modeling
