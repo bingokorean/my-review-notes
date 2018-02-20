@@ -1,8 +1,5 @@
 # Book
 * [**Deep Learning**](https://github.com/gritmind/review-paper/tree/master/book/deep-learning-book) (I.Goodfellow, 2016)
-* [Exploring Robotic Minds](https://github.com/gritmind/review-paper/tree/master/book/exploring-robotic-minds) (2016)
-* [Machine Learning In Action](https://github.com/gritmind/review-paper/tree/master/book/machine-learning-in-action) (2012)
-
 
 # Paper
 
