@@ -22,13 +22,13 @@ _Understanding Deep Learning Models_
 
 _Probabilistic Graphical Models_
 * Application of Deep Belief Networks for Natural Language Understanding (R.Sarikaya, 2014)
-* Latent Dirichlet Allocation (MD.Blei, 2003)
+* Latent Dirichlet Allocation (MD.Blei, *JMLR*, 2003)
 
 
 _Text Classification with Deep Learning Models_
-* Hierarchical Attention Networks for Document Classification (Z.Yang, 2016)
-* Recurrent Convolutional Neural Networks for Text Classification (L.Siwei, 2015)
-* Convolutional Neural Networks for Sentence Classification (Y.Kim, 2014)
+* Hierarchical Attention Networks for Document Classification (Z.Yang, *NAACL*, 2016)
+* Recurrent Convolutional Neural Networks for Text Classification (L.Siwei, *AAAI* 2015)
+* Convolutional Neural Networks for Sentence Classification (Y.Kim, *EMNLP*, 2014)
 
 
 _Distributed Representations for Language_
