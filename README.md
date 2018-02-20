@@ -18,6 +18,7 @@ _Various kinds of Deep Learning Models_
 * [Playing Atari with Deep Reinforcement Learning](https://github.com/gritmind/review-paper/blob/master/paper/playing-atari-with-deep-reinforcement-learning.md) (V.Mnih, 2013)
 * Generating Text with Recurrent Neural Networks (I.Sutskever, 2011)
 
+
 _Understanding Deep Learning Models_
 * [Visualizing and Understanding Recurrent Networks](https://github.com/gritmind/review-paper/blob/master/paper/visualizing-and-understanding-recurrent-networks.md) (A.Karpathy, 2015.11)
 * Visualizing and Understanding Convolutional Networks (MD.Jeiler, 2014)
@@ -27,13 +28,10 @@ _Probabilistic Graphical Models_
 * Latent Dirichlet Allocation (MD.Blei, 2003)
 
 
-
-
 _Text Classification with Deep Learning Models_
+* Hierarchical Attention Networks for Document Classification (Z.Yang, 2016)
+* Recurrent Convolutional Neural Networks for Text Classification (L.Siwei, 2015)
 * Convolutional Neural Networks for Sentence Classification (Y.Kim, 2014)
-
-
-
 
 
 _Distributed Representations for Language_
@@ -52,7 +50,7 @@ _Named Entity Recognition (CoNLL2003)_
 * Named Entity Recognition with stack residual LSTM and trainable bias decoding (Q.Tran, 2017.07) (91.69)
 * Semi-supervised Sequence Tagging with Bidirectional Language Models (ME.Peters, 2017.04) (91.93)
 * Transfer Learning for Sequence Tagging with Hierarchical Recurrent Networks (Z.Yang, 2017.03) (91.26)
-* [End-to-end Sequence Labeling via Bi-directional LSTM-CNNs-CRF](https://github.com/gritmind/review-paper/blob/master/paper/end-to-end-sequence-labeling-via-bi-directional-lstm-cnns-crf.md) (X.Ma and E.Hovy, 2016.06) (91.21)
+* End-to-end Sequence Labeling via Bi-directional LSTM-CNNs-CRF (X.Ma and E.Hovy, 2016.06) (91.21)
 * [Neural Architectures for Named Entity Recognition](https://github.com/gritmind/review-paper/blob/master/paper/neural-architectures-for-named-entity-recognition.md) (G.Lample, 2016.04) (90.94)
 * [Named Entity Recognition with bidirectional LSTM-CNNs](https://github.com/gritmind/review-paper/blob/master/paper/named-entity-recognition-with-bidirectional-lstm-cnns.md) (JPC.Chiu, 2015.11) (91.62)
 * Natural Language Processing (almost) from Scratch (R.Collobert, 2011)
@@ -81,8 +79,5 @@ _WILDML_
 
 _Slideshare_
 * [프로그래머를 위한 알파고](https://github.com/gritmind/review-paper/blob/master/blog/slideshare/alphago-for-programmer.md) (Mar 13, 2016)
-
-_KAKAO AI REPORT_
-* [KAKAO AI REPORT vol.01](https://github.com/gritmind/review-paper/blob/master/blog/kakao_ai_report/kakao_ai_report_v1.md)
 
 
