@@ -26,7 +26,7 @@ _Probabilistic Graphical Models_
 
 
 _Text Classification with Deep Learning Models_
-* Hierarchical Attention Networks for Document Classification (Z.Yang, *NAACL* 2016)
+* [Hierarchical Attention Networks for Document Classification](https://github.com/gritmind/review-paper/blob/master/paper/hierarchical-attention-networks.md) (Z.Yang, *NAACL* 2016)
 * [Recurrent Convolutional Neural Networks for Text Classification](https://github.com/gritmind/review-paper/blob/master/paper/recurrent-convolutional-neuralnet.md) (L.Siwei, *AAAI* 2015)
 * Convolutional Neural Networks for Sentence Classification (Y.Kim, *EMNLP* 2014)
 
