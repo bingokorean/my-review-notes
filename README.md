@@ -64,15 +64,13 @@ _ETC._
 * Jumping NLP Curves (E.Cambria, 2014.04)
 
 # Blog
-
 * [Calculus on Computational Graphs: Backpropagation](https://github.com/gritmind/review-paper/blob/master/blog/colah/calculus-on-computational-graphs.md) (Aug 31, 2015, Colah)
 * [Understanding LSTM Networks](https://github.com/gritmind/review-paper/blob/master/blog/colah/understanding-lstm-networks.md) (Aug 27, 2015, Colah)
 * [Deep Learning and NLP and Representations](https://github.com/gritmind/review-paper/blob/master/blog/colah/dl-and-nlp-and-representations.md) (July 7, 2014, Colah)
-
 * [Attention and Memory in Deep Learning and NLP](https://github.com/gritmind/review-paper/blob/master/blog/wildml/attention-and-memory-in-deep-learning-and-nlp.md) (Jan 3, 2016, WILDML)
 * [Understanding Convolutional Neural Networks for NLP](https://github.com/gritmind/review-paper/blob/master/blog/wildml/understanding-convolutional-neural-networks-for-nlp.md) (Nov 7, 2015, WILDML)
-
 * [프로그래머를 위한 알파고](https://github.com/gritmind/review-paper/blob/master/blog/slideshare/alphago-for-programmer.md) (Mar 13, 2016, Slideshare)
+
 
 ## References
 * Arxiv Sanity Preserver [[url](http://www.arxiv-sanity.com/)]
