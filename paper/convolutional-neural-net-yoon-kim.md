@@ -1,6 +1,6 @@
 # Convolutional Neural Networks for Sentence Classification
 
-[Here (presentation file)](https://1drv.ms/p/s!AllPqyV9kKUrj2BQLRfIToSKPFHB) is my review note for this papaer.
+[Here (presentation file)](https://1drv.ms/p/s!AllPqyV9kKUrj2BQLRfIToSKPFHB) is my review note for this paper.
 
 ## Summary
 * CNN trained on top of pre-trained word vectors
@@ -11,7 +11,7 @@
 * non-static과 static vector를 가지는 multichannel architecture를 제안   
    * multichannel input은 computer vision에서 RGB input과 비슷한 메커니즘   
    * multichannel이 overfitting을 완화해주리라 가정했지만, 결과는 데이터에 따라 좋을 때도 있고 나쁠 때도 있었음
-   * Multichannel보다 더 regualrize할 수 있는 방법을 향후 연구로 해보자: Non-static vector 전체를 fine-tuning하지 말고 extra dimension을 만들고 여기에만 해보자
+   * multichannel보다 더 regualrize할 수 있는 방법을 향후 연구로 해보자: non-static vector 전체를 fine-tuning하지 말고 extra dimension을 만들고 여기에만 해보자
 * Regularization 테크닉으로 dropout과 L2-norm을 같이 사용
 
 ### Reference
