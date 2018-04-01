@@ -25,6 +25,15 @@ _Probabilistic Graphical Models_
 * Latent Dirichlet Allocation (MD.Blei, *JMLR*, 2003)
 
 
+_Deep Learning with Memory(Attention)_
+* Attention Is All You Need (A.Vaswani, *NIPS* 2017)
+* Ask Me Anything: Dynamic Memory Networks for Natural Language Processing (A.Kumar, *ICML* 2016)
+* [Feed-Forward Networks with Attention Can Solve Some Long-Term Memory Problems](https://github.com/gritmind/review-paper/blob/master/paper/feed-forward-with-attention.md) (C.Raffel, *ICLR* 2016 Workshop track)
+* Neural Machine Translation by Jointly Learning to Align and Translate (D.Bahdanau, *ICLR* 2015)
+* End-To-End Memory Networks (S.Sukhbaatar, *NIPS* 2015)
+
+
+
 _Text Classification with Deep Learning Models_
 * [Hierarchical Attention Networks for Document Classification](https://github.com/gritmind/review-paper/blob/master/paper/hierarchical-attention-networks.md) (Z.Yang, *NAACL* 2016)
 * [Recurrent Convolutional Neural Networks for Text Classification](https://github.com/gritmind/review-paper/blob/master/paper/recurrent-convolutional-neuralnet.md) (L.Siwei, *AAAI* 2015)
