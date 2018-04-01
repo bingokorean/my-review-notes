@@ -28,7 +28,7 @@ _Probabilistic Graphical Models_
 _Deep Learning with Memory(Attention)_
 * Attention Is All You Need (A.Vaswani, *NIPS* 2017)
 * Ask Me Anything: Dynamic Memory Networks for Natural Language Processing (A.Kumar, *ICML* 2016)
-* [Feed-Forward Networks with Attention Can Solve Some Long-Term Memory Problems](https://github.com/gritmind/review-paper/blob/master/paper/feed-forward-with-attention.md) (C.Raffel, *ICLR* 2016 Workshop track)
+* [Feed-Forward Networks with Attention Can Solve Some Long-Term Memory Problems](https://github.com/gritmind/review-paper/blob/master/paper/feed-forward-with-attention.md) (C.Raffel, *ICLR(workshop)* 2016)
 * Neural Machine Translation by Jointly Learning to Align and Translate (D.Bahdanau, *ICLR* 2015)
 * End-To-End Memory Networks (S.Sukhbaatar, *NIPS* 2015)
 
