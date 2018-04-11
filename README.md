@@ -1,5 +1,5 @@
 # Book
-* [**Deep Learning**](https://github.com/gritmind/review-paper/tree/master/book/deep-learning-book) (I.Goodfellow, 2016)
+* [Deep Learning](https://github.com/gritmind/review-paper/tree/master/book/deep-learning-book) (I.Goodfellow, 2016)
 
 # Paper
 
