@@ -1,5 +1,6 @@
 # Book
 * [Deep Learning](https://github.com/gritmind/review-paper/tree/master/book/deep-learning-book) (I.Goodfellow, 2016)
+* [기계 학습](https://github.com/gritmind/review-paper/tree/master/book/machine-learning-oh) (오일석, 2017.12) 
 
 # Paper
 
