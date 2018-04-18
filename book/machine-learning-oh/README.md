@@ -1,10 +1,11 @@
 # 기계 학습
 
-오일석
+오일석 <br>
+한빛아카데미
 
 ## 목차
 
-1. 소개 [[노트](https://1drv.ms/p/s!AllPqyV9kKUrj3OUglopZnllyudy)]
+1. 소개 [[note](https://1drv.ms/p/s!AllPqyV9kKUrj3OUglopZnllyudy)]
 2. 기계 학습과 수학
 3. 다층 퍼셉트론
 4. 딥러닝 기초
