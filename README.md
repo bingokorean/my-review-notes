@@ -82,7 +82,8 @@ _ETC._
 * [프로그래머를 위한 알파고](https://github.com/gritmind/review-paper/blob/master/blog/slideshare/alphago-for-programmer.md) (Mar 13, 2016, Slideshare)
 
 
-## References
+# References :mag_right:
 * Arxiv Sanity Preserver [[url](http://www.arxiv-sanity.com/)]
+* Open-Review [[url](https://openreview.net/)]
 * ACL Anthology [[url](https://aclanthology.coli.uni-saarland.de/)]
 * Distill (articles about machine learning) [[url](https://distill.pub/)]
