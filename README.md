@@ -80,7 +80,7 @@ _ETC._
 * [Attention and Memory in Deep Learning and NLP](https://github.com/gritmind/review-paper/blob/master/blog/wildml/attention-and-memory-in-deep-learning-and-nlp.md) (Jan 3, 2016, WILDML)
 * [Understanding Convolutional Neural Networks for NLP](https://github.com/gritmind/review-paper/blob/master/blog/wildml/understanding-convolutional-neural-networks-for-nlp.md) (Nov 7, 2015, WILDML)
 * [프로그래머를 위한 알파고](https://github.com/gritmind/review-paper/blob/master/blog/slideshare/alphago-for-programmer.md) (Mar 13, 2016, Slideshare)
-* Probabilistic Topic Models by David M. Blei [[note](https://1drv.ms/w/s!AllPqyV9kKUrpULE09mCeSPspRRy)]
+* Probabilistic Topic Models by David M. Blei (2018.07.17, Slides) [[note](https://1drv.ms/w/s!AllPqyV9kKUrpULE09mCeSPspRRy)]
 
 # References :mag_right:
 * Arxiv Sanity Preserver [[url](http://www.arxiv-sanity.com/)]
