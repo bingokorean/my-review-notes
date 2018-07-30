@@ -71,7 +71,8 @@ _ETC._
 * [The Probable Error of a Mean](https://github.com/gritmind/review-paper/blob/master/paper/the-probable-error-of-a-mean.md) (Student, 1908)
 
 # Article
-* Jumping NLP Curves (E.Cambria, 2014.04)
+* Jumping NLP Curves (E.Cambria, MAY 2014, IEEE COMPUTATIONAL INTELLIGENCE MAGAZINE)
+* Probabilistic Topic Models (M.Blei, APRIL 2012, Communications of the ACM)
 
 # Blog
 * [Calculus on Computational Graphs: Backpropagation](https://github.com/gritmind/review-paper/blob/master/blog/colah/calculus-on-computational-graphs.md) (Aug 31, 2015, Colah)
