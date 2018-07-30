@@ -83,7 +83,4 @@ _ETC._
 * [Probabilistic Topic Models](https://github.com/gritmind/review-paper/blob/master/blog/slideshare/topicmodels.md) by David M. Blei (2018.07.17, Slides)
 
 # References :mag_right:
-* Arxiv Sanity Preserver [[url](http://www.arxiv-sanity.com/)]
-* Open-Review [[url](https://openreview.net/)]
-* ACL Anthology [[url](https://aclanthology.coli.uni-saarland.de/)]
-* Distill (articles about machine learning) [[url](https://distill.pub/)]
+Arxiv Sanity Preserver [[url](http://www.arxiv-sanity.com/)], Open-Review [[url](https://openreview.net/)], ACL Anthology [[url](https://aclanthology.coli.uni-saarland.de/)], Distill (articles about machine learning) [[url](https://distill.pub/)]
