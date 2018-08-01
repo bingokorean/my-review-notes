@@ -72,7 +72,7 @@ _ETC._
 
 # Article
 * Jumping NLP Curves (E.Cambria, MAY 2014, IEEE COMPUTATIONAL INTELLIGENCE MAGAZINE)
-* Probabilistic Topic Models (M.Blei, APRIL 2012, Communications of the ACM)
+* [Probabilistic Topic Models](https://github.com/gritmind/review-paper/blob/master/paper/topic-model-review.md) (M.Blei, APRIL 2012, Communications of the ACM)
 
 # Blog
 * [Calculus on Computational Graphs: Backpropagation](https://github.com/gritmind/review-paper/blob/master/blog/colah/calculus-on-computational-graphs.md) (Aug 31, 2015, Colah)
