@@ -65,9 +65,9 @@ _Named Entity Recognition (CoNLL2003)_
 
 
 _ETC._
-* [Tweet Segmentation and Its Application to Named Entity Recognition](https://github.com/gritmind/review-paper/blob/master/paper/tweet-segmentation-and-its-application-to-ner.md) (C Li, *TKDE* 2015)
+* [Tweet Segmentation and Its Application to Named Entity Recognition](https://github.com/gritmind/review-paper/blob/master/paper/tweet-segmentation-and-its-application-to-ner.md) (C.Li, *TKDE* 2015)
 * [An Empirical Study of Semantic Similarity in WordNet and Word2Vec](https://github.com/gritmind/review-paper/blob/master/paper/an-empirical-study-of-semantic-similarity-in-WordNet-and-Word2Vec.md) (2014) 
-* [Building Bridges for Web Query Classification](https://github.com/gritmind/review-paper/blob/master/paper/building-bridges-for-web-query-classification.md) (D Shen, *SIGIR* 2006)
+* [Building Bridges for Web Query Classification](https://github.com/gritmind/review-paper/blob/master/paper/building-bridges-for-web-query-classification.md) (D.Shen, *SIGIR* 2006)
 * [The Probable Error of a Mean](https://github.com/gritmind/review-paper/blob/master/paper/the-probable-error-of-a-mean.md) (Student, 1908)
 
 # Article
