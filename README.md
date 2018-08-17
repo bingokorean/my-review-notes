@@ -1,5 +1,5 @@
 # Book
-* [Deep Learning](https://github.com/gritmind/review-paper/tree/master/book/deep-learning-book) (I.Goodfellow, 2016)
+* Deep Learning (I.Goodfellow, 2016)
 * [기계 학습](https://github.com/gritmind/review-paper/tree/master/book/machine-learning-oh) (오일석, 2017.12) 
 
 # Paper
@@ -70,9 +70,11 @@ _ETC._
 * [Building Bridges for Web Query Classification](https://github.com/gritmind/review-paper/blob/master/paper/building-bridges-for-web-query-classification.md) (D.Shen, *SIGIR* 2006)
 * [The Probable Error of a Mean](https://github.com/gritmind/review-paper/blob/master/paper/the-probable-error-of-a-mean.md) (Student, 1908)
 
+
 # Article
 * Jumping NLP Curves (E.Cambria, MAY 2014, IEEE COMPUTATIONAL INTELLIGENCE MAGAZINE)
 * [Probabilistic Topic Models](https://github.com/gritmind/review-paper/blob/master/paper/topic-model-review.md) (M.Blei, APRIL 2012, Communications of the ACM)
+
 
 # Blog
 * [Calculus on Computational Graphs: Backpropagation](https://github.com/gritmind/review-paper/blob/master/blog/colah/calculus-on-computational-graphs.md) (Aug 31, 2015, Colah)
@@ -83,5 +85,6 @@ _ETC._
 * [프로그래머를 위한 알파고](https://github.com/gritmind/review-paper/blob/master/blog/slideshare/alphago-for-programmer.md) (Mar 13, 2016, Slideshare)
 * [Probabilistic Topic Models](https://github.com/gritmind/review-paper/blob/master/blog/slideshare/topicmodels.md) by David M. Blei (2018.07.17, Slides)
 
-# References :mag_right:
-Arxiv Sanity Preserver [[url](http://www.arxiv-sanity.com/)], Open-Review [[url](https://openreview.net/)], ACL Anthology [[url](https://aclanthology.coli.uni-saarland.de/)], Distill (articles about machine learning) [[url](https://distill.pub/)]
+
+# References
+[Arxiv Sanity Preserver](http://www.arxiv-sanity.com/) / [Open-Review](https://openreview.net/) / [ACL Anthology](https://aclanthology.coli.uni-saarland.de/) / [Distill](https://distill.pub/)
