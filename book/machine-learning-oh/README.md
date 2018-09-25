@@ -10,7 +10,7 @@ http://cv.jbnu.ac.kr/index.php?mid=ml
 * Chapter2. 기계 학습과 수학 [[note](https://1drv.ms/p/s!AllPqyV9kKUrkks1fLYGvzA0brYa)]
 * Chapter3. 다층 퍼셉트론 [[note](https://1drv.ms/p/s!AllPqyV9kKUrwVslH5Kl1AfVPpzU)]
 * Chapter4. 딥러닝 기초 [[note](https://1drv.ms/p/s!AllPqyV9kKUrwWSlNXWHef2S2KME)]
-* Chapter5. 딥러닝 최적화
+* Chapter5. 딥러닝 최적화 [[note](https://1drv.ms/p/s!AllPqyV9kKUrwj04okkOY-SIDMhZ)]
 * Chapter6. 비지도 학습
 * Chapter7. 준지도 학습과 전이 학습
 * Chapter8. 순환 신경망
