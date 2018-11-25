@@ -2,7 +2,7 @@
 
 출처: http://www.korean.go.kr/nkview/nklife/2017_4.html
 
-1. 인공 지능 기반 언어 처리 기술 - 자연어 대화 인터페이스를 중심으로 (김경선) [[review]]
+1. 인공 지능 기반 언어 처리 기술 - 자연어 대화 인터페이스를 중심으로 (김경선) [[review](https://1drv.ms/w/s!AllPqyV9kKUrwyoEmezCi4rMPruW)]
 2. 말뭉치와 언어학 (최재웅)
 3. 일상생활 속으로 들어온 기계 번역 (김준석)
 4. 우리말 자연어 처리 기술: 과거와 현재 (김학수)
