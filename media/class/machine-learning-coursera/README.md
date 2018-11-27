@@ -3,7 +3,7 @@
 2015.08 ~ 10, 60시간 <br>
 
 Coursera / Stanford / Andrew Ng <br>
-I has successfully completed this course at 11/17/2015 [[certificate]](https://github.com/gritmind/review-media/blob/master/class/machine-learning-coursera/certificate.pdf) <br>
+I has successfully completed this course at 11/17/2015 [[certificate]](https://github.com/gritmind/review/blob/master/media/class/machine-learning-coursera/certificate.pdf) <br>
 
 기초적인 기계학습 모델 이론 및 MATLAB 실습
 
@@ -22,12 +22,12 @@ I has successfully completed this course at 11/17/2015 [[certificate]](https://g
 
 
 ## Programming Assignments
-* [PA1](https://github.com/gritmind/review-media/tree/master/class/machine-learning-coursera/assignments/1-linear-regression). Linear Regression [[*matlab-notebook*](https://1drv.ms/w/s!AllPqyV9kKUrhDsHH0NRJdbzudzc)]
-* [PA2](https://github.com/gritmind/review-media/tree/master/class/machine-learning-coursera/assignments/2-logistic-regression). Logistic Regression [[*matlab-notebook*](https://1drv.ms/w/s!AllPqyV9kKUrhDyzsn-a_tK_rJvd)]
-* [PA3](https://github.com/gritmind/review-media/tree/master/class/machine-learning-coursera/assignments/3-multi-class-classification-and-neural-networks). Multi-class Classification and Neural Networks [[*matlab-notebook*]](https://1drv.ms/w/s!AllPqyV9kKUrhFFmDyBqz8kDBPic)
-* [PA4](https://github.com/gritmind/review-media/tree/master/class/machine-learning-coursera/assignments/4-neural-networks-learning). Neural Networks Learning [[*matlab-notebook*]](https://onedrive.live.com/view.aspx?resid=2BA5907D25AB4F59!600&ithint=file%2cdocx&app=Word&authkey=!ANzlLu3om1tLAgE)
-* [PA5](https://github.com/gritmind/review-media/tree/master/class/machine-learning-coursera/assignments/5-Regularized-Linear-Regression-and-Bias-vs-Variance). Regularized Linear Regression and Bias vs. Variance [[*matlab-notebook*]](https://1drv.ms/w/s!AllPqyV9kKUrhGDkzE1z7koyqZii)
-* [PA6](https://github.com/gritmind/review-media/tree/master/class/machine-learning-coursera/assignments/6-support-vector-machines). Support Vector Machines [[*matlab-notebook*](https://1drv.ms/w/s!AllPqyV9kKUrj2U13U88HZpbbBDv)]
-* [PA7](https://github.com/gritmind/review-media/tree/master/class/machine-learning-coursera/assignments/7-PCA-and-K-means). Principle Component Analysis and K-Means Clustering [[*matlab-notebook*](https://1drv.ms/w/s!AllPqyV9kKUrj2hWHCEfERwBVfP7)]
-* [PA8](https://github.com/gritmind/review-media/tree/master/class/machine-learning-coursera/assignments/8-anomaly-and-recommender). Anomaly Detection and Recommender Systems [[*matlab-notebook*](https://1drv.ms/w/s!AllPqyV9kKUrkFFhy_tUeYt9ZiqK)]
+* [PA1](https://github.com/gritmind/review/tree/master/media/class/machine-learning-coursera/assignments/1-linear-regression). Linear Regression [[*matlab-notebook*](https://1drv.ms/w/s!AllPqyV9kKUrhDsHH0NRJdbzudzc)]
+* [PA2](https://github.com/gritmind/review/tree/master/media/class/machine-learning-coursera/assignments/2-logistic-regression). Logistic Regression [[*matlab-notebook*](https://1drv.ms/w/s!AllPqyV9kKUrhDyzsn-a_tK_rJvd)]
+* [PA3](https://github.com/gritmind/review/tree/master/media/class/machine-learning-coursera/assignments/3-multi-class-classification-and-neural-networks). Multi-class Classification and Neural Networks [[*matlab-notebook*]](https://1drv.ms/w/s!AllPqyV9kKUrhFFmDyBqz8kDBPic)
+* [PA4](https://github.com/gritmind/review/tree/master/media/class/machine-learning-coursera/assignments/4-neural-networks-learning). Neural Networks Learning [[*matlab-notebook*]](https://onedrive.live.com/view.aspx?resid=2BA5907D25AB4F59!600&ithint=file%2cdocx&app=Word&authkey=!ANzlLu3om1tLAgE)
+* [PA5](https://github.com/gritmind/review/tree/master/media/class/machine-learning-coursera/assignments/5-Regularized-Linear-Regression-and-Bias-vs-Variance). Regularized Linear Regression and Bias vs. Variance [[*matlab-notebook*]](https://1drv.ms/w/s!AllPqyV9kKUrhGDkzE1z7koyqZii)
+* [PA6](https://github.com/gritmind/review/tree/master/media/class/machine-learning-coursera/assignments/6-support-vector-machines). Support Vector Machines [[*matlab-notebook*](https://1drv.ms/w/s!AllPqyV9kKUrj2U13U88HZpbbBDv)]
+* [PA7](https://github.com/gritmind/review/tree/master/media/class/machine-learning-coursera/assignments/7-PCA-and-K-means). Principle Component Analysis and K-Means Clustering [[*matlab-notebook*](https://1drv.ms/w/s!AllPqyV9kKUrj2hWHCEfERwBVfP7)]
+* [PA8](https://github.com/gritmind/review/tree/master/media/class/machine-learning-coursera/assignments/8-anomaly-and-recommender). Anomaly Detection and Recommender Systems [[*matlab-notebook*](https://1drv.ms/w/s!AllPqyV9kKUrkFFhy_tUeYt9ZiqK)]
 
