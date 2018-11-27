@@ -87,57 +87,56 @@ _ETC._
 * [프로그래머를 위한 알파고](https://github.com/gritmind/review/blob/master/paper/blog/slideshare/alphago-for-programmer.md) (Mar 13, 2016, Slideshare)
 * [Probabilistic Topic Models](https://github.com/gritmind/review/blob/master/paper/blog/slideshare/topicmodels.md) by David M. Blei (2018.07.17, Slides)
 
+---
 
 # MEDIA
 
 ## Course
-* [Introductory Statistics for Science and Engineering](https://github.com/gritmind/review-media/tree/master/class/intro-statistics-for-science-and-engineering) (2017 Fall, UST)
-* [Deep Learning and Dynamic Neural Network Models](https://github.com/gritmind/review-media/tree/master/class/deep-learning-and-dynamic-neural-network-models) (2017 Spring, KAIST)
-* [Natural Language Processing](https://github.com/gritmind/review-media/blob/master/class/natural-language-processing-chungnam/README.md) (2017 Spring, Chungnam Univ.)
-* [Deep Learning and AlphaGo](https://github.com/gritmind/review-media/tree/master/class/deeplearning_and_alphago) (2016 Fall, KAIST)
-* [Mathematical Tools for Computer Vision](https://github.com/gritmind/review-media/tree/master/class/mathematical-tools-for-computer-vision) (2016 Spring, ETRI)
-* [Neural Network and Deep Learning](https://github.com/gritmind/review-media/tree/master/class/neural-network-and-deep-learning) (2016 Spring, ETRI)
+* [Introductory Statistics for Science and Engineering](https://github.com/gritmind/review/tree/master/media/class/intro-statistics-for-science-and-engineering) (2017 Fall, UST)
+* [Deep Learning and Dynamic Neural Network Models](https://github.com/gritmind/review/tree/master/media/class/deep-learning-and-dynamic-neural-network-models) (2017 Spring, KAIST)
+* [Natural Language Processing](https://github.com/gritmind/review/blob/master/media/class/natural-language-processing-chungnam/README.md) (2017 Spring, Chungnam Univ.)
+* [Deep Learning and AlphaGo](https://github.com/gritmind/review/tree/master/media/class/deeplearning_and_alphago) (2016 Fall, KAIST)
+* [Mathematical Tools for Computer Vision](https://github.com/gritmind/review/tree/master/media/class/mathematical-tools-for-computer-vision) (2016 Spring, ETRI)
+* [Neural Network and Deep Learning](https://github.com/gritmind/review/tree/master/media/class/neural-network-and-deep-learning) (2016 Spring, ETRI)
 
 _On-line_
 * [**Deep Learning Nanodegree Foundation**](https://github.com/gritmind/deep_learning_nanodegree_foundation) (2016, Udacity)
-* [**Data Mining Specialization**](https://github.com/gritmind/review-media/tree/master/class/data-mining-specialization) (2015, Coursera/UIUC)
-* [Machine Learning](https://github.com/gritmind/review-media/tree/master/class/machine-learning-coursera) (Andrew Y. Ng, 2015, Coursera/Stanford)
-* [The Analytics Edge](https://github.com/gritmind/review-media/tree/master/class/analytics-edge) (2015, edX/MIT)
+* [**Data Mining Specialization**](https://github.com/gritmind/review/tree/master/media/class/data-mining-specialization) (2015, Coursera/UIUC)
+* [Machine Learning](https://github.com/gritmind/review/tree/master/media/class/machine-learning-coursera) (Andrew Y. Ng, 2015, Coursera/Stanford)
+* [The Analytics Edge](https://github.com/gritmind/review/tree/master/media/class/analytics-edge) (2015, edX/MIT)
 
----
 
 ## Seminar / Tutorial
-* [AI KOREA 2018](https://github.com/gritmind/review-media/blob/master/seminar/ai_korea_2018.md) (2018.07.26~27, KIISE AI Society)
-* [2018 패턴인식 및 기계학습 겨울학교 (Insightful Machine Learning)](https://github.com/gritmind/review-media/tree/master/seminar/2018PRMLWS) (2018.01.24~25, KIISE AI Society)
-* [2017 information Technology and Industry Prospects](https://github.com/gritmind/review-media/blob/master/seminar/itip2017.md) (2017.10.27~28)
-* [2017 패턴인식 및 기계학습 여름학교 (Returning to Basic Principles)](https://github.com/gritmind/review-media/blob/master/seminar/prmlss_2017.md) (2017.07.11~12, KIISE AI Society)
-* [기계번역 및 챗봇 기술](https://github.com/gritmind/review-media/blob/master/seminar/ml-and-chatbot.md) (2017.06.26~27, KIISE AI Society )
-* [KCC2017 Tutorial](https://github.com/gritmind/review-media/tree/master/seminar/kcc2017) (2017.06.18~20, KCC2017)
-* [Reinforcement Learning](https://github.com/gritmind/review-offline/tree/master/seminar/nacsi-rl) (2017.05.19, NACSI)
-* [Generative Adverserial Network](https://github.com/gritmind/review-offline/tree/master/seminar/nacsi-gan) (2017.04.29, NACSI)
-* [2016 패턴인식 및 기계학습 여름학교 (Bayesian Deep Learning)](https://github.com/gritmind/review-offline/blob/master/seminar/prml-bayesian-deep-learning.md) (2016.8.17~19, KIISE AI Society)
-* [딥러닝 및 추천기술](https://github.com/gritmind/review-media/blob/master/seminar/kiise-dl-recommender.md) (2016.12.02~03, KIISE AI Society )
-* [파이썬과 오픈소스를 활용한 딥러닝](https://github.com/gritmind/review-media/tree/master/seminar/multicampus-dl) (2016.09.05~09, MULTICAMPUS)
-* [Deep Learning](https://github.com/gritmind/review-media/tree/master/seminar/nacsi-dl) (2016.04.15~16, NACSI)
-
+* [AI KOREA 2018](https://github.com/gritmind/review/blob/master/media/seminar/ai_korea_2018.md) (2018.07.26~27, KIISE AI Society)
+* [2018 패턴인식 및 기계학습 겨울학교 (Insightful Machine Learning)](https://github.com/gritmind/review/tree/master/media/seminar/2018PRMLWS) (2018.01.24~25, KIISE AI Society)
+* [2017 information Technology and Industry Prospects](https://github.com/gritmind/review/blob/master/media/seminar/itip2017.md) (2017.10.27~28)
+* [2017 패턴인식 및 기계학습 여름학교 (Returning to Basic Principles)](https://github.com/gritmind/review/blob/master/media/seminar/prmlss_2017.md) (2017.07.11~12, KIISE AI Society)
+* [기계번역 및 챗봇 기술](https://github.com/gritmind/review/blob/master/media/seminar/ml-and-chatbot.md) (2017.06.26~27, KIISE AI Society )
+* [KCC2017 Tutorial](https://github.com/gritmind/review/tree/master/media/seminar/kcc2017) (2017.06.18~20, KCC2017)
+* [Reinforcement Learning](https://github.com/gritmind/review/tree/master/media/seminar/nacsi-rl) (2017.05.19, NACSI)
+* [Generative Adverserial Network](https://github.com/gritmind/review/tree/master/media/seminar/nacsi-gan) (2017.04.29, NACSI)
+* [2016 패턴인식 및 기계학습 여름학교 (Bayesian Deep Learning)](https://github.com/gritmind/review/blob/master/media/seminar/prml-bayesian-deep-learning.md) (2016.8.17~19, KIISE AI Society)
+* [딥러닝 및 추천기술](https://github.com/gritmind/review/blob/master/media/seminar/kiise-dl-recommender.md) (2016.12.02~03, KIISE AI Society )
+* [파이썬과 오픈소스를 활용한 딥러닝](https://github.com/gritmind/review/tree/master/media/seminar/multicampus-dl) (2016.09.05~09, MULTICAMPUS)
+* [Deep Learning](https://github.com/gritmind/review/tree/master/media/seminar/nacsi-dl) (2016.04.15~16, NACSI)
 
 _On-line_
-* [시즌 Reinforcement Learning](https://github.com/gritmind/review-media/tree/master/seminar/all-mldl-rl) (2017.06.01, 모두를 위한 머신러닝/딥러닝 강의)
+* [시즌 Reinforcement Learning](https://github.com/gritmind/review/tree/master/media/seminar/all-mldl-rl) (2017.06.01, 모두를 위한 머신러닝/딥러닝 강의)
 
----
 
 ## Talk
-* [Text Mining with Machine Learning](https://github.com/gritmind/review-media/blob/master/talk/text_mining_with_machine_learning.md) (2017.08.25, KISTI)
-* [Deep learning for entity detection and linking](https://github.com/gritmind/review-offline/blob/master/talk/deep-learning-for-entity-detection-and-linking.md) (2017.05.26, KISTI)
-* [온톨로지와 링크드데이터](https://github.com/gritmind/review-media/blob/master/talk/ontology_and_linkeddata.md) (2016.07.11, KISTI)
+* [Text Mining with Machine Learning](https://github.com/gritmind/review/blob/master/media/talk/text_mining_with_machine_learning.md) (2017.08.25, KISTI)
+* [Deep learning for entity detection and linking](https://github.com/gritmind/review/blob/master/media/talk/deep-learning-for-entity-detection-and-linking.md) (2017.05.26, KISTI)
+* [온톨로지와 링크드데이터](https://github.com/gritmind/review/blob/master/media/talk/ontology_and_linkeddata.md) (2016.07.11, KISTI)
 
 _On-line_
-* [Developing Korean chatbot 101](https://github.com/gritmind/review-media/blob/master/seminar/developing-kor-chatbot.md) (2017.01.14, Tensorflow Korea Conf 2)
-* [Nuts and Bolts of Applying Deep Learning](https://github.com/gritmind/review-media/blob/master/talk/nutsandbolts-of-applying-dl.md) (2016.10.24, DLSS)
-* [Sequence to Sequence Deep Learning](https://github.com/gritmind/review-media/blob/master/talk/seq2seq_dl.md) (2016.10.24, DLSS)
-* [Deep Belief Network](https://github.com/gritmind/review-media/blob/master/talk/deep-belief-network.md) (2016, DBguide)
-* [자연어처리특집](https://github.com/gritmind/review-media/blob/master/talk/iam-programmer-nlp.md) (2016, 나는프로그래머다)
+* [Developing Korean chatbot 101](https://github.com/gritmind/review/blob/master/media/seminar/developing-kor-chatbot.md) (2017.01.14, Tensorflow Korea Conf 2)
+* [Nuts and Bolts of Applying Deep Learning](https://github.com/gritmind/review/blob/master/media/talk/nutsandbolts-of-applying-dl.md) (2016.10.24, DLSS)
+* [Sequence to Sequence Deep Learning](https://github.com/gritmind/review/blob/master/media/talk/seq2seq_dl.md) (2016.10.24, DLSS)
+* [Deep Belief Network](https://github.com/gritmind/review/blob/master/media/talk/deep-belief-network.md) (2016, DBguide)
+* [자연어처리특집](https://github.com/gritmind/review/blob/master/media/talk/iam-programmer-nlp.md) (2016, 나는프로그래머다)
 
+---
 
 # CODE
 
@@ -190,7 +189,7 @@ _MACHINE LEARNING MASTERY_
 * POS tagger with Viterbi algorithm [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review-code/blob/master/etc/codes/pos_viterbi.ipynb)]
 
 
-
+---
 
 # References
 [PyTorch Tutorials](https://github.com/gritmind/review-code/tree/master/class/pytorch) / [Keras Examples](https://github.com/gritmind/review-code/tree/master/class/keras) / [nbviewer](https://nbviewer.jupyter.org/) / [Awesome Korean NLP](https://github.com/datanada/Awesome-Korean-NLP) / [Online-Debugger](https://www.onlinegdb.com/)
