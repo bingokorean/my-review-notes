@@ -1,0 +1,31 @@
+# The Analytics Edge
+
+2015.06~08, (about 10 weeks) <br>
+dX & MIT <br>
+[certificate](https://verify.edx.org/cert/09ffe13ef22f4893b4440cae52290bd6)
+
+예제 기반 데이터 분석 방법 및 R 실습
+
+## Contents
+
+* [Unit1](https://github.com/gritmind/review-media/tree/master/class/analytics-edge/contents/unit1). Introduction to Analytics, Introduction to R (Basic Data Analysis) [[**note**](https://1drv.ms/w/s!AllPqyV9kKUruQ-jKFW-WCGhyIfc)]
+   * unit: [Intro.R](http://htmlpreview.github.io/?https://raw.githubusercontent.com/gritmind/review-media/master/class/analytics-edge/contents/unit1/introduction.html) / [Food Nutrition](http://htmlpreview.github.io/?https://raw.githubusercontent.com/gritmind/review-media/master/class/analytics-edge/contents/unit1/Unit1_Recitation.html)
+   * hw: [Analytics Detective](http://htmlpreview.github.io/?https://raw.githubusercontent.com/gritmind/review-media/master/class/analytics-edge/contents/unit1/A1-1_AN_ANALYTICAL_DETECTIVE.html) / [Stock Dynamtics](http://htmlpreview.github.io/?https://raw.githubusercontent.com/gritmind/review-media/master/class/analytics-edge/contents/unit1/A1-2_STOCK_DYNAMICS.html) / [Demographics & Employment](http://htmlpreview.github.io/?https://raw.githubusercontent.com/gritmind/review-media/master/class/analytics-edge/contents/unit1/A1-3_DEMOGRAPHICS_AND_EMPLOYMENT_IN_THE_UNITED_STATES.html) / [Internet Privacy Poll](http://htmlpreview.github.io/?https://raw.githubusercontent.com/gritmind/review-media/master/class/analytics-edge/contents/unit1/A1-4_INTERNET_PRIVACY_POLL.html)
+* [Unit2](https://github.com/gritmind/review-media/tree/master/class/analytics-edge/contents/unit2). Quality of Wine, Moneyball (**Linear Regression**) [[**note**](https://1drv.ms/w/s!AllPqyV9kKUrunVLv5zmfiAgy0S6)]
+   * unit: [Wine](http://htmlpreview.github.io/?https://raw.githubusercontent.com/gritmind/review-media/master/class/analytics-edge/contents/unit2/Unit2_WineRegression.html) / [MoneyBall](http://htmlpreview.github.io/?https://raw.githubusercontent.com/gritmind/review-media/master/class/analytics-edge/contents/unit2/Unit2_Moneyball.html) / [NBA](http://htmlpreview.github.io/?https://raw.githubusercontent.com/gritmind/review-media/master/class/analytics-edge/contents/unit2/Unit2_Recitation.html)
+   * hw: [Climate Change](http://htmlpreview.github.io/?https://raw.githubusercontent.com/gritmind/review-media/master/class/analytics-edge/contents/unit2/A2-1_CLIMATE_CHANGE.html) / [Test Score](http://htmlpreview.github.io/?https://raw.githubusercontent.com/gritmind/review-media/master/class/analytics-edge/contents/unit2/A2-2_READING_TEST_SCORES.html) / [Flu Epidemics](http://htmlpreview.github.io/?https://raw.githubusercontent.com/gritmind/review-media/master/class/analytics-edge/contents/unit2/A2-3_DETECTING_FLU_EPIDEMICS_VIA_SEARCH_ENGINE_QUERY_DATA.html) / [State](http://htmlpreview.github.io/?https://raw.githubusercontent.com/gritmind/review-media/master/class/analytics-edge/contents/unit2/A2-4_STATE_DATA.html) / [Elantra Sale](http://htmlpreview.github.io/?https://raw.githubusercontent.com/gritmind/review-media/master/class/analytics-edge/contents/unit2/A2-5_FORECASTING_ELANTRA_SALES.html)
+* [Unit3](https://github.com/gritmind/review-media/tree/master/class/analytics-edge/contents/unit3). Modeling an Expert, The Framingham Heart Study (**Logistic Regression**) [[**note**](https://1drv.ms/w/s!AllPqyV9kKUruxBBp3gLG4uz7tqb)]
+   * hw: 
+* Unit4. Predicting Supreme Court Decisions, The D2Hawkeye Story (Trees) [[**note**](https://1drv.ms/w/s!AllPqyV9kKUrwWAj0J7Pym-1bVlg)]
+* Unit5. Turning Tweets into Knowledge, IBM Watson (Text Analytics) [[**note**](https://1drv.ms/w/s!AllPqyV9kKUrwV6wx2xXfCA8V8nw)]
+* Unit6. Recommendation Systems, Predictive Diagnosis (Clustering) [[**note**](https://1drv.ms/w/s!AllPqyV9kKUrwV_QjWVnoJ-RvGuR)]
+* Unit7. Visualizing the World, The Analytical Policeman (Visualization)
+* Unit8. Airline Revenue Management, Radiation Therapy (Linear Optimization)
+* Unit9. Sports Scheduling, eHarmony (Integer Optimization)
+
+## Competition	
+Test your analytics skills by predicting which iPads listed on eBay will be sold [[code](https://github.com/gritmind/review-media/tree/master/class/analytics-edge/competition)]
+
+## Final Exam
+
+
