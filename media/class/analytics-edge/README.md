@@ -18,7 +18,8 @@ dX & MIT <br>
 * Unit4. Predicting Supreme Court Decisions, The D2Hawkeye Story (Trees) [[**note**](https://1drv.ms/w/s!AllPqyV9kKUrwWAj0J7Pym-1bVlg)]
 * Unit5. Turning Tweets into Knowledge, IBM Watson (Text Analytics) [[**note**](https://1drv.ms/w/s!AllPqyV9kKUrwV6wx2xXfCA8V8nw)]
 * Unit6. Recommendation Systems, Predictive Diagnosis (Clustering) [[**note**](https://1drv.ms/w/s!AllPqyV9kKUrwV_QjWVnoJ-RvGuR)]
-* Unit7. Visualizing the World, The Analytical Policeman (Visualization)
+* [Unit7](https://github.com/gritmind/review/tree/master/media/class/analytics-edge/contents/unit7). Visualizing the World, The Analytical Policeman (Visualization) [[**note**](https://1drv.ms/w/s!AllPqyV9kKUrwyuiM_1AFEZMg5CM)]
+   * unit: [WHO](http://htmlpreview.github.io/?https://raw.githubusercontent.com/gritmind/review/master/media/class/analytics-edge/contents/unit7/Unit7_WHO.html) / [Crime](http://htmlpreview.github.io/?https://raw.githubusercontent.com/gritmind/review/master/media/class/analytics-edge/contents/unit7/Unit7_Crime.html) / [Recitation](http://htmlpreview.github.io/?https://raw.githubusercontent.com/gritmind/review/master/media/class/analytics-edge/contents/unit7/Unit7_Recitation.html)
 * Unit8. Airline Revenue Management, Radiation Therapy (Linear Optimization)
 * Unit9. Sports Scheduling, eHarmony (Integer Optimization)
 
