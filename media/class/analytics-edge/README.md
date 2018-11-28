@@ -4,7 +4,6 @@
 dX & MIT <br>
 [certificate](https://verify.edx.org/cert/09ffe13ef22f4893b4440cae52290bd6)
 
-예제 기반 데이터 분석 방법 및 R 실습
 
 ## Contents
 
