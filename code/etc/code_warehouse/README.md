@@ -1,7 +1,7 @@
 # Code Warehouse
 
-* Attack Ship Game [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review-code/blob/master/etc/code_warehouse/codes/attack_ship_game.ipynb)]
-* 효율적인 소수 찾기 [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review-code/blob/master/etc/code_warehouse/codes/prime_calc.ipynb)]
+* Attack Ship Game [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/etc/code_warehouse/codes/attack_ship_game.ipynb)]
+* 효율적인 소수 찾기 [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/etc/code_warehouse/codes/prime_calc.ipynb)]
 * 숫자-한글 변환 [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review-code/blob/master/etc/code_warehouse/codes/transf_num_korean.ipynb)]
 * Team Allocation [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review-code/blob/master/etc/code_warehouse/codes/team_allocation.ipynb)]
 * Text-shift Billboard [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review-code/blob/master/etc/code_warehouse/codes/text_shift_billboard.ipynb)]
