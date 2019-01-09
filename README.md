@@ -184,7 +184,7 @@ _MACHINE LEARNING MASTERY_
 
 ## etc. :runner:
 * [Python Data Handler](https://github.com/gritmind/python_data_handler)
-* [Code Warehouse](https://github.com/gritmind/review/tree/master/code/etc/code_warehouse)
+* [**Code Warehouse**](https://github.com/gritmind/review/tree/master/code/etc/code_warehouse)
 * Syntax Comparison between Python and Java [[note](https://1drv.ms/w/s!AllPqyV9kKUrwxOo9L1syWAnlRoh)]
 * Korean Lexical analyzer with Recursion [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/etc/codes/lexical_recursion.ipynb)]
 * POS tagger with Viterbi algorithm [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/etc/codes/pos_viterbi.ipynb)]
