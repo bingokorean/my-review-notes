@@ -77,6 +77,7 @@ _ETC._
 * Jumping NLP Curves (E.Cambria, MAY 2014, IEEE COMPUTATIONAL INTELLIGENCE MAGAZINE)
 * [Probabilistic Topic Models](https://github.com/gritmind/review/blob/master/paper/paper/topic-model-review.md) (M.Blei, APRIL 2012, Communications of the ACM)
 * [[특집] 4차 산업 혁명 시대의 국어 생활](https://github.com/gritmind/review/blob/master/paper/paper/korean_special_edition.md)
+* 한국어 자연어처리 관련 기사 모음 [[note](https://1drv.ms/w/s!AllPqyV9kKUrw2VMV94cTkm9-uS2)]
 
 ## Blog
 * [Calculus on Computational Graphs: Backpropagation](https://github.com/gritmind/review/blob/master/paper/blog/colah/calculus-on-computational-graphs.md) (Aug 31, 2015, Colah)
