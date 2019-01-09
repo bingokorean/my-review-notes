@@ -144,8 +144,22 @@ _On-line_
 :runner: Review of my codes <br>
 :family: Review of others' codes <br>
 
-## Research & Project :runner:
+## Research :runner:
 The list of codes from Research and Project are specified in [my blog intro](https://gritmind.github.io/about/).
+
+
+## Project :runner:
+
+_Mini-Project_
+* Yelp 리뷰 데이터를 활용한 데이터 마이닝 프로젝트 (2018.06~07) [[code](https://github.com/gritmind/data_mining_project)]
+* 개체명 인식을 위한 학습 데이터 자동 확장 연구 (2017.07~10) [[code](https://github.com/gritmind/text_augmentation)]
+* 한국어 형태소 분석기와 품사 태거 구현 (2017.03~06) [[code](https://github.com/gritmind/morph_and_pos_analyzer_korean)]
+
+_Old-Project_
+* Image Processing for Fire Detection with Raspberry Pi (2014.03~06) [[code](https://github.com/gritmind/image_processing_for_fire_detection)]
+* Intelligent Humanoid Robot for Relay and Separate Object (2013.07~11) [[code](https://github.com/gritmind/intelligent_humanoid_robot_competition)]
+* Web and Mobile Application for Social Network (2013.05~10) [[code](https://github.com/gritmind/dormitory_social_network)]
+
 
 ## Class :family:
 The list of codes from online courses are specified in `MEDIA`. :runner:
