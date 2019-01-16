@@ -27,8 +27,6 @@ Kaggle ID: [@gritmind](https://www.kaggle.com/gritmind)
 
 * [Movie Review Sentiment Analysis](https://github.com/gritmind/review/tree/master/code/kaggle/movie_review_sentiment_analysis) 
 
-[__Other's Code__](https://github.com/gritmind/review/tree/master/code/kaggle) :family:
-
 ## HackerRank :runner:
 HackerRank ID: [@gritmind](https://www.hackerrank.com/gritmind)
 
