@@ -7,8 +7,8 @@
 2.	[자바의 환경](#자바의-환경)
 3.	[자바의 기본 구조1: 변수, 자료형, 연산자](#자바의-기본-구조1-변수-자료형-연산자)
 4.	[자바의 기본 구조2: 선택, 반복, 배열](#자바의-기본-구조2-선택-반복-배열)
-5.	객체지향 개념
-6.	클래스: 속성
+5.	[객체지향 개념](#객체지향-개념)
+6.	[클래스: 속성](#클래스-속성)
 7.	클래스: 기능
 8.	상속
 9.	인터페이스와 예외처리
@@ -126,6 +126,193 @@ public class StringTest {
 여기서 str1과 str2는 참조 자료형으로 주소가 들어간다 (C 언어와 비교하면 *이 있는 것과 같다)
 
 ## 자바의 기본 구조2: 선택, 반복, 배열
+
+자바에서의 배열을 사용하기 위해서는 배열을 선언하고, 생성해주어야 한다.
+```
+type name[ ] = new type[size]
+type name[ ][ ] = new type[size][size];
+type name[ ][ ][ ] = new type[size][size][size];
+
+```
+배열의 첫 번째 axis는 필수적으로 size를 정해줘야 한다. 나머지 axis들은 size를 정해줘도 되고 안정해줘도 된다.
+```
+int[ ][ ] score = new int[2][ ];
+score[0] = new int[2];
+score[1] = new int[3];
+score[2] = new int[4];
+
+```
+위와 같이 2차원 배열이지만 각 행의 요소의 개수가 다르게 생성할 수 있다. (C 언어에서는 2차원 배열의 열의 개수가 일정하게 생성해야 하지만, Java에서는 유동적으로 원하는 개수만큼 생성할 수 있다)
+
+배열의 선언과 생성과정을 거치면 배열을 사용하기 위해 초기화를 해야한다.
+```
+int id[ ] = new int[3];
+int[0] = 20119501;
+int[1] = 20119502;
+int[2] = 20119503;
+
+int id[ ] = { 20119501, 20119502, 20119503 };	// 이렇게 한 문장으로 하는 게 좋다
+
+```
+위와 같이 한 문장으로 생성과 초기화 과정을 다 거치는 형태가 C언어랑 동일하다.
+
+그런데… C언어는 int id[3]; 이 되는데, 자바는 int id[3]; 은 에러가 뜬다 (int id[ ]; 는 또 괜찮다). 왜 그럴까? C언어는 변수를 선언하기만 해도 메모리에 할당이 되지만, 자바는 객체지향 언어로서 (기본 자료형은 제외하고) new로 생성해야 메모리에 할당이 된다. (자바에서 배열을 사용하기 위해서 반드시 선언과정과 생성과정이 필요하다)
+
+## 객체지향 
+
+자바는 객체지향(Object-Oriented) 언어이다. 객체지향 이론은 컴퓨터를 통하여 실세계와 같은 환경을 흉내(simulation)내기 위해 발전한 이론이다. 실세계는 사물(객체)로 구성되어 있으며, 이러한 사물들이 상호작용에 의해 실세계는 작동한다. 
+
+실세계의 사물을 분석해보면 사물은 “속성+기능”으로 구성되어 있음을 알 수 있다. 객체지향 이론은 실세계의 모든 사물들을 속성과 기능으로 정의하고, 사물들 간의 상호작용을 정의하여 실제 세계를 흉내내는 이론이다.
+
+객체지향 이론은 1960년대 클래스(class), 상속(inheritance), 상속화(encapsulation), 다형성(polymorphism) 등의 개념을 중심으로 발전하였다.
+
+객체지향 언어의 개념과 대비되는 언어로서 절차지향(procedural-oriented) 언어가 있다.
+
+절차지향 언어로 작성된 프로그램에서 프로그램의 기본 단위는 절차(procedure) 또는 함수(function)로 정의된다. 이러한 절차나 함수는 기능을 정의하는데 사용되며, 공통으로 사용되는 속성(데이터)들은 절차나 함수에 의해 공유되는 형태이다. 이러한 형태에서는 공유되는 속성(데이터)의 형태가 바뀌면 모든 함수의 내용이 변경되어야 하는 결정적 단점을 가지고 있다.
+
+반면, 객체지향 언어에서는 프로그램의 기본단위가 객체이며, 객체는 “속성+기능”으로 구성된다. 객체지향 언어에서는 모든 요소들을 반드시 객체로 표현해야 하며, 프로그래밍은 이러한 객체의 생성과 생성된 객체의 상호관계를 설정하는 것으로 이루어진다.
+
+객체지향의 장점 <br>
+객체지향 프로그램의 개념은 우리들의 실생활과 같은 개념의 프로그램 방식을 제공한다.
+  * 문제를 쉽고 자연스럽게 프로그램화(모델링) 할 수 있다 (클래스, 캡슐화, 다형성 등을 통해)
+  * 쉬운 프로그램의 개발로 인한 생산성을 향상시킬 수 있다. (객체들은 독립성을 가짐. 객체들을 서로 연결하여 프로그램을 완성할 수 있음)
+  * 프로그램 모듈을 재사용할 수 있다. (독립된 모듈은 다양한 프로그램에서 재사용될 수 있음)
+
+클래스 <br>
+객체지향에서는 동일한 속성과 기능을 가진 객체를 생성하기 위해 클래스라는 형판(template)을 제공하고 있다. 즉, 클래스는 하나의 클래스로부터 여러 개의 객체를 생성하기 위해 사용하는 형판 즉, 틀이라 보면 된다.
+
+객체는 “속성+기능”으로 구성되기 때문에 객체를 생성하는 클래스 역시 “속성+기능”으로 구성된다. (속성: 변수, 기능: 함수)
+
+객체 <br>
+클래스로부터 객체를 생성하는 과정을 실체화(instantiation)라고 하고, 객체를 인스턴스(instance)라 부르기도 한다.
+
+하나의 클래스로부터 객체가 생성될 때 각 객체는 같은 속성과 기능을 가지지만, 속성에 저장된 값은 모두 다르게 지정할 수 있다.
+
+```
+class Avg {
+	String name;
+	int avg;
+	public String average(int kor, int eng) {
+		avg = (kor + eng) / 2;
+		return name + avg
+	}
+}
+
+public class AvgTest {
+	public static void main(String[ ] args) {
+		Avg student1 = new Avg( );
+		Avg student2 = new Avg( );
+		student1.name = “김철수”;
+		student2.name = “김영희”;
+		String str1_avg = student1.average(70, 80);
+		String str2_avg = student2.average(80, 90);
+		System.out.println(str1_avg);
+		System.out.println(str2_avg);
+	}
+}
+```
+
+**상속(Inheritance)** <br>
+student 객체와는 비슷하지만 속성과 함수가 약간 다른 객체를 생성하려면 어떻게 해야 하나? 처음부터 다 설계해야 할까? 아니다. 객체지향이니까, 기존에 있는 student 객체를 활용할 수 있다. 어떻게? 상속을 이용한다. 즉, 기존 클래스로부터 모든 속성과 메소드를 상속받고, 더 필요한 속성과 메소드를 추가하여 새로운 클래스를 생성할 수 있다. 이러한 개념이 상속이다.
+```
+class Avg {
+	String name;
+	int avg;
+	public String average(int kor, int eng) {
+		avg = (kor + eng) / 2;
+		return name + avg
+	}
+}
+class AvgTotal extends Avg {
+	public int total(int kor, int eng) {
+		int score = kor + eng;
+		return score;
+	}
+}
+public class AvgTest2 {
+	public static void main(String[ ] args) {
+		AvgTotal student1 = new AvgTotal( );
+		AvgTotal student2 = new AvgTotal( );
+		student1.name = “김철수”;
+		student2.name = “김영희”;
+		String str1_avg = student1.average(70, 80);
+		String str2_avg = student2.average(80, 90);
+		int st1_total = student1.total(70, 80);
+		int st2_total = student2.total(80, 90);
+		System.out.println(str1_avg+” 총점=”+st1_total);
+		System.out.println(str2_avg+” 총점=”+st2_total);
+	}
+}
+```
+클래스의 상속은 확장(entend)의 개념을 가진다. 즉, 상위 클래스의 모든 것을 상속받고 추가로 더 가지는 클래스를 구성하는 것이 상속이다. (상위 클래스로 갈수록 general해지고, 하위 클래스로 갈수록 specific해진다)
+
+클래스들 사이의 상속은 소프트웨어 설계를 간단하게 할 수 있는 이점을 제공한다. 즉, 기존의 클래스로부터 모든 요소를 상속받고 새로운 클래스에는 추가되는 자료구조와 메소드만 지정하면 된다. 상속의 개념은 코드를 간결하게 하고, 코드의 재사용성(resusing)을 높이는 요인이 된다.
+
+다수 개의 클래스로부터 상속받아 새로운 클래스를 생성하는 경우도 있다. 이를 다중상속(multiple inheritance)라 한다. 자바는 상속관계에서 하나의 상위 클래스만 허용하며, 다중상속은 허용하지 않는다.
+
+**캡슐화(Encapsulation)** <br>
+객체는 속성과 속성을 처리하는 메소드를 가지고 있다. 객체를 사용하는 쪽에서는 그 객체의 인터페이스만 알면 그 객체를 충분히 사용할 수 있다. 객체가 실제 데이터를 어떻게 처리하는지는 알 필요가 없고, 실제 처리방법은 숨겨져야 한다. 이러한 개념이 캡슐화이다.
+
+클래스를 작성할 때 프로그램 작성자는 숨겨야 하는 정보(private)와 공개해야 하는 정보(public)를 구분하여 기술할 수 있다. 객체를 사용하는 사람은 객체 중에 공개하는 정보에만 접근할 수 있다. 이러한 기법을 제공함으로써 객체의 사용자로부터 정보를 은폐(information hiding)할 수 있다.
+
+캡슐화를 통한 정보의 은폐
+-	객체에 포함된 정보의 손상과 오용을 막을 수 있다
+-	객체 내부의 조작 방법이 바뀌어도 사용방법은 바뀌지 않는다
+-	데이터가 바뀌어도 다른 객체에 영향을 주지 않아 독립성이 유지된다
+-	처리된 결과만 사용하므로 객체의 이식성이 좋다
+-	객체를 부품화 할 수 있어 새로운 시스템의 구성에 부품처럼 사용할 수 있다
+
+**메시지(Message)** <br>
+메시지는 객체에 일을 시키는 행위라 할 수 있다. 프로그램에서 생성된 객체들은 이러한 메시지를 주고받음으로써 일을 수행한다. 프로그램 작성자는 사용하고자 하는 객체를 정의한 다음 이러한 객체들이 어떤 일을 수행해야 하는지를 메시지로 기술해야 한다. 일반적으로 메시지에는 메시지를 받을 객체의 이름, 메소드 이름, 메소드의 수행에 필요한 인자(argument)들을 포함한다.
+
+메시지의 예시)
+```
+public class AvgTest {
+	public static void main (String[ ] args) {
+		AvgTotal student1 = new AvgTotal( );
+		String str1_avg = student1.average(70, 80);	// 객체의 메소드 호출 메시지
+		int st1_total = student1.total(70, 80);	// 객체의 메소드 호출 메시지
+	}
+}
+```
+
+**다형성(Polymorphism)** <br>
+다양한(poly) 변신(morphism)을 의미하는 그리스어에 기원을 둔다. 즉, 서로 다른 객체가 동일한 매시지에 대하여 서로 다른 방법으로 응답할 수 있는 기능이다. “서로 다른 객체”, “동일한 메시지”, “서로 다른 방법”
+```
+class Avg3 {
+	public String name;
+	private int avg;
+	public String average(int kor, int eng) {	// 매개변수가 2개일 때 수행
+		avg = (kor + eng) / 2;
+		return name + “ 두 과목 평균 : “ + avg;
+	}
+	public String average(int kor, int eng, int mat) {	// 매개변수가 3개일 때 수행.
+		avg = (kor+eng+mat) / 3;
+		return name+ “ 세 과목 평균 : “+ avg;
+	}
+}
+public class AvgTest3 {
+	public static void main(String[ ] args) {
+		Avg3 student1 = new Avg3( );
+		Avg3 student2 = new Avg3( );
+		student1.name = “김철수”;
+		student2.name = “김영희”;
+		String st1_avg = student1.average(70, 80);		// 다른 객체 동일 메시지
+		String st2_avg = student2.average(70, 80, 90);	// 다른 객체 동일 메시지
+		System.out.println(st1_avg);
+		System.out.println(st2_avg);
+	}
+}
+```
+
+## 클래스: 속성
+
+
+
+
+
+
+
 
 
 
