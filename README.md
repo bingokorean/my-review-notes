@@ -4,7 +4,7 @@
 :family: Review of others' codes <br>
 
 ## Research :runner:
-The list of codes from Research and Project are specified in [my blog: about](https://gritmind.github.io/about/).
+The list of codes from Research and Project are specified in [**about**](https://gritmind.github.io/about/).
 
 
 ## mini-Project :runner:
