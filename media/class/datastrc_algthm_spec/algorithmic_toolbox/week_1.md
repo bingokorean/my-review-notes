@@ -29,8 +29,8 @@ go through all possible pairs of the input elements
 MaxPairwiseProductNaive(A[1...n]): 
 product←0 for i from 1 to n: 
 for j from 1 to n: if i ,j: 
-    if product< A[i]·A[j]: 
-        product←A[i]·A[j]
+    if product < A[i]·A[j]: 
+        product ← A[i]·A[j]
 return product
 ```
 This code cab be optimized and made more compact as follows:
@@ -151,14 +151,14 @@ print(product
 
 ```
 MaxPairwiseProductFast(A[1...n]):
-index_1 <- 1
+index_1 ← 1
 for i from 2 to n:
     if A[i] > A[index_1]:
-        index_1 <- i
-index_2 <- 1
+        index_1 ← i
+index_2 ← 1
 for i from 2 to n:
     if A[i] is not A[index_1] and A[i] > A[index_2]:
-        index_2 <- i
+        index_2 ← i
  return A[index_1] * A[index_2]
 ```
 
