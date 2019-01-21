@@ -329,7 +329,7 @@ public class Box_Sample {
 
 자바에서 하나의 프로그램에는 하나의 클래스만을 정의하는 것이 원칙이다. 만일 여러 개의 클래스가 하나의 프로그램에 정의된다면 public 한정자는 한 클래스에만 사용해야 한다. 자바 응용 프로그램인 경우에는 main( ) 메소드가 있는 클래스에 public을 사용해야 한다 (모든 클래스에 한정자를 지정하지 않으면 main( ) 메소드가 있는 클래스를 public으로 취급한다). 만일 main( ) 메소드가 있는 클래스가 아닌 다른 클래스에 public 한정자를 사용한다면 자바 컴파일러가 오류를 발생시킨다. 
 
-![](https://github.com/gritmind/review/blob/master/code/book/java_kim/images/1.png)
+![](https://github.com/gritmind/review/blob/master/code/book/java_kim/images/1.png =50%x)
 
 객체의 생성 <br>
 객체를 생성하기 위해서는 우선 객체를 선언해야 한다. 자바에서는 사용될 모든 변수나 객체들에 대해 미리 선언하는 것을 요구한다.
