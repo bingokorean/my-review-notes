@@ -162,7 +162,7 @@ _ETC._
 * [Neural Network and Deep Learning](https://github.com/gritmind/review/tree/master/media/class/neural-network-and-deep-learning) (2016 Spring, ETRI)
 
 _On-line_
-* [**Data Structures and Algorithms Specialization**]() (2019, Coursera)
+* [**Data Structures and Algorithms Specialization**](https://github.com/gritmind/review/tree/master/media/class/datastrc_algthm_spec) (2019, Coursera)
 * [**Deep Learning Nanodegree Foundation**](https://github.com/gritmind/deep_learning_nanodegree_foundation) (2016, Udacity)
 * [**Data Mining Specialization**](https://github.com/gritmind/review/tree/master/media/class/data-mining-specialization) (2015, Coursera/UIUC)
 * [Machine Learning](https://github.com/gritmind/review/tree/master/media/class/machine-learning-coursera) (Andrew Y. Ng, 2015, Coursera/Stanford)
