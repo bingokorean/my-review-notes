@@ -329,8 +329,7 @@ public class Box_Sample {
 
 자바에서 하나의 프로그램에는 하나의 클래스만을 정의하는 것이 원칙이다. 만일 여러 개의 클래스가 하나의 프로그램에 정의된다면 public 한정자는 한 클래스에만 사용해야 한다. 자바 응용 프로그램인 경우에는 main( ) 메소드가 있는 클래스에 public을 사용해야 한다 (모든 클래스에 한정자를 지정하지 않으면 main( ) 메소드가 있는 클래스를 public으로 취급한다). 만일 main( ) 메소드가 있는 클래스가 아닌 다른 클래스에 public 한정자를 사용한다면 자바 컴파일러가 오류를 발생시킨다. 
 
-<center><img src="https://github.com/gritmind/review/blob/master/code/book/java_kim/images/1.png" width="60%" height="60%"></center>
-
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/code/book/java_kim/images/1.png" width="50%" height="50%"></p>
 
 객체의 생성 <br>
 객체를 생성하기 위해서는 우선 객체를 선언해야 한다. 자바에서는 사용될 모든 변수나 객체들에 대해 미리 선언하는 것을 요구한다.
@@ -360,7 +359,7 @@ String name = new String(“홍길동”);
 
 반대로, 기본 자료형은 call by value를 취한다. 따라서, 따로 생성을 할 필요가 없다. 기본 자료형을 선언만 한다 하더라도 (예. int st;) 널 값이 저장되기 때문에 객체 측면에서의 생성과 같다.
 
-![](https://github.com/gritmind/review/blob/master/code/book/java_kim/images/2.png)
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/code/book/java_kim/images/2.png" width="50%" height="50%"></p>
 
 멤버 변수 <br>
 클래스에서 속성을 나타내는 변수를 멤버 변수라 한다. 멤버 변수는 클래스에서 메소드 외부에 선언된 변수를 말한다. 멤버 변수는 크게 객체 변수, 클래스 변수, 종단(final) 변수로 구분된다.
@@ -372,7 +371,7 @@ String name = new String(“홍길동”);
 
 객체 변수가 가지는 값이 기본 자료형인 경우, 변수가 가지고 있는 것이 값인 반면에, 참조 자료형인 경우 변수가 가지고 있는 것이 값이 아니라 참조 또는 주소이다.
 
-![](https://github.com/gritmind/review/blob/master/code/book/java_kim/images/3.png)
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/code/book/java_kim/images/3.png" width="50%" height="50%"></p>
 
 객체 변수인 my_count1과 my_count2는 서로 다른 기억장소에 저장된 값을 가리킨다. (즉, my_count1의 값이 복사되어 my_count2의 값으로 전달된다)
 그러나, 객체 변수인 mybox1과 mybox2는 서로 같은 기억장소에 저장된 값을 가리킨다.  
@@ -382,7 +381,7 @@ String name = new String(“홍길동”);
 
 객체 변수는 그 클래스로부터 객체가 생성될 때마다 각 객체에 변수들이 생성되지만, 클래스 변수는 그 클래스로부터 생성된 모든 객체들이 하나의 클래스 변수를 공유한다. 즉, 클래스 변수는 하나의 클래스로부터 생성된 객체들 사이의 통신이나 객체들 사이의 공통되는 속성을 표현하는 데 사용될 수 있다. (static의 역할이 프로그램이 끝날 때까지 살아있음을 표시하는 것이기 때문에 위와 같은 기능을 가질 수 있다)
 
-![](https://github.com/gritmind/review/blob/master/code/book/java_kim/images/4.png)
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/code/book/java_kim/images/4.png" width="50%" height="50%"></p>
 
 일반 객체 변수는 객체가 생성될 때마다 메모리에 그 변수의 값을 저장할 수 있는 공간이 생기는 반면, 클래스 변수는 같은 클래스로부터 생성된 모든 객체들이 하나의 클래스 변수값을 공유한다. 이러한 이유로… 일반 변수는 객체의 이름을 통해서 접근이 가능하지만, 클래스 변수는 클래스명을 통해서 접근할 수 있다 (물론, 클래스 이름, 객체 이름 모두 접근 가능하다)
 
@@ -447,7 +446,7 @@ private로 선언된 객체 변수는 소속된 클래스 내에서만 사용할
 * 메소드 매개변수와 지역변수
 * 예외 처리기 매개변수(exception handler parameter)
 
-![](https://github.com/gritmind/review/blob/master/code/book/java_kim/images/5.png)
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/code/book/java_kim/images/5.png" width="50%" height="50%"></p>
 
 
 ## 클래스: 기능
@@ -573,7 +572,7 @@ final, abstract, synchronized 메소드 <br>
 
 자바의 8개의 기본 자료형(character, Boolean, byte, short, integer, long, float, double)의 변수에는 실제 그 변수의 값이 저장되어 있다. 이 경우 실 매개변수의 값을 형식 매개변수에 복사해 줌으로서 형식 매개변수의 값이 변해도 실 매개변수의 값은 영향을 받지 않는다.
 
-![](https://github.com/gritmind/review/blob/master/code/book/java_kim/images/6.png)
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/code/book/java_kim/images/6.png" width="50%" height="50%"></p>
 
 8개의 기본 자료형을 제외한 모든 것이 객체 즉 참조 자료형이다. 참조 자료형 변수 즉, 객체 참조 변수가 가지고 있는 값은 실제 값이 아니라 참조 자료형(객체)의 주소이다. 이 경우 실 매개변수의 값을 형식 매개변수에 복사해주면 같은 주소로 취하여 접근하게 된다. 이러한 상황에서 형식 매개변수를 이용하여 객체의 값이 변환되면 실 매개변수를 통한 객체의 값도 변환되게 된다. 즉, 참조 자료형을 함수의 인자로 넘길 때 조심해야 한다. 의도치 않은 값의 변환이 일어날 수 있다.
 
@@ -598,7 +597,7 @@ public class Box extends SuperBox {
 
 protected 접근 한정자는 같은 패키지 내의 클래스와 같은 패키지는 아니지만 상속된 클래스에서 사용 가능한 접근 한정자이다. (상속이라는 개념 때문에 protected 키워드가 등장한 셈이다)
 
-![](https://github.com/gritmind/review/blob/master/code/book/java_kim/images/7.png)
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/code/book/java_kim/images/7.png" width="50%" height="50%"></p>
 
 멤버 변수의 접근 한정자는 다음과 같이 정리된다.
 * public: 동일한 패키지인지, 상속관계인지에 상관없이 모든 클래스에서 사용 가능
@@ -759,7 +758,7 @@ if(oba instanceof String)
 
 추상 클래스는 최소한 하나 이상의 추상 메소드를 가져야 하며, 추상 클래스로부터는 직접 객체가 생성될 수 없다. 왜냐하면 추상 메소드는 구현 부분이 없는 메소드이기 때문이다.
 
-![](https://github.com/gritmind/review/blob/master/code/book/java_kim/images/8.png)
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/code/book/java_kim/images/8.png" width="50%" height="50%"></p>
 
 ```java
 abstract class Shape {	// 추상 클래스와 추상 메소드 선언
