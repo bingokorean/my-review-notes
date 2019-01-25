@@ -34,9 +34,10 @@ HackerRank ID: [@gritmind](https://www.hackerrank.com/gritmind)
 
 
 ##  Book :family:
-
-* 개념을 콕콕 잡아주는 C 프로그래밍 [[note](https://1drv.ms/w/s!AllPqyV9kKUrwjk_wNK-qM6eJjqd)]
+* [Effective PYTHON](https://github.com/gritmind/review/new/master/code/book/effective_py/README.md)
 * [알기 쉽게 해설한 JAVA](https://github.com/gritmind/review/blob/master/code/book/java_kim/README.md)
+* 개념을 콕콕 잡아주는 C 프로그래밍 [[note](https://1drv.ms/w/s!AllPqyV9kKUrwjk_wNK-qM6eJjqd)]
+
 
 _MACHINE LEARNING MASTERY_
 * [Machine Learning with Python](https://github.com/gritmind/review/tree/master/code/blog/machine-learning-with-python)
