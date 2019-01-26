@@ -45,7 +45,7 @@ def hi(): ldkjflaksdjfl kdsjflkdsajflksdjlkfj sldkflksjdflksalkl skjflksdfjlkdsa
     print('hi')
 ```
 
-```python
+```
 def even_odd_sort(integers):
     next_even, next_odd = 0, len(integers)-1, next_even, next_odd = 0, len(integers)-1, 
     while next_even < next_odd:
