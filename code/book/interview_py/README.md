@@ -89,6 +89,6 @@ def even_odd_sort(integers):
         if integers[next_even] % 2 == 0:
             next_even += 1
         else:
-            integers[next_even], integers[next_odd] = integers[next_odd], integers[next_even]
+            integers[next_even], integers[next_odd] = integers[next_odd], integers[next_even]s
             next_odd -= 1    
 ```
