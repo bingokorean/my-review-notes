@@ -35,13 +35,13 @@ _The Honors Class_
 
 
 ~~~~~~{.python}
-def hi(): ldkjflaksdjflkdsjflkdsajflksdjlkfjsldkflksjdflksalklskjflksdfjlkdsajdsfds sf
+def hi(): ldkjflaksdjflkdsjflkdsajfl  ksdjlkfjsldkflksjdflksalklskjflksdfjlkdsajdsfds sf
     print('hi')
 ~~~~~~
 
 
 ```python
-def hi(): ldkjflaksdjflkdsjflkdsajflksdjlkfjsldkflksjdflksalklskjflksdfjlkdsajdsfds sf
+def hi(): ldkjflaksdjfl kdsjflkdsajflksdjlkfj sldkflksjdflksalkl skjflksdfjlkdsajdsfds sf
     print('hi')
 ```
 
