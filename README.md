@@ -33,7 +33,7 @@ HackerRank ID: [@gritmind](https://www.hackerrank.com/gritmind)
 * [**Problem Solving**](https://github.com/gritmind/review/tree/master/code/hackerrank/problem_solving)
 
 
-##  Book :family:
+##  Book (light) :family:
 * [Effective PYTHON](https://github.com/gritmind/review/blob/master/code/book/effective_py/README.md)
 * [알기 쉽게 해설한 JAVA](https://github.com/gritmind/review/blob/master/code/book/java_kim/README.md)
 * 개념을 콕콕 잡아주는 C 프로그래밍 [[note](https://1drv.ms/w/s!AllPqyV9kKUrwjk_wNK-qM6eJjqd)]
@@ -62,7 +62,7 @@ _MACHINE LEARNING MASTERY_
 
 # PAPER
 
-## Book
+## Book (heavy)
 * Deep Learning (I.Goodfellow, 2016)
 * [기계 학습](https://github.com/gritmind/review/tree/master/paper/book/machine-learning-oh) (오일석, 2017.12) 
 
