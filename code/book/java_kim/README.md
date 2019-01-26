@@ -970,7 +970,7 @@ public class FileDirTest1 {
 * 문자 스트림: 16 비트 문자나 문자열들을 읽고 쓰기 위한 스트림
    * 문자 스트림의 입출력을 위해서 Reader, Writer 클래스와 그 하위 클래스를 이용
 * 바이트 스트림(바이너리 스트림): 8비트의 바이트를 읽고 쓰기 위한 스트림
-   * 바이트 스트림의 입출력을 위해서는 InputStream, OutputStream 클래스와 그 하위 클래스를 
+   * 바이트 스트림의 입출력을 위해서는 InputStream, OutputStream 클래스와 그 하위 클래스를 이용
 
 
 
