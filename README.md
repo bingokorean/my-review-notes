@@ -44,7 +44,7 @@ HackerRank ID: [@gritmind](https://www.hackerrank.com/gritmind)
 * [**Problem Solving**](https://github.com/gritmind/review/tree/master/code/hackerrank/problem_solving)
 
 
-##  Blog & Tutorial :family:
+## Blog & Tutorial :family:
 * Visualizing Layer Representations in Neural Networks [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/blog/Visualizing-Layer-Representations-in-Neural-Networks.ipynb)]
 * 한국어 감정 분석 by PyCon Korea 2015, LucyPark [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/blog/korean_lucypark/Korean_Sentiment_Analysis.ipynb)]
 * Topic Modeling with Gensim [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/blog/topic-modeling-with-gensim.ipynb)]
@@ -52,7 +52,6 @@ HackerRank ID: [@gritmind](https://www.hackerrank.com/gritmind)
 ## ETC. :runner:
 * [Python Data Handler](https://github.com/gritmind/python_data_handler)
 * [Code Warehouse](https://github.com/gritmind/review/tree/master/code/etc/code_warehouse)
-
 * Syntax Comparison between Python and Java [[note](https://1drv.ms/w/s!AllPqyV9kKUrwxOo9L1syWAnlRoh)]
 * Korean Lexical analyzer with Recursion [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/etc/codes/lexical_recursion.ipynb)]
 * POS tagger with Viterbi algorithm [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/etc/codes/pos_viterbi.ipynb)]
