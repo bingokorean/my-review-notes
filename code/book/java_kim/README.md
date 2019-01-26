@@ -935,7 +935,7 @@ public class ExceptionTest2 {
 
 자바는 입출력을 위해 스트림(stream)을 사용한다. 스트림이란 순서가 있는 일련의 데이터를 의미하는 추상적인 개념이다. 사용자가 프로그램에서 스트림을 이용하여 입출력을 수행하면, 입출력 스트림을 실제 하드웨어 장치에 연결하는 것은 JVM에 의해 이루어진다. 
 
-<p align="center"><img src="https://github.com/gritmind/review/blob/master/code/book/java_kim/images/9.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/code/book/java_kim/images/9.PNG" width="70%" height="70%"></p>
 
 **파일과 디렉터리** <br>
 File 클래스는 입출력을 위해 필요한 파일과 디렉터리를 다룬다. 예제를 살펴보자.
