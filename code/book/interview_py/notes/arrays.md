@@ -18,6 +18,7 @@ Array는...
 
 ### Array boot camp
 Array에 대한 good insight를 얻을 수 있는 예제이다. 숫자들의 array를 입력으로 받고 짝수들이 먼저 등장하도록 정렬해라. 만약 O(n) space를 사용한다면 문제를 쉽게 풀 수 있지만, **O(1) space**만으로(without allocating additional storage) 문제를 풀어보자.
+
 ```python
 def even_odd_sort(integers):
     next_even, next_odd = 0, len(integers)-1
@@ -29,6 +30,7 @@ def even_odd_sort(integers):
             integers[next_even], integers[next_odd] = integers[next_odd], integers[next_even]
             next_odd -= 1    
 ```
+
 * array를 다룰 때, both ends들을 효과적으로 다루는 법을 알면 좋다
 * 가상으로 array를 3개의 subarray들로 구성되었다고 판단: Even - Unclassified - Odd 순서로
 * 초기엔 Even과 Odd는 비어있고, 모두 Unclassified에 속함
