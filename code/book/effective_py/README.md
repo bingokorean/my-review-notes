@@ -78,7 +78,17 @@ green = my_values.get('green', [''])[0] or 0 # 0
 opacity = my_values.get('opacity', [''])[0] or 0 # 0
 ```
 
-숫자 변환을 위해 `red = int(my_values.get('red', [''])[0] or 0)`으로 할 수도 있다. 위를 포함해 이들의 코드를 읽기는 쉽지 않다. if/else 문이 훨씬 더 직감적일 것이다. 하지만 이를 반복적으로 사용하기 보다는 다음과 같은 헬퍼 함수로 처리하면 어떨까?
+숫자 변환을 위해 `red = int(my_values.get('red', [''])[0] or 0)`으로 할 수도 있다. 이들의 코드를 읽기는 쉽지 않다. if/else 문이 훨씬 더 직감적일 것이다.
+
+```python
+green = my_values.get('green', [''])
+if green[0]:
+    green = int(green[0])
+else:
+    green = 0
+```
+
+하지만 이를 반복적으로 사용하기 보다는 다음과 같은 헬퍼 함수로 처리하면 어떨까?
 
 ```python
 def get_first_int(values, key, default=0):
@@ -89,6 +99,7 @@ def get_first_int(values, key, default=0):
         found = default
     return found
 ```
+
 `green = get_first_int(my_values, 'green')` 이렇게 헬퍼 함수를 이용하면, or를 사용한 복잡한 표현식이나 if/else 조건식 버전보다 호출 코드가 훨씬 더 간결하고 명확해진다.
 
 표현식이 복잡해지기 시작하면 최대한 빨리 해당 표현식을 작은 조각으로 분할하고 로직을 헬퍼 함수로 옮기는 방안을 고려해야 한다. 무조건 짧은 코드를 만들기보다는 가독성을 선택하는 편이 낫다. 이해하기 어려운 복잡한 표현식에는 파이썬의 함축적인 문법을 사용하면 안 된다.
