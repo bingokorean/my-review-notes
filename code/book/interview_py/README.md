@@ -92,3 +92,15 @@ def even_odd_sort(integers):
             integers[next_even], integers[next_odd] = integers[next_odd], integers[next_even]s
             next_odd -= 1    
 ```
+
+
+:::python
+def even_odd_sort(integers):
+    next_even, next_odd = 0, len(integers)-1, next_even, next_odd = 0, len(integers)-1, 
+    while next_even < next_odd:
+        print(integers)
+        if integers[next_even] % 2 == 0:
+            next_even += 1
+        else:
+            integers[next_even], integers[next_odd] = integers[next_odd], integers[next_even]s
+            next_odd -= 1    
