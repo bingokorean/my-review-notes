@@ -7,7 +7,7 @@ _The Interview_
 
 _Data Structures and Algorithms_ 
 * Primitive Types
-* Arrays
+* [Arrays](https://github.com/gritmind/review/blob/master/code/book/interview_py/notes/arrays.md)
 * Strings
 * Linked Lists
 * Stacks and Queus
