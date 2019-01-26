@@ -37,5 +37,10 @@ _The Honors Class_
 ~~~~~~{.python}
 def hi(): ldkjflaksdjflkdsjflkdsajflksdjlkfjsldkflksjdflksalklskjflksdfjlkdsajdsfds sf
     print('hi')
-
 ~~~~~~
+
+
+```python
+def hi(): ldkjflaksdjflkdsjflkdsajflksdjlkfjsldkflksjdflksalklskjflksdfjlkdsajdsfds sf
+    print('hi')
+```
