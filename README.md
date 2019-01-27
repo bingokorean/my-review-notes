@@ -17,7 +17,7 @@ _mini-Project_
 
 
 ## Class :family:
-The list of codes from online courses are specified in `MEDIA`. :runner:
+The list of codes from online courses are specified in [MEDIA](#MEDIA). :runner:
 * [Deep Learning: Advanced NLP and RNNs](https://github.com/gritmind/review/tree/master/code/class/advanced_nlp_lazy) (2018, Udemy/Lazy Programmer Inc.)
 
 
