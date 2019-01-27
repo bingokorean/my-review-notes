@@ -28,10 +28,10 @@ The list of codes from online courses are specified in [MEDIA](#MEDIA). :runner:
 * 개념을 콕콕 잡아주는 C 프로그래밍 [[note](https://1drv.ms/w/s!AllPqyV9kKUrwjk_wNK-qM6eJjqd)]
 
 _MACHINE LEARNING MASTERY_
-* [Machine Learning with Python](https://github.com/gritmind/review/tree/master/code/blog/machine-learning-with-python)
-* [Deep Learning with Python](https://github.com/gritmind/review/tree/master/code/blog/deep-learning-with-python)
-* [Deep Learning for Natural Language Processing](https://github.com/gritmind/review/tree/master/code/blog/deep-learning-for-nlp)
-* [Long-Short Term Memory Networks with Python](https://github.com/gritmind/review/tree/master/code/blog/lstm-with-python)
+* [Machine Learning with Python](https://github.com/gritmind/review/tree/master/code/blog/machine-learning-with-python/README.md)
+* [Deep Learning with Python](https://github.com/gritmind/review/tree/master/code/blog/deep-learning-with-python/README.md)
+* [Deep Learning for Natural Language Processing](https://github.com/gritmind/review/tree/master/code/blog/deep-learning-for-nlp/README.md)
+* [Long-Short Term Memory Networks with Python](https://github.com/gritmind/review/tree/master/code/blog/lstm-with-python/README.md)
 
 
 ## Kaggle & HackerRank :runner:
@@ -41,7 +41,7 @@ Kaggle ID: [@gritmind](https://www.kaggle.com/gritmind)
 
 HackerRank ID: [@gritmind](https://www.hackerrank.com/gritmind)
 
-* [**Problem Solving**](https://github.com/gritmind/review/tree/master/code/hackerrank/problem_solving)
+* [**Problem Solving**](https://github.com/gritmind/review/tree/master/code/hackerrank/problem_solving/README.md)
 
 
 ## Blog & Tutorial :family:
@@ -50,8 +50,8 @@ HackerRank ID: [@gritmind](https://www.hackerrank.com/gritmind)
 * Topic Modeling with Gensim [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/blog/topic-modeling-with-gensim.ipynb)]
 
 ## ETC. :runner:
-* [Python Data Handler](https://github.com/gritmind/python_data_handler)
-* [Code Warehouse](https://github.com/gritmind/review/tree/master/code/etc/code_warehouse)
+* [Python Data Handler](https://github.com/gritmind/python_data_handler/README.md)
+* [Code Warehouse](https://github.com/gritmind/review/tree/master/code/etc/code_warehouse/README.md)
 * Syntax Comparison between Python and Java [[note](https://1drv.ms/w/s!AllPqyV9kKUrwxOo9L1syWAnlRoh)]
 * Korean Lexical analyzer with Recursion [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/etc/codes/lexical_recursion.ipynb)]
 * POS tagger with Viterbi algorithm [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/etc/codes/pos_viterbi.ipynb)]
@@ -62,7 +62,7 @@ HackerRank ID: [@gritmind](https://www.hackerrank.com/gritmind)
 
 ## Book
 * Deep Learning (I.Goodfellow, 2016)
-* [**기계 학습**](https://github.com/gritmind/review/tree/master/paper/book/machine-learning-oh) (오일석, 2017.12) 
+* [**기계 학습**](https://github.com/gritmind/review/tree/master/paper/book/machine-learning-oh/README.md) (오일석, 2017.12) 
 
 ## Paper
 
@@ -200,6 +200,6 @@ _On-line_
 
 [PyTorch Tutorials](https://github.com/gritmind/review-code/tree/master/class/pytorch) / [Keras Examples](https://github.com/gritmind/review-code/tree/master/class/keras) / [nbviewer](https://nbviewer.jupyter.org/) / [Awesome Korean NLP](https://github.com/datanada/Awesome-Korean-NLP) / [Online-Debugger](https://www.onlinegdb.com/)
 
-[MS Open Data](https://msropendata.com/) / [NLP Datasets](https://github.com/niderhoff/nlp-datasets) / [English NLP SOTA](https://github.com/magizbox/underthesea/wiki/English-NLP-SOTA#text-classification) / [Zhang 2015 Datasets](https://drive.google.com/drive/u/0/folders/0Bz8a_Dbh9Qhbfll6bVpmNUtUcFdjYmF2SEpmZUZUcVNiMUw1TWN6RDV3a0JHT3kxLVhVR2M) for Text Classification (csv files) / [AI OPEN ETRI](http://aiopen.etri.re.kr/) / [Awesome Public Dataset](https://github.com/awesomedata/awesome-public-datasets)
+[Kor-NLP Dataset](https://insikk.github.io/awesome-korean-nlp/#dataset) / [AI API DATA](http://aiopen.etri.re.kr/) / [Public Datasets for AI](https://medium.com/startup-grind/fueling-the-ai-gold-rush-7ae438505bc2) / [MS Open Data](https://msropendata.com/) / [NLP Datasets](https://github.com/niderhoff/nlp-datasets) / [English NLP SOTA](https://github.com/magizbox/underthesea/wiki/English-NLP-SOTA#text-classification) / [Zhang 2015 Datasets](https://drive.google.com/drive/u/0/folders/0Bz8a_Dbh9Qhbfll6bVpmNUtUcFdjYmF2SEpmZUZUcVNiMUw1TWN6RDV3a0JHT3kxLVhVR2M) / [Awesome Public Dataset](https://github.com/awesomedata/awesome-public-datasets)
 
 [Arxiv Sanity Preserver](http://www.arxiv-sanity.com/) / [Open-Review](https://openreview.net/) / [ACL Anthology](https://aclanthology.coli.uni-saarland.de/) / [Distill](https://distill.pub/)
