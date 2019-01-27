@@ -6,7 +6,7 @@ _The Interview_
 * ~~Ready, Strategy, Conduct an Interview~~
 
 _Data Structures and Algorithms_ 
-* Primitive Types
+* [Primitive Types](https://github.com/gritmind/review/blob/master/code/book/interview_py/notes/prititive_type.md)
 * [Arrays](https://github.com/gritmind/review/blob/master/code/book/interview_py/notes/arrays.md)
 * Strings
 * Linked Lists
