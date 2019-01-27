@@ -299,7 +299,27 @@ return A[n−1]·A[n]
 ---
 
 
+APlusB.py
+```
+def sum_of_two_digits(first_digit, second_digit):
+    return first_digit + second_digit
+
+if __name__ == '__main__':
+    a, b = map(int, input().split())
+    print(sum_of_two_digits(a, b))
+```
 
 
+max_pairwise_product.py
 
+```
+def max_pairwise_product(numbers):
+    n = len(numbers)
+    numbers.sort()
+    return numbers[-1] * numbers[-2]
 
+if __name__ == '__main__':
+    input_n = int(input())
+    input_numbers = [int(x) for x in input().split()]
+    print(max_pairwise_product(input_numbers))
+```
