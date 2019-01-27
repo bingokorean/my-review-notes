@@ -80,9 +80,9 @@ test
   * a logical condition over the iterator (this is optional)
   * an expression that yields the elements of the derived list
 
-예를 들어, [x**2 for x in range(6)] = [0,1,4,9,16,25] 이고 [x**2 for x in range(6) if x % 2 == 0] = [0,4,16] 이다. <br>
+예를 들어, `[x**2 for x in range(6)] = [0,1,4,9,16,25]` 이고 `[x**2 for x in range(6) if x % 2 == 0] = [0,4,16]` 이다. <br>
 비록 list comprehension이 map(), filter(), lambdas로 재구성될 수 있지만, list comprehension이 더 읽기 쉽다 (lambda가 안쓰이므로) <br>
-list comprehension은 multiple levels of looping을 지원한다. [(x,y) for x in A for y in B] 처럼.. 하지만, two nested comprehension 까지만 보통 사용을 권장하고 그 이상은 그냥 for-loop 사용을 권장한다. <br>
+list comprehension은 multiple levels of looping을 지원한다. `[(x,y) for x in A for y in B]` 처럼.. 하지만, two nested comprehension 까지만 보통 사용을 권장하고 그 이상은 그냥 for-loop 사용을 권장한다. <br>
 set과 dictionary도 list comprehension을 지원한다.
 
 ## 5.1 
