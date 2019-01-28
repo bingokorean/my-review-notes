@@ -8,7 +8,7 @@ _The Interview_
 _Data Structures and Algorithms_ 
 * [Primitive Types](https://github.com/gritmind/review/blob/master/code/book/interview_py/notes/prititive_types.md)
 * [Arrays](https://github.com/gritmind/review/blob/master/code/book/interview_py/notes/arrays.md)
-* Strings
+* [Strings](https://github.com/gritmind/review/blob/master/code/book/interview_py/notes/strings.md)
 * Linked Lists
 * Stacks and Queus
 * Binary Trees
