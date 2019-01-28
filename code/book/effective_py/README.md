@@ -164,7 +164,7 @@ print(b)
 
 ### 6. 한 슬라이스에 start, end, stride를 함께 쓰지 말자
 
-파이썬에는 기본 slicing과 somelist[start:end:stride] 처럼 slice에 stride를 설정하는 특별한 문법도 있다. 이 문법을 이용하면 시퀀스를 slice할 때 매 n번째 아이템을 가져올 수 있다. 
+파이썬에는 기본 slicing과 `somelist[start:end:stride]` 처럼 slice에 stride를 설정하는 특별한 문법도 있다. 이 문법을 이용하면 시퀀스를 slice할 때 매 n번째 아이템을 가져올 수 있다. 
 
 ```
 a = ['red', 'orange', 'yellow', 'green', 'blue', 'purple']
