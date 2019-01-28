@@ -162,8 +162,46 @@ print(b)
 * slicing은 범위를 벗어난 start나 end 인덱스를 허용하므로 a[:20]이나 a[-20]처럼 시퀀스의 앞쪽이나 뒤쪽 경계에 놓인 slice를 표현하기 쉽다.
 * list slice에 할당하면 원본 시퀀스에 지정한 범위를 참조 대상의 내용으로 대체한다 (길이가 달라도 동작; 즉, 주소참조를 주의하자)
 
+### 6. 한 슬라이스에 start, end, stride를 함께 쓰지 말자
 
+파이썬에는 기본 slicing과 somelist[start:end:stride] 처럼 slice에 stride를 설정하는 특별한 문법도 있다. 이 문법을 이용하면 시퀀스를 slice할 때 매 n번째 아이템을 가져올 수 있다. 
 
+```
+a = ['red', 'orange', 'yellow', 'green', 'blue', 'purple']
+odds = a[::2]
+evens = a[1::2]
+print(oods)
+print(evens)
+>>> ['red', 'yellow', 'blue']
+>>> ['orange', 'green', 'purple']
+```
+
+문제는 stride 문법이 종종 예상치 못한 동작을 해서 버그를 만들어내기도 한다. 예를 들어, 파이썬에서 바이트 문자열을 역순으로 만든느 일반적인 방법은 stride -1로 문자열을 slice하는 것이다. 문제는 바이트 문자열이나 아스키 문자에는 잘 동작하지만, UTF-8 바이트 문자열로 인코드된 유니코드 문자에는 원하는 대로 동작하지 않는다. 
+```
+w = '漢字'
+x = w.encode('utf-8')
+y = x[::-1]
+z = y.decode('utf-8')
+>>> 
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x9d in 
+position 0: invalid start byte
+```
+
+-1을 제외한 음수 값으로 stride를 지정하면 어떨까? 2::2는 무슨 뜻일까?
+
+요점은 slicing 문법의 stride 부분이 매우 혼란스러울 수 있다는 점이다. 대괄호 안에 숫자가 세 개나 있으면 빽빽해서 읽기 어렵고 start와 end 인덱스가 stride와 연계되어 어떤  작용을 하는지 분명하지 않다. 특히 stride가 음수인 경우는 더욱 그러하다.
+
+이러한 문제를 방지하기 위해 stride를 start, end 인덱스와 함께 사용하지 말아야 한다. stride를 사용해야 한다면 양수 값을 사용하고 start와 end 인덱스는 생략하는 게 좋다. stride를 꼭 start와 end 인덱스와 함께 사용해야 한다면 stride를 적용한 결과를 변수에 할당하고, 이 변수를 slice한 결과를 다른 변수에 할당해서 사용하자.
+```
+a = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+b = a[::2] # ['a', 'c', 'e', 'g']
+c = b[1:-1]
+```
+slicing부터 하고 striding을 하면 데이터의 shallow copy가 추가로 생긴다. 첫 번째 연산은 결과로 나오는 slice 크기를 최대한 줄여야 한다. 프로그램에서 두 과정이 필요한 시간과 메모리가 충분하지 않다면 내장 모듈 itertools의 islice 메서드를 사용하자. islice 메서드는 start, endm, stride에 음수 값을 허용하지 않는다.
+
+* 한 slice에 start, end, stride를 지정하면 혼란스러울 수 있다.
+* slice에 start와 end 인덱스 없이 양수 stride 값을 사용하자. 음수 stride 값은 가능하면 피하는 게 좋다.
+* 한 slice에 start, end, stride를 함께 사용하는 상황은 피하자. 파라미터 세 개를 사용해야 한다면 두 개(slice, 다른 하나는 stride)를 사용하거나 내장 모듈 itertools의 islice를 사용하자.
 
 
 
