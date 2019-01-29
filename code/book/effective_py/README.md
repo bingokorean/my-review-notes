@@ -203,5 +203,52 @@ slicing부터 하고 striding을 하면 데이터의 shallow copy가 추가로 �
 * slice에 start와 end 인덱스 없이 양수 stride 값을 사용하자. 음수 stride 값은 가능하면 피하는 게 좋다.
 * 한 slice에 start, end, stride를 함께 사용하는 상황은 피하자. 파라미터 세 개를 사용해야 한다면 두 개(slice, 다른 하나는 stride)를 사용하거나 내장 모듈 itertools의 islice를 사용하자.
 
+### 7. map과 filter 대신 list comprehension을 사용하자
 
+파이썬은 list comprehension(리스트 함축 표현식)을 통해 한 리스트에서 다른 리스트로 간결하게 만들 수 있다. 예를 들어 리스트에 있는 각 숫자의 제곱 계산은 다음과 같다.
+
+```
+a = [1,2,3,4,5,6,7,8,9,10]
+squares = [x**2 for x in a]
+print(squares)
+>>>
+[1,4,9,16,25,36,49,64,81,100]
+```
+
+인수가 하나뿐인 함수를 적용하는 상황이 아니면, 간단한 연산에는 list comprehension이 내장 함수 map보다 명확하다. map은 계산에 필요한 lambda 함수를 생성해야 해서 깔끔하지 않다.
+
+```
+squares = map(lambda x: x ** 2, a)
+```
+
+list comprehension은 map과 달리 입력 리스트에 있는 아이템을 간편하게 걸러내서 그에 대응하는 출력을 결과에서 삭제할 수 있다. 예를 들어 2로 나누어 떨어지는 숫자의 제곱만 계산한다고 하자.
+
+```
+even_squares = [x**2 for x in a if x % 2 == 0]
+print(even_squares)
+>>>
+[4,16,36,64,100]
+```
+
+내장 함수 filter를 map과 연계해서 사용해도 같은 결과를 얻지만 훨씬 읽기 어렵다.
+
+```
+alt = map(lambda x: x**2, filter(lambda x: x % 2 ==0, a))
+assert even_squares == list(alt)
+```
+dictionary와 set에도 list comprehension에 해당하는 문법이 있다. comprehension 문법을 쓰면 알고리즘을 작성할 때 파생되는 자료 구조를 쉽게 생성할 수 있다. 
+
+```
+chile_ranks = {'ghost':1, 'habanero':2, 'cayenne':3}
+rank_dict = {rank: name for name, rank in chile_ranks.items()}
+chile_len_set = {len(name) for name in rank_dict.values()}
+print(rank_dict)
+print(chile_len_set)
+>>>
+{1: 'ghost', 2: 'habanero', 3: 'cayenne'}
+{8, 5, 7}
+```
+* list comprehension은 추가적인 lambda 표현식이 필요 없어서 내장 함수인 map이나 filter를 사용하는 것보다 명확하다
+* list comprehension을 사용하면 입력 리스트에서 아이템을 간단히 건너뛸 수 있다. map으로는 filter를 사용하지 않고서는 이런 작업을 못한다
+* dictionary와 set도 comprehension 표현식을 지원한다
 
