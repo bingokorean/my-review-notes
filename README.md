@@ -8,12 +8,12 @@
 The list of codes from Research and Project are specified in [**about**](https://gritmind.github.io/about/).
 
 _mini-Project_
-* Yelp 리뷰 데이터를 활용한 데이터 마이닝 프로젝트 (2018.06~07) [[code](https://github.com/gritmind/data_mining_project)]
-* 개체명 인식을 위한 학습 데이터 자동 확장 연구 (2017.07~10) [[code](https://github.com/gritmind/text_augmentation)]
-* 한국어 형태소 분석기와 품사 태거 구현 (2017.03~06) [[code](https://github.com/gritmind/morph_and_pos_analyzer_korean)]
-* Image Processing for Fire Detection with Raspberry Pi (2014.03~06) [[code](https://github.com/gritmind/image_processing_for_fire_detection)]
-* Intelligent Humanoid Robot for Relay and Separate Object (2013.07~11) [[code](https://github.com/gritmind/intelligent_humanoid_robot_competition)]
-* Web and Mobile Application for Social Network (2013.05~10) [[code](https://github.com/gritmind/dormitory_social_network)]
+* [Yelp 리뷰 데이터를 활용한 데이터 마이닝 프로젝트](https://github.com/gritmind/data_mining_project) (2018.06~07)
+* [개체명 인식을 위한 학습 데이터 자동 확장 연구](https://github.com/gritmind/text_augmentation) (2017.07~10)
+* [한국어 형태소 분석기와 품사 태거 구현](https://github.com/gritmind/morph_and_pos_analyzer_korean) (2017.03~06)
+* [Image Processing for Fire Detection with Raspberry Pi](https://github.com/gritmind/image_processing_for_fire_detection) (2014.03~06)
+* [Intelligent Humanoid Robot for Relay and Separate Object](https://github.com/gritmind/intelligent_humanoid_robot_competition) (2013.07~11)
+* [Web and Mobile Application for Social Network](https://github.com/gritmind/dormitory_social_network) (2013.05~10)
 
 
 ## Class :family:
@@ -21,7 +21,7 @@ The list of codes from online courses are specified in [MEDIA](#MEDIA). :runner:
 * [Deep Learning: Advanced NLP and RNNs](https://github.com/gritmind/review/tree/master/code/class/advanced_nlp_lazy) (2018, Udemy/Lazy Programmer Inc.)
 
 
-##  Book :family:
+##  CodeBook :family:
 * [Elements of Programming Interviews in Python](https://github.com/gritmind/review/blob/master/code/book/interview_py/README.md)
 * [파이썬 코딩의 기술 (Effective PYTHON)](https://github.com/gritmind/review/blob/master/code/book/effective_py/README.md)
 * [알기 쉽게 해설한 JAVA](https://github.com/gritmind/review/blob/master/code/book/java_kim/README.md)
@@ -60,9 +60,10 @@ HackerRank ID: [@gritmind](https://www.hackerrank.com/gritmind)
 
 # PAPER
 
-## Book
+## TextBook
 * Deep Learning (I.Goodfellow, 2016)
 * [**기계 학습**](https://github.com/gritmind/review/tree/master/paper/book/machine-learning-oh/README.md) (오일석, 2017.12) 
+
 
 ## Paper
 
