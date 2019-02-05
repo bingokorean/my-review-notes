@@ -28,10 +28,10 @@ The list of codes from online courses are specified in [MEDIA](#MEDIA). :runner:
 * 개념을 콕콕 잡아주는 C 프로그래밍 [[note](https://1drv.ms/w/s!AllPqyV9kKUrwjk_wNK-qM6eJjqd)] | 2018.10
 
 _MACHINE LEARNING MASTERY_
-* [Machine Learning with Python](https://github.com/gritmind/review/tree/master/code/blog/machine-learning-with-python/README.md)
-* [Deep Learning with Python](https://github.com/gritmind/review/tree/master/code/blog/deep-learning-with-python/README.md)
-* [Deep Learning for Natural Language Processing](https://github.com/gritmind/review/tree/master/code/blog/deep-learning-for-nlp/README.md)
-* [Long-Short Term Memory Networks with Python](https://github.com/gritmind/review/tree/master/code/blog/lstm-with-python/README.md)
+* [Machine Learning with Python](https://github.com/gritmind/review/tree/master/code/book/machine-learning-with-python/README.md)
+* [Deep Learning with Python](https://github.com/gritmind/review/tree/master/code/book/deep-learning-with-python/README.md)
+* [Deep Learning for Natural Language Processing](https://github.com/gritmind/review/tree/master/code/book/deep-learning-for-nlp/README.md)
+* [Long-Short Term Memory Networks with Python](https://github.com/gritmind/review/tree/master/code/book/lstm-with-python/README.md)
 
 
 ## Kaggle & HackerRank :runner:
@@ -45,17 +45,17 @@ HackerRank ID: [@gritmind](https://www.hackerrank.com/gritmind)
 
 
 ## Blog & Tutorial :family:
-* [Snippet](https://github.com/gritmind/review/blob/master/code/etc/reddit/README.md) | 2019~
-* Visualizing Layer Representations in Neural Networks [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/blog/Visualizing-Layer-Representations-in-Neural-Networks.ipynb)] | 
-* 한국어 감정 분석 by PyCon Korea 2015, LucyPark [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/blog/korean_lucypark/Korean_Sentiment_Analysis.ipynb)]
-* Topic Modeling with Gensim [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/blog/topic-modeling-with-gensim.ipynb)]
+* [Snippet](https://github.com/gritmind/review/blob/master/code/tutorial/reddit/README.md) | 2019~
+* Visualizing Layer Representations in Neural Networks [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/tutorial/Visualizing-Layer-Representations-in-Neural-Networks.ipynb)] | 
+* 한국어 감정 분석 by PyCon Korea 2015, LucyPark [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/tutorial/korean_lucypark/Korean_Sentiment_Analysis.ipynb)]
+* Topic Modeling with Gensim [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/tutorial/topic-modeling-with-gensim.ipynb)]
 
 ## Task :runner:
 * [Python Data Handler](https://github.com/gritmind/python_data_handler/README.md) | 2018~
-* [Code Warehouse](https://github.com/gritmind/review/tree/master/code/etc/code_warehouse/README.md) | 2018.11~
+* [Code Warehouse](https://github.com/gritmind/review/tree/master/code/task/code_warehouse/README.md) | 2018.11~
 * Syntax Comparison between Python and Java [[note](https://1drv.ms/w/s!AllPqyV9kKUrwxOo9L1syWAnlRoh)] | 2018.10
-* Korean Lexical analyzer with Recursion [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/etc/codes/lexical_recursion.ipynb)] | 2018.11
-* POS tagger with Viterbi algorithm [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/etc/codes/pos_viterbi.ipynb)] | 2018.11
+* Korean Lexical analyzer with Recursion [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/lexical_recursion.ipynb)] | 2018.11
+* POS tagger with Viterbi algorithm [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/pos_viterbi.ipynb)] | 2018.11
 
 ---
 
