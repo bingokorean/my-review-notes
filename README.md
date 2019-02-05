@@ -45,12 +45,12 @@ HackerRank ID: [@gritmind](https://www.hackerrank.com/gritmind)
 
 
 ## Blog & Tutorial :family:
+* [Snippet](https://github.com/gritmind/review/blob/master/code/etc/reddit/README.md) | 2019~
 * Visualizing Layer Representations in Neural Networks [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/blog/Visualizing-Layer-Representations-in-Neural-Networks.ipynb)] | 
 * 한국어 감정 분석 by PyCon Korea 2015, LucyPark [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/blog/korean_lucypark/Korean_Sentiment_Analysis.ipynb)]
 * Topic Modeling with Gensim [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/blog/topic-modeling-with-gensim.ipynb)]
 
-## ETC. :runner:
-* [Reddit](https://github.com/gritmind/review/blob/master/code/etc/reddit/README.md) | 2019~
+## Task :runner:
 * [Python Data Handler](https://github.com/gritmind/python_data_handler/README.md) | 2018~
 * [Code Warehouse](https://github.com/gritmind/review/tree/master/code/etc/code_warehouse/README.md) | 2018.11~
 * Syntax Comparison between Python and Java [[note](https://1drv.ms/w/s!AllPqyV9kKUrwxOo9L1syWAnlRoh)] | 2018.10
