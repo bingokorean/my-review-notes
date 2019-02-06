@@ -368,6 +368,57 @@ print(next(roots))
 * 한 generator expression에서 나온 iterator를 또 다른 generator expression의 for 서브 expression으로 넘기는 방식으로 geneator expression을 조합할 수 있다.
 * Generator expression은 서로 연결되어 있을 때 매우 빠르게 실행된다.
 
+### 10. range보다는 enumerate를 사용하자
+
+내장 함수 range는 정수 집합을 순회(iterate)하는 루프를 실행할 때 유용하다.
+
+```
+random_bits = 0
+for i in range(64):
+    if randint(0, 1):
+        random_bits |= 1 << i
+```
+
+문자열의 리스트 같이 순회할 자료 구조가 있을 때는 직접 루프를 실행할 수 있다.
+
+```
+flavor_list = ['vanilla', 'chocolate', 'pecan', 'strawberry']
+for flavor in flavor_list:
+    print('%s is delicious' % flavor)
+```
+
+종종 리스트를 순회하거나 리스트의 현재 아이템의 인덱스를 알고 싶은 경우가 있다. 한 가지 방법은 range를 사용하는 것이다.
+
+```
+for i in range(len(flavor_list)):
+    flavor = flavor_list[i]
+    print('%d %d' % (i +1, flavor))
+```
+
+위의 코드는 약간 세련되지 못하다. 리스트의 길이를 알아내야 하고, 배열을 인덱스로 접근해야 하며 읽기 불편하다. 파이썬은 이런 상황을 처리하기 위해 내장 함수 enumerate를 제공한다 enumerate는 lazy generator로 iterator를 감싼다. 
+
+```
+for i, flavor in enumerate(flavor_list):
+    print('%d: %s' % (i+1, flavor))
+```
+
+enumerate를 세기 시작할 숫자를 지정하면 코드를 더 짧게 만들 수 있다.
+
+```
+for i, flavor in enumerate(flavor_list, 1):
+    print('%d: %s' % (i+1, flavor))
+```
+
+* enumerate는 iterator를 순회하면서 iterator에서 각 아이템의 인덱스를 얻어오는 간결한 문법을 제공한다
+* range로 루프를 실행하고 시퀀스에 인덱스로 접근하기보다는 enumerate를 사용하는 게 좋다
+* enumerate에 두 번째 파라미터를 사용하면 세기 시작할 숫자를 지정할 수 있다 (기본값은 0)
+
+
+
+
+
+
+
 
 
 
