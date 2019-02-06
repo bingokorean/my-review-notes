@@ -4,6 +4,46 @@ Jason Brownlee <br>
 MACHINE LEARNING MASTERY
 
 ## Contents
+_Introduction_
+* [Welcome](#Welcome)
+
+_Lessons_
+* Python Ecosystem for Machine Learning
+* Crash Course in Python and SciPY
+* How to Load Machine Learning Data
+* Understand Your Data with Descriptive Statistics
+* Understand Your Data with Visualization
+* Prepare Your Data for Machine Learning
+* Feature Selection for Machine Learning
+* 
+
+_Projects_
+* Predictive Modeling Project Template
+* Your First Machine Learning Project in Python Step-by-Step
+
+## Welcome
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 A predictive modeling machine learning project can be broken down into 6 top-level tasks:
 
