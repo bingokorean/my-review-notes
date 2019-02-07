@@ -1,5 +1,7 @@
 # Strings
 
+> String pattern matching is an important problem that occurs in many areas of science and information processing. In computing, it occurs naturally as part of data processing, text editing, term rewriting, lexical analysis, and information retrieval. - "Algorithms For Finding Patterns in Strings," A.V.Aho,1990
+
 String은 character들로 구성된 특별한 array라 볼 수 있다. 그러나 string와 array를 구분지으려 한다. comparison, joining, splitting, searching for substrings, replacing one string by another, parsing 등 string에만 사용되는 operation이 있기 때문이다.
 
 memory에서 string이 어떻게 표현되는지 이해해야 한다. basic string operation을 이해해야 한다. Advanced string processing 알고리즘은 보통 hash table, dynamic programming을 사용한다. 여기서는 string의 basic technique만 알아본다.
