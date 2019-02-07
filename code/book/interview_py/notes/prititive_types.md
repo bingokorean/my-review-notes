@@ -1,5 +1,7 @@
 # Primitive Types
 
+> Representation is the essence of programming - "The Mythical Man Month," F.P.Brooks,1975
+
 프로그램은 메모리에 있는 변수(variable)를 명령어(instruction)에 따라 업데이트한다. 변수는 타입(type)을 가진다. 타입은 데이터에 대한 분류이다. 데이터는 해당 타입이 가질 수 있는 범위의 값과 명령을 가진다. 타입은 언어(language)에 의해 제공되고 프로그래머에 의해 정의된다. 파이썬에서는 모든 것이 객체(object)이다. Boolean, integer, character 등도 객체이다.
 
 ### Primitive types boot camp
