@@ -1,5 +1,7 @@
 # Arrays
 
+> The machine can alter the scanned symbol and its behavior is in part determined by that symbol, but the symbols on the tape elsewhere do not affect the behavior of the machine - "Intelligent Machinery," A.M.Tuning,1948
+
 Array는...
 * contiguous block of memory
 * useful for representing sequences
