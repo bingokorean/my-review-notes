@@ -11,7 +11,7 @@ _Lessons_
 * [Python Ecosystem for Machine Learning](#Python-Ecosystem-for-Machine-Learning)
 * [Crash Course in Python and SciPy](#Crash-Course-in-Python-and-SciPy)
 * [How to Load Machine Learning Data](#How-to-Load-Machine-Learning-Data)
-* Understand Your Data with Descriptive Statistics (Analyze Data)
+* [Understand Your Data with Descriptive Statistics](#Understand-Your-Data-with-Descriptive-Statistics) (Analyze Data)
 * Understand Your Data with Visualization (Analyze Data)
 * Prepare Your Data for Machine Learning (Prepare Data)
 * Feature Selection for Machine Learning (Prepare Data)
@@ -128,7 +128,97 @@ b   4
 
 ## How to Load Machine Learning Data
 
-Loading CSV Data
+기계학습 프로젝트에서 csv 파일을 많이 사용합니다. 다양한 종류의 csv 파일 로드 방법이 있습니다.
+
+CSV파일 고려사항
+
+* File Header - 데이터 column 정보임. csv파일 로딩할 때 있는지 여부 명시할 것.
+* Comments - csv파일에서 hash(#)로 시작하는 line은 comment임. csv파일 로딩할 때 comment character 명시할 수 있음.
+* Delimiter - 데이터를 구분하기 위한 character. 보통 comma(,) 사용. Tab이나 whitespace 등으로 지정할 수 있음.
+* Quotes - default quote character는 double quatation mark(")임. 다른 character도 사용 가능.
+
+Load CSV Files with the Python Standard Libarary
+
+```
+# Load CSV Using Python Standard Library 
+import csv 
+import numpy 
+filename = 'pima-indians-diabetes.data.csv' 
+raw_data = open(filename, 'rb') 
+reader = csv.reader(raw_data, delimiter=',', quoting=csv.QUOTE_NONE)      # header는 로드 파일에 없다고 가정.
+x = list(reader) 
+data = numpy.array(x).astype('float') 
+print(data.shape)
+>>>
+(768, 9)
+```
+
+Load CSV Files with NumPy
+
+```
+# Load CSV using NumPy 
+from numpy import loadtxt 
+filename = 'pima-indians-diabetes.data.csv' 
+raw_data = open(filename, 'rb') 
+data = loadtxt(raw_data, delimiter=",")     # loadtxt()는 no header row 이고, 모든 data는 똑같은 format이어야 함.
+print(data.shape)
+>>>
+(768, 9)
+
+# Load CSV from URL using NumPy 
+from numpy import loadtxt 
+from urllib import urlopen 
+url = 'https://goo.gl/vhm1eU' 
+raw_data = urlopen(url) 
+dataset = loadtxt(raw_data, delimiter=",") 
+print(data.shape)
+>>>
+(768, 9)
+```
+
+Load CSV Files with Pandas
+
+pandas의 rade_csv 함수는 매우 flexible하기 때문에 머신러닝 프로젝트에서 데이터를 로딩할 때 이 방식을 추천한다. 이 함수는 pandas.DataFrame을 리턴하는데 여기에서 데이터를 summarizing과 plotting을 곧바로 할 수 있다.
+
+```
+# Load CSV using Pandas 
+from pandas import read_csv 
+filename = 'pima-indians-diabetes.data.csv' 
+names = ['preg', 'plas', 'pres', 'skin', 'test', 'mass', 'pedi', 'age', 'class'] 
+data = read_csv(filename, names=names) 
+print(data.shape)
+>>>
+(768, 9)
+
+# Load CSV using Pandas 
+from URL from pandas 
+import read_csv 
+url = 'https://goo.gl/vhm1eU' 
+names = ['preg', 'plas', 'pres', 'skin', 'test', 'mass', 'pedi', 'age', 'class'] 
+data = read_csv(url, names=names) 
+print(data.shape)
+>>>
+(768, 9)
+```
+
+## Understand Your Data with Descriptive Statistics
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
