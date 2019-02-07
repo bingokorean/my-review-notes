@@ -1,5 +1,7 @@
 # Linked Lists
 
+> The S-expressions are formed according to the following recursive rules. 1. The atomic symbols p1, p2, etc, are S-expressions. 2. A null expression is also admitted. 3. If e is an S-expression so is (e). 4. If e1 and e2 are S-expressions so is (e1,e2). - "Recursive Functions Of Symbolic Expressions," J.McCarthy,1959 
+
 List는 하나의 (중복이 있을 수 있는) ordered collection of values를 만든다. 구체적으로, a singly linked list는 하나의 sequence of nodes를 포함하는 데이터 구조이다 (각 노드는 an object와 next node를 가리키는 a reference를 가진다). 첫 번째 node는 head라 불리고, 마지막 node는 tail이라 불린다 (tail의 next field는 null이다). a doubly linked list는 node가 양방향으로 reference들을 가지고 있다 (이로써 null로 마킹하는 대신에 self-loop를 사용할 수 있다). 
 
 <p align="center"><img src="https://github.com/gritmind/review/blob/master/code/book/interview_py/images/linked_list_1.PNG" width="80%" height="80%"></p>
