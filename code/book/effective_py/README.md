@@ -413,6 +413,26 @@ for i, flavor in enumerate(flavor_list, 1):
 * range로 루프를 실행하고 시퀀스에 인덱스로 접근하기보다는 enumerate를 사용하는 게 좋다
 * enumerate에 두 번째 파라미터를 사용하면 세기 시작할 숫자를 지정할 수 있다 (기본값은 0)
 
+### 11. Iterator를 병렬로 처리하려면 zip을 사용하자
+
+파이썬에서 리스트 객체를 많이 사용한다. List comprehension을 사용하면 source list에 표현식을 적용하여 derived list를 쉽게 얻는다 (7.참고). 보통 derived list와 source list는 연관되어 있다. 두 리스트를 병렬로 순회하기 명료한 방법은 무엇일까? 내장 함수 zip을 사용하는 것이다.
+
+파이썬3에서 zip은 지연 generator로 두 개 이상의 iterator를 감싼다. zip generator는 각 iterator로부터 다음 값을 담은 튜플을 얻어온다. zip generator를 사용한 코드는 다중 리스트에서 인덱스로 접근하는 코드보다 훨씬 명료하다.
+
+```
+name = ['Cecilia', 'Lise', 'Marie']
+letters = [len(n) for n in names]
+for name, count in zip(names, letters):
+    if count > max_letters:
+        longest_name = name
+        max_letters = count
+```
+
+내장 함수 zip의 문제점은 입력 iterator들의 길이가 다르면 zip이 이상하게 동작한다는 점이다. 즉, 최소 길이까지만 동작한다. zip으로 실행할 리스트의 길이가 같다고 확신할 수 없으면 내장 모듈 itertools의 zip_longest를 사용하는 방안을 고려하자.
+
+* 내장 함수 zip은 여러 iterator를 병렬로 순회할 때 사용하고, 튜플을 생성하는 지연 iterator이다.
+* 길이가 다른 iterator를 사용하면 zip은 그 결과를 최소길이를 기준으로 잘라낸다.
+* 내장 모듈 itertools의 zip_longest 함수를 쓰면 여러 iterator 길이에 상관없이 병렬로 순회할 수 있다 (46.참고)
 
 
 
