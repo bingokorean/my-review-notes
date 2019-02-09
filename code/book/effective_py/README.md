@@ -5,7 +5,13 @@
 
 ### Contents
 1.	[파이썬다운 생각](#파이썬다운-생각)
-
+2. 함수
+3. 클래스와 상속
+4. 메타클래스와 속성
+5. 병행성과 병렬성
+6. 내장 모듈
+7. 협력
+8. 제품화
 
 
 ## 파이썬다운 생각
@@ -434,11 +440,67 @@ for name, count in zip(names, letters):
 * 길이가 다른 iterator를 사용하면 zip은 그 결과를 최소길이를 기준으로 잘라낸다.
 * 내장 모듈 itertools의 zip_longest 함수를 쓰면 여러 iterator 길이에 상관없이 병렬로 순회할 수 있다 (46.참고)
 
+### 12. for와 while 루프 뒤에는 else 블록을 쓰지 말자
 
+파이썬의 루프에는 다른 프로그래밍 언어에는 없는 추가적인 기능이 있는데, 루프에서 반복되는 내부 블록 바로 다음에 else 블록을 둘 수 있는 기능이다. 
 
+```
+for i in range(3):
+   print('Loop %d' % i)
+   #if i == 1:
+   #   break
+else:
+   print('Else block')
+>>>
+Loop 0
+Loop 1 
+Loop 2
+Else block!
+```
 
+놀랍게도 else 블록은 루프가 종료되면 실행된다. 또는, 루프에서 break문을 사용하면 else 블록으로 건너뛴다. 다소 놀랄 만한 점은 빈 시퀀스를 처리하는 루프문에서도 else 블록이 즉시 실행된다. 그리고 while False와 같이 처음부터 거짓인 경우에도 실행된다. 
 
+이렇게 동작하는 이유는 루프 다음에 오는 else 블록을 루프로 뭔가를 검색할 때 유용하기 때문이다. 예를 들어, 서로소(coprime; 공약수가 1밖에 없는 둘 이상의 수)를 판별한다고 하자. 
 
+```
+a = 4
+b = 9
+for i in range(2, min(a,b) + 1):
+    print('Testing', i)
+    if a % i == 0 and b % i ==0:
+        print('Not coprime')
+        break
+else:
+    print('Coprime')
+>>>
+Testing 2
+Testing 3
+Testing 4
+Coprime
+```
 
+실제로 이런 방식으로 코드를 작성하면 안 된다. 대신에 이런 계산을 하는 헬퍼 함수를 작성하는 게 좋다. 이런 헬퍼 함수는 두 가지 일반적인 스타일로 작성할 수 있다. 이 방법으로 낯선 코드를 접하는 개발자들이 코드를 훨씬 쉽게 이해할 수 있다. 
 
+첫 번째는 찾으려는 조건을 찾았을 때 바로 반환하는 것이다. 루프가 실패로 끝나면 기본 결과(True)를 반환한다.
+```
+def coprime(a, b):
+    for i in range(2, min(a,b)+1):
+        if a % i == 0 and b % i == 0:
+            return False
+    return True
+```
+두 번째는 루프에서 찾으려는 대상을 찾았는지 알려주는 결과 변수를 사용하는 것이다. 뭔가를 찾으면 즉시 break로 루프를 중단한다.
+```
+def coprime2(a, b):
+    is_coprime = True
+    for i in range(2, min(a, b) + 1):
+        if a % i == 0 and b % i == 0:
+            is_coprime = False
+            break
+    return is_coprime
+```
 
+루프처럼 간단한 구조는 파이썬에서 따로 설명할 필요가 없어야 한다. 그러므로 루프 다음에 오는 else 블록은 절대로 사용하지 말아야 한다.
+* 파이썬에는 for와 while 루프의 내부 블록 바로 뒤에 else 블록을 사용할 수 있게 하는 특별한 문법이 있다.
+* 루프 본문이 break문을 만나지 않은 경우에만 루프 다음에 오는 else블록이 실행된다.
+* 루프 뒤에 else 블록을 사용하면 직관적이지 않고 혼동하기 쉬우니 사용하지 말아야 한다.
