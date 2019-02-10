@@ -26,8 +26,6 @@ Cover two algorithm problems
 
 ## Fibonacci Numbers
 
-### PRoblem Overview
-
 Fibonacci numbers는 그냥 recursive 특징을 가지는 sequence of natural numbers이다. 이탈리아 수학자가 rabbit population을 위한 수학적 모델을 Fibonacci Numbers로 만들었다 - How many pairs of rabbits you have after n generations. 
 
 <p align="center"><img src="https://github.com/gritmind/review/blob/master/media/class/datastrc_algthm_spec/algorithmic_toolbox/images/week_2_1.PNG" width="40%" height="40%"></p>
@@ -65,7 +63,7 @@ else:
 
 <p align="center"><img src="https://github.com/gritmind/review/blob/master/media/class/datastrc_algthm_spec/algorithmic_toolbox/images/week_2_5.PNG" width="70%" height="70%"></p>
 
-뻗어나가는 tree를 언뜻보면, 같은 node들이 보이는데, 이 node들을 다시 재계산할 필요가 없지 않나 생각이 든다. 이 점을 이용하면 more efficient한 알고리즘을 만들 수 있을 것 같다.
+뻗어나가는 tree를 언뜻보면, 같은 node들이 보이는데, 이 node들을 다시 재계산할 필요가 있지 않나 생각이 든다. 이 점을 이용하면 more efficient한 알고리즘을 만들 수 있을 것 같다.
 
 ### Efficient Algorithm
 
@@ -85,7 +83,7 @@ efficient 알고리즘을 구현하기 위한 아이디어를 얻는 방법으�
 
 ```
 FibList(n)
-create an array F[0...n]      # 이 array를 위엥서 written down할 공책이라고 생각하면 된다.
+create an array F[0...n]      # 이 array를 위에서 written down할 공책이라고 생각하면 된다.
 F[0] = 0
 F[1] = 1
 for i from 2 to n:            # 그냥 1 ~ n 까지의 피보나치 숫자를 공책에 written down하는 것과 같다.
@@ -99,14 +97,36 @@ return F[n]                   # 해당(마지막) n 번째의 피보나치 숫�
 
 ## Greatest Common Divisor
 
+GCD(Greatest Common Divisor) 문제란 어떤 분수 a/b 를 simplest form으로 변환하는 문제이다. 일반적인 방법은 분자(numerator)와 분모(denominator)를 d로 일괄적으로 나누면 된다. 여기서 GCD 문제는 추가적인 조건을 충족해야 한다. 
+   * d를 a와 b에 일괄적으로 나눈다 (딱 나눠 떨어져야 한다; 출력값이 integer)
+   * 최대한 가장 큰 d를 찾는다
 
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/media/class/datastrc_algthm_spec/algorithmic_toolbox/images/week_2_6.PNG" width="70%" height="70%"></p>
 
+GCD는 Number Theory에서 매우 중요한 컨셉을 가진다 - study of prime numbers, factorization, ...
 
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/media/class/datastrc_algthm_spec/algorithmic_toolbox/images/week_2_7.PNG" width="70%" height="70%"></p>
 
+GCD가 Number Theory에서 매우 중요하기 때문에 GCD를 계산하는 것이 cryptography에서 중요한 문제이다 - secure online banking, ... 이처럼 중요하기 때문에 GCD를 알고리즘으로 풀려고 한다.
 
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/media/class/datastrc_algthm_spec/algorithmic_toolbox/images/week_2_8.PNG" width="70%" height="70%"></p>
 
+gcd(10,4)와 같이 small number에 대해서는 쉽게 알고 있다. 하지만, 우리는 gcd(3918848, 1653264)와 같이 large number에 대해서 다루고자 한다.
 
+### Naive Algorithm
 
+그냥 순차적으로 처음부터 모두 계산해보는 naive한 방법이 있다.
+
+```
+Function NaiveGCD(a,b)
+best = 0
+for d from 1 to a+b:
+   if d|a and d|b:
+       best = d
+return best
+```
+
+물론 느리다. 대략적인 runtime은 a + b이다. 특히, 20 digit number 이상되면 매우, 매우 느려진다.
 
 
 
