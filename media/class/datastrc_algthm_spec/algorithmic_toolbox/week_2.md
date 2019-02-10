@@ -101,15 +101,15 @@ GCD(Greatest Common Divisor) 문제란 어떤 분수 a/b 를 simplest form으로
    * d를 a와 b에 일괄적으로 나눈다 (딱 나눠 떨어져야 한다; 출력값이 integer)
    * 최대한 가장 큰 d를 찾는다
 
-<p align="center"><img src="https://github.com/gritmind/review/blob/master/media/class/datastrc_algthm_spec/algorithmic_toolbox/images/week_2_6.PNG" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/media/class/datastrc_algthm_spec/algorithmic_toolbox/images/week_2_6.PNG" width="40%" height="40%"></p>
 
 GCD는 Number Theory에서 매우 중요한 컨셉을 가진다 - study of prime numbers, factorization, ...
 
-<p align="center"><img src="https://github.com/gritmind/review/blob/master/media/class/datastrc_algthm_spec/algorithmic_toolbox/images/week_2_7.PNG" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/media/class/datastrc_algthm_spec/algorithmic_toolbox/images/week_2_7.PNG" width="50%" height="50%"></p>
 
 GCD가 Number Theory에서 매우 중요하기 때문에 GCD를 계산하는 것이 cryptography에서 중요한 문제이다 - secure online banking, ... 이처럼 중요하기 때문에 GCD를 알고리즘으로 풀려고 한다.
 
-<p align="center"><img src="https://github.com/gritmind/review/blob/master/media/class/datastrc_algthm_spec/algorithmic_toolbox/images/week_2_8.PNG" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/media/class/datastrc_algthm_spec/algorithmic_toolbox/images/week_2_8.PNG" width="40%" height="40%"></p>
 
 gcd(10,4)와 같이 small number에 대해서는 쉽게 알고 있다. 하지만, 우리는 gcd(3918848, 1653264)와 같이 large number에 대해서 다루고자 한다.
 
@@ -128,8 +128,41 @@ return best
 
 물론 느리다. 대략적인 runtime은 a + b이다. 특히, 20 digit number 이상되면 매우, 매우 느려진다.
 
+### Efficient Algorithm
 
+better 알고리즘을 찾기 위해서 something interesting about the structure of the solution. 이 점이 문제를 simplify해줄 수 있다. 여기서는 key lemma를 아는 것이 중요하다. 명제를 충족하는 부명제라고 보면 될 것 같다. 문제 관점을 좀 더 쉽게 보거나 다양하게 볼 수 있고 이를 알고리즘에 반영할 수 있다. 
 
+Key Lemma는 다음과 같다. 나머지(remainder)를 활용한 것이고 증명도 쉽게 할 수 있다.
 
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/media/class/datastrc_algthm_spec/algorithmic_toolbox/images/week_2_9.PNG" width="40%" height="40%"></p>
 
+이 특징을 알고리즘에 적용해보자.
+
+```
+Function EuclidGCD(a, b)
+if b = 0:                              # 탈출 조건이다. 
+   return a
+a' = the remainder when a is diviced by b
+return EuclidGCD(b, a')                 # a를 a로 교체하는 것뿐만 아니라 b와 자리를 교체하고, recursive하게 함수 콜을 한다.
+```
+
+예시를 살펴보자.
+
+```
+gcd(3918848, 1653264)
+= gcd(1653264, 612320)
+= gcd(612320, 428624)
+= gcd(428624, 183696)
+= gcd(183696, 61232)
+= gcd(61232, 0)
+= 61232.
+```
+
+right answer를 찾기까지 6 step 밖에 걸리지 않았다. 만약에, native 알고리즘을 사용했더라면 5 million step 정도 소요될 것이다. 
+
+이 알고리즘이 잘 동작하는 이유를 runtime 관점에서 살펴보자. 
+   * Each step reduces the size of numbers by about a factor of 2
+   * Takes about log(ab) steps
+   * GCDs of 100 digit numbers takes about 600 steps
+   * Each step a single division
 
