@@ -23,3 +23,4 @@ class BinaryTreeNode:
 Root를 제외한 모든 node는 left subtree의 root이거나 right subtree의 root가 될 수 있다. l이 p의 left subtree의 root라고 하면, l은 p의 left child라 할 수 있고, p는 l의 parent라 할 수 있다 (right child도 같은 이야기). 한 node가 p의 left child 또는 right child일 경우, 해당 node를 p의 child라 부른다. 주목할 점은 root를 제외하고, 모든 node는 unique parent를 가진다. 항상 그렇지는 않지만, node object를 정의할 때 parent field를 포함한다 (root node는 null로). 각 node는 root에서부터 자기자신의 node까지의 unique sequence of nodes 정보를 가질 수 있다. 이러한 sequence는 search path라 부르기도 한다. 
 
 
+
