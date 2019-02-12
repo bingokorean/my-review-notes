@@ -166,3 +166,19 @@ right answer를 찾기까지 6 step 밖에 걸리지 않았다. 만약에, nativ
    * GCDs of 100 digit numbers takes about 600 steps
    * Each step a single division
 
+## Big-O Notation
+
+### Computing Runtimes
+
+Computing runtime과 프로그램이 얼마나 오래걸리는 지에 대한 이해를 가지도록 한다. 지금까지 line of codes 수로 대략적으로 컴퓨팅 시간을 가늠했다. lines of code로 computing runtime을 측정한다는 것의 전제는 모든 명령어가 동일한 명령어라는 것이다. 그리고 우리가 보는 코드에서 한 줄이 어셈블리어로 분해해서 보면 여러 줄이 된다. 과연, code line 개수로 computing runtime을 계산할 수 있을까? 정확한 방법이 필요하다.
+
+근본적으로 우리가 원하는 바는 실제 컴퓨터가 프로그램을 돌리는 데 걸리는 시간을 측정하면 된다. 사실, 실제로 걸리는 시간을 측정하는 것은 매우 거대한 작업이다 (컴퓨터 스피드, 시스템 아키텍쳐, 메모리 구조 등을 완벽히 이해해야 한다). 알고리즘을 평가하는데 정말 디테일하고 정확하게 실제로 걸리는 시간을 우리가 알 필요가 있을까?
+
+우리의 목표는...
+* Measure runtime without knowing these details
+* Get results that work for large inputs
+
+### 
+
+
+
