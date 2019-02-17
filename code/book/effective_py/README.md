@@ -5,7 +5,7 @@
 
 ### Contents
 1.	[파이썬다운 생각](#파이썬다운-생각)
-2. 함수
+2. [함수](#함수)
 3. 클래스와 상속
 4. 메타클래스와 속성
 5. 병행성과 병렬성
@@ -504,3 +504,119 @@ def coprime2(a, b):
 * 파이썬에는 for와 while 루프의 내부 블록 바로 뒤에 else 블록을 사용할 수 있게 하는 특별한 문법이 있다.
 * 루프 본문이 break문을 만나지 않은 경우에만 루프 다음에 오는 else블록이 실행된다.
 * 루프 뒤에 else 블록을 사용하면 직관적이지 않고 혼동하기 쉬우니 사용하지 말아야 한다.
+
+### 13. try/except/else/finally에서 각 블록의 장점을 이용하자
+
+파이썬의 예외 처리 과정은 try, except, else, finally 블록으로 각 시점을 처리한다. 각 블록은 복합문에서 독자적인 목적이 있으며, 이 블록들을 다양하게 조합하면 유용하다 (또 다른 예로 51 참고).
+
+finally 블록 <br>
+예외를 전달하고 싶지만, 예외가 발생해도 정리 코드를 실행하고 싶을 때 try/finally를 사용하면 된다. try/finally의 일반적인 사용 예 중 하나는 파일 핸들러를 제대로 종료하는 작업이다 (또 다른 접근법으로 43 참고). 파일을 열 때 일어나는 예외는 finally 블록에서 처리하지 않아야 하므로 try 블록 앞에서 open을 호출해야 한다.
+
+```
+handle = open('/tmp/random_data.txt')   # IOError가 일어날 수 있음
+try:
+    data = handle.read()    # UnicodeDecodeError가 일어날 수 있음
+finally:
+    handle.close()    # try: 이후에 항상 실행됨
+```
+
+else 블록 <br>
+코드에서 어떤 예외를 처리하고 어떤 예외를 전달할지를 명확하게 하려면 try/except/else를 사용해야 한다. try 블록이 예외를 일으키지 않으면 else 블록이 실행된다. else 블록을 사용하면 try 블록의 코드를 최소로 줄이고 가독성을 높일 수 있다.
+
+```
+def load_json_key(data, key):
+    try:
+        result_dict = json.loads(data)    # ValueError가 일어날 수 있음
+    except ValueError as e:
+        raise KeyError from e
+    else:
+        return result_dict[key]    # KeyError가 일어날 수 있음
+```
+
+else 절은 try/except 다음에 나오는 처리를 시각적으로 except 블록과 구분해준다. 그래서 예외 전달 행위를 명확하게 한다.
+
+모두 함께 사용 <br>
+복합문 하나로 모든 것을 처리하고 싶다면 try/except/else/finally를 사용하면 된다.
+
+```
+UNDEFINED = object()
+
+def divide_json(path):
+    handle = open(path, 'r+')    # IOError가 일어날 수 있음
+    try:
+        data = handle.read()    # UnicodeDecodeError가 일어날 수 있음
+        op = json.loads(data)    # ValueError가 일어날 수 있음
+        value = (
+            op['numerator'] \
+            op['denominator'])    # ZeroDivisionError가 일어날 수 있음
+    except ZeroDivisionError as e:
+        return UNDEFINED
+    else:
+        op['result'] = value
+        result = json.dumps(op)
+        handle.seek(0)
+        handle.write(result)    # IOError가 일어날 수 있음
+        return value
+    finally:
+        handle.close()    # 항상 실행함
+```
+
+* try/finally 복합문을 이용하면 try블록에서 예외 발생 여부와 상관없이 정리 코드를 실행할 수 있다.
+* else 블록은 try 블록에 있는 코드의 양을 최소로 줄이는 데 도움을 주며 try/except 블록과 성공한 경우에 실행할 코드를 시각적으로 구분해준다.
+* else 블록은 try 블록의 코드가 성공적으로 실행된 후 finally 블록에서 공통 정리 코드를 싱행하기 전에 추가 작업을 하는 데 사용할 수 있다.
+
+## 함수
+
+함수는 큰 프로그램을 작고 단순한 조각으로 나눌 수 있게 해준다. 함수를 사용하면 가독성이 높아지고 코드가 더 이해하기 쉬워진다. 또한 재사용이나 리팩토링도 가능해진다. 파이썬에서 제공하는 함수들에는 부가 기능이 있는데 이는 함수의 목적을 더 분명하게 하고, 불필요한 요소를 제거하고 호출자의 의도를 명료하게 보여주며, 찾기 어려운 미묘한 버그를 상당수 줄여줄 수 있다.
+
+### 14. None을 반환하기보다는 예외를 일으키자
+
+파이썬 프로그래머들은 유틸리티 함수를 작성할 때 반환 값 None에 특별한 의미를 부여하는 경향이 있다. 예를 들어, 어떤 숫자를 다른 숫자로 나누는 헬퍼 함수의 경우, 0으로 나누는 경우에는 결과가 정의되어 있지 않으므로 None을 반환하는 게 자연스럽다.
+
+```
+def divide(a, b):
+    try:
+        return a / b
+    except ZeroDivisionError:
+        return None
+
+result = divide(x, y)
+if result is None:
+    print('Invalid inputs')
+    
+x, y = 0, 5
+result = divide(x, y)
+if not result:
+    print('Invalid inputs')
+```
+
+문제는 분자가 0이 되는 경우 반환 값도 0이 된다는 점인데, if문과 같은 조건에서 결과를 평가할 때 None 대신에 False에 해당하는 값을 검사할 수 있다 (참고 4). 이러한 오류를 줄이는 좋은 방법은 절대로 None을 반환하지 않고, 호출하는 쪽에 예외를 일으켜서 그 예외를 처리하게 하는 것이다.
+
+```
+def divide(a, b):
+    try:
+        return a / b
+    except ZeroDivisionError as e:
+        raise ValueError('Invalid inputs') from e
+      
+x, y = 5, 2
+try:
+    result = divide(x, y)
+except ValueError:
+    print('Invalid inputs')
+else:
+    print('Result is %.1f' % result)
+
+>>> 
+Result is 2.5
+```
+
+호출하는 쪽에서는 잘못된 입력에 대한 예외를 처리해야 한다 (49 참고). 호출하는 쪽에서 더는 함수의 반환 값을 조건식으로 검사할 필요가 없다. 함수가 예외를 일으키지 않았다면 반환 값은 문제가 없다. 예외를 처리하는  코드도 깔끔해진다.
+
+* 특별한 의미를 나타내려고 None을 반환하는 함수가 오류를 일으키기 쉬운 이유는 None이나 다른 값(예를 들면 0이나 빈 문자열)이 조건식에서 False로 평가되기 때문이다.
+* 특별한 상황을 알릴 때 None을 반환하는 대신에 예외를 일으키자. 문서화가 되어 있다면 호출하는 코드에서 예외를 적절하게 처리할 것이라고 기대할 수 있다.
+
+### 15. 클로저가 변수 스코프와 상호 작용하는 방법을 알자
+
+
+
