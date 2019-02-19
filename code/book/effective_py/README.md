@@ -616,7 +616,53 @@ Result is 2.5
 * 특별한 의미를 나타내려고 None을 반환하는 함수가 오류를 일으키기 쉬운 이유는 None이나 다른 값(예를 들면 0이나 빈 문자열)이 조건식에서 False로 평가되기 때문이다.
 * 특별한 상황을 알릴 때 None을 반환하는 대신에 예외를 일으키자. 문서화가 되어 있다면 호출하는 코드에서 예외를 적절하게 처리할 것이라고 기대할 수 있다.
 
-### 15. 클로저가 변수 스코프와 상호 작용하는 방법을 알자
+### 15. Closure가 변수 scope와 상호 작용하는 방법을 알자
 
+숫자 리스트를 정렬할 때 특정 그룹의 숫자들이 먼저 오도록 우선순위를 매기려고 한다. 이런 패턴은 사용자 인터페이스를 표현하거나 다른 것보다 중요한 메시지나 예외 이벤트를 먼저 보여줘야 할 때 유용하다. 이렇게 만드는 일반적인 방법은 리스트의 sort 메서드에 헬퍼 함수를 key 인수로 넘기는 것이다. 헬퍼의 반환 값은 리스트에 있는 각 아이템을 정렬하는 값으로 사용된다. 헬퍼는 주어진 아이템이 중요한 그룹에 있는지 확인하고 그에 따라 정렬 키를 다르게 할 수 있다.
 
+```
+def sort_priority(values, group):
+    def helper(x):
+        if x in group:
+            return (0, x)
+        return (1, x)
+    values.sort(key=helper)
+
+numbers = [8,3,1,2,5,4,7,6]
+group = {2,3,5,7}
+sort_priority(numbers, group)
+print(numbers)
+
+>>>
+[2,3,5,7,1,4,6,8]
+```
+
+위와 같이 동작한 이유는 다음과 같다.
+* 파이썬은 자신이 정의된 scope에 있는 변수를 참조하는 함수인 closure를 지원한다. 이 때문에 helper 함수가 sort_priority의 group 함수에 접근할 수 있다.
+* 함수는 파이썬에서 first-class object이다. 이 말은 함수를 직접 참조하고, 변수에 할당하고, 다른 함수의 인수로 전달하고, 표현식과 if문 등에서 비교할 수 있다는 의미다. 따라서, sort 메서드에서 closure 함수를 key 인수로 받을 수 있다. 
+* 파이썬에는 tuple을 비교하는 특정한 규칙이 있다. 먼저 index 0으로 아이템을 비교하고 그 다음으로 index 1, 다음은 index 2와 같이 진행한다. helper closure의 반환 값이 정렬 순서를 분리된 두 그룹으로 나뉘게 한 건 이 규칙때문이다.
+
+추가적으로, 위 함수에서 우선순위가 높은 아이템을 발견했는지 여부를 반환해서 사용자 인터페이스 코드가 그에 따라 동작하게 하면 좋을 것이다.
+
+```
+def sort_priority2(numbers, group):
+   found = False
+   def helper(x):
+       if x in group:
+           found = True
+           return (0, x)
+       return (1, x)
+   numbers.sort(key=helper)
+   return found
+
+found  = sort_priority2(numbers, group)
+print('Found:', found)
+print(numbers)
+
+>>>
+Found: false
+[2,3,5,7,1,4,6,8]
+```
+
+정렬된 결과는 올바르지만 found 결과는 틀렸다.
 
