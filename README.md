@@ -166,6 +166,7 @@ _On-line_
 
 
 ## Seminar / Tutorial
+* [Elastic On Tour](https://github.com/gritmind/review/blob/master/media/seminar/elasticontour2019.md) (elastic) | 2019.02.22
 * [AI KOREA 2018](https://github.com/gritmind/review/blob/master/media/seminar/ai_korea_2018.md) (KIISE AI Society) | 2018.07.26~27
 * [2018 패턴인식 및 기계학습 겨울학교 (Insightful Machine Learning)](https://github.com/gritmind/review/tree/master/media/seminar/2018PRMLWS) (KIISE AI Society) | 2018.01.24~25
 * [2017 information Technology and Industry Prospects](https://github.com/gritmind/review/blob/master/media/seminar/itip2017.md) | 2017.10.27~28
