@@ -644,12 +644,12 @@ print(numbers)
 
 추가적으로, 위 함수에서 우선순위가 높은 아이템을 발견했는지 여부를 반환해서 사용자 인터페이스 코드가 그에 따라 동작하게 하면 좋을 것이다.
 
-```
+```python
 def sort_priority2(numbers, group):
-   found = False
+   found = False                # scope: 'sort_priority2'
    def helper(x):
        if x in group:
-           found = True
+           found = True         # scope: 'helper' -- 안 좋음!!
            return (0, x)
        return (1, x)
    numbers.sort(key=helper)
@@ -664,5 +664,60 @@ Found: false
 [2,3,5,7,1,4,6,8]
 ```
 
-정렬된 결과는 올바르지만 found 결과는 틀렸다.
+정렬된 결과는 올바르지만 found 결과는 틀렸다. group에 속한 아이템을 numbers에서 찾을 수 있었지만 함수는 False를 반환했다. 어째서 이런 일이 일어났을까?
+
+표현식에서 변수를 참조할 때 파이썬 인터프리터는 참조를 해결하려고 다음과 같은 순서로 scope(유효 범위)를 탐색한다. 다음 중 어느 scope에도 참조한 이름으로 된 변수가 정의되어 있지 않으면 NameError 예외가 일어난다.
+1. 현재 함수의 scope
+2. (현재 scope를 담고 있는 다른 함수 같은) 감싸고 있는 scope
+3. 코드를 포함하고 있는 모듈의 scope (전역 scope라고도 함)
+4. (len이나 str같은 함수를 담고 있는) 내장 scope
+
+변수에 값을 할당할 때는 다른 방식으로 동작한다. 변수가 이미 현재 scope에 정의되어 있다면 새로운 값을 얻는다. 파이썬은 변수가 현재 scope에 존재하지 않으면 변수 정의로 취급한다. 새로 정의되는 변수의 scope는 그 할당을 포함하고 있는 함수가 된다. 이 할당 동작은 sort_priority2 함수의 반환 값이 잘못된 이유를 설명한다. found 변수는 helper closure에서 True로 할당된다. Closure 할당은 sort_priority2에서 일어나는 할당이 아닌 helper 안에서 일어나는 새 변수 정의로 처리된다. 
+
+이 문제는 scoping bug라고도 불리나 언어 설계자가 의도한 결과이다. 이 동작은 함수의 지역 변수가 자신을 포함하는 모듈을 오염시키는 문제를 막아준다. 그렇지 않았다면 함수 안에서 일어나는 모든 할당이 전역 모듈 scope에 쓰레기를 넣는 결과로 이어졌을 것이다. 그렇게 되면 불필요한 할당에 그치지 않고 결과로 만들어지는 전역 변수들의 상호 작용으로 알기 힘든 버그가 생긴다.
+
+파이썬3에는 closure에서 데이터를 얻어오는 특별한 문법이 있다. nonlocal문은 특정 변수 이름에 할당할 때 scope 탐색이 일어나야 함을 나타낸다. 유일한 제약은 nonlocal (전역 변수의 오염을 피하려고) 모듈 수준 scope까지는 탐색할 수 없다는 점이다. 
+
+```python
+def sort_priority3(numbers, group):
+    found = False
+    def helper(x):
+        nonlocal found
+        if x in group:
+            found = True
+            return (0, x)
+        return (1, x)
+    numbers.sort(key=helper)
+    return found
+```
+
+nonlocal문은 closure에서 데이터를 다른 scope에 할당하는 시점을 알아보기 쉽게 해준다. nonlocal문은 변수 할당이 모듈 scope에 직접 들어가게 하는 global문을 보완한다. 하지만 전역 변수의 anti-pattern과 마찬가지로 간단한 함수 이외에는 nonlocal을 사용하지 않도록 주의해야 한다. nonlocal의 부작용은 알아내기 상당히 어렵고 특히 nonlocal문과 관련 변수에 대한 할당이 멀리 떨어진 긴 함수에서는 이해하기가 더욱 어렵다. 
+
+nonlocal을 사용할 때 복잡해지기 시작하면 헬퍼 클래스로 상태를 감싸는 방법을 이용하는 게 낫다. (23에서 `__call__` 특별 메서드를 자세히 설명한다)
+
+```python
+class Sorter(object):
+    def __init__(self, group):
+        self.group = group
+        self.found = False
+    def __call__(self, x_):
+        if x in self.group:
+            self.found = True
+            return (0, x)
+        return (1, x)
+        
+sorter = Sorter(group)
+numbers.sort(key=sorter)
+assert sorter.found is True
+```
+
+* Closure 함수는 자신이 정의된 scope 중 어디에 있는 변수도 참조할 수 있다.
+* 기본적으로 closure에서 변수를 할당하면 바깥쪽 scope에는 영향을 미치지 않는다.
+* 파이썬3에서는 nonlocal문을 사용하여 closure를 감싸고 있는 scope 변수를 수정할 수 있음을 알린다.
+* 간단한 함수 이외에는 nonlocal 문을 사용하지 말자.
+
+### 16. List를 반환하는 대신 Generator를 고려하자
+
+
+
 
