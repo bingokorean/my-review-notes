@@ -718,6 +718,71 @@ assert sorter.found is True
 
 ### 16. List를 반환하는 대신 Generator를 고려하자
 
+일련의 결과를 생성하고자 할 때 가장 간단한 방법은 아이템의 리스트를 반환하는 것이다. 예를 들어, 문자열에 있는 모든 단어의 인덱스를 출력하고 싶다고 하자.
+
+```python
+def index_words(text):
+    result = []
+    if text:
+        result.append(0)
+    for index, letter in enumerate(text):
+        if letter == ' ':
+            result.append(index + 1)
+    return result
+```
+
+샘플 입력이 적을 때는 함수가 기대한 대로 동작한다. 하지만, 위와 같은 append 기반의 함수는 다음과 같은 문제가 있다.
+
+코드가 약간 복잡하고 깔끔하지 않다는 점이다. 새로운 결과가 나올 때마다 append 메서드를 호출해야 한다. 메서드 호출(result.append)가 많아서 리스트에 추가하는 값(index+1)이 덜 중요해 보인다. 결과 리스트를 생성하는 데 한 줄이 필요하고, 그 값을 반환하는 데도 한 줄이 필요하다. 함수 몸체에 문자가 130개 가량(공백 제외) 있지만 그중에서 중요한 문자는 약75개다.
+
+Generator를 사용해서 더 좋은 함수를 작성해보자. Generator는 yield 표현식을 사용하는 함수로, 호출되면 실제로 실행하지 않고 바로 iterator를 반환한다. 내장 함수 next를 호출할 때마다 iterator는 generator가 다음 yield 표현식으로 진행하게 한다. Generator에서 yield에 전달한 값을 iterator가 호출하는 쪽에 반환한다.
+
+```python
+def index_words_iter(text):
+    if text:
+        yield 0
+    for index, letter in enumerate(text):
+        if letter == ' ':
+            yield index + 1
+
+result = list(index_words_iter(address))
+```
+
+결과 리스트와 연동하는 부분이 모두 사라져서 훨씬 이해하기 쉽다. 결과는 리스트가 아닌 yield 표현식으로 전달된다. Generator 호출로 반환되는 iterator를 내장 함수 list에 전달하면 손쉽게 리스트로 변환할 수 있다 (참고 9).
+
+index_words의 두 번째 문제는 반환하기 전에 모든 결과를 리스트에 저장해야 한다는 점이다. 입력이 매우 많다면 프로그램 실행 중에 메모리가 고갈되어 동작을 멈추는 원인이 된다. 반면에 generator로 작성한 버전은 다양한 길이의 입력에도 쉽게 이용할 수 있다.
+
+다음은 파일에서 입력을 한 번에 한 줄씩 읽어서 한 번에 한 단어씩 출력을 내어주는 geneartor이다. 이 함수가 동작할 때 사용하는 메모리는 입력 한 줄의 최대 길이까지다.
+
+```python
+def index_file(handle):
+   offset = 0 
+   for line in handle:
+       if line:
+           yield offset
+       for letter in line:
+           offset += 1
+           if letter == ' ':
+               yield offset
+
+with open('/tmp/address.txt', 'r') as f:
+    it = index_file(f)
+    results = islice(it, 0, 3)
+    print(list(results))
+    
+>>>
+[0, 5, 11]
+```
+
+이와 같은 generator를 정의할 때 알아둬야 할 사항은 반환되는 iterator에 상태가 있고 재사용할 수 없다는 사실을 호출하는 쪽에서 알아야 한다는 점이다 (참고 17).
+
+* Generator를 사용하는 방법이 누적된 결과의 리스트를 반환하는 방법보다 이해하기에 명확하다.
+* Generator에서 반환한 iterator는 generator 함수의 본문에 있는 yield 표현식에 전달된 값들의 집합이다.
+* Generator는 모든 입력과 출력을 메모리에 저장하지 않으므로 입력값의 양을 알기 어려울 때도 연속된 출력을 만들 수 있다.
+
+### 17. 인수를 순회할 때는 방어적으로 하자
+
+
 
 
 
