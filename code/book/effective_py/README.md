@@ -729,6 +729,13 @@ def index_words(text):
         if letter == ' ':
             result.append(index + 1)
     return result
+    
+address = 'Four score and seven years ago...'
+result = index_words(address)
+print(result[:3])
+
+>>>
+[0, 5, 11]
 ```
 
 샘플 입력이 적을 때는 함수가 기대한 대로 동작한다. 하지만, 위와 같은 append 기반의 함수는 다음과 같은 문제가 있다.
