@@ -1,5 +1,9 @@
 # Week 2. Algorithmic Warm-up
 
+Daniel Kane <br>
+Department of Computer Science and Engineering <br>
+University of California, San Diego
+
 Learning Objectives
 * Estimate the running time of an algorithm
 * Practice implementing efficient solutions
@@ -178,7 +182,64 @@ Computing runtime과 프로그램이 얼마나 오래걸리는 지에 대한 이
 * Measure runtime without knowing these details
 * Get results that work for large inputs
 
-### 
+### Asymptotic Notation
+
+Computing runtime을 정확하게 측정하는 것은 computer와 program의 모든 종류의 detail을 요구하기 때문에 어렵다. 따라서, 우리는 비록 덜 정확하더라도 좀 더 쉬운 측정 방법을 고안해야 한다. (Appromately하게 측정하고자 하는) 아이디어는 다음과 같다.
+
+>> All of these issues can multiply runtimes by (large) constant. So, measure runtime in a way that ignores constant multiples
+
+상수배는 고려하지 않음("이정도까지 디테일하게 측정하지 않겠다")으로써 rumtime complexity를 줄일 수 있다. 그런데, 이렇게 생각하면 1 second 나 1 hour 나 1 year 이 똑같다고 판단하는 것인데 잘못된 것이 아닌가? (e.g. 1 hour = 3600 seconds)
+
+사실, runtime 측정 방식이 조금 다르다. 일반적으로 특정한 입력에 대한 runtime을 측정하는 것이 아니라, 입력 사이즈가 커짐에 따른 양상을 살펴보는 **asymtotic runtimes**를 사용한다. 즉, "How does the runtime scale with input size?", "As the input size n gets larger, does the output **scale** proportional to n, or n squared, or exponential in n?" 과 같은 문제로 생각할 수 있다. 어떤 한 시점만 생각하면 contant multiple of 1000n이 별로 안 좋게 보일 수 있겠지만, n이 커짐에 따라 이는 n squared보다 훨씬 더 좋아진다. 이러한 양상을 보는 것이 일종의 "asymtotic, large scale behavior"과 같다. (without seeing these constants, without having to care about these details.) 이는 일리가 있는 게 사실 우리는 프로그램을 돌릴 때 very large input에 어떻게 반응하는지 더 관심이 있기 때문이다.
+
+다음은 입력 크기에 따른 대략적인 runtime을 나타낸 표이다. 가로는 runtime, 세로는 input size이다. 아래 표를 통해 n과 n squared의 차이가 얼마나 큰 지 알 수 있다.
+
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/media/class/datastrc_algthm_spec/algorithmic_toolbox/images/week_2_10.PNG" width="40%" height="40%"></p>
+
+일반적으로 다음과 같은 common times를 가진다. 그래프를 통해 이들의 차이를 눈으로 확인할 수 있다. 아주 작은 입력은 이들의 차이를 크게 못 느낄 수 있지만, 입력의 크기가 점점 커질수록 매우 큰 차이를 가진다. 아래 그래프가 asymtotic의 key idea라고 볼 수 있다.
+
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/media/class/datastrc_algthm_spec/algorithmic_toolbox/images/week_2_11.PNG" width="40%" height="40%"></p>
+
+We don't care so much about the constants, we care about what happens as your inputs get very large, how do they scale.
+
+### Big-O Notation
+
+Big-O 표기법은 일종의 asymtotic 표기법이다. Big-O 표기법의 정의는 다음과 같다. 매우 큰 입력에 대해 결국 f(n)으로 수렴할 것이라는 내용이다. 고등수학에서 배운 수렴과 똑같은 의미이다.
+
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/media/class/datastrc_algthm_spec/algorithmic_toolbox/images/week_2_12.PNG" width="40%" height="40%"></p>
+
+예를 들어, 다음 2개의 함수는 입력이 커짐에 따라 똑같은 growth rate를 가진다.
+
+
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/media/class/datastrc_algthm_spec/algorithmic_toolbox/images/week_2_13.PNG" width="40%" height="40%"></p>
+
+우리는 이러한 big-O 표기법을 algorithm runtimes로 사용할 것이다. (일반적인 알고리즘 runtime 측정 방식이다). 
+
+첫 번째 장점은 다음과 같이 growth rate를 명확하게 그릴 수 있다. 우리는 사실 입력 크기에 대한 runtime scale에 관심이 많다. 만약에, 입력을 상세하게 고려한다면 서로 다른 알고리즘들을 비교하기 매우 어려울 것이다. 하지만, asymptotically하게 그래서 n이 커질수록 어떤 일이 일어냐나를 관찰하면 좀 더 명확하고 쉽게 구별할 수 있다. "once n is very, very large, algorithm a is better than algorithm b."
+
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/media/class/datastrc_algthm_spec/algorithmic_toolbox/images/week_2_14.PNG" width="40%" height="40%"></p>
+
+두 번째 장점은 cleans up notation을 할 수 있다. (big-O에서 base logarithm을 신경쓰지 않는다). 이렇게 fewer lower order terms를 다루게 되면서 algebra를 더 쉽게 사용할 수 있다.
+
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/media/class/datastrc_algthm_spec/algorithmic_toolbox/images/week_2_15.PNG" width="40%" height="40%"></p>
+
+마지막 장점은 complicated details를 생략할 수 있다. 이제는 컴퓨터가 얼마나 빠른지, 메모리 계층 구조가 어떻게 되어있는지, 어떤 컴파일러를 사용하는 지와 같은 디테일한 내용을 알 필요가 없다. 이러한 detail들의 영향은 오직 constant multiple이기 때문이다.
+
+하지만, big-O를 사용할 때 조심해야 될 점이 있다. details를 생략하기 때문에 많은 정보 (about constant multiples)들을 잃는다. 따라서, 먼저 big-O에 따라 (asymtotic runtime에 따라) 알고리즘 비교를 하고, 그 다음에 details를 고려해봐야 한다. 즉, 같은 big-O이더라도 details를 신경쓰면 조금 더 빠르게 만들 수 있다. 
+
+마지막으로 big-O는 오직 asymtotic이라는 것을 기억해야 한다. 만약에, 특정한 입력에 대해서만 알고리즘을 비교한다고 하면 big-O가 어울리지 않는다. big-O가 얼마나 오래 걸리는지 말해주지 못한다. 보통 big-O에 숨겨진 constants는 매우 작지만, 상황에 따라 가끔... 크기도 하다. 매우 큰 입력에 대해 big-O runtime이 안좋은 알고리즘이 practical 사이즈 입력에 대해 더 좋을 수도 있다. 다음과 같은 상황이 생길 수도 있다. "there are cases of this where you find two algorithms where a works better than b on really, really, really big inputs. But sometimes really, really, really big means more than you could ever store in your computer in the first place. And so, for any practical input you want to use algorithm b."
+
+### Using Big-O
+
+big-O를 어떻게 표현하는지에 대해 알아보고 big-O에 따라 runtime을 측정해보자.
+
+big-O의 common rules는 다음과 같다. 더 느린 쪽으로 big-O로 표현할 수 있다.
+
+
+
+
+
+
 
 
 

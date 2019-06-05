@@ -88,7 +88,7 @@
 
 자바에서는 특수한 문자를 나타내기 위해 역슬래시(backslash)를 사용한다.
 
-```
+```java
 public class PrimitiveType {
 	public static void main(String args[ ])
 	{
@@ -115,7 +115,7 @@ public class PrimitiveType {
 문자열(String) <br>
 자바에서의 문자열은 기본 자료형으로 제공되고 있지 않고, String 클래스로 구현되어 있다. 빈번하게 사용되기 때문에 기본 자료형과 같이 변수로 사용될 수 있다.
 
-```
+```java
 public class StringTest {
 	public static void main(String args[ ]) {
 		String str1 = “대한민국”;
@@ -128,7 +128,7 @@ public class StringTest {
 ## 자바의 기본 구조2: 선택, 반복, 배열
 
 자바에서의 배열을 사용하기 위해서는 배열을 선언하고, 생성해주어야 한다.
-```
+```java
 type name[ ] = new type[size]
 type name[ ][ ] = new type[size][size];
 type name[ ][ ][ ] = new type[size][size][size];
@@ -136,7 +136,7 @@ type name[ ][ ][ ] = new type[size][size][size];
 
 배열의 첫 번째 axis는 필수적으로 size를 정해줘야 한다. 나머지 axis들은 size를 정해줘도 되고 안정해줘도 된다.
 
-```
+```java
 int[ ][ ] score = new int[2][ ];
 score[0] = new int[2];
 score[1] = new int[3];
@@ -147,7 +147,7 @@ score[2] = new int[4];
 
 배열의 선언과 생성과정을 거치면 배열을 사용하기 위해 초기화를 해야한다.
 
-```
+```java
 int id[ ] = new int[3];
 int[0] = 20119501;
 int[1] = 20119502;
@@ -178,7 +178,7 @@ int id[ ] = { 20119501, 20119502, 20119503 };	// 이렇게 한 문장으로 하�
 **객체** <br>
 클래스로부터 객체를 생성하는 과정을 실체화(instantiation)라고 하고, 객체를 인스턴스(instance)라 부르기도 한다. 하나의 클래스로부터 객체가 생성될 때 각 객체는 같은 속성과 기능을 가지지만, 속성에 저장된 값은 모두 다르게 지정할 수 있다.
 
-```
+```java
 class Avg {
 	String name;
 	int avg;
@@ -205,7 +205,7 @@ public class AvgTest {
 **상속(Inheritance)** <br>
 student 객체와는 비슷하지만 속성과 함수가 약간 다른 객체를 생성하려면 어떻게 해야하나? 처음부터 다 설계해야 할까? 아니다! 객체지향이니까, 기존에 있는 student 객체를 활용할 수 있다. 어떻게? 상속을 이용한다. 즉, 기존 클래스로부터 모든 속성과 메소드를 상속받고, 더 필요한 속성과 메소드를 추가하여 새로운 클래스를 생성할 수 있다. 이러한 개념이 상속이다.
 
-```
+```java
 class Avg {
 	String name;
 	int avg;
@@ -257,7 +257,7 @@ public class AvgTest2 {
 **메시지(Message)** <br>
 메시지는 객체에 일을 시키는 행위라 할 수 있다. 프로그램에서 생성된 객체들은 이러한 메시지를 주고받음으로써 일을 수행한다. 프로그램 작성자는 사용하고자 하는 객체를 정의한 다음 이러한 객체들이 어떤 일을 수행해야 하는지를 메시지로 기술해야 한다. 일반적으로 메시지에는 메시지를 받을 객체의 이름, 메소드 이름, 메소드의 수행에 필요한 인자(argument)들을 포함한다. (메시지는 그냥 객체에 있는 함수 호출과 같다)
 
-```
+```java
 public class AvgTest {
 	public static void main (String[] args) {
 		AvgTotal student1 = new AvgTotal( );
@@ -270,7 +270,7 @@ public class AvgTest {
 **다형성(Polymorphism)** <br>
 다양한(poly) 변신(morphism)을 의미하는 그리스어에 기원을 둔다. 즉, 서로 다른 객체가 동일한 메시지에 대하여 서로 다른 방법으로 응답할 수 있는 기능이다. “서로 다른 객체”, “동일한 메시지”, “서로 다른 방법”
 
-```
+```java
 class Avg3 {
 	public String name;
 	private int avg;
@@ -300,7 +300,7 @@ public class AvgTest3 {
 ## 클래스: 속성
 자바 프로그램은 클래스로부터 객체를 생성하여 프로그램이 작성된다. 객체를 생성하기 위해서 클래스를 먼저 작성하여야 한다. (자바 프로그램은 클래스의 집합이다) 클래스는 클래스의 속성에 해당하는 멤버 변수 부분과 클래스의 기능에 해당하는 생성자 (생성자 메소드라고도 부름)와 메소드 정의부분으로 구성된다.
 
-```
+```java
 public class Box_Sample {
 	int width;
 	int height;
@@ -341,7 +341,7 @@ public class Box_Sample {
 **객체 선언과 생성** <br>
 객체를 생성하기 위해서는 우선 객체를 선언해야 한다. 자바에서는 사용될 모든 변수나 객체들에 대해 미리 선언하는 것을 요구한다.
 
-```
+```java
 Box mybox1;
 Avg student1;
 String name;
@@ -349,14 +349,14 @@ String name;
 
 객체의 선언만으로 객체가 생성되지 않는다. 객체가 메모리상에서 생성되기 위해서는 선언된 객체를 명시적으로 생성시켜야 한다.
 
-```
+```java
 Box mybox1;
 mybox1 = new Box(10, 20, 30);
 ```
 
 객체의 선언과 생성을 하나의 문장으로 작성할 수 있다.
 
-```
+```java
 Box mybox1 = new Box(10, 20, 30);
 Avg student1 = new Avg();
 String name = new String(“홍길동”);
@@ -390,7 +390,7 @@ String name = new String(“홍길동”);
 
 일반 객체 변수는 객체가 생성될 때마다 메모리에 그 변수의 값을 저장할 수 있는 공간이 생기는 반면, 클래스 변수는 같은 클래스로부터 생성된 모든 객체들이 하나의 클래스 변수값을 공유한다. 이러한 이유로 일반 변수는 객체의 이름을 통해서 접근이 가능하지만, 클래스 변수는 클래스명을 통해서 접근할 수 있다 (물론, 클래스 이름, 객체 이름 모두 접근 가능하다)
 
-```
+```java
 class Box3 {
 	int width;
 	int height;
@@ -455,7 +455,7 @@ final int MIN = 1;
 **생성자(Constructor)** <br>
 생성자는 클래스로부터 객체가 생성될 때 객체의 초기화 과정을 기술하는 특수한 메소드로 객체가 생성될 때 무조건 수행된다. (생성자는 객체가 생성될 때 한 번만 수행된다) 생성자는 프로그램에 의해 명시적으로 호출되지 않고 객체를 생성하는 new 명령어(예약어)에 의해 자동으로 실행된다. 생성자는 주로 객체 변수를 초기화할 필요가 있을 때 사용하며 생성자의 이름은 반드시 클래스의 이름과 동일해야 한다. 일반적으로 생성자에는 private 한정자를 사용하지 않는다. 생성자는 클래스로부터 객체를 생성할 때 무조건 수행되므로 private으로 지정하게 되면 외부에서 객체를 생성할 때 생성자가 수행될 수 없어 오류가 발생하게 된다. 생성자에 private 한정자를 붙이는 경우는 생성자가 클래스 내부에서만 사용될 때 가능하다.
 
-```
+```java
 class Box5 {
 	int width;
 	int height;
@@ -508,7 +508,7 @@ public class Box5Test {
 **예약어 this** <br>
 this는 자바의 예약어(reserved word)이며 현재의 객체를 의미한다. 일반적으로 생성자나 메소드의 매개변수가 객체 변수와 같은 이름을 사용하는 경우에 this를 사용하게 된다. (가독성을 위해서라도 this를 사용하는 게 좋지않나?)
 
-```
+```java
 class Box5 {
 	int width;
 	int height;
@@ -532,7 +532,7 @@ class Box5 {
 **클래스 메소드(static)** <br>
 클래스 메소드는 클래스 변수와 비슷한 특징을 가진다. 클래스 메소드 역시 클래스 변수처럼 클래스 명과 객체 명을 통해서 접근할 수 있으며, 클래스로부터 생성된 모든 객체들이 공유할 수 있는 메소드이다. 클래스 메소드에는 일반 객체 변수를 사용할 수 없다. 클래스 메소드 내에서는 오직 클래스 변수만이 사용 가능하다. 단, 클래스 메소드 내에서 선언된 지역 변수는 사용할 수 있다 (메모리에 통째로 같이 올라가니까…)
 
-```
+```java
 class Box9 {
 	private int width;
 	private int height;
@@ -608,7 +608,7 @@ protected 접근 한정자는 같은 패키지 내의 클래스와 같은 패키
 
 다음은 오버라이딩이 되지 않는 예이다. 상위 클래스와 하위 클래스의 메소드 이름은 같지만 매개변수의 개수와 타입이 같지 않아 오버라이딩이 되지 않는다. 이 경우 하위 클래스의 입장에서 보면 메소드가 오버로딩된 것으로 볼 수 있다. (이처럼 오버로딩과 오버라이딩은 밀접한 관계를 가진다)
 
-```
+```java
 class Da {
 	void show(String str) {
 		System.out.println(“상위 클래스의 메소드(string) 수행 “ +str);

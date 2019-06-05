@@ -7,23 +7,24 @@
 ## Research & mini-Project :runner:
 The list of codes from Research and Project are specified in [**about**](https://gritmind.github.io/about/).
 
+
 _mini-Project_
-* [Yelp 리뷰 데이터를 활용한 데이터 마이닝 프로젝트](https://github.com/gritmind/data_mining_project) | 2018.06~07
-* [개체명 인식을 위한 학습 데이터 자동 확장 연구](https://github.com/gritmind/text_augmentation) | 2017.07~10
-* [한국어 형태소 분석기와 품사 태거 구현](https://github.com/gritmind/morph_and_pos_analyzer_korean) | 2017.03~06
-* [Image Processing for Fire Detection with Raspberry Pi](https://github.com/gritmind/image_processing_for_fire_detection) | 2014.03~06
-* [Intelligent Humanoid Robot for Relay and Separate Object](https://github.com/gritmind/intelligent_humanoid_robot_competition) | 2013.07~11
-* [Web and Mobile Application for Social Network](https://github.com/gritmind/dormitory_social_network) | 2013.05~10
+* [Yelp 리뷰 데이터를 활용한 데이터 마이닝 프로젝트](https://github.com/gritmind/data_mining_project) | 2018.06-07
+* [개체명 인식을 위한 학습 데이터 자동 확장 연구](https://github.com/gritmind/text_augmentation) | 2017.07-10
+* [한국어 형태소 분석기와 품사 태거 구현](https://github.com/gritmind/morph_and_pos_analyzer_korean) | 2017.03-06
+* [Image Processing for Fire Detection with Raspberry Pi](https://github.com/gritmind/image_processing_for_fire_detection) | 2014.03-06
+* [Intelligent Humanoid Robot for Relay and Separate Object](https://github.com/gritmind/intelligent_humanoid_robot_competition) | 2013.07-11
+* [Web and Mobile Application for Social Network](https://github.com/gritmind/dormitory_social_network) | 2013.05-10
 
 
 ## Class :family:
 The list of codes from online courses are specified in [MEDIA](#MEDIA). :runner:
-* [Deep Learning: Advanced NLP and RNNs](https://github.com/gritmind/review/tree/master/code/class/advanced_nlp_lazy) (Udemy, Lazy Programmer) | 2018.07~08
+* [Deep Learning: Advanced NLP and RNNs](https://github.com/gritmind/review/tree/master/code/class/advanced_nlp_lazy) (Udemy, Lazy Programmer) | 2018.07-08
 
 
 ##  CodeBook :family:
-* [Elements of Programming Interviews in Python](https://github.com/gritmind/review/blob/master/code/book/interview_py/README.md) | 2019.01~
-* [파이썬 코딩의 기술 (Effective PYTHON)](https://github.com/gritmind/review/blob/master/code/book/effective_py/README.md) | 2019.01~
+* [Elements of Programming Interviews in Python](https://github.com/gritmind/review/blob/master/code/book/interview_py/README.md) | 2019.01-
+* [파이썬 코딩의 기술 (Effective PYTHON)](https://github.com/gritmind/review/blob/master/code/book/effective_py/README.md) | 2019.01-
 * [알기 쉽게 해설한 JAVA](https://github.com/gritmind/review/blob/master/code/book/java_kim/README.md) | 2018.11
 * 개념을 콕콕 잡아주는 C 프로그래밍 [[note](https://1drv.ms/w/s!AllPqyV9kKUrwjk_wNK-qM6eJjqd)] | 2018.10
 
@@ -37,22 +38,21 @@ _MACHINE LEARNING MASTERY_
 ## Kaggle & HackerRank :runner:
 Kaggle ID: [@gritmind](https://www.kaggle.com/gritmind)
 
-* [Movie Review Sentiment Analysis](https://github.com/gritmind/review/tree/master/code/kaggle/movie_review_sentiment_analysis) | 2018.08
+* [Movie Review Sentiment Analysis](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/kaggle/movie-review-sentiment-analysis.ipynb) | 2018.08
+
 
 HackerRank ID: [@gritmind](https://www.hackerrank.com/gritmind)
 
-* [Problem Solving](https://github.com/gritmind/review/tree/master/code/hackerrank/problem_solving/README.md) | 2018.08~
+* [Problem Solving](https://github.com/gritmind/review/tree/master/code/hackerrank/problem_solving/README.md) | 2018.08-
 
 
 ## Blog & Tutorial :family:
-* [Snippet](https://github.com/gritmind/review/blob/master/code/tutorial/reddit/README.md) | 2019~
 * Visualizing Layer Representations in Neural Networks [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/tutorial/Visualizing-Layer-Representations-in-Neural-Networks.ipynb)] | 
 * 한국어 감정 분석 by PyCon Korea 2015, LucyPark [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/tutorial/korean_lucypark/Korean_Sentiment_Analysis.ipynb)]
 * Topic Modeling with Gensim [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/tutorial/topic-modeling-with-gensim.ipynb)]
 
-## Task :runner:
-* [Python Data Handler](https://github.com/gritmind/python_data_handler/README.md) | 2018~
-* [Code Warehouse](https://github.com/gritmind/review/tree/master/code/task/code_warehouse/README.md) | 2018.11~
+## myWork :runner:
+* [Code Warehouse](https://github.com/gritmind/review/tree/master/code/task/code_warehouse/README.md) | 2018.11-
 * Syntax Comparison between Python and Java [[note](https://1drv.ms/w/s!AllPqyV9kKUrwxOo9L1syWAnlRoh)] | 2018.10
 * Korean Lexical analyzer with Recursion [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/lexical_recursion.ipynb)] | 2018.11
 * POS tagger with Viterbi algorithm [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/pos_viterbi.ipynb)] | 2018.11
@@ -62,8 +62,8 @@ HackerRank ID: [@gritmind](https://www.hackerrank.com/gritmind)
 # PAPER
 
 ## TextBook
-* Deep Learning (I. Goodfellow, 2016) | 2018~
-* [기계 학습](https://github.com/gritmind/review/tree/master/paper/book/machine-learning-oh/README.md) (오일석, 2017.12) | 2018~
+* Deep Learning (I. Goodfellow, 2016) | 2018-
+* [기계 학습](https://github.com/gritmind/review/tree/master/paper/book/machine-learning-oh/README.md) (오일석, 2017.12) | 2018-
 
 
 ## Paper
@@ -133,8 +133,9 @@ _ETC._
 ## Article
 * Jumping NLP Curves (E.Cambria, MAY2014, IEEE COMPUTATIONAL INTELLIGENCE MAGAZINE)
 * [Probabilistic Topic Models](https://github.com/gritmind/review/blob/master/paper/paper/topic-model-review.md) (M.Blei, APRIL2012, Communications of the ACM) | 2018
-* [[특집] 4차 산업 혁명 시대의 국어 생활](https://github.com/gritmind/review/blob/master/paper/paper/korean_special_edition.md) | 2018~
-* 한국어 자연어처리 관련 기사 모음 [[note](https://1drv.ms/w/s!AllPqyV9kKUrw2VMV94cTkm9-uS2)] | 2018~
+* [[특집] 4차 산업 혁명 시대의 국어 생활](https://github.com/gritmind/review/blob/master/paper/paper/korean_special_edition.md) | 2018-
+* [한국어 자연어처리 기사 모음](https://github.com/gritmind/review/blob/master/paper/article/koreannlp_articles.md) | 2018-
+
 
 ## Blog
 * [Calculus on Computational Graphs: Backpropagation](https://github.com/gritmind/review/blob/master/paper/blog/colah/calculus-on-computational-graphs.md) (Aug31, 2015, Colah) | 2016
@@ -158,27 +159,27 @@ _ETC._
 * [Neural Network and Deep Learning](https://github.com/gritmind/review/tree/master/media/class/neural-network-and-deep-learning) (ETRI) | 2016 Spring
 
 _On-line_
-* [Data Structures and Algorithms Specialization](https://github.com/gritmind/review/tree/master/media/class/datastrc_algthm_spec) (Coursera) | 2019.01~
-* [Deep Learning Nanodegree Foundation](https://github.com/gritmind/deep_learning_nanodegree_foundation) (Udacity) | 2017.01~06
-* [Data Mining Specialization](https://github.com/gritmind/review/tree/master/media/class/data-mining-specialization) (Coursera) | 2015.03~07, 2018.06~07
-* [Machine Learning](https://github.com/gritmind/review/tree/master/media/class/machine-learning-coursera) (Coursera, Andrew Y.Ng) | 2015.08~10
-* [The Analytics Edge](https://github.com/gritmind/review/tree/master/media/class/analytics-edge) (edX) | 2015.07~09 
+* [Data Structures and Algorithms Specialization](https://github.com/gritmind/review/tree/master/media/class/datastrc_algthm_spec) (Coursera) | 2019.01-
+* [Deep Learning Nanodegree Foundation](https://github.com/gritmind/deep_learning_nanodegree_foundation) (Udacity) | 2017.01-06
+* [Data Mining Specialization](https://github.com/gritmind/review/tree/master/media/class/data-mining-specialization) (Coursera) | 2015.03-07, 2018.06-07
+* [Machine Learning](https://github.com/gritmind/review/tree/master/media/class/machine-learning-coursera) (Coursera, Andrew Y.Ng) | 2015.08-10
+* [The Analytics Edge](https://github.com/gritmind/review/tree/master/media/class/analytics-edge) (edX) | 2015.07-09 
 
 
 ## Seminar / Tutorial
 * [Elastic On Tour](https://github.com/gritmind/review/blob/master/media/seminar/elasticontour2019.md) (elastic) | 2019.02.22
-* [AI KOREA 2018](https://github.com/gritmind/review/blob/master/media/seminar/ai_korea_2018.md) (KIISE AI Society) | 2018.07.26~27
-* [2018 패턴인식 및 기계학습 겨울학교 (Insightful Machine Learning)](https://github.com/gritmind/review/tree/master/media/seminar/2018PRMLWS) (KIISE AI Society) | 2018.01.24~25
-* [2017 information Technology and Industry Prospects](https://github.com/gritmind/review/blob/master/media/seminar/itip2017.md) | 2017.10.27~28
-* [2017 패턴인식 및 기계학습 여름학교 (Returning to Basic Principles)](https://github.com/gritmind/review/blob/master/media/seminar/prmlss_2017.md) (KIISE AI Society) | 2017.07.11~12
-* [기계번역 및 챗봇 기술](https://github.com/gritmind/review/blob/master/media/seminar/ml-and-chatbot.md) (KIISE AI Society) | 2017.06.26~27
-* [KCC2017 Tutorial](https://github.com/gritmind/review/tree/master/media/seminar/kcc2017) (KCC2017) | 2017.06.18~20
+* [AI KOREA 2018](https://github.com/gritmind/review/blob/master/media/seminar/ai_korea_2018.md) (KIISE AI Society) | 2018.07.26-27
+* [2018 패턴인식 및 기계학습 겨울학교 (Insightful Machine Learning)](https://github.com/gritmind/review/tree/master/media/seminar/2018PRMLWS) (KIISE AI Society) | 2018.01.24-25
+* [2017 information Technology and Industry Prospects](https://github.com/gritmind/review/blob/master/media/seminar/itip2017.md) | 2017.10.27-28
+* [2017 패턴인식 및 기계학습 여름학교 (Returning to Basic Principles)](https://github.com/gritmind/review/blob/master/media/seminar/prmlss_2017.md) (KIISE AI Society) | 2017.07.11-12
+* [기계번역 및 챗봇 기술](https://github.com/gritmind/review/blob/master/media/seminar/ml-and-chatbot.md) (KIISE AI Society) | 2017.06.26-27
+* [KCC2017 Tutorial](https://github.com/gritmind/review/tree/master/media/seminar/kcc2017) (KCC2017) | 2017.06.18-20
 * [Reinforcement Learning](https://github.com/gritmind/review/tree/master/media/seminar/nacsi-rl) (NACSI) | 2017.05.19
 * [Generative Adverserial Network](https://github.com/gritmind/review/tree/master/media/seminar/nacsi-gan) (NACSI) | 2017.04.29
-* [2016 패턴인식 및 기계학습 여름학교 (Bayesian Deep Learning)](https://github.com/gritmind/review/blob/master/media/seminar/prml-bayesian-deep-learning.md) (KIISE AI Society) | 2016.8.17~19
-* [딥러닝 및 추천기술](https://github.com/gritmind/review/blob/master/media/seminar/kiise-dl-recommender.md) (KIISE AI Society) | 2016.12.02~03 
-* [파이썬과 오픈소스를 활용한 딥러닝](https://github.com/gritmind/review/tree/master/media/seminar/multicampus-dl) (MULTICAMPUS) | 2016.09.05~09
-* [Deep Learning](https://github.com/gritmind/review/tree/master/media/seminar/nacsi-dl) (NACSI) | 2016.04.15~16
+* [2016 패턴인식 및 기계학습 여름학교 (Bayesian Deep Learning)](https://github.com/gritmind/review/blob/master/media/seminar/prml-bayesian-deep-learning.md) (KIISE AI Society) | 2016.8.17-19
+* [딥러닝 및 추천기술](https://github.com/gritmind/review/blob/master/media/seminar/kiise-dl-recommender.md) (KIISE AI Society) | 2016.12.02-03 
+* [파이썬과 오픈소스를 활용한 딥러닝](https://github.com/gritmind/review/tree/master/media/seminar/multicampus-dl) (MULTICAMPUS) | 2016.09.05-09
+* [Deep Learning](https://github.com/gritmind/review/tree/master/media/seminar/nacsi-dl) (NACSI) | 2016.04.15-16
 
 _On-line_
 * [시즌 Reinforcement Learning](https://github.com/gritmind/review/tree/master/media/seminar/all-mldl-rl) (모두를 위한 머신러닝/딥러닝 강의) | 2017.06.01

@@ -1,5 +1,9 @@
 # Week 1. Programming Challenges
 
+Daniel Kane <br>
+Department of Computer Science and Engineering <br>
+University of California, San Diego
+
 Learning Objectives
 * Practice implementing algorithms
 * Practice testing and stress testing programs
@@ -43,7 +47,7 @@ return product
 ```
 This code cab be optimized and made more compact as follows:
 
-```
+```c++
 # Uses C++ 
 #include <iostream> 
 #include <vector>
@@ -79,7 +83,7 @@ int main() {
 
 ```
 
-```
+```java
 # Uses Java 
 import java.util.*; 
 import java.io.*;
@@ -137,7 +141,7 @@ public class MaxPairwiseProduct {
 }
 ```
 
-```
+```python
 # Uses python3 
 n = int(input()) 
 a = [int(x) for x in input().split()]
@@ -306,7 +310,7 @@ return A[n−1]·A[n]
 
 
 APlusB.py
-```
+```python
 def sum_of_two_digits(first_digit, second_digit):
     return first_digit + second_digit
 
@@ -318,7 +322,7 @@ if __name__ == '__main__':
 
 max_pairwise_product.py
 
-```
+```python
 def max_pairwise_product(numbers):
     n = len(numbers)
     numbers.sort()
