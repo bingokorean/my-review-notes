@@ -5,7 +5,7 @@
 ### Contents
 1.	[파이썬다운 생각](#파이썬다운-생각)
 2. [함수](#함수)
-3. 클래스와 상속
+3. [클래스와 상속](#클래스와-상속)
 4. 메타클래스와 속성
 5. 병행성과 병렬성
 6. 내장 모듈
@@ -1040,25 +1040,181 @@ pounds_per_hour = flow_rate(weight_diff, time_diff, 3600, 2.2)
 
 ### 20. 동적 기본 인수를 지정하려면 None과 docstring을 사용하자
 
-키워드 인수의 기본값으로 비정적(non-static) 타입을 사용해야 할 때도 있다. 예를 들어 이벤트 발생 시각까지 포함해 로깅 메시지를 출력한다고 하자. 기본적인 경우는 다음과 같이 함수를 호출한 시각을 메시지에 포함하려고 한다.
+키워드 인수의 기본값으로 비정적(non-static) 타입을 사용해야 할 때도 있다. 예를 들어 이벤트 발생 시각까지 포함해 로깅 메시지를 출력한다고 하자. 기본적인 경우는 다음과 같이 함수를 호출한 시각을 메시지에 포함하려고 한다. 함수가 호출될 때마다 기본 인수를 평가한다고 가정하고 다음과 같이 처리하려 할 것이다.
 
 ```python
+def log(message, when=datetime.now()):
+    print('%s: %s' % (when, message))
+	
+log('Hi there!')
+sleep(0.1)
+log('Hi again!')
 
+>>>
+2014-11-15 21:10:10.371432: Hi there!
+2014-11-15 21:10:10.371432: Hi again!
 ```
 
+datetime.now 함수를 정의할 때 딱 한 번만 실행되므로 타임스탬프가 동일하게 출력된다.
+
+파이썬에서 결과가 기대한 대로 나오게 하려면 기본값을 None으로 설정하고 docstring(문서화 문자열)으로 실제 동작을 문서화하는 게 관례다(ref.49). 코드에서 인수 값으로 None이 나타나면 알맞은 기본값을 할당하면 된다.
+
+```python
+def log(message, when=None):
+    """Log a message with a timestamp.
+	
+	Args:
+	    message: Message to print.
+		when: datetime of when the message occurred.
+		    Defaults to the present time.
+	"""
+	when = datetime.now() if when is None else when
+	print('%s: %s' % (when, message))
+	
+log('Hi there!')
+sleep(0.1)
+log('Hi again!')
+
+>>>
+2014-11-15 21:10:10.472303: Hi there!
+2014-11-15 21:10:10.573395: Hi again!
+```
+
+인수가 수정 가능(mutable)할 때, 기본 인수값으로 None을 사용하는 것이 중요하다. 예를 들어, json 데이터로 인코드된 값을 로드한다고 하자. 데이터 디코딩이 실패하면 기본값으로 빈 딕셔너리를 반환하려 한다.
+
+```python
+def decode(data, default={}):
+    try:
+        return json.loads(data)
+	except ValueError:
+		return default
+		
+foo = decode('bad data')
+foo['stuff'] = 5
+bar = decode('also bad')
+bar['meep'] = 1
+print('Foo:', foo)
+print('Bar:', bar)
+
+>>>
+Foo: {'stuff': 5, 'meep': 1}
+Bar: {'stuff': 5, 'meep': 1}
+```
+
+위의 코드는 datatime.now 예제와 같은 문제가 있다. 기본 인수값은 모듈이 로드될 때 딱 한 번만 할당받으므로, 기본값으로 설정한 딕셔너리를 모든 decode 호출에서 공유한다.
+
+키워드 인수의 기본값을 None으로 설정하고 함수의 docstring에 동작을 문서화해서 이 문제를 해결한다.
+
+```python
+def decode(data, default=None):
+	"""Load JSON data from a string.
+	
+	Args:
+		data: JSON data to decode.
+		default: Value to return if decoding fails.
+			Defaults to an empty dictionary.
+	"""
+	if default is None:
+		default = {}
+    try:
+        return json.loads(data)
+	except ValueError:
+		return default
+		
+foo = decode('bad data')
+foo['stuff'] = 5
+bar = decode('also bad')
+bar['meep'] = 1
+print('Foo:', foo)
+print('Bar:', bar)
+
+>>>
+Foo: {'stuff': 5}
+Bar: {'meep': 1}
+```
+
+* 기본 인수는 모듈 로드 시점에 함수 정의 과정에서 딱 한 번만 평가된다. 그래서 ({}나 []와 같은) 동적 값에는 이상하게 동작하는 원인이 된다.
+* 값이 동적인 키워드 인수에는 기본값으로 None을 사용하고, 함수의 docstring에 실제 기본 동작을 문서화하자.
+
+### 21. 키워드 전용 인수로 명료성을 강요하자
+
+키워드로 인수를 넘기는 방법은 파이썬 함수의 강력한 기능이다(ref.19). 키워드 인수의 유연성 덕분에 쓰임새가 분명하게 코드를 작성할 수 있다.
+
+예를 들어, 어떤 숫자를 다른 숫자로 나눈다고 해보자. 때로는 ZeroDivisionError 예외를 무시하고 무한대 값을 반환하고 싶을 수 있고, 어떨 때는 OverflowError 예외를 무시하고 0을 반환하고 싶을 수도 있다.
+
+```python
+def safe_division(number, divisor, 
+				  ignore_overflow, ignore_zero_division):
+    try:
+		return number / divisor
+	except OverflowError:
+		if ignore_overflow:
+			return 0
+		else:
+			raise
+	except ZeroDivisionError:
+		if ignore_zero_division:
+			return float('inf')
+		else:
+			raise
+			
+result = safe_division(1, 10**500, True, False)
+print(result) # 0.0
+result = safe_division(1, 0, False, True)
+print(result) # inf
+```
+
+문제는 예외 무시 동작을 제어하는 두 불 인수의 위치를 혼동하기 쉽다는 점이다. 이 때문에 찾기 어려운 버그가 쉽게 발생할 수 있다. 이런 코드의 가독성을 높이는 한 가지 방법은 키워드 인수를 사용하는 것이다. 그러면 호출하는 쪽에서 키워드 인수로 특정 연산에는 기본 동작을 덮어쓰고 무시할 플래그를 지정할 수 있다.
+
+```python
+def safe_division(number, divisor, 
+				  ignore_overflow=False, 
+				  ignore_zero_division=False):
+	# ...
+	
+safe_division_b(1, 10**500, ignore_overflow=True)
+safe_division_b(1, 0, ignore_zero_division=True)
+```
+
+또, 여기서 발생하는 문제는 이러한 키워드 인수가 선택적인 동작이라서 함수를 호출하는 쪽에 키워드 인수로 의도를 명확하게 드러내라고 '강요'할 방법이 없다는 점이다. safe_division_b라는 새 함수를 정의한다고 해도 여전히 위치 인수를 사용하는 이전 방식으로 호출할 수 있다.
+
+```python
+safe_division_b(1, 10**500, True, False)
+```
+
+복합한 함수를 작성할 때는 호출하는 쪽에서 의도를 명확히 드러내도록 강요하는 게 좋다. 파이썬 3에서는 키워드 전용 인수(keywork-only argument)로 함수를 정의해서 의도를 명확히 드러내도록 강요할 수 있다. 키워드 전용 인수는 키워드로만 넘길 뿐, 위치로는 절대 넘길 수 없다. 다음은 키워드 전용 인수로 safe_division을 다시 정의한 버전이다. 인수 리스트에 있는 * 기호는 위치 인수의 끝과 키워드 전용 인수의 시작을 가리킨다.
+
+```python
+def safe_division_c(number, divisor, *,
+				  ignore_overflow=False, 
+				  ignore_zero_division=False):
+	# ...
+	
+safe_division_c(1, 10**500, True, False)
+
+>>
+TypeError: safe_division_c() takes 2 positional arguments but 4 were given
+
+safe_division_c(1,0, ignore_zero_division=True)	# 문제 없음
+
+try:
+	safe_division_c(1, 0)
+except ZeroDivisionError:
+	pass	# 기대한 대로 동작
+```
+
+* 키워드 인수는 함수 호출의 의도를 더 명확하게 해준다
+* 특히 bool 플래그를 여러 개 받는 함수처럼 혼동하기 쉬운 함수를 호출할 때 키워드 인수를 넘기게 하려면 키워드 전용 인수를 사용하자
+* 파이썬3는 함수의 키워드 전용 인수 문법을 명시적으로 지원한다
 
 
+## 클래스와 상속
 
+파이썬은 상속, 다형성, 캡슐화 같은 객체 지향 언어의 모든 기능을 제공한다. 파이썬으로 작업을 처리하다 보면 새 클래스들을 작성하고 해당 클래스들이 인터페이스와 상속 관계를 통해 상호 작용하는 방법을 정의해야 하는 상황에 자주 접하게 된다. 
 
+파이썬의 클래스와 상속을 이용하면 프로그램에서 의도한 동작을 객체들로 손쉽게 표현할 수 있다. 또한 프로그램의 기능을 점차 개선하고 확장할 수 있다. 아울러 요구 사항이 바뀌는 환경에서도 유연하게 대처할 수 있다. 클래스와 상속을 사용하는 방법을 잘 알아두면 유지보수가 용이한 코드를 작성할 수 있다.
 
-
-
-
-
-
-
-
-
+### 22. 딕셔너리와 튜플보다는 헬퍼 클래스로 관리하자
 
 
 
