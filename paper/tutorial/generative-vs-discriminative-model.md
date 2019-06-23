@@ -38,9 +38,9 @@ Generative models contrast with discriminative models, in that a generative mode
 
 To predict the label y from the training data x, you must evaluate:
 
-f(x) = argmax_y(p(x|y)p(y))
+`f(x) = argmax_y(p(x|y)p(y))`
 
-which we had the joint probability distribution p(x, y) because p(x, y) = p(x |y)*p(y), which explicitly models the actual distribution of each class.
+which we had the joint probability distribution `p(x, y)` because `p(x, y) = p(x |y)*p(y)`, which explicitly models the actual distribution of each class.
 
 Generative models model the distribution of individual classes.
 
@@ -63,6 +63,69 @@ Generative models often outperform discriminative models on smaller datasets bec
 Generative models can actually learn the underlying structure of the data if you specify your model correctly and the model actually holds, but discriminative models can outperform in case that your generative assumptions are not satisfied because discriminative algorithms are less tied to a particular structure, and the real world is messy and assumptions are rarely perfectly satisfied anyways.
 
 
+### 2.2 Discriminative Model
 
+Discriminative model, also called conditional models, are a class of models used in machine learning for modeling the dependence of an unobserved variable y on an observed variable x.
 
+Discriminative models, as opposed to generative models, do not allow one to generate samples from the joint distribution of x and y. However, for tasks such as classification and regression that don't require the joint distribution, discriminative models can yield superior performance. On the other hand, generative models are typically more flexible than discriminative models in expressing dependencies in complex learning tasks. In addition, most discriminative models are inherently supervised and can't easily be extended to unsupervised learning.
 
+To predict the label y from the training data x, you must evaluate :
+
+`f(x) = argmax_y(p(y|x))`
+
+which merely chooses what is the most likely class considering x through the conditional probability distribution p(y |x). It's like we were trying to model the decision boundary between the classes. This behavior is very clear in neural networks, where the computed weights can be seen as a complex shaped curve isolating the elements of a class in the space.
+
+Discriminative models learn the (hard or soft) boundary between classes.
+
+Discriminative models do not offer such clear representations of relations between features and classes in the dataset. Instead of using resources to fully model each class, they focus on richly modeling the boundary between classes. Given the same amount of capacity ( bits in a computer program ), a dicriminative model may yield more complex representations of this boundary than a generative model.
+
+A discriminative is a model simply providing classification splits and not necessarily in a probabilistic manner.
+
+Dicriminative algorithms allow you to classify points without providing a model of how the points are actually generated.
+
+## 추가
+
+Generally there is a practice in machine learning community not to learn something that you don't want for the task. For example, consider a classification task where your goal is to assign labels to a given x input. If we use generative model, we have to model p(x) which is irreverent for the task in hand. `( p(x, y) = p(y |x)*p(x) ).` Practical limitations like data sparseness will force us to model p(x) with some weak independence assumptions. There for we intuitively use discriminative models for classification.
+
+The Statistical Machine Learning Approach
+
+1. Data Collection - Large sample of data of how humans perform the task
+2. Model Selection - Settle on a parametric statistical model of the process
+3. Parameter Estimation - Calculate parameter values by inspecting the data
+4. Search - Find optimal solution to given problem
+
+Generative and Discriminative Models : An analogy
+* The task is to determine the language that someone is speaking
+* Generative approach:
+   * is to learn each language and determine as to which language the speech belongs to by using some knowledge
+* Discriminative approach:
+   * is to determine the linguistic differences without learning any language and then classify them - a much easier task!
+
+Taxonomy of Machine Learning Models
+
+* Generative Methods
+    - Model class-conditional pdfs and prior probabilities
+    - "Generative" since sampling can generate synthetic data points
+    - Popular models
+        - Gaussians, Naive Bayes, Mixtures of multinomials
+        - Mixtures of Gaussians, Mixture of experts, Hidden Markov Models (HMM)
+        - Sigmodal belief networks, Bayesian networks, Markov random fiels
+
+* Discriminative Methods
+    - Learn explicit boundaries between classes.
+    - Directly estimate posterior probabilities
+    - No attempt to model underlying probability distributions
+    - Focus computational resources on given task - better performance
+    - Popular models
+        - Logistic regression, SVMs
+        - Traditional neural networks, Nearest neighbor
+        - Conditional Random Fields (CRF)
+
+## Reference
+
+* [StackOverflow - What is the difference between a Generative and Discriminative Algorithm?](http://stackoverflow.com/questions/879432/what-is-the-difference-between-a-generative-and-discriminative-algorithm)
+* [StackExchange - Generative vs. discriminative](http://stats.stackexchange.com/questions/12421/generative-vs-discriminative)
+* [Machine Learning, Andrew Ng - Lecture Notes : Part IV Generative Learning algorithms](http://cs229.stanford.edu/notes/cs229-notes2.pdf)
+* [Generative and Discriminative Models, Sarsur N. Srihari](http://www.cedar.buffalo.edu/~srihari/CSE574/Discriminative-Generative.pdf)
+* [Wikipedia - Generative model](https://en.wikipedia.org/wiki/Generative_model)
+* [Wikipedia - Discriminative model](https://en.wikipedia.org/wiki/Discriminative_model)
