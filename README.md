@@ -15,7 +15,7 @@
 ## Research
 
 _Research_
-* 
+* ...
 
 _mini-project_
 * [개체명 인식을 위한 학습 데이터 자동 확장 연구](https://github.com/gritmind/text_augmentation) | 2017.07-10
@@ -60,7 +60,6 @@ _Online_
 * [Data Mining Specialization](https://github.com/gritmind/review/tree/master/media/class/data-mining-specialization) (Coursera) | 2015.03-07, 2018.06-07
 * [Machine Learning](https://github.com/gritmind/review/tree/master/media/class/machine-learning-coursera) (Coursera, Andrew Y.Ng) | 2015.08-10
 * [The Analytics Edge](https://github.com/gritmind/review/tree/master/media/class/analytics-edge) (edX) | 2015.07-09
-
 * [Deep Learning: Advanced NLP and RNNs](https://github.com/gritmind/review/tree/master/code/class/advanced_nlp_lazy) (Udemy, Lazy Programmer) | 2018.07-08
 
 
