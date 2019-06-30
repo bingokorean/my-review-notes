@@ -32,8 +32,8 @@ _TextBook_
 * [기계 학습](https://github.com/gritmind/review/tree/master/paper/book/machine-learning-oh/README.md) (오일석, 2017.12) | 2018-
 
 _CodeBook_
-* [Elements of Programming Interviews in Python](https://github.com/gritmind/review/blob/master/code/book/interview_py/README.md) | 2019.01-
-* [파이썬 코딩의 기술 (Effective PYTHON)](https://github.com/gritmind/review/blob/master/code/book/effective_py/README.md) | 2019.01-
+* [Elements of Programming Interviews in Python (Adnan&Tsung-Hsien&Amit, 2018)](https://github.com/gritmind/review/blob/master/code/book/interview_py/README.md) | 2019.01-
+* [파이썬 코딩의 기술: Effective PYTHON (브렛 슬라킨, 2016.03)](https://github.com/gritmind/review/blob/master/code/book/effective_py/README.md) | 2019.01-
 * [알기 쉽게 해설한 JAVA](https://github.com/gritmind/review/blob/master/code/book/java_kim/README.md) | 2018.11
 * 개념을 콕콕 잡아주는 C 프로그래밍 [[note](https://1drv.ms/w/s!AllPqyV9kKUrwjk_wNK-qM6eJjqd)] | 2018.10
 
