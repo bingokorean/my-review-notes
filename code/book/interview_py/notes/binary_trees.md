@@ -66,9 +66,9 @@ def tree_traversal(root):
 		print('Postorder: %d' % root.data)
 ```
 
-각 approach의 time complexity는 O(n)이다 (n는 tree에서 node의 개수임). Function call stack은 최대 tree의 depth h를 가지므로 space complexity는 O(h)이다. Height h의 최소값은 logn이고 (complete binary tree), h의 최대값은 n이다 (skewed tree).
+각 approach의 time complexity는 O(n)이다 (n는 tree에서 node의 개수임). Function call stack은 최대 tree의 depth h를 가지므로 space complexity는 O(h)이다. Height h의 최소값은 log(n)이고 (complete binary tree), h의 최대값은 n이다 (skewed tree). 
 
-
+## 
 
 
 
