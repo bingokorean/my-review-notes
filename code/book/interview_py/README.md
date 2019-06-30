@@ -12,7 +12,7 @@ _Data Structures and Algorithms_
 * [Linked Lists](https://github.com/gritmind/review/blob/master/code/book/interview_py/notes/linked_lists.md)
 * [Stacks and Queus](https://github.com/gritmind/review/blob/master/code/book/interview_py/notes/stacks_and_queues.md)
 * [Binary Trees](https://github.com/gritmind/my-review-notes/blob/master/code/book/interview_py/notes/binary_trees.md)
-* Heaps
+* [Heaps](https://github.com/gritmind/my-review-notes/blob/master/code/book/interview_py/notes/heaps.md)
 * Searching
 * Hash Tables
 * Sorting
