@@ -3,7 +3,7 @@
 2016.03.31, 브렛 슬라킨 지음, 김형철 옮김
 
 ### Contents
-1.	[파이썬다운 생각](#파이썬다운-생각)
+1. [파이썬다운 생각](#파이썬다운-생각)
 2. [함수](#함수)
 3. [클래스와 상속](#클래스와-상속)
 4. 메타클래스와 속성
@@ -15,7 +15,30 @@
 
 ## 파이썬다운 생각
 
-'파이썬다운'이라는 형용사로 파이썬 스타일을 표현한다. 파이썬 스타일은 컴파일러가 정의하는 것이 아닌 파이썬 개발자들이 수년간 사용하면서 자연스럽게 생겨난 것이다. 복잡함보다는 단순함을, 가독성을 극대화하기 위해 명료한 것을 좋아한다. (import this를 쳐보자). 
+'파이썬다운'이라는 형용사로 파이썬 스타일을 표현한다. 파이썬 스타일은 컴파일러가 정의하는 것이 아닌 파이썬 개발자들이 수년간 사용하면서 자연스럽게 생겨난 것이다. 복잡함보다는 단순함을, 가독성을 극대화하기 위해 명료한 것을 좋아한다. 
+
+```
+>>> import this
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+```
 
 ### 1. 파이썬 버전을 확인하자
 
@@ -32,11 +55,11 @@ print(sys.version)
 
 ### 2. PEP 8 스타일 가이드를 따르자
 
-파이썬 개선 제안서(Python Enhancement Proposal #8; PEP 8)를 참고하자. 일관성 있는 스타일로 유지보수가 더욱 쉬워지고 가독성도 높아지고 다양한 프로젝트에서 협업도 가능하다.
+파이썬 개선 제안서 [Python Enhancement Proposal #8 (PEP 8)](https://www.python.org/dev/peps/pep-0008/)를 참고하자. 일관성 있는 스타일로 유지보수가 더욱 쉬워지고 가독성도 높아지고 다양한 프로젝트에서 협업도 가능하다.
 
 ### 3. bytes, str, unicode 차이점을 알자
 
-파이썬3에서는 bytes (raw 8비트; binary 데이터)와 str (unicode 문자) 두 가지 타입으로 문자 시퀀스를 나타낸다. bytes 인스턴스는 raw 8비트 값을 저장하고, str 인스턴스는 unicode 문자를 저장한다. unicode 문자를 binary 데이터로 표현하는 방법은 많다. (ex. UTF-8 인코딩). 허나, str 인스턴스는 연관된 binary 인코딩이 없다 (아예 변환하는 것). 따라서, unicode 문자를 binary 데이터로 변환하려면 encode 함수를, binary 데이터를 unicode 문자로 변환하려면 decode 함수를 사용해야 한다.
+파이썬3에서는 bytes (raw 8비트; binary 데이터)와 str (unicode 문자) 두 가지 타입으로 문자 시퀀스를 나타낸다. bytes 인스턴스는 raw 8비트 값을 저장하고, str 인스턴스는 unicode 문자를 저장한다. unicode 문자를 binary 데이터로 '표현'하는 방법은 많다. (ex. UTF-8 인코딩). 허나, str 인스턴스는 연관된 binary 인코딩이 없다 (아예 변환하는 것). 따라서, unicode 문자를 binary 데이터로 '변환'하려면 encode 함수를, binary 데이터를 unicode 문자로 '변환'하려면 decode 함수를 사용해야 한다.
 
 파이썬 프로그래밍할 때 외부에 제공할 인터페이스에서는 unicode를 encode하고 decode해야 한다 (즉, 바이너리 인코딩). 프로그램 핵심 부분에서는 unicode 문자 타입(ex. str)을 사용하고, 문자 인코딩에 대해서는 어떤 가정도 하지 말아야 한다. 그러기 위해서 다음 두 가지 헬퍼 함수가 필요하다.
 
@@ -109,14 +132,17 @@ def get_first_int(values, key, default=0):
 
 ### 5. 시퀀스를 슬라이스하는 방법을 알자
 
-파이썬은 시퀀스를 slice해서 부분집합에 접근할 수 있도록 해준다. 가장 간단한 슬라이싱 대상은 내장 타입인 list, str, btyes이다. `__getitem__`과 `__setitem__`이라는 특별한 메서드를 구현하는 클래스에도 slicing을 적용할 수 있다. slicing 기본 문법 형태는 somelist[start:end]이며, 여기서 start 인덱스는 포함되고 end 인덱스는 제외된다.
+파이썬은 시퀀스를 slice해서 부분집합에 접근할 수 있도록 해준다. 가장 간단한 슬라이싱 대상은 내장 타입인 list, str, btyes이다. `__getitem__`과 `__setitem__`이라는 특별한 메서드를 구현하는 클래스에도 slicing을 적용할 수 있다. slicing 기본 문법 형태는 `somelist[start:end]`이며, 여기서 start 인덱스는 포함되고 end 인덱스는 제외된다.
 
 list의 처음부터 slice할 때는 보기 편하게 인덱트 0을 생략하고, list의 끝까지 slice할 때도 마지막 인덱스는 넣지 않아도 되므로 생략한다.
+
 ```python
 assert a[:5] == a[0:5]
 assert a[5:] == a[5:len(a)]
 ```
+
 리스트의 끝을 기준으로 오프셋을 계산할 때는 음수로 slice하는 게 편하다. 
+
 ```python
 a = [1,2,3,4,5,6,7,8,9]
 a[-4:] # 뒤에서 4번째까지 추출해라.
@@ -124,6 +150,7 @@ a[-4:] # 뒤에서 4번째까지 추출해라.
 a[-4:-1] # 이런 형태는 조심
 >>> [6,7,8]
 ```
+
 slicing은 start와 end 인덱스가 리스트의 경계를 벗어나도 적절하게 처리한다. 덕분에 입력 시퀀스에 대응해 처리할 최대 길이를 코드로 쉽게 설정할 수 있다. 이와 대조적으로 같은 인덱스를 직접 접근하면 예외가 발생한다.
 
 ```python
@@ -133,9 +160,10 @@ a[20]
 >>> IndexError: list index out of range
 ```
 
-[NOTE] 리스트의 인덱스를 음수로 지정하면 slicing이 뜻밖의 결과를 얻기도 한다. 예를 들어, somelist[-n:]이라는 구문은 somelist[-3:]처럼 n이 1보다 클 때는 제대로 동작하지만, n이 0이어서 somelist[-0:]이 되면 원본 리스트의 복사본을 만든다. slicing 결과는 완전히 새로운 리스트이지만, 원본 리스트에 들어 있는 객체에 대한 참조는 유지된다. 하지만, slice한 결과를 수정해도 원본 리스트에 아무런 영향을 미치지 않는다. 
+[NOTE] 리스트의 인덱스를 음수로 지정하면 slicing이 뜻밖의 결과를 얻기도 한다. 예를 들어, `somelist[-n:]`이라는 구문은 `somelist[-3:]`처럼 n이 1보다 클 때는 제대로 동작하지만, n이 0이어서 `somelist[-0:]`이 되면 원본 리스트의 복사본을 만든다. slicing 결과는 완전히 새로운 리스트이지만, 원본 리스트에 들어 있는 객체에 대한 참조는 유지된다. 하지만, slice한 결과를 수정해도 원본 리스트에 아무런 영향을 미치지 않는다. 
 
 할당에 사용하면 slice는 원본 리스트에서 지정한 범위를 대체한다. `a, b = c[:2]` 같은 튜플 할당과 달리 slice 할당은 길이가 달라도 된다. 할당받은 slice 앞뒤 값은 유지된다. 리스트는 새로 들어온 값에 맞춰 늘어나거나 줄어든다.
+
 ```python
 a[2:7] = [99,22,14]
 print(a)
@@ -149,6 +177,7 @@ assert b == a and b is not a
 ```
 
 slice에 시작과 끝 인덱스를 지정하지 않고 할당하면 (새 리스트를 할당하지 않고) slice의 전체 내용을 참조 대상의 복사본으로 대체한다. (즉, 주소 복사 실시)
+
 ```python
 b = a
 a[:] = [101,102,103]
@@ -161,6 +190,7 @@ print(b)
 * start 인덱스에 0을 설정하거나 end 인덱스에 시퀀스의 길이를 설정하지 말자. 
 * slicing은 범위를 벗어난 start나 end 인덱스를 허용하므로 a[:20]이나 a[-20]처럼 시퀀스의 앞쪽이나 뒤쪽 경계에 놓인 slice를 표현하기 쉽다.
 * list slice에 할당하면 원본 시퀀스에 지정한 범위를 참조 대상의 내용으로 대체한다 (길이가 달라도 동작; 즉, 주소참조를 주의하자)
+
 
 ### 6. 한 슬라이스에 start, end, stride를 함께 쓰지 말자
 
@@ -177,6 +207,7 @@ print(evens)
 ```
 
 문제는 stride 문법이 종종 예상치 못한 동작을 해서 버그를 만들어내기도 한다. 예를 들어, 파이썬에서 바이트 문자열을 역순으로 만든느 일반적인 방법은 stride -1로 문자열을 slice하는 것이다. 문제는 바이트 문자열이나 아스키 문자에는 잘 동작하지만, UTF-8 바이트 문자열로 인코드된 유니코드 문자에는 원하는 대로 동작하지 않는다. 
+
 ```python
 w = '漢字'
 x = w.encode('utf-8')
@@ -190,6 +221,7 @@ position 0: invalid start byte
 -1을 제외한 음수 값으로 stride를 지정하면 어떨까? 2::2는 무슨 뜻일까? 요점은 slicing 문법의 stride 부분이 매우 혼란스러울 수 있다는 점이다. 대괄호 안에 숫자가 세 개나 있으면 빽빽해서 읽기 어렵고 start와 end 인덱스가 stride와 연계되어 어떤  작용을 하는지 분명하지 않다. 특히 stride가 음수인 경우는 더욱 그러하다.
 
 이러한 문제를 방지하기 위해 stride를 start, end 인덱스와 함께 사용하지 말아야 한다. stride를 사용해야 한다면 양수 값을 사용하고 start와 end 인덱스는 생략하는 게 좋다. stride를 꼭 start와 end 인덱스와 함께 사용해야 한다면 stride를 적용한 결과를 변수에 할당하고, 이 변수를 slice한 결과를 다른 변수에 할당해서 사용하자.
+
 ```python
 a = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 b = a[::2] # ['a', 'c', 'e', 'g']
@@ -205,6 +237,7 @@ slicing부터 하고 striding을 하면 데이터의 shallow copy가 추가로 �
 ### 7. map과 filter 대신 list comprehension을 사용하자
 
 파이썬은 list comprehension(리스트 함축 표현식)을 통해 한 리스트에서 다른 리스트로 간결하게 만들 수 있다. 예를 들어 리스트에 있는 각 숫자의 제곱 계산은 다음과 같다.
+
 ```python
 a = [1,2,3,4,5,6,7,8,9,10]
 squares = [x**2 for x in a]
@@ -317,9 +350,11 @@ print(filtered)
 * List comprehension은 다중 루프와 루프 레벨별 다중 조건을 지원한다.
 * 표현식이 두 개가 넘게 들어 있는 list comprehension은 이해하기 매우 어려우므로 피해야 한다.
 
+
 ### 9. Comprehension이 클 때는 generator 표현식을 고려하자
 
 List comprehension의 문제점(7.참고)은 입력 시퀀스에 있는 각 값별로 아이템을 하나씩 담은 새 리스트를 통째로 생성한다는 점이다. 입력이 적을 때는 괜찮지만 클 때는 메모리를 많이 소모해 프로그램을 망가뜨리는 원인이 될 수 있다. 예를 들어, 파일을 읽고 각 줄에 있는 문자의 개수를 반환한다고 하자. List comprehension으로 하면 파일에 있는 각 줄의 길이만큼 메모리가 필요하다. 특히, 파일에 오류가 있거나 끊김이 없는 네크워트 소켓일 경우 list comprehension을 사용하면 문제가 발생한다. 
+
 ```python
 value = [len(x) for x in open('/tmp/my_file.txt')]
 print(value)
@@ -363,6 +398,7 @@ print(next(roots))
 * 한 generator expression에서 나온 iterator를 또 다른 generator expression의 for 서브 expression으로 넘기는 방식으로 geneator expression을 조합할 수 있다.
 * Generator expression은 서로 연결되어 있을 때 매우 빠르게 실행된다.
 
+
 ### 10. range보다는 enumerate를 사용하자
 
 내장 함수 range는 정수 집합을 순회(iterate)하는 루프를 실행할 때 유용하다.
@@ -404,6 +440,7 @@ for i, flavor in enumerate(flavor_list, 1):
 * range로 루프를 실행하고 시퀀스에 인덱스로 접근하기보다는 enumerate를 사용하는 게 좋다
 * enumerate에 두 번째 파라미터를 사용하면 세기 시작할 숫자를 지정할 수 있다 (기본값은 0)
 
+
 ### 11. Iterator를 병렬로 처리하려면 zip을 사용하자
 
 파이썬에서 리스트 객체를 많이 사용한다. List comprehension을 사용하면 source list에 표현식을 적용하여 derived list를 쉽게 얻는다 (ref.7). 보통 derived list와 source list는 연관되어 있다. 두 리스트를 병렬로 순회하기 명료한 방법은 무엇일까? 내장 함수 zip을 사용하는 것이다.
@@ -424,6 +461,7 @@ for name, count in zip(names, letters):
 * 내장 함수 zip은 여러 iterator를 병렬로 순회할 때 사용하고, 튜플을 생성하는 지연 iterator이다.
 * 길이가 다른 iterator를 사용하면 zip은 그 결과를 최소길이를 기준으로 잘라낸다.
 * 내장 모듈 itertools의 zip_longest 함수를 쓰면 여러 iterator 길이에 상관없이 병렬로 순회할 수 있다 (46.참고)
+
 
 ### 12. for와 while 루프 뒤에는 else 블록을 쓰지 말자
 
@@ -467,6 +505,7 @@ Coprime
 실제로 이런 방식으로 코드를 작성하면 안 된다. 대신에 이런 계산을 하는 헬퍼 함수를 작성하는 게 좋다. 이런 헬퍼 함수는 두 가지 일반적인 스타일로 작성할 수 있다. 이 방법으로 낯선 코드를 접하는 개발자들이 코드를 훨씬 쉽게 이해할 수 있다. 
 
 첫 번째는 찾으려는 조건을 찾았을 때 바로 반환하는 것이다. 루프가 실패로 끝나면 기본 결과(True)를 반환한다.
+
 ```python
 def coprime(a, b):
     for i in range(2, min(a,b)+1):
@@ -474,7 +513,9 @@ def coprime(a, b):
             return False
     return True
 ```
+
 두 번째는 루프에서 찾으려는 대상을 찾았는지 알려주는 결과 변수를 사용하는 것이다. 뭔가를 찾으면 즉시 break로 루프를 중단한다.
+
 ```python
 def coprime2(a, b):
     is_coprime = True
@@ -489,6 +530,7 @@ def coprime2(a, b):
 * 파이썬에는 for와 while 루프의 내부 블록 바로 뒤에 else 블록을 사용할 수 있게 하는 특별한 문법이 있다.
 * 루프 본문이 break문을 만나지 않은 경우에만 루프 다음에 오는 else블록이 실행된다.
 * 루프 뒤에 else 블록을 사용하면 직관적이지 않고 혼동하기 쉬우니 사용하지 말아야 한다.
+
 
 ### 13. try/except/else/finally에서 각 블록의 장점을 이용하자
 
@@ -546,6 +588,8 @@ def divide_json(path):
 * try/finally 복합문을 이용하면 try블록에서 예외 발생 여부와 상관없이 정리 코드를 실행할 수 있다.
 * else 블록은 try 블록에 있는 코드의 양을 최소로 줄이는 데 도움을 주며 try/except 블록과 성공한 경우에 실행할 코드를 시각적으로 구분해준다.
 * else 블록은 try 블록의 코드가 성공적으로 실행된 후 finally 블록에서 공통 정리 코드를 싱행하기 전에 추가 작업을 하는 데 사용할 수 있다.
+
+
 
 ## 함수
 
@@ -804,7 +848,7 @@ print(percentages)
 
 입력 iterator를 명시적으로 소진하고 전체 콘텐츠의 복사본을 리스트에 저장해야 한다. 이제 함수가 generator의 반환 값에도 올바르게 동작한다.
 
-```
+```python
 def normalize_copy(numbers):
 	numbers = list(numbers)	# iterator를 복사함
 	total = sum(numbers)
@@ -1216,11 +1260,169 @@ except ZeroDivisionError:
 
 ### 22. 딕셔너리와 튜플보다는 헬퍼 클래스로 관리하자
 
+파이썬에 내장되어 있는 딕셔너리 타입은 객체의 수명이 지속되는 동안 '동적인 내부 상태'(=예상하지 못한 식별자들을 관리해야 하는 상황)를 관리하는 용도로 사용하기 아주 좋다. 그러나, 딕셔너리는 정말 사용하기 쉬워서 과도하게 쓰다가 코드를 취약하게 만들 위험이 있다.
+
+먼저, 이름을 모르는 학생 집단 성적을 기록해보자.
+
+```python
+class SimpleGradebook(object):
+    def __init__(self):
+        self._grades = {}
+    def add_student(self, name):
+        self._grades[name] = []
+    def report_grade(self, name, score):
+        self._grades[name].append(score)
+    def average_grade(self, name):
+        grades = self._grades[name]
+	return sum(grades) / len(grades)
+	
+book = SimpleGradebook()
+book.add_student('Issac Newton')
+book.report_grade('Issac Newton', 90)
+# ...
+print(book.average_grade('Issac Newton'))
+>>>
+90.0
+```
+
+이제 SimpleGradebook 클래스를 확장해서 모든 성적을 한 곳에 저장하지 않고 과목별로 저장한다고 하자. 이 경우 `_grades` 딕셔너리를 변경해서 학생 이름(키)을 또 다른 딕셔너리(값)에 매핑하면 된다. 가장 안쪽에 있는 딕셔너리는 과목(키)을 성적(값)에 매핑한다.
+
+```python
+class BySubjectGradebook(object):
+    # ...
+    def report_grade(self, name, subject, grade):
+        by_subject = self._grades[name]
+	grade_list = by_subject.setdefault(subject, [])
+	grade_list.append(grade)
+    def average_grade(self, name):
+        by_subject = self._grades[name]
+	total, count = 0, 0
+	for grades in by_subject.values():
+	    total += sum(grades)
+	    count += len(grades)
+	return total / count
+	
+book = BySubjectGradebook()
+book.add_student('Albert Einstein')
+book.report_grade('Albert Einstein', 'Math', 75)
+book.report_grade('Albert Einstein', 'Math', 65)
+book.report_grade('Albert Einstein', 'Gym', 90)
+book.report_grade('Albert Einstein', 'Gym', 95)
+```
+
+이제 요구사항이 좀 더 복잡해진다. 수업의 최종 성적에서 각 점수가 차지하는 비중을 매겨서 중간고사와 기말고사를 쪽지시험보다 더 중요하게 만들고자 한다. 가장 안쪽 딕셔너리를 변경해서 과목(키)을 성적(값)에 매핑하지 않고, 성적과 비중을 담은 튜플 (score, weight)에 매핑하면 된다.
+
+```python
+class WeightedGradebook(object):
+    # ...
+    def report_grade(self, name, subject, score, weight):
+        by_subject = self._grades[name]
+	grade_list = by_subject.setdefault(subject, [])
+	grade_list.append((score, weight))   # 튜플로 저장
+    def average_grade(self, name):
+        by_subject = self._grades[name]
+	score_sum, score_count = 0, 0
+	for subject, scores in by_subject.items():
+	    subject_avg, total_weight = 0, 0
+	    for score, weight in scores:   # 루프 안에 루프가 생겨서 이해하기 어려워짐
+	        # ...
+
+book = WeightedGradebook()
+# ...
+book.report_grade('Albert Einstein', 'Math', 80, 0.10)   # 위치 인수에 있는 숫자들이 무엇을 의미하는지 명확하지 않음
+```
+
+이렇게 복잡해지면 딕셔너리와 튜플 대신에 클래스의 계층 구조를 사용할 때가 된 것이다. 처음엔 성적에 비중을 적용하게 될지 몰랐으니 복잡하게 헬퍼 클래스를 추가할 필요까지는 없다. 딕셔너리와 튜플 타입을 쓰면 내부 관리용으로 층층이 타입을 추가하는 게 쉽지만, 계층이 한 단계가 넘는 중첩은 피해야 한다. 즉, 딕셔너리를 담은 딕셔너리는 쓰지 말아야 한다. 여러 계층으로 중첩하면 다른 프로그래머들이 코드를 이해하기 어려워지고 유지보수의 악몽에 빠지게 된다.
+
+관리가 복잡하다고 느껴진다면 클래스로 옮겨야 한다. 그러면 잘 캡슐화된 데이터를 정의할 수 있는 인터페이스를 제공할 수 있고, 인터페이스와 실제 구현 사이에 추상화 계층을 만들 수 있다. 그런데 일반 튜플의 문제점은 위치에 의존한다는 점이다.
+
+** 클래스 리팩토링 **
+
+의존 관계에서 가장 아래에 있는 성적부터 클래스로 옮겨보자. 사실, 이렇게 간단한 정보를 담기에 클래스는 너무 무거워 보인다. 성적은 변하지 않으니 튜플을 사용하는 게 더 적절해 보인다. 
+
+```python
+grades = []
+grades.append((95, 0.45, 'Great job'))
+# ...
+total = sum(score * weight for score, weight, _ in grades)
+total_weight = sum(weight for _, weight, _ in grades)
+average_grade = total / total_weight
+```
+튜플을점점 더 길게 확장하는 패턴은 딕셔너리의 계층을 더 깊에 두는 방식과 비슷하다. 튜플의 아이템이 두 개를 넘어가면 다른 방법을 고려해야 한다.
+
+collection 모듈의 namedtuple 타입이 정확히 이런 요구에 부합한다. namedtuple을 이용하면 작은 불변 데이터 클래스(immutable data class)를 쉽게 정의할 수 있다. 
+
+```python
+import collections
+Grade = collections.namedtuple('Grade', ('score', 'weight'))
+```
+
+불변 데이터 클래스는 위치 인수나 키워드 인수로 생성할 수 있다. 필드는 이름이 붙은 속성으로 접근할 수 있다. 이름이 붙은 속성이 있으면 나중에 요구 사항이 변해서 단순 데이터 컨테이너에 동작을 추가해야 할 때 namedtuple에서 직접 작성한 클래스로 쉽게 바꿀 수 있다.
+
+namedtuple의 제약 <br>
+namedtuple이 여러 상황에서 유용하지만 단점을 만들어내는 상황을 이해해야 한다.
+
+* namedtuple로 만들 클래스에 기본 인수 값을 설정할 수 없기 때문에 데이터에 선택적인 속성이 많으면 다루기 힘들어진다. 속성을 사용할 때는 클래스를 직접 정의하는 게 나을 수 있다.
+* namedtuple 인스턴스의 속성 값을 여전히 숫자로 된 인덱스와 순회 방법으로 접근할 수 있다. 특히 외부 API로 노출한 경우에는 의도와 다르게 사용되어 나중에 실제 클래스로 바꾸기 더 어려울 수 있다. namedtuple 인스턴스를 사용하는 방식을 모두 제어할 수 없다면 클래스를 직접 정의하는 게 낫다.
+
+이제 성적 이외에 나머지 것들을 클래스로 작성해보자.
+
+```python
+class Subject(object):
+    """ 단일 과목을 표현 """
+    def __init__(self):
+        self._grades = []
+    def report_grade(self, score, weight):
+        self._grades.append(Grade(score, weight))   # namedtuple 사용
+    def average_grade(self):
+        total, total_weight = 0, 0
+	for grade in self._grades:
+	    total += grade.score * grade.weight
+	    total_weight += grade.weight
+	return total / total_weight
+
+class Student(object):
+    """ 한 학생이 공부한 과목을 표현 """
+    def __init__(self):
+        self._subjects = {}
+    def subject(self, name):
+        if name not in self._subjects:
+	    self._subjects[name] = Subject()
+	return self._subjects[name]
+    def average_grade(self):
+        total, count = 0, 0
+	for subject in self._subjects.values():
+	    totoal += subject.average_grade()
+	    count += 1
+	return total / count
+	
+class Gradebook(object):
+    """ 학생의 이름을 키로 사용해 동적으로 모든 학생을 담을 컨테이너 """
+    def __init__(self):
+        self._students = {}
+    def student(self, name):
+        if name not in self._students:
+	    self._students[name] = Student()
+	return self._students[name]
+
+book = Gradebook()
+albert = book.student('Albert Einstein')
+math = albert.subject('Math')
+math.report_grade(80, 0.10)
+# ...
+print(albert.average_grade())
+>>>
+81.5
+```
+
+위의 세 클래스의 코드 줄 수는 이전에 구현한 코드의 두 배에 가깝다. 하지만, 이 코드가 훨씬 이해하기 쉽다. 이 클래스를 사용하는 예제도 더 명확하고 확장하기 쉽다. 필요하면 이전 형태의 API 스타일로 작성한 코드를 새로 만든 객체 계층 스타일로 바꿔주는 하위 호환용 메서드를 작성해도 된다.
+
+* 다른 딕셔너리나 긴 튜플을 값으로 담은 딕셔너리를 생성하지 말자
+* 정식 클래스의 유연성이 필요 없다면 가벼운 불변 데이터 컨테이너에는 namedtuple을 사용하자
+* 내부 상태를 관리하는 딕셔너리가 복잡해지면 여러 헬퍼 클래스를 사용하는 방식으로 관리 코드를 바꾸자
 
 
-
-
-
+### 23. 인터페이스가 간단하면 클래스 대신 함수를 받자
 
 
 
