@@ -2,27 +2,41 @@
 
 ## Contents
 
-1. [Research](#Research)
+1. [Experience](#Experience)
 2. [Book](#Book)
 3. [Course](#Course)
 4. [Paper](#Paper)
 5. [Tutorial](#Tutorial)
-6. [Post by Me](#Post-by-Me)
-7. [Kaggle & HackerRank](#Kaggle-&-HackerRank)
-8. [Reference](#Reference)
+6. [Kaggle & HackerRank](#Kaggle-&-HackerRank)
+7. [Reference](#Reference)
 
 
-## Research
+## Experience
 
-_Research_
-* ...
+_Wemakeprice, Inc._
+* -
 
-_mini-project_
-* [개체명 인식을 위한 학습 데이터 자동 확장 연구](https://github.com/gritmind/text_augmentation) | 2017.07-10
-* [한국어 형태소 분석기와 품사 태거 구현](https://github.com/gritmind/morph_and_pos_analyzer_korean) | 2017.03-06
-* [Image Processing for Fire Detection with Raspberry Pi](https://github.com/gritmind/image_processing_for_fire_detection) | 2014.03-06
-* [Intelligent Humanoid Robot for Relay and Separate Object](https://github.com/gritmind/intelligent_humanoid_robot_competition) | 2013.07-11
-* [Web and Mobile Application for Social Network](https://github.com/gritmind/dormitory_social_network) | 2013.05-10
+
+_Master Degree_
+* [Thesis] 문서 분류를 위한 자질 조합과 시간적 순차성 및 통합성 기반 심층 신경망 모델 연구 [[paper](http://ust.dcollection.net/srch/srchDetail/200000107737)] | 2018.08
+* 초고성능컴퓨팅 기반 지능형 국가사회 이슈 탐지추적 기술 개발 [[report](http://www.ndsl.kr/ndsl/commons/util/ndslOriginalView.do?dbt=TRKO&cn=TRKO201800002498&rn=&url=&pageCode=PG18)] | 2017.01-12
+* 문서 분류를 위한 시간적 순차성과 통합성 기반 심층 신경망 모델 설계 [[paper](https://1drv.ms/b/s!AllPqyV9kKUrkTwibf_2WXdXUOXN)][[code](https://github.com/gritmind/temp-based-model)] | 2018.03-05
+* 문서 분류를 위한 신경망 모델에 적합한 텍스트 전처리와 워드 임베딩 조합 [[paper](http://kiise.or.kr/e_journal/2018/7/JOK/pdf/08.pdf)][[code](https://github.com/gritmind/suitable-combination)] | 2017.11-2018.03
+* Improving Classifiers for Semantic Annotation of Software Requirements with Elaborate Syntactic Structure [[paper](https://1drv.ms/b/s!AllPqyV9kKUrwx7uQT8j9DsEtAqY)][[code](https://github.com/gritmind/semantic-annotation)] | 2016.12-2017.05
+* SVM-based web content mining with leaf classification unit from DOM-tree [[paper](https://1drv.ms/b/s!AllPqyV9kKUrwyAeaF0XsG2ZWGqG)][[code](https://github.com/gritmind/web-content-mining)] | 2016.07-10
+* 개체명 인식을 위한 학습 데이터 자동 확장 연구 [[code](https://github.com/gritmind/text_augmentation)] | 2017.07-10
+* 한국어 형태소 분석기와 품사 태거 구현 [[code](https://github.com/gritmind/morph_and_pos_analyzer_korean)] | 2017.03-06
+
+_Undergraduate Degree_
+* Image Processing for Fire Detection with Raspberry Pi [[code](https://github.com/gritmind/image_processing_for_fire_detection)] | 2014.03-06
+* Intelligent Humanoid Robot for Relay and Separate Object [[code](https://github.com/gritmind/intelligent_humanoid_robot_competition)] | 2013.07-11
+* Web and Mobile Application for Social Network [[code](https://github.com/gritmind/dormitory_social_network)] | 2013.05-10
+
+
+_Small-task_
+* [Some-codes](https://github.com/gritmind/review/tree/master/code/task/code_warehouse/README.md) | 2018.11-
+* Korean Lexical analyzer with Recursion [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/lexical_recursion.ipynb)] | 2018.11
+* POS tagger with Viterbi algorithm [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/pos_viterbi.ipynb)] | 2018.11
 
 
 ## Book
@@ -55,6 +69,7 @@ _Offline_
 * [Neural Network and Deep Learning](https://github.com/gritmind/review/tree/master/media/class/neural-network-and-deep-learning) (ETRI) | 2016 Spring
 
 _Online_
+* Data Analyst / Scientist / Engineer Path (DATAQUEST) | 2019.07-
 * [Data Structures and Algorithms Specialization](https://github.com/gritmind/review/tree/master/media/class/datastrc_algthm_spec) (Coursera) | 2019.01-
 * [Deep Learning Nanodegree Foundation](https://github.com/gritmind/deep_learning_nanodegree_foundation) (Udacity) | 2017.01-06
 * [Data Mining Specialization](https://github.com/gritmind/review/tree/master/media/class/data-mining-specialization) (Coursera) | 2015.03-07, 2018.06-07
@@ -65,62 +80,26 @@ _Online_
 
 ## Paper
 
-_Review Papers_
-* A Primer on Neural Network Models for Natural Language Processing (Y.Goldberg, 2015.10) 
-* A Critical Review of Recurrent Neural Networks for Sequence Learning (ZC.Lipton, 2015.05)
-
-_Various kinds of Deep Learning Models_
-* Neural machine translation by jointly learning to align and translate (D.Bahdanau, *ICLR* 2014)
+_related to Deep Learning_
 * [Sequence to Sequence Learning with Neural Networks](https://github.com/gritmind/review/blob/master/paper/paper/seq2seq_with_nn.md) (I.Sutskever, *NIPS* 2014) | 2016
 * [Going Deeper with Convolutions](https://github.com/gritmind/review/blob/master/paper/paper/going-deeper-with-convolutions.md) (C.Szegedy, 2014) | 2016
 * [Playing Atari with Deep Reinforcement Learning](https://github.com/gritmind/review/blob/master/paper/paper/playing-atari-with-deep-reinforcement-learning.md) (V.Mnih, 2013) | 2017
-* Generating Text with Recurrent Neural Networks (I.Sutskever, 2011) 
-
-_Understanding Deep Learning Models_
 * [Visualizing and Understanding Recurrent Networks](https://github.com/gritmind/review/blob/master/paper/paper/visualizing-and-understanding-recurrent-networks.md) (A.Karpathy, 2015.11) | 2017 
-* Visualizing and Understanding Convolutional Networks (MD.Jeiler, 2014)
-
-_Probabilistic Graphical Models_
-* Application of Deep Belief Networks for Natural Language Understanding (R.Sarikaya, 2014)
-* Latent Dirichlet Allocation (MD.Blei, *JMLR* 2003)
-
-_Deep Learning with Memory(Attention)_
-* Attention Is All You Need (A.Vaswani, *NIPS* 2017)
-* Ask Me Anything: Dynamic Memory Networks for Natural Language Processing (A.Kumar, *ICML* 2016)
-* [Feed-Forward Networks with Attention Can Solve Some Long-Term Memory Problems](https://github.com/gritmind/review/blob/master/paper/paper/feed-forward-with-attention.md) (C.Raffel, *ICLR(workshop)* 2016) | 2018
-* Neural Machine Translation by Jointly Learning to Align and Translate (D.Bahdanau, *ICLR* 2015) 
-* End-To-End Memory Networks (S.Sukhbaatar, *NIPS* 2015)
-
-_Text Classification with Deep Learning Models_
+* [Feed-Forward Networks with Attention Can Solve Some Long-Term Memory Problems](https://github.com/gritmind/review/blob/master/paper/paper/feed-forward-with-attention.md) (C.Raffel, *ICLR(ws)* 2016) | 2018
 * [Hierarchical Attention Networks for Document Classification](https://github.com/gritmind/review/blob/master/paper/paper/hierarchical-attention-networks.md) (Z.Yang, *NAACL* 2016) | 2018
 * [Recurrent Convolutional Neural Networks for Text Classification](https://github.com/gritmind/review/blob/master/paper/paper/recurrent-convolutional-neuralnet.md) (L.Siwei, *AAAI* 2015) | 2018
 * [Convolutional Neural Networks for Sentence Classification](https://github.com/gritmind/review/blob/master/paper/paper/convolutional-neural-net-yoon-kim.md) (Y.Kim, *EMNLP* 2014) | 2018
-
-_Distributed Representations for Language_
-* Enriching Word Vectors with Subword Information (P.Bojanowski, 2016)
-* Glove: Global vectors for word representation (J.Pennington, 2014.10)
-* Distributed Representations of Sentences and Documents (QV.Le, 2014.05)
-* Distributed Representations of Words and Phrases and their Compositionality (T.Mikolov, 2013.10)
 * [Efficient Estimation of Word Representations in Vector Space](https://github.com/gritmind/review/blob/master/paper/paper/efficient-estimation-of-word-representations-in-vector-space.md) (T.Mikolov, 2013.09) | 2017
 * [Linguistic Regularities in Continuous Space Word Representations](https://github.com/gritmind/review/blob/master/paper/paper/linguistic-regularities-in-continuous-space-word-representations.md) (T.Mikolov, 2013.06) | 2017
 * [Recurrent Neural Network based Language Model](https://github.com/gritmind/review/blob/master/paper/paper/recurrent-neural-network-based%20language-model.md) (T.Mikolov, 2010) | 2016
-* A Neural Probabilistic Language Model (Y.Bengio, 2003)
-* Indexing by Latent Semantic Analysis (S.Deerwester, 1990)
-
-_Named Entity Recognition (CoNLL2003)_
-* Named Entity Recognition with stack residual LSTM and trainable bias decoding (Q.Tran,2017.07, 91.69)
-* Semi-supervised Sequence Tagging with Bidirectional Language Models (ME.Peters, 2017.04, 91.93)
-* Transfer Learning for Sequence Tagging with Hierarchical Recurrent Networks (Z.Yang, 2017.03, 91.26)
-* End-to-end Sequence Labeling via Bi-directional LSTM-CNNs-CRF (X.Ma&E.Hovy, 2016.06, 91.21)
 * [Neural Architectures for Named Entity Recognition](https://github.com/gritmind/review/blob/master/paper/paper/neural-architectures-for-named-entity-recognition.md) (G.Lample, 2016.04, 90.94) | 2017
 * [Named Entity Recognition with bidirectional LSTM-CNNs](https://github.com/gritmind/review/blob/master/paper/paper/named-entity-recognition-with-bidirectional-lstm-cnns.md) (JPC.Chiu, 2015.11, 91.62) | 2017
-* Natural Language Processing (almost) from Scratch (R.Collobert, 2011)
 * [A Survey of Named Entity Recognition and Classification](https://github.com/gritmind/review/blob/master/paper/paper/a-survey-of-named-entity-recognition-and-classification.md) (2007.01) | 2017
 
 _Article_
 * Jumping NLP Curves (E.Cambria, MAY2014, IEEE COMPUTATIONAL INTELLIGENCE MAGAZINE)
 * [Probabilistic Topic Models](https://github.com/gritmind/review/blob/master/paper/paper/topic-model-review.md) (M.Blei, APRIL2012, Communications of the ACM) | 2018
-* [[특집] 4차 산업 혁명 시대의 국어 생활](https://github.com/gritmind/review/blob/master/paper/paper/korean_special_edition.md) | 2018~
+* [국립국어원 새국어생활 - [특집] 4차 산업 혁명 시대의 국어 생활](https://github.com/gritmind/review/blob/master/paper/paper/korean_special_edition.md) | 2018~
 * [한국어 자연어처리 기사 모음](https://github.com/gritmind/review/blob/master/paper/article/koreannlp_articles.md) | 2018~
 
 _ETC._
@@ -167,19 +146,12 @@ _Blog_
 * [Probabilistic Topic Models](https://github.com/gritmind/review/blob/master/paper/blog/slideshare/topicmodels.md) (David M.Blei 2018.07.17, Slides) | 2017
 
 _Post_
+* [Community Comments](https://github.com/gritmind/review/blob/master/paper/tutorial/community_comments.md) | 2019-
+* Syntax Comparison between Python and Java [[note](https://1drv.ms/w/s!AllPqyV9kKUrwxOo9L1syWAnlRoh)] | 2018.10
 * Visualizing Layer Representations in Neural Networks [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/tutorial/Visualizing-Layer-Representations-in-Neural-Networks.ipynb)] | 
 * 한국어 감정 분석 by PyCon Korea 2015, LucyPark [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/tutorial/korean_lucypark/Korean_Sentiment_Analysis.ipynb)]
 * Topic Modeling with Gensim [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/tutorial/topic-modeling-with-gensim.ipynb)]
-* [Community Comments](https://github.com/gritmind/review/blob/master/paper/tutorial/community_comments.md) | 2019~
 * [Generative model vs. Discriminative Model](https://github.com/gritmind/review/blob/master/paper/tutorial/generative-vs-discriminative-model.md) | 2015.10
-
-
-## Post by Me
-
-* [Code Warehouse](https://github.com/gritmind/review/tree/master/code/task/code_warehouse/README.md) | 2018.11~
-* Syntax Comparison between Python and Java [[note](https://1drv.ms/w/s!AllPqyV9kKUrwxOo9L1syWAnlRoh)] | 2018.10
-* Korean Lexical analyzer with Recursion [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/lexical_recursion.ipynb)] | 2018.11
-* POS tagger with Viterbi algorithm [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/pos_viterbi.ipynb)] | 2018.11
 
 
 ## Kaggle & HackerRank

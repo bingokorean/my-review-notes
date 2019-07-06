@@ -40,7 +40,7 @@ BLOTER, 2017.12.05
 
 # Reference
 
-[전자신문](http://www.etnews.com/) / [블로터](https://www.bloter.net/) / 
+[전자신문](http://www.etnews.com/) / [블로터](https://www.bloter.net/) / [ITWORLD](http://www.itworld.co.kr)
 
 
 
