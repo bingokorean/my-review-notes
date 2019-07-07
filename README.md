@@ -51,11 +51,8 @@ _CodeBook_
 * [알기 쉽게 해설한 JAVA](https://github.com/gritmind/review/blob/master/code/book/java_kim/README.md) (김충석, 2011) | 2018.11
 * 개념을 콕콕 잡아주는 C 프로그래밍 [[note](https://1drv.ms/w/s!AllPqyV9kKUrwjk_wNK-qM6eJjqd)] (천정아, 2009) | 2018.10
 
-_Machine Learning Mastery_
-* [Machine Learning with Python](https://github.com/gritmind/review/tree/master/code/book/machine-learning-with-python/README.md)
-* [Deep Learning with Python](https://github.com/gritmind/review/tree/master/code/book/deep-learning-with-python/README.md)
-* [Deep Learning for Natural Language Processing](https://github.com/gritmind/review/tree/master/code/book/deep-learning-for-nlp/README.md)
-* [Long-Short Term Memory Networks with Python](https://github.com/gritmind/review/tree/master/code/book/lstm-with-python/README.md)
+_EduBook_
+* 미래를 바꾼 아홉가지 알고리즘 (존 맥코믹, 2013)
 
 
 ## Course
@@ -110,6 +107,12 @@ _ETC._
 
 
 ## Tutorial
+
+_Machine Learning Mastery_
+* [Machine Learning with Python](https://github.com/gritmind/review/tree/master/code/book/machine-learning-with-python/README.md)
+* [Deep Learning with Python](https://github.com/gritmind/review/tree/master/code/book/deep-learning-with-python/README.md)
+* [Deep Learning for Natural Language Processing](https://github.com/gritmind/review/tree/master/code/book/deep-learning-for-nlp/README.md)
+* [Long-Short Term Memory Networks with Python](https://github.com/gritmind/review/tree/master/code/book/lstm-with-python/README.md)
 
 _Offline_
 * [AI KOREA 2018](https://github.com/gritmind/review/blob/master/media/seminar/ai_korea_2018.md) (KIISE AI Society) | 2018.07.26~27
