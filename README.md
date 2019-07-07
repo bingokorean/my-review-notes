@@ -19,9 +19,9 @@ _Wemakeprice, Inc._
 
 _Master Degree_
 * [Thesis] 문서 분류를 위한 자질 조합과 시간적 순차성 및 통합성 기반 심층 신경망 모델 연구 [[paper](http://ust.dcollection.net/srch/srchDetail/200000107737)] | 2018.08
-* 초고성능컴퓨팅 기반 지능형 국가사회 이슈 탐지추적 기술 개발 [[report](http://www.ndsl.kr/ndsl/commons/util/ndslOriginalView.do?dbt=TRKO&cn=TRKO201800002498&rn=&url=&pageCode=PG18)] | 2017.01-12
 * 문서 분류를 위한 시간적 순차성과 통합성 기반 심층 신경망 모델 설계 [[paper](https://1drv.ms/b/s!AllPqyV9kKUrkTwibf_2WXdXUOXN)][[code](https://github.com/gritmind/temp-based-model)] | 2018.03-05
 * 문서 분류를 위한 신경망 모델에 적합한 텍스트 전처리와 워드 임베딩 조합 [[paper](http://kiise.or.kr/e_journal/2018/7/JOK/pdf/08.pdf)][[code](https://github.com/gritmind/suitable-combination)] | 2017.11-2018.03
+* 초고성능컴퓨팅 기반 지능형 국가사회 이슈 탐지추적 기술 개발 [[report](http://www.ndsl.kr/ndsl/commons/util/ndslOriginalView.do?dbt=TRKO&cn=TRKO201800002498&rn=&url=&pageCode=PG18)] | 2017.01-12
 * Improving Classifiers for Semantic Annotation with Elaborate Syntactic Structure [[paper](https://1drv.ms/b/s!AllPqyV9kKUrwx7uQT8j9DsEtAqY)][[code](https://github.com/gritmind/semantic-annotation)] | 2016.12-2017.05
 * SVM-based web content mining with leaf classification unit from DOM-tree [[paper](https://1drv.ms/b/s!AllPqyV9kKUrwyAeaF0XsG2ZWGqG)][[code](https://github.com/gritmind/web-content-mining)] | 2016.07-10
 * 개체명 인식을 위한 학습 데이터 자동 확장 연구 [[code](https://github.com/gritmind/text_augmentation)] | 2017.07-10
