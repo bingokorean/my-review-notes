@@ -33,7 +33,7 @@ _Undergraduate Degree_
 * Web and Mobile Application for Social Network [[code](https://github.com/gritmind/dormitory_social_network)] | 2013.05-10
 
 
-_Small-task_
+_Else... (small-task)_
 * Korean Lexical analyzer with Recursion [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/lexical_recursion.ipynb)] | 2018.11
 * POS tagger with Viterbi algorithm [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/pos_viterbi.ipynb)] | 2018.11
 * [Some-codes](https://github.com/gritmind/review/tree/master/code/task/code_warehouse/README.md) | 2018.11-
@@ -77,7 +77,7 @@ _Online_
 
 ## Paper
 
-_related to Deep Learning_
+_Deep Learning_
 * [Sequence to Sequence Learning with Neural Networks](https://github.com/gritmind/review/blob/master/paper/paper/seq2seq_with_nn.md) (I.Sutskever, *NIPS* 2014) | 2016
 * [Going Deeper with Convolutions](https://github.com/gritmind/review/blob/master/paper/paper/going-deeper-with-convolutions.md) (C.Szegedy, 2014) | 2016
 * [Playing Atari with Deep Reinforcement Learning](https://github.com/gritmind/review/blob/master/paper/paper/playing-atari-with-deep-reinforcement-learning.md) (V.Mnih, 2013) | 2017
@@ -97,7 +97,7 @@ _Article_
 * Jumping NLP Curves (E.Cambria, MAY2014, IEEE COMPUTATIONAL INTELLIGENCE MAGAZINE)
 * [Probabilistic Topic Models](https://github.com/gritmind/review/blob/master/paper/paper/topic-model-review.md) (M.Blei, APRIL2012, Communications of the ACM) | 2018
 * [국립국어원 새국어생활 - [특집] 4차 산업 혁명 시대의 국어 생활](https://github.com/gritmind/review/blob/master/paper/paper/korean_special_edition.md) | 2018~
-* [한국어 자연어처리 기사 모음](https://github.com/gritmind/review/blob/master/paper/article/koreannlp_articles.md) | 2018~
+* [한국어 자연어 처리 관련 기사 모음](https://github.com/gritmind/review/blob/master/paper/article/koreannlp_articles.md) | 2018~
 
 _ETC._
 * [Tweet Segmentation and Its Application to Named Entity Recognition](https://github.com/gritmind/review/blob/master/paper/paper/tweet-segmentation-and-its-application-to-ner.md) (C.Li, *TKDE* 2015) | 2016
