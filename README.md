@@ -96,7 +96,7 @@ _Deep Learning_
 _Article_
 * Jumping NLP Curves (E.Cambria, MAY2014, IEEE COMPUTATIONAL INTELLIGENCE MAGAZINE)
 * [Probabilistic Topic Models](https://github.com/gritmind/review/blob/master/paper/paper/topic-model-review.md) (M.Blei, APRIL2012, Communications of the ACM) | 2018
-* [국립국어원 새국어생활 - [특집] 4차 산업 혁명 시대의 국어 생활](https://github.com/gritmind/review/blob/master/paper/paper/korean_special_edition.md) | 2018~
+* [국립국어원 새국어생활 - [특집] 4차 산업 혁명 시대의 국어 생활](https://github.com/gritmind/my-review-notes/blob/master/paper/article/special_edition/README.md) | 2018~
 * [한국어 자연어 처리 관련 기사 모음](https://github.com/gritmind/review/blob/master/paper/article/koreannlp_articles.md) | 2018~
 
 _ETC._
