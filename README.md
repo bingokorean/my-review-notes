@@ -171,6 +171,7 @@ HackerRank ID: [@gritmind](https://www.hackerrank.com/gritmind)
 
 ## References
 
+* [언어공학연구회](http://hclt.kr/)
 * [Coursera](https://www.coursera.org/) / [edX](https://www.edx.org/) / [Udacity](https://www.udacity.com/)
 * [Lazy Programmer](https://lazyprogrammer.me/) / [Distill](https://distill.pub/) / [MachineLearningMastery](https://machinelearningmastery.com/) / [다크프로그래머](http://darkpgmr.tistory.com/)
 * [PyTorch Tutorials](https://github.com/gritmind/review-code/tree/master/class/pytorch) / [Keras Examples](https://github.com/gritmind/review-code/tree/master/class/keras)
