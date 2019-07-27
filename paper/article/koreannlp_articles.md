@@ -5,7 +5,7 @@
 
 동아, 2018.10.31 
 
-<p align="center"><img src="https://github.com/gritmind/review/blob/master/paper/article/images/20181031.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/paper/article/images/20181031.PNG" width="70%" height="70%"></p>
 
 인공지능 스피커에게 가르칠 때 우리말은 특히 더 어렵다. 결국은 중의성 문제가 영어보다 우리말에서 더 발생한다고 이해하면 된다.
 
