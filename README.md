@@ -42,7 +42,6 @@ _Else... (small-task)_
 ## Book
 
 _TextBook_
-* Deep Learning (I. Goodfellow, 2016) | 2018~
 * [기계 학습](https://github.com/gritmind/review/tree/master/paper/book/machine-learning-oh/README.md) (오일석, 2017.12) | 2018-
 
 _CodeBook_
@@ -94,7 +93,6 @@ _Deep Learning_
 * [A Survey of Named Entity Recognition and Classification](https://github.com/gritmind/review/blob/master/paper/paper/a-survey-of-named-entity-recognition-and-classification.md) (2007.01) | 2017
 
 _Article_
-* Jumping NLP Curves (E.Cambria, MAY2014, IEEE COMPUTATIONAL INTELLIGENCE MAGAZINE)
 * [Probabilistic Topic Models](https://github.com/gritmind/review/blob/master/paper/paper/topic-model-review.md) (M.Blei, APRIL2012, Communications of the ACM) | 2018
 * [국립국어원 새국어생활 - [특집] 4차 산업 혁명 시대의 국어 생활](https://github.com/gritmind/my-review-notes/blob/master/paper/article/special_edition/README.md) | 2018~
 * [한국어 자연어 처리 관련 기사 모음](https://github.com/gritmind/review/blob/master/paper/article/koreannlp_articles.md) | 2018~
@@ -131,7 +129,7 @@ _Offline_
 * [Deep learning for entity detection and linking](https://github.com/gritmind/review/blob/master/media/talk/deep-learning-for-entity-detection-and-linking.md) (KISTI) | 2017.05.26
 * [온톨로지와 링크드데이터](https://github.com/gritmind/review/blob/master/media/talk/ontology_and_linkeddata.md) (KISTI) | 2016.07.11
 
-_Online_
+_Media_
 * [시즌 Reinforcement Learning](https://github.com/gritmind/review/tree/master/media/seminar/all-mldl-rl) (모두를 위한 머신러닝/딥러닝 강의) | 2017.06.01
 * [Developing Korean chatbot 101](https://github.com/gritmind/review/blob/master/media/seminar/developing-kor-chatbot.md) (Tensorflow Korea Conf2) | 2017.01.14
 * [Nuts and Bolts of Applying Deep Learning](https://github.com/gritmind/review/blob/master/media/talk/nutsandbolts-of-applying-dl.md) (DLSS) | 2016.10.24
@@ -139,7 +137,7 @@ _Online_
 * [Deep Belief Network](https://github.com/gritmind/review/blob/master/media/talk/deep-belief-network.md) (DBguide) | 2016
 * [자연어처리특집](https://github.com/gritmind/review/blob/master/media/talk/iam-programmer-nlp.md) (나는프로그래머다) | 2016
 
-_Blog_
+_Post_
 * [Calculus on Computational Graphs: Backpropagation](https://github.com/gritmind/review/blob/master/paper/blog/colah/calculus-on-computational-graphs.md) (Aug31, 2015, Colah) | 2016
 * [Understanding LSTM Networks](https://github.com/gritmind/review/blob/master/paper/blog/colah/understanding-lstm-networks.md) (Aug27, 2015, Colah) | 2016
 * [Deep Learning and NLP and Representations](https://github.com/gritmind/review/blob/master/paper/blog/colah/dl-and-nlp-and-representations.md) (July7, 2014, Colah) | 2016
@@ -147,8 +145,6 @@ _Blog_
 * [Understanding Convolutional Neural Networks for NLP](https://github.com/gritmind/review/blob/master/paper/blog/wildml/understanding-convolutional-neural-networks-for-nlp.md) (Nov7, 2015, WILDML) | 2016
 * [프로그래머를 위한 알파고](https://github.com/gritmind/review/blob/master/paper/blog/slideshare/alphago-for-programmer.md) (Mar13, 2016, Slideshare) | 2016
 * [Probabilistic Topic Models](https://github.com/gritmind/review/blob/master/paper/blog/slideshare/topicmodels.md) (David M.Blei 2018.07.17, Slides) | 2017
-
-_Post_
 * [Community Comments](https://github.com/gritmind/review/blob/master/paper/tutorial/community_comments.md) | 2019-
 * Syntax Comparison between Python and Java [[note](https://1drv.ms/w/s!AllPqyV9kKUrwxOo9L1syWAnlRoh)] | 2018.10
 * Visualizing Layer Representations in Neural Networks [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/tutorial/Visualizing-Layer-Representations-in-Neural-Networks.ipynb)] | 
