@@ -25,7 +25,7 @@
 
 알고리즘이란 문제를 푸는 데 필요한 단계의 순서를 명확히 명시하는 구체적인 계산법이다. 다음과 같이 두 개의 큰 수를 더하는 알고리즘을 보면 거의 기계적으로 이뤄지는 것을 알 수 있다. 각 단계는 절대적으로 정확해야 하며 어떤 인간적 직관이나 추측도 요하지 않는다. 이처럼 매우 기계적인 각 단계는 컴퓨터 프로그램으로 만들어낼 수 있다.
 
-그림 1_1
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/paper/book/nine-algorithm/images/1_1.PNG" width="60%" height="60%"></p>
 
 알고리즘의 또 다른 중요한 기능은 입력 내용에 상관없이 늘 작동한다는 점이다. 예를 들어, 좀 시간이 걸리더라도, 이 알고리즘을 이용해 천 자리 수도 더할 수 있다.
 
@@ -46,7 +46,7 @@
 
 검색엔진의 두 가지 주요 과제는 매칭(matching)과 랭킹(ranking)이다. 이렇게 두 가지 주요 단계가 있지만 실제로는 검색엔진의 효율성을 목적으로 매칭과 랭킹을 하나의 과정으로 조합한다. 그러나 두 단계는 개념적으로 분리되므로 매칭이 완료된 후 랭킹이 시작된다고 볼 수 있다. (여기서 형태소 분석은 매칭 단계에서 이뤄진다고 볼 수 있겠다?)
 
-그림 2_1
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/paper/book/nine-algorithm/images/2_1.PNG" width="60%" height="60%"></p>
 
 좋은 검색엔진은 최선의 검색결과를 선별할 뿐 아니라 가장 유용한 순서에 따라 결과를 보여 준다. 치열한 검색엔진 시장에서 랭킹 시스템의 질에 따라 회사가 살거나 죽는다.
 
@@ -62,7 +62,7 @@
 
 웹 검색엔진용 인덱스는 책의 인덱스와 같은 방식으로 작동한다. 이 책의 '페이지'는 이제 월드와이드웹상의 웹페이지고 검색엔진은 웹에 있는 모든 개별 웹페이지에 저마다 다른 페이지 번호를 할당한다.
 
-그림 2_2
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/paper/book/nine-algorithm/images/2_2.PNG" width="60%" height="60%"></p>
 
 컴퓨터는 우선 모든 페이지에 등장하는 모든 단어의 목록을 만들고 (여기서 형태소 분석기를 사용한다) 이 목록을 알파벳 순으로 정리해 세 개 웹페이지의 인덱스를 구축할 수 있다. 그 다음에 컴퓨터는 단어별로 페이지들을 빠르게 살펴본다. 단어 목록도 알파벳 순이므로 빠르게 검색할 수 있고, 검색하면 그 옆에 있는 페이지들만 가져오면 된다. 컴퓨터는 인덱스 항목만 살펴보면서 판단한다.
 
@@ -74,7 +74,7 @@
 
 구문 쿼리 문제는 페이지 번호뿐만 아니라 페이지 안의 위치도 저장해야 한다는 아이디어를 발생시켰다. 이러한 인덱스의 개발 방법을 '단어 위치 트릭'이라고 부르겠다. 
 
-그림 2_3
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/paper/book/nine-algorithm/images/2_3.PNG" width="60%" height="60%"></p>
 
 위의 그림에 명시되어 있는 위치 정보를 통해 'cat sat' 이라는 구문 쿼리에 대해 1번 페이지를 출력할 수 있다. 'cat sat'이란 구문에 대한 검색결과를 원래 웹페이지가 아닌 인덱스 정보만 보고 찾았다는 사실에 주목하자. 실제 검색엔진에서 결과가 있을 수도 있는 페이지는 수백만 개에 달할지도 모른다. 따라서, 인덱스를 잘 구축하는 것이 굉장히 중요하다.
 
@@ -93,7 +93,7 @@
 
 예를 들어, 'malaria cause'를 검색한다고 하자. 다음 그림에서 페이지 1이 더 적합한 것을 알 수 있다. 그러나, 컴퓨터는 어떻게 이를 판단할 수 있나?
 
-그림 2_4
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/paper/book/nine-algorithm/images/2_4.PNG" width="60%" height="60%"></p>
 
 이런 경우 순위를 바르게 매기는 간단한 방법이 있다. 쿼리 단어가 서로 가까이 있는 페이지가 그렇지 않은 페이지보다 더 적합할 가능성이 높다. 이 역시 단어 위치 트릭이 추가된 인덱스 항목만 보고 찾을 수 있다. 
 
@@ -108,15 +108,15 @@
 
 예를 단순화하기 위해서 페이지 최상단에 제목을, 그 다음 본문이 나오는 구조의 한 가지 측면만을 상정한다.
 
-그림 2_5
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/paper/book/nine-algorithm/images/2_5.PNG" width="60%" height="60%"></p>
 
 인덱스를 구축할 때 메타워드를 넣는 것은 어렵지 않다. 새로운 트릭을 쓸 필요 없이 보통 단어와 같은 방식으로 메타워드의 위치를 저장하기만 하면 된다. 보통 단어와 같은 방식으로 메타워드를 인덱싱하는 이 간단한 트릭을 '메타워드 트릭'이라 부른다.
 
-그림 2_6
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/paper/book/nine-algorithm/images/2_6.PNG" width="60%" height="60%"></p>
 
 검색엔진이 IN 이란 키워드를 이용한 특수 유형의 쿼리를 지원한다고 가정해 보자. 'boat in TITLE' 같은 쿼리는 웹페이지의 제목에 'boad'란 단어가 있는 페이지에 해당하는 검색결과만 출력한다. 실제로 구글에서 상세 검색이나 intitle: 이란 키워드를 통해 위와 같은 쿼리를 날릴 수 있다. 
 
-그림 2_7
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/paper/book/nine-algorithm/images/2_7.PNG" width="60%" height="60%"></p>
 
 앞에서 논한 쿼리에섳터럼 검색엔진은 원래 웹페이지로 돌아가 검색할 필요 없이, 적은 수의 인덱스 항목만 참고해 쿼리에 답할 수 있다(있어야 한다). 또한, 각 인덱스 항목을 한 번만 검색해도 된다는 점도 중요하다.
 
