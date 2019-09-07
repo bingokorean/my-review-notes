@@ -51,7 +51,7 @@ _CodeBook_
 * 개념을 콕콕 잡아주는 C 프로그래밍 [[note](https://1drv.ms/w/s!AllPqyV9kKUrwjk_wNK-qM6eJjqd)] (천정아, 2009) | 2018.10
 
 _EduBook_
-* [미래를 바꾼 아홉가지 알고리즘](https://github.com/gritmind/my-review-notes/blob/master/paper/book/nine-algorithm/README.md) (존 맥코믹, 2013)
+* [Nine Algorithms That Changed the Future: The Ingenious Ideas That Drive Today's Computers](https://github.com/gritmind/my-review-notes/blob/master/paper/book/nine-algorithm/README.md)(한국어판) (John MacCormick, 2013)
 
 
 ## Course
