@@ -10,6 +10,7 @@
 6. [Kaggle & HackerRank](#Kaggle-&-HackerRank)
 7. [Reference](#Reference)
 
+<br>
 
 ## Experience
 
@@ -33,11 +34,9 @@ _Undergraduate Degree_
 * Web and Mobile Application for Social Network [[code](https://github.com/gritmind/dormitory_social_network)] | 2013.05-10
 
 
-_Else... (small-task)_
+_ELSE.. (small tasks)_
 * Korean Lexical analyzer with Recursion [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/lexical_recursion.ipynb)] | 2018.11
 * POS tagger with Viterbi algorithm [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/pos_viterbi.ipynb)] | 2018.11
-* [Some-codes](https://github.com/gritmind/review/tree/master/code/task/code_warehouse/README.md) | 2018.11-
-
 
 ## Book
 
@@ -46,12 +45,12 @@ _TextBook_
 
 _CodeBook_
 * [Elements of Programming Interviews in Python](https://github.com/gritmind/review/blob/master/code/book/interview_py/README.md) (Adnan&Tsung-Hsien&Amit, 2018)
-* [Effective Python: 59 Specific Ways to Write Better Python](https://github.com/gritmind/review/blob/master/code/book/effective_py/README.md)(한국어판) (Brett Slatkin, 2016.03)
-* [알기 쉽게 해설한 JAVA](https://github.com/gritmind/review/blob/master/code/book/java_kim/README.md) (김충석, 2011) | 2018.11
-* 개념을 콕콕 잡아주는 C 프로그래밍 [[note](https://1drv.ms/w/s!AllPqyV9kKUrwjk_wNK-qM6eJjqd)] (천정아, 2009) | 2018.10
+* [Effective Python: 59 Specific Ways to Write Better Python](https://github.com/gritmind/review/blob/master/code/book/effective_py/README.md) (Brett Slatkin, 2016.03) - 한국어판
+* [알기 쉽게 해설한 JAVA](https://github.com/gritmind/review/blob/master/code/book/java_kim/README.md) (김충석, 2011)
+* 개념을 콕콕 잡아주는 C 프로그래밍 [[note](https://1drv.ms/w/s!AllPqyV9kKUrwjk_wNK-qM6eJjqd)] (천정아, 2009)
 
 _EduBook_
-* [Nine Algorithms That Changed the Future: The Ingenious Ideas That Drive Today's Computers](https://github.com/gritmind/my-review-notes/blob/master/paper/book/nine-algorithm/README.md)(한국어판) (John MacCormick, 2013)
+* [Nine Algorithms That Changed the Future](https://github.com/gritmind/my-review-notes/blob/master/paper/book/nine-algorithm/README.md) (John MacCormick, 2013) - 한국어판
 
 
 ## Course
@@ -65,7 +64,6 @@ _Offline_
 * [Neural Network and Deep Learning](https://github.com/gritmind/review/tree/master/media/class/neural-network-and-deep-learning) (ETRI) | 2016 Spring
 
 _Online_
-* Data Analyst / Scientist / Engineer Path (DATAQUEST) | 2019.07-
 * [Data Structures and Algorithms Specialization](https://github.com/gritmind/review/tree/master/media/class/datastrc_algthm_spec) (Coursera) | 2019.01-
 * [Deep Learning Nanodegree Foundation](https://github.com/gritmind/deep_learning_nanodegree_foundation) (Udacity) | 2017.01-06
 * [Data Mining Specialization](https://github.com/gritmind/review/tree/master/media/class/data-mining-specialization) (Coursera) | 2015.03-07, 2018.06-07
@@ -76,7 +74,7 @@ _Online_
 
 ## Paper
 
-_Deep Learning_
+_realted to {ML, DL, NLP}_
 * [Sequence to Sequence Learning with Neural Networks](https://github.com/gritmind/review/blob/master/paper/paper/seq2seq_with_nn.md) (I.Sutskever, *NIPS* 2014) | 2016
 * [Going Deeper with Convolutions](https://github.com/gritmind/review/blob/master/paper/paper/going-deeper-with-convolutions.md) (C.Szegedy, 2014) | 2016
 * [Playing Atari with Deep Reinforcement Learning](https://github.com/gritmind/review/blob/master/paper/paper/playing-atari-with-deep-reinforcement-learning.md) (V.Mnih, 2013) | 2017
@@ -93,11 +91,11 @@ _Deep Learning_
 * [A Survey of Named Entity Recognition and Classification](https://github.com/gritmind/review/blob/master/paper/paper/a-survey-of-named-entity-recognition-and-classification.md) (2007.01) | 2017
 
 _Article_
-* [Probabilistic Topic Models](https://github.com/gritmind/review/blob/master/paper/paper/topic-model-review.md) (M.Blei, APRIL2012, Communications of the ACM) | 2018
-* [국립국어원 새국어생활 - [특집] 4차 산업 혁명 시대의 국어 생활](https://github.com/gritmind/my-review-notes/blob/master/paper/article/special_edition/README.md) | 2018~
-* [한국어 자연어 처리 관련 기사 모음](https://github.com/gritmind/review/blob/master/paper/article/koreannlp_articles.md) | 2018~
+* [Probabilistic Topic Models](https://github.com/gritmind/review/blob/master/paper/paper/topic-model-review.md) (M.Blei, APRIL2012, Communications of the ACM)
+* [국립국어원 새국어생활 - [특집] 4차 산업 혁명 시대의 국어 생활](https://github.com/gritmind/my-review-notes/blob/master/paper/article/special_edition/README.md) (2017)
+* [한국어 자연어 처리 관련 기사 모음](https://github.com/gritmind/review/blob/master/paper/article/koreannlp_articles.md)
 
-_ETC._
+_ETC_
 * [Tweet Segmentation and Its Application to Named Entity Recognition](https://github.com/gritmind/review/blob/master/paper/paper/tweet-segmentation-and-its-application-to-ner.md) (C.Li, *TKDE* 2015) | 2016
 * [An Empirical Study of Semantic Similarity in WordNet and Word2Vec](https://github.com/gritmind/review/blob/master/paper/paper/an-empirical-study-of-semantic-similarity-in-WordNet-and-Word2Vec.md) (2014) | 2017
 * [Building Bridges for Web Query Classification](https://github.com/gritmind/review/blob/master/paper/paper/building-bridges-for-web-query-classification.md) (D.Shen, *SIGIR* 2006) | 2015
