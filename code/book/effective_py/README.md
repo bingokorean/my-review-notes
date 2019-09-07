@@ -8,6 +8,6 @@
 3. [클래스와 상속](https://github.com/gritmind/my-review-notes/blob/master/code/book/effective_py/notes/chapter_3.md)
 4. 메타클래스와 속성
 5. 병행성과 병렬성
-6. 내장 모듈
+6. [내장 모듈](https://github.com/gritmind/my-review-notes/blob/master/code/book/effective_py/notes/chapter_6.md)
 7. 협력
 8. 제품화
