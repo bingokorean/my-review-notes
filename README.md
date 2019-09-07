@@ -42,11 +42,11 @@ _Else... (small-task)_
 ## Book
 
 _TextBook_
-* [기계 학습](https://github.com/gritmind/review/tree/master/paper/book/machine-learning-oh/README.md) (오일석, 2017.12) | 2018-
+* [기계 학습](https://github.com/gritmind/review/tree/master/paper/book/machine-learning-oh/README.md) (오일석, 2017.12)
 
 _CodeBook_
-* [Elements of Programming Interviews in Python](https://github.com/gritmind/review/blob/master/code/book/interview_py/README.md) (Adnan&Tsung-Hsien&Amit, 2018) | 2019.01-
-* [파이썬 코딩의 기술: Effective PYTHON](https://github.com/gritmind/review/blob/master/code/book/effective_py/README.md) (브렛 슬라킨, 2016.03) | 2019.01-
+* [Elements of Programming Interviews in Python](https://github.com/gritmind/review/blob/master/code/book/interview_py/README.md) (Adnan&Tsung-Hsien&Amit, 2018)
+* [Effective Python: 59 Specific Ways to Write Better Python](https://github.com/gritmind/review/blob/master/code/book/effective_py/README.md)(한국어판) (Brett Slatkin, 2016.03)
 * [알기 쉽게 해설한 JAVA](https://github.com/gritmind/review/blob/master/code/book/java_kim/README.md) (김충석, 2011) | 2018.11
 * 개념을 콕콕 잡아주는 C 프로그래밍 [[note](https://1drv.ms/w/s!AllPqyV9kKUrwjk_wNK-qM6eJjqd)] (천정아, 2009) | 2018.10
 
