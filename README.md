@@ -44,6 +44,7 @@ _TextBook_
 * [기계 학습](https://github.com/gritmind/review/tree/master/paper/book/machine-learning-oh/README.md) (오일석, 2017.12)
 
 _CodeBook_
+* [Grokking Algorithms](https://github.com/gritmind/review/blob/master/code/book/grokking-algorithms/README.md) (Aditya Y. Bhargava, May 2016) - 한국어판
 * [Elements of Programming Interviews in Python](https://github.com/gritmind/review/blob/master/code/book/interview_py/README.md) (Adnan&Tsung-Hsien&Amit, 2018)
 * [Effective Python: 59 Specific Ways to Write Better Python](https://github.com/gritmind/review/blob/master/code/book/effective_py/README.md) (Brett Slatkin, 2016.03) - 한국어판
 * [알기 쉽게 해설한 JAVA](https://github.com/gritmind/review/blob/master/code/book/java_kim/README.md) (김충석, 2011)
@@ -55,14 +56,6 @@ _EduBook_
 
 ## Course
 
-_Offline_
-* [Introductory Statistics for Science and Engineering](https://github.com/gritmind/review/tree/master/media/class/intro-statistics-for-science-and-engineering) (UST) | 2017 Fall
-* [Deep Learning and Dynamic Neural Network Models](https://github.com/gritmind/review/tree/master/media/class/deep-learning-and-dynamic-neural-network-models) (KAIST) | 2017 Spring
-* [Natural Language Processing](https://github.com/gritmind/review/blob/master/media/class/natural-language-processing-chungnam/README.md) (Chungnam Univ.) | 2017 Spring 
-* [Deep Learning and AlphaGo](https://github.com/gritmind/review/tree/master/media/class/deeplearning_and_alphago) (KAIST) | 2016 Fall
-* [Mathematical Tools for Computer Vision](https://github.com/gritmind/review/tree/master/media/class/mathematical-tools-for-computer-vision) (ETRI) | 2016 Spring
-* [Neural Network and Deep Learning](https://github.com/gritmind/review/tree/master/media/class/neural-network-and-deep-learning) (ETRI) | 2016 Spring
-
 _Online_
 * [Data Structures and Algorithms Specialization](https://github.com/gritmind/review/tree/master/media/class/datastrc_algthm_spec) (Coursera) | 2019.01-
 * [Deep Learning Nanodegree Foundation](https://github.com/gritmind/deep_learning_nanodegree_foundation) (Udacity) | 2017.01-06
@@ -71,10 +64,18 @@ _Online_
 * [The Analytics Edge](https://github.com/gritmind/review/tree/master/media/class/analytics-edge) (edX) | 2015.07-09
 * [Deep Learning: Advanced NLP and RNNs](https://github.com/gritmind/review/tree/master/code/class/advanced_nlp_lazy) (Udemy, Lazy Programmer) | 2018.07-08
 
+_Offline_
+* [Introductory Statistics for Science and Engineering](https://github.com/gritmind/review/tree/master/media/class/intro-statistics-for-science-and-engineering) (UST) | 2017 Fall
+* [Deep Learning and Dynamic Neural Network Models](https://github.com/gritmind/review/tree/master/media/class/deep-learning-and-dynamic-neural-network-models) (KAIST) | 2017 Spring
+* [Natural Language Processing](https://github.com/gritmind/review/blob/master/media/class/natural-language-processing-chungnam/README.md) (Chungnam Univ.) | 2017 Spring 
+* [Deep Learning and AlphaGo](https://github.com/gritmind/review/tree/master/media/class/deeplearning_and_alphago) (KAIST) | 2016 Fall
+* [Mathematical Tools for Computer Vision](https://github.com/gritmind/review/tree/master/media/class/mathematical-tools-for-computer-vision) (ETRI) | 2016 Spring
+* [Neural Network and Deep Learning](https://github.com/gritmind/review/tree/master/media/class/neural-network-and-deep-learning) (ETRI) | 2016 Spring
+
 
 ## Paper
 
-_realted to {ML, DL, NLP}_
+_related to {ML, DL, NLP}_
 * [Sequence to Sequence Learning with Neural Networks](https://github.com/gritmind/review/blob/master/paper/paper/seq2seq_with_nn.md) (I.Sutskever, *NIPS* 2014) | 2016
 * [Going Deeper with Convolutions](https://github.com/gritmind/review/blob/master/paper/paper/going-deeper-with-convolutions.md) (C.Szegedy, 2014) | 2016
 * [Playing Atari with Deep Reinforcement Learning](https://github.com/gritmind/review/blob/master/paper/paper/playing-atari-with-deep-reinforcement-learning.md) (V.Mnih, 2013) | 2017
@@ -128,6 +129,8 @@ _Offline_
 * [온톨로지와 링크드데이터](https://github.com/gritmind/review/blob/master/media/talk/ontology_and_linkeddata.md) (KISTI) | 2016.07.11
 
 _Media_
+* [Boosting Product Categorization with Machine Learning](https://github.com/gritmind/review/blob/master/media/talk/product_categorization_commercetools) (2017)
+* [Learning to Rank: From Theory to Production](https://github.com/gritmind/review/blob/master/media/talk/learning_to_rank_bloomberg) (Activate 2018)
 * [시즌 Reinforcement Learning](https://github.com/gritmind/review/tree/master/media/seminar/all-mldl-rl) (모두를 위한 머신러닝/딥러닝 강의) | 2017.06.01
 * [Developing Korean chatbot 101](https://github.com/gritmind/review/blob/master/media/seminar/developing-kor-chatbot.md) (Tensorflow Korea Conf2) | 2017.01.14
 * [Nuts and Bolts of Applying Deep Learning](https://github.com/gritmind/review/blob/master/media/talk/nutsandbolts-of-applying-dl.md) (DLSS) | 2016.10.24
