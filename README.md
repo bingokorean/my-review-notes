@@ -3,12 +3,12 @@
 ## Contents
 
 1. [Experience](#Experience)
-2. [Book](#Book)
-3. [Course](#Course)
-4. [Paper](#Paper)
-5. [Tutorial](#Tutorial)
-6. [Kaggle & HackerRank](#Kaggle-&-HackerRank)
-7. [Reference](#Reference)
+2. [Kaggle](#Kaggle)
+3. [Book](#Book)
+4. [Course](#Course)
+5. [Paper](#Paper)
+6. [Tutorial](#Tutorial)
+7. [Reference](#References)
 
 <br>
 
@@ -37,6 +37,11 @@ _Undergraduate Degree_
 _ELSE.. (small tasks)_
 * Korean Lexical analyzer with Recursion [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/lexical_recursion.ipynb)] | 2018.11
 * POS tagger with Viterbi algorithm [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/pos_viterbi.ipynb)] | 2018.11
+
+## Kaggle
+
+* ...
+
 
 ## Book
 
@@ -129,8 +134,8 @@ _Offline_
 * [온톨로지와 링크드데이터](https://github.com/gritmind/review/blob/master/media/talk/ontology_and_linkeddata.md) (KISTI) | 2016.07.11
 
 _Media_
-* [Boosting Product Categorization with Machine Learning](https://github.com/gritmind/review/blob/master/media/talk/product_categorization_commercetools) (2017)
-* [Learning to Rank: From Theory to Production](https://github.com/gritmind/review/blob/master/media/talk/learning_to_rank_bloomberg) (Activate 2018)
+* [Boosting Product Categorization with Machine Learning](https://github.com/gritmind/my-review-notes/blob/master/media/talk/product_categorization_commercetools/product_categorization_commercetools.md) (2017)
+* [Learning to Rank: From Theory to Production](https://github.com/gritmind/my-review-notes/blob/master/media/talk/learning_to_rank_bloomberg/learning_to_rank_bloomberg.md) (Activate 2018)
 * [시즌 Reinforcement Learning](https://github.com/gritmind/review/tree/master/media/seminar/all-mldl-rl) (모두를 위한 머신러닝/딥러닝 강의) | 2017.06.01
 * [Developing Korean chatbot 101](https://github.com/gritmind/review/blob/master/media/seminar/developing-kor-chatbot.md) (Tensorflow Korea Conf2) | 2017.01.14
 * [Nuts and Bolts of Applying Deep Learning](https://github.com/gritmind/review/blob/master/media/talk/nutsandbolts-of-applying-dl.md) (DLSS) | 2016.10.24
@@ -154,14 +159,7 @@ _Post_
 * [Generative model vs. Discriminative Model](https://github.com/gritmind/review/blob/master/paper/tutorial/generative-vs-discriminative-model.md) | 2015.10
 
 
-## Kaggle & HackerRank
-Kaggle ID: [@gritmind](https://www.kaggle.com/gritmind)
 
-* [Movie Review Sentiment Analysis](https://github.com/gritmind/review/tree/master/code/kaggle/movie_review_sentiment_analysis) | 2018.08
-
-HackerRank ID: [@gritmind](https://www.hackerrank.com/gritmind)
-
-* [Problem Solving](https://github.com/gritmind/review/tree/master/code/hackerrank/problem_solving/README.md) | 2018.08~
 
 
 ---
@@ -174,4 +172,4 @@ HackerRank ID: [@gritmind](https://www.hackerrank.com/gritmind)
 * [PyTorch Tutorials](https://github.com/gritmind/review-code/tree/master/class/pytorch) / [Keras Examples](https://github.com/gritmind/review-code/tree/master/class/keras)
 * [nbviewer](https://nbviewer.jupyter.org/) / [Awesome Korean NLP](https://github.com/datanada/Awesome-Korean-NLP) / [Online-Debugger](https://www.onlinegdb.com/)
 * [Kor-NLP Dataset](https://insikk.github.io/awesome-korean-nlp/#dataset) / [AI API DATA](http://aiopen.etri.re.kr/) / [Public Datasets for AI](https://medium.com/startup-grind/fueling-the-ai-gold-rush-7ae438505bc2) / [MS Open Data](https://msropendata.com/) / [NLP Datasets](https://github.com/niderhoff/nlp-datasets) / [English NLP SOTA](https://github.com/magizbox/underthesea/wiki/English-NLP-SOTA#text-classification) / [Zhang 2015 Datasets](https://drive.google.com/drive/u/0/folders/0Bz8a_Dbh9Qhbfll6bVpmNUtUcFdjYmF2SEpmZUZUcVNiMUw1TWN6RDV3a0JHT3kxLVhVR2M) / [Awesome Public Dataset](https://github.com/awesomedata/awesome-public-datasets)
-* [Arxiv Sanity Preserver](http://www.arxiv-sanity.com/) / [Open-Review](https://openreview.net/) / [ACL Anthology](https://aclanthology.coli.uni-saarland.de/) / 
+* [Arxiv Sanity Preserver](http://www.arxiv-sanity.com/) / [Open-Review](https://openreview.net/) / [ACL Anthology](https://aclanthology.coli.uni-saarland.de/)

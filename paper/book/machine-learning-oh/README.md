@@ -2,7 +2,8 @@
 
 오일석 <br>
 한빛아카데미 <br>
-http://cv.jbnu.ac.kr/index.php?mid=ml
+[CV Lab](http://cv.jbnu.ac.kr/index.php?mid=ml)
+
 
 ## 목차
 
