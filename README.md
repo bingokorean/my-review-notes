@@ -62,7 +62,6 @@ _EduBook_
 ## Course
 
 _Online_
-* [Data Structures and Algorithms Specialization](https://github.com/gritmind/review/tree/master/media/class/datastrc_algthm_spec) (Coursera) | 2019.01-
 * [Deep Learning Nanodegree Foundation](https://github.com/gritmind/deep_learning_nanodegree_foundation) (Udacity) | 2017.01-06
 * [Data Mining Specialization](https://github.com/gritmind/review/tree/master/media/class/data-mining-specialization) (Coursera) | 2015.03-07, 2018.06-07
 * [Machine Learning](https://github.com/gritmind/review/tree/master/media/class/machine-learning-coursera) (Coursera, Andrew Y.Ng) | 2015.08-10
@@ -117,6 +116,7 @@ _Machine Learning Mastery_
 * [Long-Short Term Memory Networks with Python](https://github.com/gritmind/review/tree/master/code/book/lstm-with-python/README.md)
 
 _Offline_
+* [Tensorflow-KR 3차 오프라인 모임](https://github.com/gritmind/review/blob/master/media/seminar/tf-kr_3rd_offline.md) | 2019.10.20
 * [AI KOREA 2018](https://github.com/gritmind/review/blob/master/media/seminar/ai_korea_2018.md) (KIISE AI Society) | 2018.07.26~27
 * [2018 패턴인식 및 기계학습 겨울학교 (Insightful Machine Learning)](https://github.com/gritmind/review/tree/master/media/seminar/2018PRMLWS) (KIISE AI Society) | 2018.01.24~25
 * [2017 information Technology and Industry Prospects](https://github.com/gritmind/review/blob/master/media/seminar/itip2017.md) | 2017.10.27~28
@@ -133,7 +133,7 @@ _Offline_
 * [Deep learning for entity detection and linking](https://github.com/gritmind/review/blob/master/media/talk/deep-learning-for-entity-detection-and-linking.md) (KISTI) | 2017.05.26
 * [온톨로지와 링크드데이터](https://github.com/gritmind/review/blob/master/media/talk/ontology_and_linkeddata.md) (KISTI) | 2016.07.11
 
-_Media_
+_Online_
 * [Boosting Product Categorization with Machine Learning](https://github.com/gritmind/my-review-notes/blob/master/media/talk/product_categorization_commercetools/product_categorization_commercetools.md) (2017)
 * [Learning to Rank: From Theory to Production](https://github.com/gritmind/my-review-notes/blob/master/media/talk/learning_to_rank_bloomberg/learning_to_rank_bloomberg.md) (Activate 2018)
 * [시즌 Reinforcement Learning](https://github.com/gritmind/review/tree/master/media/seminar/all-mldl-rl) (모두를 위한 머신러닝/딥러닝 강의) | 2017.06.01
@@ -166,6 +166,7 @@ _Post_
 
 ## References
 
+* [PapersWithCode](https://paperswithcode.com/sota)
 * [언어공학연구회](http://hclt.kr/)
 * [Coursera](https://www.coursera.org/) / [edX](https://www.edx.org/) / [Udacity](https://www.udacity.com/)
 * [Lazy Programmer](https://lazyprogrammer.me/) / [Distill](https://distill.pub/) / [MachineLearningMastery](https://machinelearningmastery.com/) / [다크프로그래머](http://darkpgmr.tistory.com/)
