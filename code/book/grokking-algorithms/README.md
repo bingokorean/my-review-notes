@@ -15,7 +15,7 @@ Aditya Y. Bhargava <br>
 * [8. 탐욕 알고리즘 (Greedy algorithms)](#8.)
 * [9. 동적 프로그래밍 (Dynmaic programming)](#9.)
 * [10. KNN 알고리즘 (K-nearest neighbors)](#10.)
-* [11. 더 공부해야 할 것(#11.)
+* [11. 더 공부해야 할 것](#11.)
 
 
 <br>
@@ -127,7 +127,7 @@ print(bineary_search(my_list, -1))	# => None
 
 
 
-
+<br>
 <div id='2.'/>
 
 ## 2. 선택 정렬 (Selection Sort)
@@ -224,7 +224,7 @@ print(selectionSort([5, 3, 6, 2, 10]))
 페이스북은 실제로 여러 가지 다른 데이터베이스를 사용하고, 각각의 데이터베이스 내부에서는 해시 테이블이나 B-트리와 같은 다양한 자료구조를 쓸 것이다. 배열과 연결 리스트는 이러한 복잡한 자료구조를 만드는 기초가 된다.
 
 
-
+<br>
 <div id='3.'/>
 
 ## 3. 재귀 (Recursion)
@@ -301,7 +301,7 @@ def countdown(i):
 재귀 함수가 무한 실행하면 스택에는 어떤 일이 발생할까? 스택에 할당할 수 있는 공간이 제한되어 있기 때문에 이 공간을 모두 사용하면 스택 오버플로우 오류가 발생하며 종료된다. 
 
 
-
+<br>
 <div id='4.'/>
 
 ## 4. 퀵 정렬 (Quicksort)
@@ -483,7 +483,7 @@ def max(list):
 
 빅오 표기법의 중요한 포인트는 특정 연산 실행 시간이 아니라 접근하는 데이터 개수이다. 어떤 연산에 대해 신경을 쓸 것이 아니라 데이터가 증가할 때 연산은 어떻게 될 지를 신경써야 한다.
 
-
+<br>
 <div id='5.'/>
 
 ## 5. 해시 테이블 (Hash Tables)
@@ -659,7 +659,7 @@ def get_page(url):
 * 해시 테이블은 (웹 서버 등에서) 데이터를 캐싱하는 데도 사용된다.
 * 해시 테이블은 중복을 잡아내는 데도 뛰어나다.
 
-
+<br>
 <div id='6.'/>
 
 ## 6. 너비 우선 탐색 (Breadth-first Search)
@@ -798,8 +798,9 @@ search("you")
 <p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/grokking-algorithms/images/6_6.PNG" width="60%" height="80%"></p>
 
 
-
+<br>
 <div id='7.'/>
+
 ## 7. 다익스트라 알고리즘 (Dijkstra’s algorithm)
 
 그래프의 간선에 가중치를 준 가중 그래프(weighted graph)를 알아보자. 가중 그래프에서 X까지의 최단 경로를 구하는 다익스트라 알고리즘(Dijkstra's algorithm)을 알아보자. 
@@ -1027,8 +1028,9 @@ while node is not None: # 모든 정점을 처리하면 반복문을 종료한�
 * 다익스트라 알고리즘은 모든 가중치가 양수일 때만 정상적으로 동작한다.
 * 만약 가중치가 음수이면 벨만-포드 알고리즘을 사용한다.
 
-
+<br>
 <div id='8.'/>
+
 ## 8. 탐욕 알고리즘 (Greedy algorithms)
 
 불가능한 문제, 즉 빠른 알고리즘 해법이 존재하지 않는 NP-완전 문제를 다루는 법을 배운다. 빠른 알고리즘을 찾느라 시간을 낭비하지 않도록 문제 해결이 불가능한지 아닌지 파악하는 방법을 공부한다. NP-완전 문제에 대한 간략한 해법을 빨리 구할 수 있는 근사 알고리즘도 배운다. 아주 간단한 문제 해결 기법 중 하나인 탐욕 알고리즘(greedy algorithm)을 공부한다.
@@ -1204,6 +1206,7 @@ set(['ktwo', 'kthree', 'kone', 'kfive'])
 
 <br>
 <div id='9.'/>
+
 ## 9. 동적 프로그래밍 (Dynamic programming)
 
 어려운 문제를 여러 개의 하위 문제로 쪼개고, 이 하위 문제들을 먼저 해결하는 방법이 동적 프로그래밍 기법이다. 
@@ -1409,6 +1412,7 @@ else:
 
 <br>
 <div id='10.'/>
+
 ## 10. KNN 알고리즘 (K-nearest neighbors)
 
 ### 10.1. 오렌지와 자몽 분류하기
@@ -1452,6 +1456,7 @@ else:
 
 
 <div id='11.'/>
+
 ## 11. 더 공부해야 할 것
 
 ### 11.1. 트리
