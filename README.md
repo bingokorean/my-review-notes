@@ -7,6 +7,7 @@
 3. [Book](#Book)
 4. [Course](#Course)
 5. [Paper](#Paper)
+6. [Tech-Blog](#Tech-Blog)
 6. [Tutorial](#Tutorial)
 7. [Reference](#References)
 
@@ -34,12 +35,13 @@ _Undergraduate Degree_
 * Web and Mobile Application for Social Network [[code](https://github.com/gritmind/dormitory_social_network)] | 2013.05-10
 
 
-_ELSE.. (small tasks)_
+_ELSE... (small tasks)_
 * Korean Lexical analyzer with Recursion [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/lexical_recursion.ipynb)] | 2018.11
 * POS tagger with Viterbi algorithm [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/pos_viterbi.ipynb)] | 2018.11
 
 ## Kaggle
 
+* practice
 * ...
 
 
@@ -54,6 +56,12 @@ _CodeBook_
 * [Effective Python: 59 Specific Ways to Write Better Python](https://github.com/gritmind/review/blob/master/code/book/effective_py/README.md) (Brett Slatkin, 2016.03) - 한국어판
 * [알기 쉽게 해설한 JAVA](https://github.com/gritmind/review/blob/master/code/book/java_kim/README.md) (김충석, 2011)
 * 개념을 콕콕 잡아주는 C 프로그래밍 [[note](https://1drv.ms/w/s!AllPqyV9kKUrwjk_wNK-qM6eJjqd)] (천정아, 2009)
+* Machine Learning Mastery
+   * [Machine Learning with Python](https://github.com/gritmind/review/tree/master/code/book/machine-learning-with-python/README.md)
+   * [Deep Learning with Python](https://github.com/gritmind/review/tree/master/code/book/deep-learning-with-python/README.md)
+   * [Deep Learning for Natural Language Processing](https://github.com/gritmind/review/tree/master/code/book/deep-learning-for-nlp/README.md)
+   * [Long-Short Term Memory Networks with Python](https://github.com/gritmind/review/tree/master/code/book/lstm-with-python/README.md)
+
 
 _EduBook_
 * [Nine Algorithms That Changed the Future](https://github.com/gritmind/my-review-notes/blob/master/paper/book/nine-algorithm/README.md) (John MacCormick, 2013) - 한국어판
@@ -62,11 +70,17 @@ _EduBook_
 ## Course
 
 _Online_
+* [CS224n: Natural Language Processing with Deep Learning](https://github.com/gritmind/review/tree/master/media/class/cs224n-nlp-with-dl) (Stanford / Winter 2019) | 2019.9-12
 * [Deep Learning Nanodegree Foundation](https://github.com/gritmind/deep_learning_nanodegree_foundation) (Udacity) | 2017.01-06
 * [Data Mining Specialization](https://github.com/gritmind/review/tree/master/media/class/data-mining-specialization) (Coursera) | 2015.03-07, 2018.06-07
+   * Pattern Discovery in Data Mining
+   * Text Retrieval and Search Engines
+   * Cluster Analysis in Data Mining
+   * Text Mining and Analytics
 * [Machine Learning](https://github.com/gritmind/review/tree/master/media/class/machine-learning-coursera) (Coursera, Andrew Y.Ng) | 2015.08-10
 * [The Analytics Edge](https://github.com/gritmind/review/tree/master/media/class/analytics-edge) (edX) | 2015.07-09
-* [Deep Learning: Advanced NLP and RNNs](https://github.com/gritmind/review/tree/master/code/class/advanced_nlp_lazy) (Udemy, Lazy Programmer) | 2018.07-08
+* Lazy Programmer
+   * [Deep Learning: Advanced NLP and RNNs](https://github.com/gritmind/review/tree/master/code/class/advanced_nlp_lazy) (Udemy, Lazy Programmer) | 2018.07-08
 
 _Offline_
 * [Introductory Statistics for Science and Engineering](https://github.com/gritmind/review/tree/master/media/class/intro-statistics-for-science-and-engineering) (UST) | 2017 Fall
@@ -107,13 +121,26 @@ _ETC_
 * [The Probable Error of a Mean](https://github.com/gritmind/review/blob/master/paper/paper/the-probable-error-of-a-mean.md) (Student, 1908) | 2017
 
 
-## Tutorial
+## Tech-Blog
 
-_Machine Learning Mastery_
-* [Machine Learning with Python](https://github.com/gritmind/review/tree/master/code/book/machine-learning-with-python/README.md)
-* [Deep Learning with Python](https://github.com/gritmind/review/tree/master/code/book/deep-learning-with-python/README.md)
-* [Deep Learning for Natural Language Processing](https://github.com/gritmind/review/tree/master/code/book/deep-learning-for-nlp/README.md)
-* [Long-Short Term Memory Networks with Python](https://github.com/gritmind/review/tree/master/code/book/lstm-with-python/README.md)
+* [Calculus on Computational Graphs: Backpropagation](https://github.com/gritmind/review/blob/master/paper/blog/colah/calculus-on-computational-graphs.md) (Aug31, 2015, Colah) | 2016
+* [Understanding LSTM Networks](https://github.com/gritmind/review/blob/master/paper/blog/colah/understanding-lstm-networks.md) (Aug27, 2015, Colah) | 2016
+* [Deep Learning and NLP and Representations](https://github.com/gritmind/review/blob/master/paper/blog/colah/dl-and-nlp-and-representations.md) (July7, 2014, Colah) | 2016
+* [Attention and Memory in Deep Learning and NLP](https://github.com/gritmind/review/blob/master/paper/blog/wildml/attention-and-memory-in-deep-learning-and-nlp.md) (Jan3, 2016, WILDML) | 2016
+* [Understanding Convolutional Neural Networks for NLP](https://github.com/gritmind/review/blob/master/paper/blog/wildml/understanding-convolutional-neural-networks-for-nlp.md) (Nov7, 2015, WILDML) | 2016
+* [프로그래머를 위한 알파고](https://github.com/gritmind/review/blob/master/paper/blog/slideshare/alphago-for-programmer.md) (Mar13, 2016, Slideshare) | 2016
+* [Probabilistic Topic Models](https://github.com/gritmind/review/blob/master/paper/blog/slideshare/topicmodels.md) (David M.Blei 2018.07.17, Slides) | 2017
+* [Community Comments](https://github.com/gritmind/review/blob/master/paper/tutorial/community_comments.md) | 2019-
+* Syntax Comparison between Python and Java [[note](https://1drv.ms/w/s!AllPqyV9kKUrwxOo9L1syWAnlRoh)] | 2018.10
+* Visualizing Layer Representations in Neural Networks [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/tutorial/Visualizing-Layer-Representations-in-Neural-Networks.ipynb)] | 
+* 한국어 감정 분석 by PyCon Korea 2015, LucyPark [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/tutorial/korean_lucypark/Korean_Sentiment_Analysis.ipynb)]
+* Topic Modeling with Gensim [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/tutorial/topic-modeling-with-gensim.ipynb)]
+* [Generative model vs. Discriminative Model](https://github.com/gritmind/review/blob/master/paper/tutorial/generative-vs-discriminative-model.md) | 2015.10
+
+
+
+
+## Tutorial
 
 _Offline_
 * [Tensorflow-KR 3차 오프라인 모임](https://github.com/gritmind/review/blob/master/media/seminar/tf-kr_3rd_offline.md) | 2019.10.20
@@ -143,34 +170,15 @@ _Online_
 * [Deep Belief Network](https://github.com/gritmind/review/blob/master/media/talk/deep-belief-network.md) (DBguide) | 2016
 * [자연어처리특집](https://github.com/gritmind/review/blob/master/media/talk/iam-programmer-nlp.md) (나는프로그래머다) | 2016
 
-_Post_
-* [Calculus on Computational Graphs: Backpropagation](https://github.com/gritmind/review/blob/master/paper/blog/colah/calculus-on-computational-graphs.md) (Aug31, 2015, Colah) | 2016
-* [Understanding LSTM Networks](https://github.com/gritmind/review/blob/master/paper/blog/colah/understanding-lstm-networks.md) (Aug27, 2015, Colah) | 2016
-* [Deep Learning and NLP and Representations](https://github.com/gritmind/review/blob/master/paper/blog/colah/dl-and-nlp-and-representations.md) (July7, 2014, Colah) | 2016
-* [Attention and Memory in Deep Learning and NLP](https://github.com/gritmind/review/blob/master/paper/blog/wildml/attention-and-memory-in-deep-learning-and-nlp.md) (Jan3, 2016, WILDML) | 2016
-* [Understanding Convolutional Neural Networks for NLP](https://github.com/gritmind/review/blob/master/paper/blog/wildml/understanding-convolutional-neural-networks-for-nlp.md) (Nov7, 2015, WILDML) | 2016
-* [프로그래머를 위한 알파고](https://github.com/gritmind/review/blob/master/paper/blog/slideshare/alphago-for-programmer.md) (Mar13, 2016, Slideshare) | 2016
-* [Probabilistic Topic Models](https://github.com/gritmind/review/blob/master/paper/blog/slideshare/topicmodels.md) (David M.Blei 2018.07.17, Slides) | 2017
-* [Community Comments](https://github.com/gritmind/review/blob/master/paper/tutorial/community_comments.md) | 2019-
-* Syntax Comparison between Python and Java [[note](https://1drv.ms/w/s!AllPqyV9kKUrwxOo9L1syWAnlRoh)] | 2018.10
-* Visualizing Layer Representations in Neural Networks [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/tutorial/Visualizing-Layer-Representations-in-Neural-Networks.ipynb)] | 
-* 한국어 감정 분석 by PyCon Korea 2015, LucyPark [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/tutorial/korean_lucypark/Korean_Sentiment_Analysis.ipynb)]
-* Topic Modeling with Gensim [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/tutorial/topic-modeling-with-gensim.ipynb)]
-* [Generative model vs. Discriminative Model](https://github.com/gritmind/review/blob/master/paper/tutorial/generative-vs-discriminative-model.md) | 2015.10
-
-
-
-
 
 ---
 
 ## References
 
-* [PapersWithCode](https://paperswithcode.com/sota)
-* [언어공학연구회](http://hclt.kr/)
+* [Top 20 NLP Blogs](https://blog.feedspot.com/natural_language_processing_blogs/) / [Google AI Blog](https://ai.googleblog.com/) / [Microsoft Research](https://www.microsoft.com/en-us/research/) / [Uber Engineering Blog](https://eng.uber.com/) / [Walmartlabs Tech Blog](https://medium.com/walmartlabs)
 * [Coursera](https://www.coursera.org/) / [edX](https://www.edx.org/) / [Udacity](https://www.udacity.com/)
 * [Lazy Programmer](https://lazyprogrammer.me/) / [Distill](https://distill.pub/) / [MachineLearningMastery](https://machinelearningmastery.com/) / [다크프로그래머](http://darkpgmr.tistory.com/)
 * [PyTorch Tutorials](https://github.com/gritmind/review-code/tree/master/class/pytorch) / [Keras Examples](https://github.com/gritmind/review-code/tree/master/class/keras)
-* [nbviewer](https://nbviewer.jupyter.org/) / [Awesome Korean NLP](https://github.com/datanada/Awesome-Korean-NLP) / [Online-Debugger](https://www.onlinegdb.com/)
-* [Kor-NLP Dataset](https://insikk.github.io/awesome-korean-nlp/#dataset) / [AI API DATA](http://aiopen.etri.re.kr/) / [Public Datasets for AI](https://medium.com/startup-grind/fueling-the-ai-gold-rush-7ae438505bc2) / [MS Open Data](https://msropendata.com/) / [NLP Datasets](https://github.com/niderhoff/nlp-datasets) / [English NLP SOTA](https://github.com/magizbox/underthesea/wiki/English-NLP-SOTA#text-classification) / [Zhang 2015 Datasets](https://drive.google.com/drive/u/0/folders/0Bz8a_Dbh9Qhbfll6bVpmNUtUcFdjYmF2SEpmZUZUcVNiMUw1TWN6RDV3a0JHT3kxLVhVR2M) / [Awesome Public Dataset](https://github.com/awesomedata/awesome-public-datasets)
-* [Arxiv Sanity Preserver](http://www.arxiv-sanity.com/) / [Open-Review](https://openreview.net/) / [ACL Anthology](https://aclanthology.coli.uni-saarland.de/)
+* [nbviewer](https://nbviewer.jupyter.org/) / [PapersWithCode](https://paperswithcode.com/sota) / [Online-Debugger](https://www.onlinegdb.com/)
+* [Awesome Korean NLP](https://github.com/datanada/Awesome-Korean-NLP) / [Kor-NLP Dataset](https://insikk.github.io/awesome-korean-nlp/#dataset) / [AI API DATA](http://aiopen.etri.re.kr/) / [Public Datasets for AI](https://medium.com/startup-grind/fueling-the-ai-gold-rush-7ae438505bc2) / [MS Open Data](https://msropendata.com/) / [NLP Datasets](https://github.com/niderhoff/nlp-datasets) / [English NLP SOTA](https://github.com/magizbox/underthesea/wiki/English-NLP-SOTA#text-classification) / [Awesome Public Dataset](https://github.com/awesomedata/awesome-public-datasets)
+* [언어공학연구회](http://hclt.kr/) / [Arxiv Sanity Preserver](http://www.arxiv-sanity.com/) / [Open-Review](https://openreview.net/) / [ACL Anthology](https://aclanthology.coli.uni-saarland.de/)
