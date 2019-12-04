@@ -3,7 +3,7 @@
 ## Contents
 
 1. [Experience](#Experience)
-2. [Kaggle](#Kaggle)
+2. [Competition](#Competition)
 3. [Book](#Book)
 4. [Course](#Course)
 5. [Paper](#Paper)
@@ -19,10 +19,10 @@ _Wemakeprice, Inc._
 * ...
 
 
-_Master Degree_
+_Master Degree_ [[blog](https://gritmind.github.io/2019/01/ms-research-sumup.html)]
 * [Thesis] 문서 분류를 위한 자질 조합과 시간적 순차성 및 통합성 기반 심층 신경망 모델 연구 [[paper](http://ust.dcollection.net/srch/srchDetail/200000107737)] | 2018.08
-* 문서 분류를 위한 시간적 순차성과 통합성 기반 심층 신경망 모델 설계 [[paper](https://1drv.ms/b/s!AllPqyV9kKUrkTwibf_2WXdXUOXN)][[code](https://github.com/gritmind/temp-based-model)] | 2018.03-05
 * 문서 분류를 위한 신경망 모델에 적합한 텍스트 전처리와 워드 임베딩 조합 [[paper](http://kiise.or.kr/e_journal/2018/7/JOK/pdf/08.pdf)][[code](https://github.com/gritmind/suitable-combination)] | 2017.11-2018.03
+* 문서 분류를 위한 시간적 순차성과 통합성 기반 심층 신경망 모델 설계 [[paper](https://1drv.ms/b/s!AllPqyV9kKUrkTwibf_2WXdXUOXN)][[code](https://github.com/gritmind/temp-based-model)] | 2018.03-05
 * 초고성능컴퓨팅 기반 지능형 국가사회 이슈 탐지추적 기술 개발 [[report](http://www.ndsl.kr/ndsl/commons/util/ndslOriginalView.do?dbt=TRKO&cn=TRKO201800002498&rn=&url=&pageCode=PG18)] | 2017.01-12
 * Improving Classifiers for Semantic Annotation with Elaborate Syntactic Structure [[paper](https://1drv.ms/b/s!AllPqyV9kKUrwx7uQT8j9DsEtAqY)][[code](https://github.com/gritmind/semantic-annotation)] | 2016.12-2017.05
 * SVM-based web content mining with leaf classification unit from DOM-tree [[paper](https://1drv.ms/b/s!AllPqyV9kKUrwyAeaF0XsG2ZWGqG)][[code](https://github.com/gritmind/web-content-mining)] | 2016.07-10
@@ -35,13 +35,16 @@ _Undergraduate Degree_
 * Web and Mobile Application for Social Network [[code](https://github.com/gritmind/dormitory_social_network)] | 2013.05-10
 
 
-_ELSE... (small tasks)_
+_else.. (small tasks)_
 * Korean Lexical analyzer with Recursion [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/lexical_recursion.ipynb)] | 2018.11
 * POS tagger with Viterbi algorithm [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/pos_viterbi.ipynb)] | 2018.11
 
-## Kaggle
+## Competition
 
-* practice
+_Kaggle_
+* ...
+
+_Dacon_
 * ...
 
 
@@ -93,7 +96,7 @@ _Offline_
 
 ## Paper
 
-_related to {ML, DL, NLP}_
+_almost related to NLP with Deep Learning_
 * [Sequence to Sequence Learning with Neural Networks](https://github.com/gritmind/review/blob/master/paper/paper/seq2seq_with_nn.md) (I.Sutskever, *NIPS* 2014) | 2016
 * [Going Deeper with Convolutions](https://github.com/gritmind/review/blob/master/paper/paper/going-deeper-with-convolutions.md) (C.Szegedy, 2014) | 2016
 * [Playing Atari with Deep Reinforcement Learning](https://github.com/gritmind/review/blob/master/paper/paper/playing-atari-with-deep-reinforcement-learning.md) (V.Mnih, 2013) | 2017
@@ -114,7 +117,7 @@ _Article_
 * [국립국어원 새국어생활 - [특집] 4차 산업 혁명 시대의 국어 생활](https://github.com/gritmind/my-review-notes/blob/master/paper/article/special_edition/README.md) (2017)
 * [한국어 자연어 처리 관련 기사 모음](https://github.com/gritmind/review/blob/master/paper/article/koreannlp_articles.md)
 
-_ETC_
+_etc._
 * [Tweet Segmentation and Its Application to Named Entity Recognition](https://github.com/gritmind/review/blob/master/paper/paper/tweet-segmentation-and-its-application-to-ner.md) (C.Li, *TKDE* 2015) | 2016
 * [An Empirical Study of Semantic Similarity in WordNet and Word2Vec](https://github.com/gritmind/review/blob/master/paper/paper/an-empirical-study-of-semantic-similarity-in-WordNet-and-Word2Vec.md) (2014) | 2017
 * [Building Bridges for Web Query Classification](https://github.com/gritmind/review/blob/master/paper/paper/building-bridges-for-web-query-classification.md) (D.Shen, *SIGIR* 2006) | 2015
@@ -161,8 +164,9 @@ _Offline_
 * [온톨로지와 링크드데이터](https://github.com/gritmind/review/blob/master/media/talk/ontology_and_linkeddata.md) (KISTI) | 2016.07.11
 
 _Online_
-* [Boosting Product Categorization with Machine Learning](https://github.com/gritmind/my-review-notes/blob/master/media/talk/product_categorization_commercetools/product_categorization_commercetools.md) (2017)
-* [Learning to Rank: From Theory to Production](https://github.com/gritmind/my-review-notes/blob/master/media/talk/learning_to_rank_bloomberg/learning_to_rank_bloomberg.md) (Activate 2018)
+* [DEVIEW 2019](https://github.com/gritmind/review/tree/master/media/seminar/deview-2019)
+* [Boosting Product Categorization with Machine Learning](https://github.com/gritmind/my-review-notes/blob/master/media/talk/product_categorization_commercetools/product_categorization_commercetools.md) (2017) | 2019.10
+* [Learning to Rank: From Theory to Production](https://github.com/gritmind/my-review-notes/blob/master/media/talk/learning_to_rank_bloomberg/learning_to_rank_bloomberg.md) (Activate 2018) | 2019.10
 * [시즌 Reinforcement Learning](https://github.com/gritmind/review/tree/master/media/seminar/all-mldl-rl) (모두를 위한 머신러닝/딥러닝 강의) | 2017.06.01
 * [Developing Korean chatbot 101](https://github.com/gritmind/review/blob/master/media/seminar/developing-kor-chatbot.md) (Tensorflow Korea Conf2) | 2017.01.14
 * [Nuts and Bolts of Applying Deep Learning](https://github.com/gritmind/review/blob/master/media/talk/nutsandbolts-of-applying-dl.md) (DLSS) | 2016.10.24
