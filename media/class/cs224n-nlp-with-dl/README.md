@@ -5,7 +5,7 @@
 * [Schedule](http://web.stanford.edu/class/cs224n/index.html#schedule)
 * [Videos](https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z)
 
-강의를 듣고 이해한 내용과 저의 생각을 강의 slide의 주석으로 정리했습니다.
+강의를 듣고 이해한 내용과 저의 생각을 slide의 주석으로 정리했습니다.
 
 
 ## Contents
@@ -20,14 +20,13 @@
 8. Machine Translation, Seq2Seq and Attention [[Annotated Slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/cs224n-2019-lecture08-nmt_gritmind.pdf)]
 9. Practical Tips for Final Projects [[Annotated Slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/cs224n-2019-lecture09-final-projects_gritmind.pdf)]
 10. Question Answering and the Default Final Project [[Annotated Slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/cs224n-2019-lecture10-QA_gritmind.pdf)]
-11. 
-
-
-
-
-
-
-
-
-
-
+11. ConvNets for NLP [[Annotated Slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/cs224n-2019-lecture11-convnets_gritmind.pdf)]
+12. Information from parts of words: Subword Models
+13. Modeling contexts of use: Contextual Representations and Pretraining
+14. Transformers and Self-Attention For Generative Models
+15. Natural Language Generation
+16. Reference in Language and Coreference Resolution
+17. Multitask Learning: A general model for NLP?
+18. Constituency Parsing and Tree Recursive Neural Networks
+19. Safety, Bias, and Fairness
+20. Future of NLP + Deep Learning

@@ -1,4 +1,4 @@
-# [특집] 4차 산업 혁명 시대의 국어 생활](http://www.korean.go.kr/nkview/nklife/2017_4.html)
+# [[특집] 4차 산업 혁명 시대의 국어 생활](http://www.korean.go.kr/nkview/nklife/2017_4.html)
 
 국립국어원 새국어생활
 
@@ -12,7 +12,7 @@
 * 말뭉치와 언어학 (최재웅)
 * 일상생활 속으로 들어온 기계 번역 (김준석)
 
-* [우리말 자연어 처리 기술: 과거와 현재 (김학수)](https://github.com/gritmind/my-review-notes/blob/master/paper/article/special_edition/annotated_notes/2_article_gritmind.md)
+* [우리말 자연어 처리 기술: 과거와 현재](https://github.com/gritmind/my-review-notes/blob/master/paper/article/special_edition/annotated_notes/2_article_gritmind.md) (김학수)
    * 자연어 처리 단계 (with 예시) (표1)
    * 전통적 형태소 분석기 / 의존 구조 분석
       * 사전 기반으로 가능한 후보군 생성 후 확률적인 방법으로 애매성 해소
