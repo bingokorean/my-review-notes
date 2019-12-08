@@ -84,7 +84,7 @@ _Online_
 * [Machine Learning](https://github.com/gritmind/review/tree/master/media/class/machine-learning-coursera) (Coursera, Andrew Y.Ng) | 2015.08-10
 * [The Analytics Edge](https://github.com/gritmind/review/tree/master/media/class/analytics-edge) (edX) | 2015.07-09
 * Lazy Programmer
-   * [Deep Learning: Advanced NLP and RNNs](https://github.com/gritmind/review/tree/master/code/class/advanced_nlp_lazy) (Udemy, Lazy Programmer) | 2018.07-08
+   * [Deep Learning: Advanced NLP and RNNs](https://github.com/gritmind/review/tree/master/code/class/advanced_nlp_lazy) (Udemy) | 2018.07-08
 
 _Offline_
 * [Introductory Statistics for Science and Engineering](https://github.com/gritmind/review/tree/master/media/class/intro-statistics-for-science-and-engineering) (UST) | 2017 Fall
