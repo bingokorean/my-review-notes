@@ -2,35 +2,24 @@
 
 ## Contents
 
-1. [Experience](#Experience)
-2. [Competition](#Competition)
-3. [Book](#Book)
-4. [Course](#Course)
-5. [Paper](#Paper)
-6. [Tutorial](#Tutorial)
-7. [Tech-Blog](#Tech-Blog)
-8. [Reference](#References)
+* [Experience](#Experience)
+* [Book](#Book)
+* [Course](#Course)
+* [Paper](#Paper)
+* [Tutorial](#Tutorial)
+* [Tech-Blog](#Tech-Blog)
+* [Reference](#References)
 
 <br>
 
 ## Experience
 
 _Wemakeprice, Inc._
-* 노리 형태소 분석기 개발 [[blog](https://gritmind.github.io/2019/05/nori-deep-dive.html)]
-   * Lucene Nori, Korean Mopological Analyzer, in Python [[code](https://github.com/gritmind/python-nori)]
-* 상품 데이터 속성 정규화기 개발 [[blog](https://gritmind.github.io/2019/11/brand-norm.html)]
-   * Eng2Kor Transliterator using Seq2seq model [[code](https://github.com/gritmind/engkor_transliterator)]
-* 카테고리 자동 분류기 개발
-
+* cf. my [**CV**](https://sites.google.com/view/yeongsukim).
 
 _Master Degree_ [[blog](https://gritmind.github.io/2019/01/ms-research-sumup.html)]
-* [Thesis] 문서 분류를 위한 자질 조합과 시간적 순차성 및 통합성 기반 심층 신경망 모델 연구 [[paper](http://ust.dcollection.net/srch/srchDetail/200000107737)] | 2018.08
-* 문서 분류를 위한 신경망 모델에 적합한 텍스트 전처리와 워드 임베딩 조합 [[paper](http://kiise.or.kr/e_journal/2018/7/JOK/pdf/08.pdf)][[code](https://github.com/gritmind/suitable-combination)] | 2017.11-2018.03
-* 문서 분류를 위한 시간적 순차성과 통합성 기반 심층 신경망 모델 설계 [[paper](https://1drv.ms/b/s!AllPqyV9kKUrkTwibf_2WXdXUOXN)][[code](https://github.com/gritmind/temp-based-model)] | 2018.03-05
-* 초고성능컴퓨팅 기반 지능형 국가사회 이슈 탐지추적 기술 개발 [[report](http://www.ndsl.kr/ndsl/commons/util/ndslOriginalView.do?dbt=TRKO&cn=TRKO201800002498&rn=&url=&pageCode=PG18)] | 2017.01-12
-* Improving Classifiers for Semantic Annotation with Elaborate Syntactic Structure [[paper](https://1drv.ms/b/s!AllPqyV9kKUrwx7uQT8j9DsEtAqY)][[code](https://github.com/gritmind/semantic-annotation)] | 2016.12-2017.05
-* SVM-based web content mining with leaf classification unit from DOM-tree [[paper](https://1drv.ms/b/s!AllPqyV9kKUrwyAeaF0XsG2ZWGqG)][[code](https://github.com/gritmind/web-content-mining)] | 2016.07-10
-* 개체명 인식을 위한 학습 데이터 자동 확장 연구 [[code](https://github.com/gritmind/text_augmentation)] | 2017.07-10
+
+* cf. my [**CV**](https://sites.google.com/view/yeongsukim).
 * 한국어 형태소 분석기와 품사 태거 구현 [[code](https://github.com/gritmind/morph_and_pos_analyzer_korean)] | 2017.03-06
 
 _Undergraduate Degree_
@@ -42,10 +31,6 @@ _Undergraduate Degree_
 _else.. (small tasks)_
 * Korean Lexical analyzer with Recursion [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/lexical_recursion.ipynb)] | 2018.11
 * POS tagger with Viterbi algorithm [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/pos_viterbi.ipynb)] | 2018.11
-
-## Competition
-
-* ...
 
 
 
