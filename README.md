@@ -15,11 +15,11 @@
 ## Experience
 
 _Wemakeprice, Inc._
-* cf. my [**CV**](https://sites.google.com/view/yeongsukim).
+* cf. my [**CV**](https://docs.google.com/document/d/1QgcucBWiZumzFWClgvJhGqi01T5_N-yR2R7QP2te4Dg/edit).
 
 _Master Degree_ [[blog](https://gritmind.github.io/2019/01/ms-research-sumup.html)]
 
-* cf. my [**CV**](https://sites.google.com/view/yeongsukim).
+* cf. my [**CV**](https://docs.google.com/document/d/1QgcucBWiZumzFWClgvJhGqi01T5_N-yR2R7QP2te4Dg/edit).
 * 한국어 형태소 분석기와 품사 태거 구현 [[code](https://github.com/gritmind/morph_and_pos_analyzer_korean)] | 2017.03-06
 
 _Undergraduate Degree_
@@ -144,11 +144,13 @@ _Online_
 
 ## Tech-Blog
 
-* [Calculus on Computational Graphs: Backpropagation](https://github.com/gritmind/review/blob/master/paper/blog/colah/calculus-on-computational-graphs.md) (Aug31, 2015, Colah) | 2016
-* [Understanding LSTM Networks](https://github.com/gritmind/review/blob/master/paper/blog/colah/understanding-lstm-networks.md) (Aug27, 2015, Colah) | 2016
-* [Deep Learning and NLP and Representations](https://github.com/gritmind/review/blob/master/paper/blog/colah/dl-and-nlp-and-representations.md) (July7, 2014, Colah) | 2016
-* [Attention and Memory in Deep Learning and NLP](https://github.com/gritmind/review/blob/master/paper/blog/wildml/attention-and-memory-in-deep-learning-and-nlp.md) (Jan3, 2016, WILDML) | 2016
-* [Understanding Convolutional Neural Networks for NLP](https://github.com/gritmind/review/blob/master/paper/blog/wildml/understanding-convolutional-neural-networks-for-nlp.md) (Nov7, 2015, WILDML) | 2016
+* [Colah's Blog Review](https://github.com/gritmind/review/blob/master/paper/blog/colah/README.md)
+   * Calculus on Computational Graphs: Backpropagation (Aug.31, 2015) | 2016
+   * Understanding LSTM Networks (Aug.27, 2015) | 2016
+   * Deep Learning and NLP and Representations (Jul.7, 2014) | 2016
+* [WILDML's Blog Reivew](https://github.com/gritmind/review/blob/master/paper/blog/wildml/README.md)
+   * Attention and Memory in Deep Learning and NLP (Jan.3, 2016) | 2016
+   * Understanding Convolutional Neural Networks for NLP (Nov.7, 2015) | 2016
 * [프로그래머를 위한 알파고](https://github.com/gritmind/review/blob/master/paper/blog/slideshare/alphago-for-programmer.md) (Mar13, 2016, Slideshare) | 2016
 * [Probabilistic Topic Models](https://github.com/gritmind/review/blob/master/paper/blog/slideshare/topicmodels.md) (David M.Blei 2018.07.17, Slides) | 2017
 * Syntax Comparison between Python and Java [[note](https://1drv.ms/w/s!AllPqyV9kKUrwxOo9L1syWAnlRoh)] | 2018.10
