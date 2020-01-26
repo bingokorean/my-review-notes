@@ -10,23 +10,23 @@
 
 ## Contents
 
-* 1. Introduction and Word Vectors [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture01-wordvecs1_gritmind.pdf)]
-* 2. Word Vectors 2 and Word Senses [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture02-wordvecs2_gritmind.pdf)]
-* 3. Word Window Classification, Neural Networks, and Maxtrix Calculus [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture03-neuralnets_gritmind.pdf)]
-* 4. Backpropagation and Computation Graphs [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture04-backprop_gritmind.pdf)]
-* 5. Linguistic Structure: Dependency Parsing [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture05-dep-parsing_gritmind.pdf)]
-* 6. The probability of a sentence? Recurrent Neural Networks and Language Models [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture06-rnnlm_grtimind.pdf)]
-* 7. Vanishing Gradients and Fancy RNNs [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture07-fancy-rnn_gritmind.pdf)]
-* 8. Machine Translation, Seq2Seq and Attention [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture08-nmt_gritmind.pdf)]
-* 9. Practical Tips for Final Projects [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture09-final-projects_gritmind.pdf)]
-* 10. Question Answering and the Default Final Project [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture10-QA_gritmind.pdf)]
-* 11. ConvNets for NLP [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture11-convnets_gritmind.pdf)]
-* 12. Information from parts of words: Subword Models [[annotated-slide]]
-* 13. Modeling contexts of use: Contextual Representations and Pretraining
-* 14. Transformers and Self-Attention For Generative Models
-* 15. Natural Language Generation
-* 16. Reference in Language and Coreference Resolution
-* 17. Multitask Learning: A general model for NLP?
-* 18. Constituency Parsing and Tree Recursive Neural Networks
-* 19. Safety, Bias, and Fairness
-* 20. Future of NLP + Deep Learning
+1. Introduction and Word Vectors [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture01-wordvecs1_gritmind.pdf)]
+2. Word Vectors 2 and Word Senses [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture02-wordvecs2_gritmind.pdf)]
+3. Word Window Classification, Neural Networks, and Maxtrix Calculus [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture03-neuralnets_gritmind.pdf)]
+4. Backpropagation and Computation Graphs [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture04-backprop_gritmind.pdf)]
+5. Linguistic Structure: Dependency Parsing [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture05-dep-parsing_gritmind.pdf)]
+6. The probability of a sentence? Recurrent Neural Networks and Language Models [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture06-rnnlm_grtimind.pdf)]
+7. Vanishing Gradients and Fancy RNNs [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture07-fancy-rnn_gritmind.pdf)]
+8. Machine Translation, Seq2Seq and Attention [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture08-nmt_gritmind.pdf)]
+9. Practical Tips for Final Projects [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture09-final-projects_gritmind.pdf)]
+10. Question Answering and the Default Final Project [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture10-QA_gritmind.pdf)]
+11. ConvNets for NLP [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture11-convnets_gritmind.pdf)]
+12. Information from parts of words: Subword Models [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture12-subwords_gritmind.pdf)]
+13. Modeling contexts of use: Contextual Representations and Pretraining
+14. Transformers and Self-Attention For Generative Models
+15. Natural Language Generation
+16. Reference in Language and Coreference Resolution
+17. Multitask Learning: A general model for NLP?
+18. Constituency Parsing and Tree Recursive Neural Networks
+19. Safety, Bias, and Fairness
+20. Future of NLP + Deep Learning

@@ -15,11 +15,11 @@
 ## Experience
 
 _Wemakeprice, Inc._
-* cf. my [**CV**](https://docs.google.com/document/d/1QgcucBWiZumzFWClgvJhGqi01T5_N-yR2R7QP2te4Dg/edit).
+* (main works are in my [**CV**](https://docs.google.com/document/d/1QgcucBWiZumzFWClgvJhGqi01T5_N-yR2R7QP2te4Dg/edit)).
 
 _Master Degree_ [[blog](https://gritmind.github.io/2019/01/ms-research-sumup.html)]
 
-* cf. my [**CV**](https://docs.google.com/document/d/1QgcucBWiZumzFWClgvJhGqi01T5_N-yR2R7QP2te4Dg/edit).
+* (main works are in my [**CV**](https://docs.google.com/document/d/1QgcucBWiZumzFWClgvJhGqi01T5_N-yR2R7QP2te4Dg/edit)).
 * 한국어 형태소 분석기와 품사 태거 구현 [[code](https://github.com/gritmind/morph_and_pos_analyzer_korean)] | 2017.03-06
 
 _Undergraduate Degree_
@@ -132,6 +132,7 @@ _Offline_
 
 _Online_
 * [DEVIEW 2019](https://github.com/gritmind/review/tree/master/media/seminar/deview-2019) (2019.10.28-29)
+   * 쿠팡 추천 시스템 2년간의 변천사 (오성민/Coupang/Recommendation)
 * [Boosting Product Categorization with Machine Learning](https://github.com/gritmind/my-review-notes/blob/master/media/talk/product_categorization_commercetools/product_categorization_commercetools.md) (2017) | 2019.10
 * [Learning to Rank: From Theory to Production](https://github.com/gritmind/my-review-notes/blob/master/media/talk/learning_to_rank_bloomberg/learning_to_rank_bloomberg.md) (Activate 2018) | 2019.10
 * [시즌 Reinforcement Learning](https://github.com/gritmind/review/tree/master/media/seminar/all-mldl-rl) (모두를 위한 머신러닝/딥러닝 강의) | 2017.06.01
