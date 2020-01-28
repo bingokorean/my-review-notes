@@ -53,20 +53,20 @@
 <p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/media/seminar/deview-2019/images/coupang_recm_2.PNG" width="60%" height="60%"></p>
 
 * relation와 model은 서로 강하게 연결되어 있었음 (단점)
-   * 복잡하고 다양한 중간 단계의 테이블이 필요함
-   * 테이블이 그대로 서비스에 나가게 됨
+   * 복잡하고 다양한 중간 단계의 테이블이 필요함.
+   * 테이블이 그대로 서비스에 나가게 됨.
 
 * 과거 플랫폼의 단점 및 한계
    * 모델 변경에 따라 길어지는 파이프라인 (필터, 부스팅, ...)
-      * 서로 다른 카테고리 모델을 비교할 때 전체 데이터 파이프라인을 새로 만들어서 A/B 테스트를 실시해야 한다.
-   * 추가 요청사항을 처리하기 어려움
-   * 완성 전까지 결과를 알 수 없음
-   * 개발에 시간이 오래 걸림
-      * 어디에 문제가 발생하면 전체 파이프라인을 수정해야 함
-      * 테이블 결과를 보고나서야 서비스 결정유무를 선택함
-      * 새로운 서비스를 출시하려면 대략 1달 소요
-   * 점진적인 개선이 힘들다.
-   * 모델의 재활용이 어렵다. 새로운 context를 가질 때마다 전체 파이프라인도 새로 정의해야 함.
+      * 서로 다른 카테고리 모델을 비교할 때 전체 데이터 파이프라인을 새로 만들어서 A/B 테스트를 실시해야 함.
+   * 추가 요청사항을 처리하기 어려움.
+   * 완성 전까지 결과를 알 수 없음.
+   * 개발에 시간이 오래 걸림.
+      * 어디에 문제가 발생하면 전체 파이프라인을 수정해야 함.
+      * 테이블 결과를 보고나서야 서비스 결정유무를 선택함.
+      * 새로운 서비스를 출시하려면 대략 1달 소요됨.
+   * 점진적인 개선이 힘듦.
+   * 모델의 재활용이 어려움. 새로운 context를 가질 때마다 전체 파이프라인도 새로 정의해야 함.
 
 * 목표
    * 추천 모델과 서비스를 분리시킬 것
@@ -75,7 +75,7 @@
 
 ### 1.3. 현재, 서비스와 모델을 분리하는 플랫폼
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/media/seminar/deview-2019/images/coupang_recm_3.PNG" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/media/seminar/deview-2019/images/coupang_recm_3.png" width="70%" height="70%"></p>
 
 * 검색 엔진을 사용해서 서비스와 분리할 수 있는 플랫폼을 구축함
    * 쿼리 -> 후보 찾기 -> 랭킹
