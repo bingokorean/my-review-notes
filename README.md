@@ -42,9 +42,9 @@ _CodeBook_
 * [Grokking Algorithms](https://github.com/gritmind/review/blob/master/code/book/grokking-algorithms/README.md) (Aditya Y. Bhargava, May 2016) - 한국어판
 * [Elements of Programming Interviews in Python](https://github.com/gritmind/review/blob/master/code/book/interview_py/README.md) (Adnan&Tsung-Hsien&Amit, 2018)
 * [Effective Python: 59 Specific Ways to Write Better Python](https://github.com/gritmind/review/blob/master/code/book/effective_py/README.md) (Brett Slatkin, 2016.03) - 한국어판
-* [알기 쉽게 해설한 JAVA](https://github.com/gritmind/review/blob/master/code/book/java_kim/README.md) (김충석, 2011)
-* 개념을 콕콕 잡아주는 C 프로그래밍 [[note](https://1drv.ms/w/s!AllPqyV9kKUrwjk_wNK-qM6eJjqd)] (천정아, 2009)
 * [Machine Learning Mastery](https://github.com/gritmind/review/blob/master/code/book/ml-mastery/README.md) (Jason Brownlee)
+* [알기 쉽게 해설한 JAVA](https://github.com/gritmind/review/blob/master/code/book/java_kim/README.md) (김충석, 2011)
+* [개념을 콕콕 잡아주는 C 프로그래밍](https://github.com/gritmind/review/blob/master/code/book/c_programming_chun/README.md) (천정아, 2009)
 
 
 
