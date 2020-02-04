@@ -1,6 +1,6 @@
 # My Review Notes
 
-## Contents
+### Contents
 
 * [Experience](#Experience)
 * [Book](#Book)
@@ -10,16 +10,15 @@
 * [Tech-Blog](#Tech-Blog)
 * [Reference](#References)
 
-<br>
 
 ## Experience
 
 _Wemakeprice, Inc._
-* (main works are in my [**CV**](https://docs.google.com/document/d/1QgcucBWiZumzFWClgvJhGqi01T5_N-yR2R7QP2te4Dg/edit)).
+* (main works are in my [CV](https://docs.google.com/document/d/1QgcucBWiZumzFWClgvJhGqi01T5_N-yR2R7QP2te4Dg/edit)).
 
 _Master Degree_ [[blog](https://gritmind.github.io/2019/01/ms-research-sumup.html)]
 
-* (main works are in my [**CV**](https://docs.google.com/document/d/1QgcucBWiZumzFWClgvJhGqi01T5_N-yR2R7QP2te4Dg/edit)).
+* (main works are in my [CV](https://docs.google.com/document/d/1QgcucBWiZumzFWClgvJhGqi01T5_N-yR2R7QP2te4Dg/edit)).
 * 한국어 형태소 분석기와 품사 태거 구현 [[code](https://github.com/gritmind/morph_and_pos_analyzer_korean)] | 2017.03-06
 
 _Undergraduate Degree_
@@ -45,11 +44,8 @@ _CodeBook_
 * [Effective Python: 59 Specific Ways to Write Better Python](https://github.com/gritmind/review/blob/master/code/book/effective_py/README.md) (Brett Slatkin, 2016.03) - 한국어판
 * [알기 쉽게 해설한 JAVA](https://github.com/gritmind/review/blob/master/code/book/java_kim/README.md) (김충석, 2011)
 * 개념을 콕콕 잡아주는 C 프로그래밍 [[note](https://1drv.ms/w/s!AllPqyV9kKUrwjk_wNK-qM6eJjqd)] (천정아, 2009)
-* Machine Learning Mastery (by Jason Brownlee)
-   * Machine Learning with Python [[contents.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/book/ml-mastery/machine-learning-with-py/contents.ipynb)] [[projects.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/book/ml-mastery/machine-learning-with-py/projects.ipynb)]
-   * Deep Learning with Python [[contents.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/book/ml-mastery/deep-learning-with-py/contents.ipynb)] [[projects.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/book/ml-mastery/deep-learning-with-py/projects.ipynb)]
-   * [Deep Learning for Natural Language Processing](https://github.com/gritmind/review/tree/master/code/book/deep-learning-for-nlp/README.md)
-   * [Long-Short Term Memory Networks with Python](https://github.com/gritmind/review/tree/master/code/book/lstm-with-python/README.md)
+* [Machine Learning Mastery](https://github.com/gritmind/review/blob/master/code/book/ml-mastery/README.md) (Jason Brownlee)
+
 
 
 _EduBook_

@@ -4,12 +4,13 @@ Coursera / University of Illinois at Urbana-Champaign <br>
 Jiawei Han, ChengXiang Zhai, John C. Hart <br>
 Certificates earned at 04/01/2015 [[1](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/certificate/Coursera%20patterndiscovery.pdf)], 05/08/2015 [[2](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/certificate/Coursera%20textretrieval.pdf)], 06/10/2015 [[3](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/certificate/Coursera%20clusteranalysis.pdf)], 07/16/2015 [[4](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/certificate/Coursera%20textanalytics.pdf)], 08/24/2015 [[5](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/certificate/Coursera%20datavisualization.pdf)], 07/30/2018 [[6](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/certificate/data_mining_project.pdf)]
 <br>
-Certificate of Data Mining Specialization is in [**here**](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/certificate/data_mining_specialization.pdf).
+Certificate of Data Mining Specialization is in [here](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/certificate/data_mining_specialization.pdf).
 
-다양한 정형/비정형 데이터 마이닝 기술 습득 및 Yelp 레스토랑 리뷰 데이터를 활용한 데이터 마이닝 프로젝트 수행
 
 ## Pattern Discovery in Data Mining
-* Pattern Discovery Basic Concepts, Efficient Pattern Mining Methods
+* Week1.
+   * Pattern Discovery Basic Concepts [[annotated-slides](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/annotated_slides/pattern_discovery/Lecture_1_basicConcepts.pdf)]
+   * Efficient Pattern Mining Methods 
 * Pattern Evaluation, Mining Diverse Frequent Patterns
 * Sequential Pattern Mining, Mining Spatiotemporal and Trajectory Patterns
 * Mining Quality Phrases from Text Data, Advanced Topics on Pattern Discovery
@@ -25,7 +26,9 @@ Certificate of Data Mining Specialization is in [**here**](https://github.com/gr
 
 
 ## Cluster Analysis in Data Mining
-* Cluster Analysis: An Introduction, Similarity Measures for Cluster Analysis
+* Week1.
+   * Introduction [[annotated-slides](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/annotated_slides/cluster_analysis/Lecture_1_Introduction.pdf)]
+   * Similarity Measures for Cluster Analysis [[annotated-slides](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/annotated_slides/cluster_analysis/Lecture_2_Similarity_Measures_for_Cluster_Analysis.pdf)]
 * Partitioning-Based Clustering Methods, Hierarchical Clustering Methods, ClusterEnG
 * Hierarchical Clustering Methods, Density-Based and Grid-Based Clustering Methods
 * Methods for Clustering Validation
