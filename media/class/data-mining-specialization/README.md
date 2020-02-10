@@ -9,11 +9,13 @@ Certificate of Data Mining Specialization is in [here](https://github.com/gritmi
 
 ## Pattern Discovery in Data Mining
 * Week1.
-   * Pattern Discovery Basic Concepts [[annotated-slides](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/annotated_slides/pattern_discovery/Lecture_1_basicConcepts.pdf)]
+   * Pattern Discovery Basic Concepts [[annotated-slides](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/annotated_slides/pattern_discovery/Lecture_1_BasicConcepts.pdf)]
    * Efficient Pattern Mining Methods 
 * Pattern Evaluation, Mining Diverse Frequent Patterns
 * Sequential Pattern Mining, Mining Spatiotemporal and Trajectory Patterns
-* Mining Quality Phrases from Text Data, Advanced Topics on Pattern Discovery
+* Week4.
+   * Mining Quality Phrases from Text Data [[annotated-slides](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/annotated_slides/pattern_discovery/Lecture_7_PatternMiningApplications.pdf)]
+   * Advanced Topics on Pattern Discovery
 
 
 ## Text Retrieval and Search Engines
