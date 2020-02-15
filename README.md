@@ -2,35 +2,12 @@
 
 ### Contents
 
-* [Experience](#Experience)
 * [Book](#Book)
 * [Course](#Course)
 * [Paper](#Paper)
 * [Tutorial](#Tutorial)
 * [Tech-Blog](#Tech-Blog)
 * [Reference](#References)
-
-
-## Experience
-
-_Wemakeprice, Inc._
-* (main works are in my [CV](https://docs.google.com/document/d/1QgcucBWiZumzFWClgvJhGqi01T5_N-yR2R7QP2te4Dg/edit)).
-
-_Master Degree_ [[blog](https://gritmind.github.io/2019/01/ms-research-sumup.html)]
-
-* (main works are in my [CV](https://docs.google.com/document/d/1QgcucBWiZumzFWClgvJhGqi01T5_N-yR2R7QP2te4Dg/edit)).
-* 한국어 형태소 분석기와 품사 태거 구현 [[code](https://github.com/gritmind/morph_and_pos_analyzer_korean)] | 2017.03-06
-
-_Undergraduate Degree_
-* Image Processing for Fire Detection with Raspberry Pi [[code](https://github.com/gritmind/image_processing_for_fire_detection)] | 2014.03-06
-* Intelligent Humanoid Robot for Relay and Separate Object [[code](https://github.com/gritmind/intelligent_humanoid_robot_competition)] | 2013.07-11
-* Web and Mobile Application for Social Network [[code](https://github.com/gritmind/dormitory_social_network)] | 2013.05-10
-
-
-_else.. (small tasks)_
-* Korean Lexical analyzer with Recursion [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/lexical_recursion.ipynb)] | 2018.11
-* POS tagger with Viterbi algorithm [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/pos_viterbi.ipynb)] | 2018.11
-
 
 
 ## Book
