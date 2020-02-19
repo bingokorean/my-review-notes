@@ -41,8 +41,8 @@ _Online_
    * Text Mining and Analytics
 * [Machine Learning](https://github.com/gritmind/review/tree/master/media/class/machine-learning-coursera) (Coursera, Andrew Y.Ng) | 2015.08-10
 * [The Analytics Edge](https://github.com/gritmind/review/tree/master/media/class/analytics-edge) (edX) | 2015.07-09
-* [LinkedIn Learning](https://github.com/gritmind/review/tree/master/media/class/linkedin_learning)
-* [Lazy Programmer](https://github.com/gritmind/review/tree/master/media/class/lazy_programmer)
+* [LinkedIn Learning] (LinkedIn)(https://github.com/gritmind/review/tree/master/media/class/linkedin_learning)
+* [Lazy Programmer] (Udemy)(https://github.com/gritmind/review/tree/master/media/class/lazy_programmer)
 
 
 _Offline_
