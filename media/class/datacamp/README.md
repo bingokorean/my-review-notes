@@ -26,7 +26,7 @@ Pyspark에서 Spark cluster와 연결하는 법은 해당 클래스 객체를 �
 간단한 계산은 오히려 spark에서 오래 걸릴 수도 있다. <br>
 spark는 대용량 데이터에 맞는 복잡한 계산으로 최적화되어 있기 때문이다.
 
-```python
+```
 # SparkContext 를 sc 에 생성했다고 가정.
 
 # Verify SparkContext
@@ -55,7 +55,7 @@ SparkContext를 클러스터와 연결해주는 매개체, SparkSession은 연�
 SparkSession을 여러 개 생성하면 SparkContext에서는 이슈가 발생한다. <br>
 이를 방지하기 위해 getOrCreat() 함수를 사용한다. 이미 존재하면 새로 만들지 않고 기존의 것을 리턴한다.
 
-```python
+```
 # Import SparkSession from pyspark.sql
 from pyspark.sql import SparkSession
 
@@ -72,7 +72,7 @@ SparkSession 을 만들면, 클러스터에 있는 데이터를 확인할 수 �
 SparkSession은 catalog 속성을 가진다. 이는 cluster 안에 있는 모든 데이터의 리스트를 가진다. <br>
 catalog.listTables() 함수로 cluster에 있는 모든 테이블의 이름을 확인할 수 있다.
 
-```python
+```
 # Print the tables in the catalog
 print(spark.catalog.listTables())
 >>>
@@ -81,7 +81,7 @@ print(spark.catalog.listTables())
 
 DataFrame의 장점 중 하나는 SQL 쿼리를 Spark cluster에 날릴 수 있다는 점이다.
 
-```python
+```
 query = "FROM flights SELECT * LIMIT 10"
 
 # Get the first 10 rows of flights
@@ -108,7 +108,7 @@ flights10.show()
 
 가끔, 대용량 데이터를 Spark 쿼리로 처리하고 집계된 결과를 more manageable한 Pandas DataFrame으로 표현하고 싶을 때가 있다.
 
-```python
+```
 query = "SELECT origin, dest, COUNT(*) as N FROM flights GROUP BY origin, dest"
 
 # Run the query
@@ -132,7 +132,7 @@ Pandas DataFrame를 Spark cluster에 저장하고 싶을 때가 있을 것이다
 
 Spark DataFrame method인 .createTempView()를 사용하면 된다. 해당 DataFrame을 catalog의 table에 등록해준다. 하지만 이는 일시적이며, 지금 사용하는 특정 SparkSession에서만 접근할 수 있다. (.createOrReplaceTempView() 함수를 쓰자. 이는 없으면 만들고, 있으면 업데이트함으로써 duplicate table을 방지해준다)
 
-```python
+```
 # Create pd_temp
 pd_temp = pd.DataFrame(np.random.random(10))
 
@@ -160,7 +160,7 @@ print(spark.catalog.listTables())
 
 SparkSession 에는 .read라는 함수로 다양한 데이터 소스를 Spark DataFrame으로 불러올 수 있다. 한 가지 예로 다음과 같이 CSV 파일을 곧바로 Spark DataFrame으로 읽어들일 수 있다.
 
-```python
+```
 # Don't change this file path
 file_path = "/usr/local/share/datasets/airports.csv"
 
@@ -203,7 +203,7 @@ Spark의 DataFrame에서 정의하는 column-wise 명령어들을 알아보자. 
 
 #### .withColumn()
 
-```python
+```
 # Create the DataFrame flights
 flights = spark.table("flights")
 
@@ -259,7 +259,7 @@ SELECT origin, dest, COUNT(*) FROM flights GROUP BY origin, dest;
 
 Spark DataFrame에서 `.filter()`라는 method가 있다. 이는 SQL의 WHERE과 같은 역할을 한다. `.filter()` method는 다음과 같이 두 가지 종류의 인자를 받는다. 
 
-```python
+```
 # Filter flights by passing a string
 long_flights1 = flights.filter("distance > 1000") (1) WHERE clause of a SQL query 
 
@@ -323,7 +323,7 @@ selected2 = temp.filter(filterA).filter(filterB)
 
 `.select()` method를 SQL과 비슷하게, column-wise operation을 실행할 수 있다. `.selectExpr()` method를 통해 SQL string을 사용한다. `.alias()` method는 SQL의 AS와 같다.
 
-```python
+```
 # Define avg_speed
 avg_speed = (flights.distance/(flights.air_time/60)).alias("avg_speed")
 
@@ -338,7 +338,7 @@ speed2 = flights.selectExpr("origin", "dest", "tailnum", "distance/(air_time/60)
 
 보편적인 aggregation method인 `.min()`, `.max()`, 그리고 `.count()` 는 `GroupedData` method라 불린다. 이들은 `.groupBy()` DataFrame method를 부름과 동시에 생성된다.
 
-```python
+```
 # Find the shortest flight from PDX in terms of distance
 flights.filter(flights.origin == "PDX").groupBy().min("distance").show()
 
@@ -359,7 +359,7 @@ flights.filter(flights.origin == "SEA").groupBy().max("air_time").show()
 +-------------+
 ```
 
-```python
+```
 # Average duration of Delta flights
 flights.filter(flights.carrier == "DL").filter(flights.origin == "SEA").groupBy().avg("air_time").show()
 
@@ -384,7 +384,7 @@ flights.withColumn("duration_hrs", flights.air_time/60).groupBy().sum("duration_
 
 Aggregating 의 위력은 grouping과 같이 쓸 때 나온다. 지금까지는 `.groupBy()` method에 인자를 넣지 않았지만, column을 명시해서 `.groupBy()`를 실행해보자.
 
-```python
+```
 # Group by tailnum
 by_plane = flights.groupBy("tailnum")
 
@@ -435,7 +435,7 @@ only showing top 20 rows
 
 `GroupedData` method 뿐만 아니라 `.agg()` method도 있다. `.agg()` method는 `pyspark.sql.functions` 서브 모듈로부터 aggregate function들을 사용하게 해준다. 해당 서브 모듈에 있는 모든 aggregation 함수들은 `GroupedData` 테이블에 있는 하나의 column을 인자로 받는다.
  
-```python
+```
 # Import pyspark.sql.functions as F
 import pyspark.sql.functions as F
 
