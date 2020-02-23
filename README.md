@@ -35,14 +35,10 @@ _Online_
 * [CS224n: Natural Language Processing with Deep Learning](https://github.com/gritmind/review/tree/master/media/class/cs224n-nlp-with-dl) (Stanford / Winter 2019) | 2019.9-12
 * [Deep Learning Nanodegree Foundation](https://github.com/gritmind/deep_learning_nanodegree_foundation) (Udacity) | 2017.01-06
 * [Data Mining Specialization](https://github.com/gritmind/review/tree/master/media/class/data-mining-specialization) (Coursera) | 2015.03-07, 2018.06-07
-   * Pattern Discovery in Data Mining
-   * Text Retrieval and Search Engines
-   * Cluster Analysis in Data Mining
-   * Text Mining and Analytics
+   * Pattern Discovery in Data Mining & Cluster Analysis in Data Mining
+   * Text Retrieval and Search Engines & Text Mining and Analytics
 * [Machine Learning](https://github.com/gritmind/review/tree/master/media/class/machine-learning-coursera) (Coursera, Andrew Y.Ng) | 2015.08-10
 * [The Analytics Edge](https://github.com/gritmind/review/tree/master/media/class/analytics-edge) (edX) | 2015.07-09
-* [LinkedIn Learning](https://github.com/gritmind/review/tree/master/media/class/linkedin_learning) (LinkedIn)
-* [Lazy Programmer](https://github.com/gritmind/review/tree/master/media/class/lazy_programmer) (Udemy)
 
 
 _Offline_
@@ -86,6 +82,30 @@ _etc._
 
 ## Tutorial
 
+
+_Online_
+
+* [DataCamp](https://github.com/gritmind/review/tree/master/media/class/datacamp)
+* [LinkedIn Learning](https://github.com/gritmind/review/tree/master/media/class/linkedin_learning) (LinkedIn)
+* [Lazy Programmer](https://github.com/gritmind/review/tree/master/media/class/lazy_programmer) (Udemy)
+* [DEVIEW 2019](https://github.com/gritmind/review/tree/master/media/seminar/deview-2019) (2019.10.28-29)
+* [시즌 Reinforcement Learning](https://github.com/gritmind/review/tree/master/media/seminar/all-mldl-rl) (모두를 위한 머신러닝/딥러닝 강의) | 2017.06.01
+
+
+
+_Online (Small Talks)_
+
+* [자연어처리특집](https://github.com/gritmind/review/blob/master/media/talk/iam-programmer-nlp.md) (나는프로그래머다) | 2016
+* [Boosting Product Categorization with Machine Learning](https://github.com/gritmind/my-review-notes/blob/master/media/talk/product_categorization_commercetools/product_categorization_commercetools.md) (2017) | 2019.10
+* [Learning to Rank: From Theory to Production](https://github.com/gritmind/my-review-notes/blob/master/media/talk/learning_to_rank_bloomberg/learning_to_rank_bloomberg.md) (Activate 2018) | 2019.10
+* [Nuts and Bolts of Applying Deep Learning](https://github.com/gritmind/review/blob/master/media/talk/nutsandbolts-of-applying-dl.md) (DLSS) | 2016.10.24
+* [Sequence to Sequence Deep Learning](https://github.com/gritmind/review/blob/master/media/talk/seq2seq_dl.md) (DLSS) | 2016.10.24
+* [Deep Belief Network](https://github.com/gritmind/review/blob/master/media/talk/deep-belief-network.md) (DBguide) | 2016
+* [Developing Korean chatbot 101](https://github.com/gritmind/review/blob/master/media/seminar/developing-kor-chatbot.md) (Tensorflow Korea Conf2) | 2017.01.14
+
+
+
+
 _Offline_
 * [Tensorflow-KR 3차 오프라인 모임](https://github.com/gritmind/review/blob/master/media/seminar/tf-kr_3rd_offline.md) | 2019.10.20
 * [AI KOREA 2018](https://github.com/gritmind/review/blob/master/media/seminar/ai_korea_2018.md) (KIISE AI Society) | 2018.07.26~27
@@ -104,28 +124,12 @@ _Offline_
 * [Deep learning for entity detection and linking](https://github.com/gritmind/review/blob/master/media/talk/deep-learning-for-entity-detection-and-linking.md) (KISTI) | 2017.05.26
 * [온톨로지와 링크드데이터](https://github.com/gritmind/review/blob/master/media/talk/ontology_and_linkeddata.md) (KISTI) | 2016.07.11
 
-_Online_
-* [DEVIEW 2019](https://github.com/gritmind/review/tree/master/media/seminar/deview-2019) (2019.10.28-29)
-   * 쿠팡 추천 시스템 2년간의 변천사 (오성민/Coupang/Recommendation)
-* [Boosting Product Categorization with Machine Learning](https://github.com/gritmind/my-review-notes/blob/master/media/talk/product_categorization_commercetools/product_categorization_commercetools.md) (2017) | 2019.10
-* [Learning to Rank: From Theory to Production](https://github.com/gritmind/my-review-notes/blob/master/media/talk/learning_to_rank_bloomberg/learning_to_rank_bloomberg.md) (Activate 2018) | 2019.10
-* [시즌 Reinforcement Learning](https://github.com/gritmind/review/tree/master/media/seminar/all-mldl-rl) (모두를 위한 머신러닝/딥러닝 강의) | 2017.06.01
-* [Developing Korean chatbot 101](https://github.com/gritmind/review/blob/master/media/seminar/developing-kor-chatbot.md) (Tensorflow Korea Conf2) | 2017.01.14
-* [Nuts and Bolts of Applying Deep Learning](https://github.com/gritmind/review/blob/master/media/talk/nutsandbolts-of-applying-dl.md) (DLSS) | 2016.10.24
-* [Sequence to Sequence Deep Learning](https://github.com/gritmind/review/blob/master/media/talk/seq2seq_dl.md) (DLSS) | 2016.10.24
-* [Deep Belief Network](https://github.com/gritmind/review/blob/master/media/talk/deep-belief-network.md) (DBguide) | 2016
-* [자연어처리특집](https://github.com/gritmind/review/blob/master/media/talk/iam-programmer-nlp.md) (나는프로그래머다) | 2016
+
 
 
 ## Tech-Blog
 
 * [Colah's Blog Review](https://github.com/gritmind/review/blob/master/paper/blog/colah/README.md)
-   * Calculus on Computational Graphs: Backpropagation (Aug.31, 2015) | 2016
-   * Understanding LSTM Networks (Aug.27, 2015) | 2016
-   * Deep Learning and NLP and Representations (Jul.7, 2014) | 2016
-* [WILDML's Blog Reivew](https://github.com/gritmind/review/blob/master/paper/blog/wildml/README.md)
-   * Attention and Memory in Deep Learning and NLP (Jan.3, 2016) | 2016
-   * Understanding Convolutional Neural Networks for NLP (Nov.7, 2015) | 2016
 * [프로그래머를 위한 알파고](https://github.com/gritmind/review/blob/master/paper/blog/slideshare/alphago-for-programmer.md) (Mar13, 2016, Slideshare) | 2016
 * [Probabilistic Topic Models](https://github.com/gritmind/review/blob/master/paper/blog/slideshare/topicmodels.md) (David M.Blei 2018.07.17, Slides) | 2017
 * Syntax Comparison between Python and Java [[note](https://1drv.ms/w/s!AllPqyV9kKUrwxOo9L1syWAnlRoh)] | 2018.10
