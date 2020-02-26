@@ -3,7 +3,7 @@
 ### Contents
 
 * [Introduction to PySpark](#Introduction-to-PySpark)
-* [Big Data Fundamentals with PySpark](Big-Data-Fundamentals-with-PySpark)
+* [Big Data Fundamentals with PySpark](#Big-Data-Fundamentals-with-PySpark)
 
 
 
@@ -335,7 +335,7 @@ speed2 = flights.selectExpr("origin", "dest", "tailnum", "distance/(air_time/60)
 
 #### Aggregating
 
-보편적인 aggregation method인 `.min()`, `.max()`, 그리고 `.count()` 는 `GroupedData` method라 불린다. 이들은 `.groupBy()` DataFrame method를 부름과 동시에 생성된다.
+보편적인 aggregation method인 `.min()`, `.max()`, 그리고 `.count()` 는 `GroupedData` method라 불린다. 이들은 `.groupBy()` DataFrame method를 부름과 동시에 생성된다. Aggregate를 하기 전에 groupby를 해줘야 한다. 여기 groupBy()에서는 인자가 없으므로 전체 범위라고 보면 된다.
 
 ```
 # Find the shortest flight from PDX in terms of distance
@@ -581,6 +581,78 @@ only showing top 20 rows
 
 
 ## Big Data Fundamentals with PySpark
+
+### 2. Programming in PySpark RDD’s
+
+RDDs (Resilient Distributed Datasets)
+
+* Resilient: ability to withstand failures
+* Distributed: spanning across multiple machines
+* Datasets: collection of partitioned data (e.g. arrays, tables, tuples etc.)
+
+Creating RDDs
+
+* Parallelizing an existing collection of objects
+* External datasets (files in HDFS, Objects in Amazon S3, lines in a text file)
+* From existing RDDs
+
+Understanding Partitioning in PySpark
+
+* A partition is a logical division of a large distributed dataset
+
+#### RDDs from Parallelized collections
+
+RDD는 Spark에서 가장 기본적인 추상화 자료 구조이다. 이는 immutable distributed collection of objects이다. 
+
+```
+# Create an RDD from a list of words
+RDD = sc.parallelize(["Spark", "is", "a", "framework", "for", "Big Data processing"])
+
+# Print out the type of the created object
+print("The type of RDD is", type(RDD))
+>>>
+The type of RDD is <class 'pyspark.rdd.RDD'>
+```
+
+#### RDDs from External Datasets
+
+```
+# Print the file_path
+print("The file_path is", file_path)
+
+# Create a fileRDD from file_path
+fileRDD = sc.textFile(file_path)
+
+# Check the type of fileRDD
+print("The file type of fileRDD is", type(fileRDD))
+
+>>>
+
+The file_path is /usr/local/share/datasets/README.md
+The file type of fileRDD is <class 'pyspark.rdd.RDD'>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### 3. PySpark SQL & DataFrames
 
