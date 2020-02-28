@@ -85,7 +85,7 @@ _etc._
 
 _Online_
 
-* [DataCamp](https://github.com/gritmind/review/tree/master/media/class/datacamp)
+* [PySpark Courses](https://github.com/gritmind/review/tree/master/media/class/datacamp) (Datacamp)
 * [LinkedIn Learning](https://github.com/gritmind/review/tree/master/media/class/linkedin_learning) (LinkedIn)
 * [Lazy Programmer](https://github.com/gritmind/review/tree/master/media/class/lazy_programmer) (Udemy)
 * [DEVIEW 2019](https://github.com/gritmind/review/tree/master/media/seminar/deview-2019) (2019.10.28-29)
