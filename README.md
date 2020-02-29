@@ -8,7 +8,9 @@
 * [Tutorial](#Tutorial)
 * [Tech-Blog](#Tech-Blog)
 * [Reference](#References)
+* [Snippet](#Snippet)
 
+<br>
 
 ## Book
 
@@ -92,8 +94,7 @@ _Online_
 * [시즌 Reinforcement Learning](https://github.com/gritmind/review/tree/master/media/seminar/all-mldl-rl) (모두를 위한 머신러닝/딥러닝 강의) | 2017.06.01
 
 
-
-_Online (Small Talks)_
+_Online Talks_
 
 * [자연어처리특집](https://github.com/gritmind/review/blob/master/media/talk/iam-programmer-nlp.md) (나는프로그래머다) | 2016
 * [Boosting Product Categorization with Machine Learning](https://github.com/gritmind/my-review-notes/blob/master/media/talk/product_categorization_commercetools/product_categorization_commercetools.md) (2017) | 2019.10
@@ -102,8 +103,6 @@ _Online (Small Talks)_
 * [Sequence to Sequence Deep Learning](https://github.com/gritmind/review/blob/master/media/talk/seq2seq_dl.md) (DLSS) | 2016.10.24
 * [Deep Belief Network](https://github.com/gritmind/review/blob/master/media/talk/deep-belief-network.md) (DBguide) | 2016
 * [Developing Korean chatbot 101](https://github.com/gritmind/review/blob/master/media/seminar/developing-kor-chatbot.md) (Tensorflow Korea Conf2) | 2017.01.14
-
-
 
 
 _Offline_
@@ -129,9 +128,15 @@ _Offline_
 
 ## Tech-Blog
 
-* [Colah's Blog Review](https://github.com/gritmind/review/blob/master/paper/blog/colah/README.md)
-* [프로그래머를 위한 알파고](https://github.com/gritmind/review/blob/master/paper/blog/slideshare/alphago-for-programmer.md) (Mar13, 2016, Slideshare) | 2016
-* [Probabilistic Topic Models](https://github.com/gritmind/review/blob/master/paper/blog/slideshare/topicmodels.md) (David M.Blei 2018.07.17, Slides) | 2017
+* [쿠팡 기술블로그](https://github.com/gritmind/review/blob/master/paper/blog/coupang_tech/README.md)
+* [Colah Blog](https://github.com/gritmind/review/blob/master/paper/blog/colah/README.md)
+* [Wildml Blog](https://github.com/gritmind/review/blob/master/paper/blog/wildml/README.md)
+* [프로그래머를 위한 알파고](https://github.com/gritmind/review/blob/master/paper/blog/slideshare/alphago-for-programmer.md) (Slideshare)
+* [Probabilistic Topic Models](https://github.com/gritmind/review/blob/master/paper/blog/slideshare/topicmodels.md) (David M.Blei Slides)
+
+
+## Snippet
+
 * Syntax Comparison between Python and Java [[note](https://1drv.ms/w/s!AllPqyV9kKUrwxOo9L1syWAnlRoh)] | 2018.10
 * Visualizing Layer Representations in Neural Networks [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/tutorial/Visualizing-Layer-Representations-in-Neural-Networks.ipynb)] | 
 * 한국어 감정 분석 by PyCon Korea 2015, LucyPark [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/tutorial/korean_lucypark/Korean_Sentiment_Analysis.ipynb)]
@@ -140,7 +145,7 @@ _Offline_
 
 
 
----
+<br>
 
 ## References
 
@@ -150,4 +155,4 @@ _Offline_
 * [Tensorflow Tutorials](https://www.tensorflow.org/tutorials) / [PyTorch Tutorials](https://github.com/gritmind/review-code/tree/master/class/pytorch) / [Keras Examples](https://github.com/gritmind/review-code/tree/master/class/keras)
 * [nbviewer](https://nbviewer.jupyter.org/) / [PapersWithCode](https://paperswithcode.com/sota) / [Online-Debugger](https://www.onlinegdb.com/)
 * [Awesome Korean NLP](https://github.com/datanada/Awesome-Korean-NLP) / [Kor-NLP Dataset](https://insikk.github.io/awesome-korean-nlp/#dataset) / [AI API DATA](http://aiopen.etri.re.kr/) / [Public Datasets for AI](https://medium.com/startup-grind/fueling-the-ai-gold-rush-7ae438505bc2) / [MS Open Data](https://msropendata.com/) / [NLP Datasets](https://github.com/niderhoff/nlp-datasets) / [English NLP SOTA](https://github.com/magizbox/underthesea/wiki/English-NLP-SOTA#text-classification) / [Awesome Public Dataset](https://github.com/awesomedata/awesome-public-datasets)
-* [언어공학연구회](http://hclt.kr/) / [Arxiv Sanity Preserver](http://www.arxiv-sanity.com/) / [Open-Review](https://openreview.net/) / [ACL Anthology](https://aclanthology.coli.uni-saarland.de/)
+* [한글 및 한국어 정보처리 학술대회](http://hclt.kr/symp/?lnb=conference) / [언어공학연구회](http://hclt.kr/) / [Arxiv Sanity Preserver](http://www.arxiv-sanity.com/) / [Open-Review](https://openreview.net/) / [ACL Anthology](https://aclanthology.coli.uni-saarland.de/)

@@ -1,10 +1,11 @@
-# DataCamp
+# PySpark Courses from DataCamp
+
 
 ### Contents
 
 * [Introduction to PySpark](#Introduction-to-PySpark)
 * [Big Data Fundamentals with PySpark](#Big-Data-Fundamentals-with-PySpark)
-
+* [Clearning Data with PySpark](#Clearning-Data-with-PySpark)
 
 
 
@@ -26,7 +27,7 @@ Pyspark에서 Spark cluster와 연결하는 법은 해당 클래스 객체를 �
 간단한 계산은 오히려 spark에서 오래 걸릴 수도 있다. <br>
 spark는 대용량 데이터에 맞는 복잡한 계산으로 최적화되어 있기 때문이다.
 
-```
+```python
 # SparkContext 를 sc 에 생성했다고 가정.
 
 # Verify SparkContext
@@ -55,7 +56,7 @@ SparkContext를 클러스터와 연결해주는 매개체, SparkSession은 연�
 SparkSession을 여러 개 생성하면 SparkContext에서는 이슈가 발생한다. <br>
 이를 방지하기 위해 getOrCreat() 함수를 사용한다. 이미 존재하면 새로 만들지 않고 기존의 것을 리턴한다.
 
-```
+```python
 # Import SparkSession from pyspark.sql
 from pyspark.sql import SparkSession
 
@@ -72,7 +73,7 @@ SparkSession 을 만들면, 클러스터에 있는 데이터를 확인할 수 �
 SparkSession은 catalog 속성을 가진다. 이는 cluster 안에 있는 모든 데이터의 리스트를 가진다. <br>
 catalog.listTables() 함수로 cluster에 있는 모든 테이블의 이름을 확인할 수 있다.
 
-```
+```python
 # Print the tables in the catalog
 print(spark.catalog.listTables())
 >>>
@@ -81,7 +82,7 @@ print(spark.catalog.listTables())
 
 DataFrame의 장점 중 하나는 SQL 쿼리를 Spark cluster에 날릴 수 있다는 점이다.
 
-```
+```python
 query = "FROM flights SELECT * LIMIT 10"
 
 # Get the first 10 rows of flights
@@ -89,6 +90,8 @@ flights10 = spark.sql(query)
 
 # Show the results
 flights10.show()
+```
+```
 >>>
 +----+-----+---+--------+---------+--------+---------+-------+-------+------+------+----+--------+--------+----+------+
 |year|month|day|dep_time|dep_delay|arr_time|arr_delay|carrier|tailnum|flight|origin|dest|air_time|distance|hour|minute|
@@ -108,7 +111,7 @@ flights10.show()
 
 가끔, 대용량 데이터를 Spark 쿼리로 처리하고 집계된 결과를 more manageable한 Pandas DataFrame으로 표현하고 싶을 때가 있다.
 
-```
+```python
 query = "SELECT origin, dest, COUNT(*) as N FROM flights GROUP BY origin, dest"
 
 # Run the query
@@ -119,6 +122,8 @@ pd_counts = flight_counts.toPandas()
 
 # Print the head of pd_counts
 print(pd_counts.head())
+```
+```
 >>>
   origin dest    N
 0    SEA  RNO    8
@@ -132,7 +137,7 @@ Pandas DataFrame를 Spark cluster에 저장하고 싶을 때가 있을 것이다
 
 Spark DataFrame method인 .createTempView()를 사용하면 된다. 해당 DataFrame을 catalog의 table에 등록해준다. 하지만 이는 일시적이며, 지금 사용하는 특정 SparkSession에서만 접근할 수 있다. (.createOrReplaceTempView() 함수를 쓰자. 이는 없으면 만들고, 있으면 업데이트함으로써 duplicate table을 방지해준다)
 
-```
+```python
 # Create pd_temp
 pd_temp = pd.DataFrame(np.random.random(10))
 
@@ -159,7 +164,7 @@ print(spark.catalog.listTables())
 
 SparkSession 에는 .read라는 함수로 다양한 데이터 소스를 Spark DataFrame으로 불러올 수 있다. 한 가지 예로 다음과 같이 CSV 파일을 곧바로 Spark DataFrame으로 읽어들일 수 있다.
 
-```
+```python
 # Don't change this file path
 file_path = "/usr/local/share/datasets/airports.csv"
 
@@ -168,6 +173,8 @@ airports = spark.read.csv(file_path, header=True)
 
 # Show the data
 airports.show()
+```
+```
 >>>
 +---+--------------------+----------------+-----------------+----+---+---+
 |faa|                name|             lat|              lon| alt| tz|dst|
@@ -202,7 +209,7 @@ Spark의 DataFrame에서 정의하는 column-wise 명령어들을 알아보자. 
 
 #### .withColumn()
 
-```
+```python
 # Create the DataFrame flights
 flights = spark.table("flights")
 
@@ -211,6 +218,8 @@ flights = flights.withColumn("duration_hrs", flights.air_time/60)
 
 # Show the head
 flights.show()
+```
+```
 >>>
 +----+-----+---+--------+---------+--------+---------+-------+-------+------+------+----+--------+--------+----+------+------------------+
 |year|month|day|dep_time|dep_delay|arr_time|arr_delay|carrier|tailnum|flight|origin|dest|air_time|distance|hour|minute|      duration_hrs|
@@ -258,7 +267,7 @@ SELECT origin, dest, COUNT(*) FROM flights GROUP BY origin, dest;
 
 Spark DataFrame에서 `.filter()`라는 method가 있다. 이는 SQL의 WHERE과 같은 역할을 한다. `.filter()` method는 다음과 같이 두 가지 종류의 인자를 받는다. 
 
-```
+```python
 # Filter flights by passing a string
 long_flights1 = flights.filter("distance > 1000") (1) WHERE clause of a SQL query 
 
@@ -268,8 +277,9 @@ long_flights2 = flights.filter(flights.distance > 1000) (2) a column of boolean 
 # Print the data to check they're equal
 long_flights1.show()
 long_flights2.show()
+```
+```
 >>>
-
 +----+-----+---+--------+---------+--------+---------+-------+-------+------+------+----+--------+--------+----+------+
 |year|month|day|dep_time|dep_delay|arr_time|arr_delay|carrier|tailnum|flight|origin|dest|air_time|distance|hour|minute|
 +----+-----+---+--------+---------+--------+---------+-------+-------+------+------+----+--------+--------+----+------+
@@ -303,7 +313,7 @@ only showing top 20 rows
 
 Spark에서 SQL의 SELECT 문은 `.select()` method로 할 수 있다. `.select()` method를 통해 `.withColumn()` method와 같이 덧셈이나 뺄셈 등의 operation을 수행할 수 있다. 그렇다면, `.select()`와 `.withColumn()` method의 차이점은 무엇인가? `.withColumn()`은 모든 컬럼을 리턴하고, `.select()`는 명시한 컬럼만 리턴한다. 데이터 wrangling 할 때, 매 step마다 원본은 구지 유지할 필요가 없다. 
 
-```
+```python
 # Select the first set of columns
 selected1 = flights.select("tailnum", "origin", "dest")
 
@@ -322,7 +332,7 @@ selected2 = temp.filter(filterA).filter(filterB)
 
 `.select()` method를 SQL과 비슷하게, column-wise operation을 실행할 수 있다. `.selectExpr()` method를 통해 SQL string을 사용한다. `.alias()` method는 SQL의 AS와 같다.
 
-```
+```python
 # Define avg_speed
 avg_speed = (flights.distance/(flights.air_time/60)).alias("avg_speed")
 
@@ -337,14 +347,15 @@ speed2 = flights.selectExpr("origin", "dest", "tailnum", "distance/(air_time/60)
 
 보편적인 aggregation method인 `.min()`, `.max()`, 그리고 `.count()` 는 `GroupedData` method라 불린다. 이들은 `.groupBy()` DataFrame method를 부름과 동시에 생성된다. Aggregate를 하기 전에 groupby를 해줘야 한다. 여기 groupBy()에서는 인자가 없으므로 전체 범위라고 보면 된다.
 
-```
+```python
 # Find the shortest flight from PDX in terms of distance
 flights.filter(flights.origin == "PDX").groupBy().min("distance").show()
 
 # Find the longest flight from SEA in terms of air time
 flights.filter(flights.origin == "SEA").groupBy().max("air_time").show()
+```
+```
 >>>
-
 +-------------+
 |min(distance)|
 +-------------+
@@ -358,14 +369,15 @@ flights.filter(flights.origin == "SEA").groupBy().max("air_time").show()
 +-------------+
 ```
 
-```
+```python
 # Average duration of Delta flights
 flights.filter(flights.carrier == "DL").filter(flights.origin == "SEA").groupBy().avg("air_time").show()
 
 # Total hours in the air
 flights.withColumn("duration_hrs", flights.air_time/60).groupBy().sum("duration_hrs").show()
+```
+```
 >>>
-
 +------------------+
 |     avg(air_time)|
 +------------------+
@@ -383,7 +395,7 @@ flights.withColumn("duration_hrs", flights.air_time/60).groupBy().sum("duration_
 
 Aggregating 의 위력은 grouping과 같이 쓸 때 나온다. 지금까지는 `.groupBy()` method에 인자를 넣지 않았지만, column을 명시해서 `.groupBy()`를 실행해보자.
 
-```
+```python
 # Group by tailnum
 by_plane = flights.groupBy("tailnum")
 
@@ -395,9 +407,9 @@ by_origin = flights.groupBy("origin")
 
 # Average duration of flights from PDX and SEA
 by_origin.avg("air_time").show()
-
+```
+```
 >>>
-
 +-------+-----+
 |tailnum|count|
 +-------+-----+
@@ -433,8 +445,8 @@ only showing top 20 rows
 ```
 
 `GroupedData` method 뿐만 아니라 `.agg()` method도 있다. `.agg()` method는 `pyspark.sql.functions` 서브 모듈로부터 aggregate function들을 사용하게 해준다. 해당 서브 모듈에 있는 모든 aggregation 함수들은 `GroupedData` 테이블에 있는 하나의 column을 인자로 받는다.
- 
-```
+
+```python
 # Import pyspark.sql.functions as F
 import pyspark.sql.functions as F
 
@@ -446,9 +458,9 @@ by_month_dest.avg("dep_delay").show()
 
 # Standard deviation of departure delay
 by_month_dest.agg(F.stddev("dep_delay")).show()
-
+```
+```
 >>>
-
 +-----+----+--------------------+
 |month|dest|      avg(dep_delay)|
 +-----+----+--------------------+
@@ -500,12 +512,11 @@ only showing top 20 rows
 |   10| SNA|    13.726234873756304|
 +-----+----+----------------------+
 only showing top 20 rows
-
 ```
 
 #### Joining
 
-```
+```python
 # Examine the data
 airports.show()
 
@@ -517,9 +528,9 @@ flights_with_airports = flights.join(airports, on="dest", how="leftouter")
 
 # Examine the new DataFrame
 flights_with_airports.show()
-
+```
+```
 >>>
-
 +----+--------------------+----------------+-----------------+----+---+---+
 |dest|                name|             lat|              lon| alt| tz|dst|
 +----+--------------------+----------------+-----------------+----+---+---+
@@ -573,12 +584,7 @@ only showing top 20 rows
 only showing top 20 rows
 ```
 
-
-
-
 <br>
-
-
 
 ## Big Data Fundamentals with PySpark
 
@@ -604,7 +610,7 @@ Understanding Partitioning in PySpark
 
 RDD는 Spark에서 가장 기본적인 추상화 자료 구조이다. 이는 immutable distributed collection of objects이다. 
 
-```
+```python
 # Create an RDD from a list of words
 RDD = sc.parallelize(["Spark", "is", "a", "framework", "for", "Big Data processing"])
 
@@ -616,7 +622,7 @@ The type of RDD is <class 'pyspark.rdd.RDD'>
 
 #### RDDs from External Datasets
 
-```
+```python
 # Print the file_path
 print("The file_path is", file_path)
 
@@ -625,27 +631,12 @@ fileRDD = sc.textFile(file_path)
 
 # Check the type of fileRDD
 print("The file type of fileRDD is", type(fileRDD))
-
+```
+```
 >>>
-
 The file_path is /usr/local/share/datasets/README.md
 The file type of fileRDD is <class 'pyspark.rdd.RDD'>
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -684,7 +675,7 @@ Creating DataFrames in PySpark
 
 Spark에서 RDDs가 더 본질적인 자료 구조이지만, DataFrame이 다루기 더 쉽다.
 
-```
+```python
 # Create a list of tuples
 sample_list = [('Mona',20), ('Jennifer',34), ('John',20), ('Jim',26)]
 
@@ -702,7 +693,7 @@ The type of names_df is <class 'pyspark.sql.dataframe.DataFrame'>
 
 #### Loading CSV into DataFrame
 
-```
+```python
 # Create an DataFrame from file_path
 people_df = spark.read.csv(file_path, header=True, inferSchema=True)
 
@@ -722,7 +713,7 @@ DataFrame operators in PySpark
    
 #### Inspecting data in PySpark DataFrame 
 
-```
+```python
 # Print the first 10 observations 
 people_df.show(10)
 
@@ -731,7 +722,8 @@ print("There are {} rows in the people_df DataFrame.".format(people_df.count()))
 
 # Count the number of columns and their names 
 print("There are {} columns in the people_df DataFrame and their names are {}".format(len(people_df.columns), people_df.columns))
-
+```
+```
 >>>
 +---+---------+----------------+------+-------------+
 |_c0|person_id|            name|   sex|date of birth|
@@ -755,7 +747,7 @@ There are 5 columns in the people_df DataFrame and their names are ['_c0', 'pers
 
 #### PySpark DataFrame subsetting and cleaning
 
-```
+```python
 # Select name, sex and date of birth columns
 people_df_sub = people_df.select('name', 'sex', 'date of birth')
 
@@ -767,7 +759,8 @@ people_df_sub_nodup = people_df_sub.dropDuplicates()
 
 # Count the number of rows
 print("There were {} rows before removing duplicates, and {} rows after removing duplicates".format(people_df_sub.count(), people_df_sub_nodup.count()))
-
+```
+```
 >>>
 +----------------+------+-------------+
 |            name|   sex|date of birth|
@@ -792,7 +785,7 @@ There were 100000 rows before removing duplicates, and 99998 rows after removing
 
 `select()`는 DataFrame을 column-wise로 subset한다. `filter()`는 DataFrame을 어떤 condition에 기반해서 row-wise로 subset한다.
 
-```
+```python
 # Filter people_df to select females 
 people_df_female = people_df.filter(people_df.sex == "female")
 
@@ -810,7 +803,7 @@ There are 49014 rows in the people_df_female DataFrame and 49066 rows in the peo
 
 The `sql()` function on a SparkSession enables applications to run SQL queries programmatically and returns the result as another DataFrame. 
 
-```
+```python
 # Create a temporary table "people"
 people_df.createOrReplaceTempView("people")
 
@@ -822,9 +815,9 @@ people_df_names = spark.sql(query)
 
 # Print the top 10 names of the people
 people_df_names.show(10)
-
+```
+```
 >>>
-
 +----------------+
 |            name|
 +----------------+
@@ -844,7 +837,7 @@ only showing top 10 rows
 
 #### SQL queries for filtering Table
 
-```
+```python
 # Filter the people table to select female sex 
 people_female_df = spark.sql('SELECT * FROM people WHERE sex=="female"')
 
@@ -859,7 +852,7 @@ There are 49014 rows in the people_female_df and 49066 rows in the people_male_d
 
 #### PySpark DataFrame visualization
 
-```
+```python
 # Check the column names of names_df
 print("The column names of names_df are", names_df.columns)
 
@@ -871,7 +864,6 @@ df_pandas.plot(kind='barh', x='Name', y='Age', colormap='winter_r')
 plt.show()
 
 >>>
-
 ...
 ```
 
@@ -879,7 +871,7 @@ plt.show()
 
 ##### Part 1: Create a DataFrame from CSV file
 
-```
+```python
 # Load the Dataframe 
 fifa_df = spark.read.csv(file_path, header=True, inferSchema=True)
 
@@ -891,9 +883,9 @@ fifa_df.show(10)
 
 # Print the total number of rows
 print("There are {} rows in the fifa_df DataFrame".format(fifa_df.count()))
-
+```
+```
 >>>
-
 root
  |-- _c0: integer (nullable = true)
  |-- Name: string (nullable = true)
@@ -993,7 +985,7 @@ There are 17981 rows in the fifa_df DataFrame
 
 ##### Part 2: SQL Queries on DataFrame
 
-```
+```python
 # Create a temporary view of fifa_df
 fifa_df.createOrReplaceTempView('fifa_df_table')
 
@@ -1005,9 +997,9 @@ fifa_df_germany_age = spark.sql(query)
 
 # Generate basic statistics
 fifa_df_germany_age.describe().show()
-
+```
+```
 >>>
-
 +-------+-----------------+
 |summary|              Age|
 +-------+-----------------+
@@ -1021,7 +1013,7 @@ fifa_df_germany_age.describe().show()
 
 ##### Part 3: Data visualization
 
-```
+```python
 fifa_df_germany_age_pandas = fifa_df_germany_age.toPandas()
 
 # Plot the 'Age' density of Germany Players
@@ -1029,11 +1021,603 @@ fifa_df_germany_age_pandas.plot(kind='density')
 plt.show()
 
 >>>
-
 ...
 ```
 
 
+
+<br>
+
+## Clearning Data with PySpark
+
+### 1. DataFrame details
+
+#### Defining a schema
+
+```python
+# Import the pyspark.sql.types library
+from pyspark.sql.types import *
+
+# Define a new schema using the StructType method
+people_schema = StructType([
+  # Define a StructField for each field
+  StructField('name', StringType(), False), # False: not be nullable
+  StructField('age', IntegerType(), False),
+  StructField('city', StringType(), True)
+])
+```
+
+Immutability 
+
+* A component of functional programming
+* Defined once
+* Unable to be directly modified
+* Re-created if reassigned
+* Able to be shared efficiently
+
+Lazy Processing
+
+* Transformations
+* Actions
+* Allows efficient planning
+
+#### Using lazy processing
+
+Lazy processing operations will usually return in about the same amount of time regardless of the actual quantity of data. Remember that this is due to Spark not performing any transformations until an action is requested.
+
+```python
+# Load the CSV file
+aa_dfw_df = spark.read.format('csv').options(Header=True).load('AA_DFW_2018.csv.gz')
+
+# Add the airport column using the F.lower() method
+aa_dfw_df = aa_dfw_df.withColumn('airport', F.lower(aa_dfw_df['Destination Airport']))
+
+# Drop the Destination Airport column
+aa_dfw_df = aa_dfw_df.drop(aa_dfw_df['Destination Airport'])
+
+# Show the DataFrame
+aa_dfw_df.show()
+```
+
+```
+>>>
++-----------------+-------------+-----------------------------+-------+
+|Date (MM/DD/YYYY)|Flight Number|Actual elapsed time (Minutes)|airport|
++-----------------+-------------+-----------------------------+-------+
+|       01/01/2018|         0005|                          498|    hnl|
+|       01/01/2018|         0007|                          501|    ogg|
+|       01/01/2018|         0043|                            0|    dtw|
+|       01/01/2018|         0051|                          100|    stl|
+|       01/01/2018|         0075|                          147|    dca|
+|       01/01/2018|         0096|                           92|    stl|
+|       01/01/2018|         0103|                          227|    sjc|
+|       01/01/2018|         0119|                          517|    ogg|
+|       01/01/2018|         0123|                          489|    hnl|
+|       01/01/2018|         0128|                          141|    mco|
+|       01/01/2018|         0132|                          201|    ewr|
+|       01/01/2018|         0140|                          215|    sjc|
+|       01/01/2018|         0174|                          140|    rdu|
+|       01/01/2018|         0190|                           68|    sat|
+|       01/01/2018|         0200|                          215|    sfo|
+|       01/01/2018|         0209|                          169|    mia|
+|       01/01/2018|         0217|                          178|    las|
+|       01/01/2018|         0229|                          534|    koa|
+|       01/01/2018|         0244|                          115|    cvg|
+|       01/01/2018|         0262|                          159|    mia|
++-----------------+-------------+-----------------------------+-------+
+only showing top 20 rows
+```
+
+Parquet Format 
+
+* A columnar data format
+* Supported in Spark and other data processing framewords
+* Supports predicate pushdown
+* Automatically stores schema information
+
+#### Saving a DataFrame in Parquet format
+
+When working with Spark, you'll often start with CSV, JSON, or other data sources. This provides a lot of flexibility for the types of data to load, but it is not an optimal format for Spark. The `Parquet` format is a columnar data store, allowing Spark to use predicate pushdown. This means Spark will only process the data necessary to complete the operations you define versus reading the entire dataset. This gives Spark more flexibility in accessing the data and often drastically improves performance on large datasets.
+
+```python
+# View the row count of df1 and df2
+print("df1 Count: %d" % df1.count())
+print("df2 Count: %d" % df2.count())
+
+# Combine the DataFrames into one 
+df3 = df1.union(df2)
+
+# Save the df3 DataFrame in Parquet format
+df3.write.parquet('AA_DFW_ALL.parquet', mode='overwrite')
+
+# Read the Parquet file into a new DataFrame and run a count
+print(spark.read.parquet('AA_DFW_ALL.parquet').count())
+```
+```
+>>>
+df1 Count: 139359
+df2 Count: 119911
+259270
+```
+
+#### SQL and Parquet
+
+Parquet files are perfect as a backing data store for SQL queries in Spark. While it is possible to run the same queries directly via Spark's Python functions, sometimes it's easier to run SQL queries alongside the Python options.
+
+```python
+# Read the Parquet file into flights_df
+flights_df = spark.read.parquet('AA_DFW_ALL.parquet')
+
+# Register the temp table
+flights_df.createOrReplaceTempView('flights')
+
+# Run a SQL query of the average flight duration
+avg_duration = spark.sql('SELECT avg(flight_duration) from flights').collect()[0]
+print('The average flight time is: %d' % avg_duration)
+```
+```
+>>>
+The average flight time is: 151
+```
+
+### 2. Manipulating DataFrames in the real world
+
+#### Filtering column content with Python
+
+```python
+# Show the distinct VOTER_NAME entries
+voter_df.select(voter_df['VOTER_NAME']).distinct().show(10, truncate=False)
+
+# Filter voter_df where the VOTER_NAME is 1-20 characters in length
+voter_df = voter_df.filter('length(VOTER_NAME) > 0 and length(VOTER_NAME) < 20')
+
+# Filter out voter_df where the VOTER_NAME contains an underscore
+voter_df = voter_df.filter(~ F.col('VOTER_NAME').contains('_'))
+
+# Show the distinct VOTER_NAME entries again
+voter_df.select('VOTER_NAME').distinct().show(10, truncate=False)
+```
+```
+>>>
++-------------------+
+|VOTER_NAME         |
++-------------------+
+|Tennell Atkins     |
+|Scott Griggs       |
+|Scott  Griggs      |
+|Sandy Greyson      |
+|Michael S. Rawlings|
+|Kevin Felder       |
+|Adam Medrano       |
+|Casey  Thomas      |
+|Mark  Clayton      |
+|Casey Thomas       |
++-------------------+
+only showing top 10 rows
+
++-------------------+
+|VOTER_NAME         |
++-------------------+
+|Tennell Atkins     |
+|Scott Griggs       |
+|Scott  Griggs      |
+|Sandy Greyson      |
+|Michael S. Rawlings|
+|Kevin Felder       |
+|Adam Medrano       |
+|Casey  Thomas      |
+|Mark  Clayton      |
+|Casey Thomas       |
++-------------------+
+only showing top 10 rows
+```
+
+#### Modifying DataFrame columns
+
+```python
+# Add a new column called splits separated on whitespace
+voter_df = voter_df.withColumn('splits', F.split(voter_df.VOTER_NAME, '\s+'))
+
+# Create a new column called first_name based on the first item in splits
+voter_df = voter_df.withColumn('first_name', voter_df.splits.getItem(0))
+
+# Get the last entry of the splits list and create a column called last_name
+voter_df = voter_df.withColumn('last_name', voter_df.splits.getItem(F.size('splits') - 1))
+
+# Drop the splits column
+#voter_df = voter_df.drop('splits')
+
+# Show the voter_df DataFrame
+voter_df.show()
+```
+```
+>>>
++----------+-------------+-------------------+----------+---------+--------------------+
+|      DATE|        TITLE|         VOTER_NAME|first_name|last_name|              splits|
++----------+-------------+-------------------+----------+---------+--------------------+
+|02/08/2017|Councilmember|  Jennifer S. Gates|  Jennifer|    Gates|[Jennifer, S., Ga...|
+|02/08/2017|Councilmember| Philip T. Kingston|    Philip| Kingston|[Philip, T., King...|
+|02/08/2017|        Mayor|Michael S. Rawlings|   Michael| Rawlings|[Michael, S., Raw...|
+|02/08/2017|Councilmember|       Adam Medrano|      Adam|  Medrano|     [Adam, Medrano]|
+|02/08/2017|Councilmember|       Casey Thomas|     Casey|   Thomas|     [Casey, Thomas]|
+|02/08/2017|Councilmember|Carolyn King Arnold|   Carolyn|   Arnold|[Carolyn, King, A...|
+|02/08/2017|Councilmember|       Scott Griggs|     Scott|   Griggs|     [Scott, Griggs]|
+|02/08/2017|Councilmember|   B. Adam  McGough|        B.|  McGough| [B., Adam, McGough]|
+|02/08/2017|Councilmember|       Lee Kleinman|       Lee| Kleinman|     [Lee, Kleinman]|
+|02/08/2017|Councilmember|      Sandy Greyson|     Sandy|  Greyson|    [Sandy, Greyson]|
+|02/08/2017|Councilmember|  Jennifer S. Gates|  Jennifer|    Gates|[Jennifer, S., Ga...|
+|02/08/2017|Councilmember| Philip T. Kingston|    Philip| Kingston|[Philip, T., King...|
+|02/08/2017|        Mayor|Michael S. Rawlings|   Michael| Rawlings|[Michael, S., Raw...|
+|02/08/2017|Councilmember|       Adam Medrano|      Adam|  Medrano|     [Adam, Medrano]|
+|02/08/2017|Councilmember|       Casey Thomas|     Casey|   Thomas|     [Casey, Thomas]|
+|02/08/2017|Councilmember|Carolyn King Arnold|   Carolyn|   Arnold|[Carolyn, King, A...|
+|02/08/2017|Councilmember| Rickey D. Callahan|    Rickey| Callahan|[Rickey, D., Call...|
+|01/11/2017|Councilmember|  Jennifer S. Gates|  Jennifer|    Gates|[Jennifer, S., Ga...|
+|04/25/2018|Councilmember|     Sandy  Greyson|     Sandy|  Greyson|    [Sandy, Greyson]|
+|04/25/2018|Councilmember| Jennifer S.  Gates|  Jennifer|    Gates|[Jennifer, S., Ga...|
++----------+-------------+-------------------+----------+---------+--------------------+
+only showing top 20 rows
+```
+
+#### when() example
+
+```python
+# Add a column to voter_df for any voter with the title **Councilmember**
+voter_df = voter_df.withColumn('random_val', 
+							   when(voter_df.TITLE == 'Councilmember', F.rand()))
+
+# Show some of the DataFrame rows, noting whether the when clause worked
+voter_df.show()
+```
+```
+>>>
++----------+-------------+-------------------+-------------------+
+|      DATE|        TITLE|         VOTER_NAME|         random_val|
++----------+-------------+-------------------+-------------------+
+|02/08/2017|Councilmember|  Jennifer S. Gates| 0.5259552691048351|
+|02/08/2017|Councilmember| Philip T. Kingston|0.17625589832860167|
+|02/08/2017|        Mayor|Michael S. Rawlings|               null|
+|02/08/2017|Councilmember|       Adam Medrano|0.18619643510090478|
+|02/08/2017|Councilmember|       Casey Thomas| 0.5443793016444369|
+|02/08/2017|Councilmember|Carolyn King Arnold|0.21635815801488967|
+|02/08/2017|Councilmember|       Scott Griggs| 0.3462673569610931|
+|02/08/2017|Councilmember|   B. Adam  McGough|0.13248863658190047|
+|02/08/2017|Councilmember|       Lee Kleinman| 0.9988060287273388|
+|02/08/2017|Councilmember|      Sandy Greyson|0.21568269860777767|
+|02/08/2017|Councilmember|  Jennifer S. Gates|0.38725871611028617|
+|02/08/2017|Councilmember| Philip T. Kingston|0.30660836268346003|
+|02/08/2017|        Mayor|Michael S. Rawlings|               null|
+|02/08/2017|Councilmember|       Adam Medrano|0.29597144654635144|
+|02/08/2017|Councilmember|       Casey Thomas| 0.2084740566202885|
+|02/08/2017|Councilmember|Carolyn King Arnold| 0.3471425496068026|
+|02/08/2017|Councilmember| Rickey D. Callahan|  0.918118430581971|
+|01/11/2017|Councilmember|  Jennifer S. Gates|0.27398290238813605|
+|04/25/2018|Councilmember|     Sandy  Greyson| 0.1277703989854202|
+|04/25/2018|Councilmember| Jennifer S.  Gates| 0.8508697003533658|
++----------+-------------+-------------------+-------------------+
+only showing top 20 rows
+```
+
+#### when / otherwise
+
+```python
+# Add a column to voter_df for a voter based on their position
+voter_df = voter_df.withColumn('random_val',
+                               when(voter_df.TITLE == 'Councilmember', F.rand())
+                               .when(voter_df.TITLE == 'Mayor', 2)
+                               .otherwise(0))
+
+# Show some of the DataFrame rows
+voter_df.show()
+
+# Use the .filter() clause with random_val
+voter_df.filter(voter_df.random_val == 0).show()
+```
+```
+>>>
++----------+-------------+-------------------+-------------------+
+|      DATE|        TITLE|         VOTER_NAME|         random_val|
++----------+-------------+-------------------+-------------------+
+|02/08/2017|Councilmember|  Jennifer S. Gates| 0.5335180413446635|
+|02/08/2017|Councilmember| Philip T. Kingston| 0.5239942280961327|
+|02/08/2017|        Mayor|Michael S. Rawlings|                2.0|
+|02/08/2017|Councilmember|       Adam Medrano| 0.9553668855576738|
+|02/08/2017|Councilmember|       Casey Thomas| 0.5395390808757042|
+|02/08/2017|Councilmember|Carolyn King Arnold|0.09125153438186318|
+|02/08/2017|Councilmember|       Scott Griggs|0.07872421499768645|
+|02/08/2017|Councilmember|   B. Adam  McGough| 0.0392908798310857|
+|02/08/2017|Councilmember|       Lee Kleinman| 0.4253681842997483|
+|02/08/2017|Councilmember|      Sandy Greyson| 0.4547810469927127|
+|02/08/2017|Councilmember|  Jennifer S. Gates|0.47813902838457556|
+|02/08/2017|Councilmember| Philip T. Kingston| 0.3230747590250692|
+|02/08/2017|        Mayor|Michael S. Rawlings|                2.0|
+|02/08/2017|Councilmember|       Adam Medrano|0.14982267724140197|
+|02/08/2017|Councilmember|       Casey Thomas| 0.3339422468104286|
+|02/08/2017|Councilmember|Carolyn King Arnold|0.05516094068187882|
+|02/08/2017|Councilmember| Rickey D. Callahan|  0.922133072469369|
+|01/11/2017|Councilmember|  Jennifer S. Gates| 0.8154216508949929|
+|04/25/2018|Councilmember|     Sandy  Greyson|0.15876843281762565|
+|04/25/2018|Councilmember| Jennifer S.  Gates| 0.1569369988866156|
++----------+-------------+-------------------+-------------------+
+only showing top 20 rows
+
++----------+--------------------+-----------------+----------+
+|      DATE|               TITLE|       VOTER_NAME|random_val|
++----------+--------------------+-----------------+----------+
+|04/25/2018|Deputy Mayor Pro Tem|     Adam Medrano|       0.0|
+|04/25/2018|       Mayor Pro Tem|Dwaine R. Caraway|       0.0|
+|06/20/2018|Deputy Mayor Pro Tem|     Adam Medrano|       0.0|
+|06/20/2018|       Mayor Pro Tem|Dwaine R. Caraway|       0.0|
+|06/20/2018|Deputy Mayor Pro Tem|     Adam Medrano|       0.0|
+|06/20/2018|       Mayor Pro Tem|Dwaine R. Caraway|       0.0|
+|08/15/2018|Deputy Mayor Pro Tem|     Adam Medrano|       0.0|
+|08/15/2018|Deputy Mayor Pro Tem|     Adam Medrano|       0.0|
+|09/18/2018|Deputy Mayor Pro Tem|     Adam Medrano|       0.0|
+|09/18/2018|       Mayor Pro Tem|    Casey  Thomas|       0.0|
+|04/25/2018|Deputy Mayor Pro Tem|     Adam Medrano|       0.0|
+|04/25/2018|       Mayor Pro Tem|Dwaine R. Caraway|       0.0|
+|04/11/2018|       Mayor Pro Tem|Dwaine R. Caraway|       0.0|
+|04/11/2018|Deputy Mayor Pro Tem|     Adam Medrano|       0.0|
+|04/11/2018|       Mayor Pro Tem|Dwaine R. Caraway|       0.0|
+|04/11/2018|Deputy Mayor Pro Tem|     Adam Medrano|       0.0|
+|04/11/2018|       Mayor Pro Tem|Dwaine R. Caraway|       0.0|
+|06/13/2018|Deputy Mayor Pro Tem|     Adam Medrano|       0.0|
+|06/13/2018|       Mayor Pro Tem|Dwaine R. Caraway|       0.0|
+|04/11/2018|Deputy Mayor Pro Tem|     Adam Medrano|       0.0|
++----------+--------------------+-----------------+----------+
+only showing top 20 rows
+```
+
+#### Using user defined functions in Spark
+
+```python
+def getFirstAndMiddle(names):
+  # Return a space separated string of names
+  return ' '.join(names[:-1])
+
+# Define the method as a UDF
+udfFirstAndMiddle = F.udf(getFirstAndMiddle, StringType())
+
+# Create a new column using your UDF
+voter_df = voter_df.withColumn('first_and_middle_name', udfFirstAndMiddle(voter_df.splits))
+
+# Drop the unnecessary columns then show the DataFrame
+voter_df = voter_df.drop('first_name')
+voter_df = voter_df.drop('splits')
+voter_df.show()
+```
+```
+>>>
++----------+-------------+-------------------+---------+---------------------+
+|      DATE|        TITLE|         VOTER_NAME|last_name|first_and_middle_name|
++----------+-------------+-------------------+---------+---------------------+
+|02/08/2017|Councilmember|  Jennifer S. Gates|    Gates|          Jennifer S.|
+|02/08/2017|Councilmember| Philip T. Kingston| Kingston|            Philip T.|
+|02/08/2017|        Mayor|Michael S. Rawlings| Rawlings|           Michael S.|
+|02/08/2017|Councilmember|       Adam Medrano|  Medrano|                 Adam|
+|02/08/2017|Councilmember|       Casey Thomas|   Thomas|                Casey|
+|02/08/2017|Councilmember|Carolyn King Arnold|   Arnold|         Carolyn King|
+|02/08/2017|Councilmember|       Scott Griggs|   Griggs|                Scott|
+|02/08/2017|Councilmember|   B. Adam  McGough|  McGough|              B. Adam|
+|02/08/2017|Councilmember|       Lee Kleinman| Kleinman|                  Lee|
+|02/08/2017|Councilmember|      Sandy Greyson|  Greyson|                Sandy|
+|02/08/2017|Councilmember|  Jennifer S. Gates|    Gates|          Jennifer S.|
+|02/08/2017|Councilmember| Philip T. Kingston| Kingston|            Philip T.|
+|02/08/2017|        Mayor|Michael S. Rawlings| Rawlings|           Michael S.|
+|02/08/2017|Councilmember|       Adam Medrano|  Medrano|                 Adam|
+|02/08/2017|Councilmember|       Casey Thomas|   Thomas|                Casey|
+|02/08/2017|Councilmember|Carolyn King Arnold|   Arnold|         Carolyn King|
+|02/08/2017|Councilmember| Rickey D. Callahan| Callahan|            Rickey D.|
+|01/11/2017|Councilmember|  Jennifer S. Gates|    Gates|          Jennifer S.|
+|04/25/2018|Councilmember|     Sandy  Greyson|  Greyson|                Sandy|
+|04/25/2018|Councilmember| Jennifer S.  Gates|    Gates|          Jennifer S.|
++----------+-------------+-------------------+---------+---------------------+
+only showing top 20 rows
+```
+
+Partitioning
+
+* DataFrames are broken up into partitions
+* Partition size can vary
+* Each partition is handled independently
+
+Lazy processing
+
+* Transformations are lazy
+   * .withColumn()
+   * .select()
+* Nothing is actually done until an action is performed
+   * .count()
+   * .write()
+* Transformations can be re-ordered for best performance
+* Sometimes causes unexpected behavior
+
+Adding IDs
+
+* Normal ID fields
+   * Common in relational databases
+   * Most usually an integer increasing, sequential and unique
+   * Not very parallel (단일 서버는 괜찮지만, 분산 서버와 같은 Spark에서는 문제점)
+
+Monotonically increasing IDs
+
+* pyspark.sql.functions.monotonically_increasing_id()
+   * Integer(64-bit), increases in value, unique
+   * Not necessarily sequential (gaps exist)
+   * Completely parallel
+
+Spark is lazy!
+
+* Occasionally out of order
+* If performing a join, ID may be assigned after the join
+* Test your transformations
+
+#### Adding an ID Field
+
+When working with data, you sometimes only want to access certain fields and perform various operations. In this case, find all the unique voter names from the DataFrame and add a unique ID number. Remember that Spark IDs are assigned based on the DataFrame partition - as such the ID values may be much greater than the actual number of rows in the DataFrame.
+
+With Spark's lazy processing, the IDs are not actually generated until an action is performed and can be somewhat random depending on the size of the dataset.
+
+```python
+# The pyspark.sql.functions library is available under the alias F.
+
+# Select all the unique council voters
+voter_df = df.select(df["VOTER NAME"]).distinct()
+
+# Count the rows in voter_df
+print("\nThere are %d rows in the voter_df DataFrame.\n" % voter_df.count())
+
+# Add a ROW_ID
+voter_df = voter_df.withColumn('ROW_ID', F.monotonically_increasing_id())
+
+# Show the rows with 10 highest IDs in the set
+voter_df.orderBy(voter_df.ROW_ID.desc()).show(10)
+```
+```
+>>>
+There are 36 rows in the voter_df DataFrame.
+
++--------------------+-------------+
+|          VOTER NAME|       ROW_ID|
++--------------------+-------------+
+|        Lee Kleinman|1709396983808|
+|  the  final  201...|1700807049217|
+|         Erik Wilson|1700807049216|
+|  the  final   20...|1683627180032|
+| Carolyn King Arnold|1632087572480|
+| Rickey D.  Callahan|1597727834112|
+|   the   final  2...|1443109011456|
+|    Monica R. Alonzo|1382979469312|
+|     Lee M. Kleinman|1228360646656|
+|   Jennifer S. Gates|1194000908288|
++--------------------+-------------+
+only showing top 10 rows
+```
+
+#### IDs with different partitions
+
+```python
+# Print the number of partitions in each DataFrame
+print("\nThere are %d partitions in the voter_df DataFrame.\n" % voter_df.rdd.getNumPartitions())
+print("\nThere are %d partitions in the voter_df_single DataFrame.\n" % voter_df_single.rdd.getNumPartitions())
+
+# Add a ROW_ID field to each DataFrame
+voter_df = voter_df.withColumn('ROW_ID', F.monotonically_increasing_id())
+voter_df_single = voter_df_single.withColumn('ROW_ID', F.monotonically_increasing_id())
+
+# Show the top 10 IDs in each DataFrame 
+voter_df.orderBy(voter_df.ROW_ID.desc()).show(10)
+voter_df_single.orderBy(voter_df_single.ROW_ID.desc()).show(10)
+```
+```
+>>>
+There are 200 partitions in the voter_df DataFrame.
+
+
+There are 1 partitions in the voter_df_single DataFrame.
+
++--------------------+-------------+
+|          VOTER NAME|       ROW_ID|
++--------------------+-------------+
+|        Lee Kleinman|1709396983808|
+|  the  final  201...|1700807049217|
+|         Erik Wilson|1700807049216|
+|  the  final   20...|1683627180032|
+| Carolyn King Arnold|1632087572480|
+| Rickey D.  Callahan|1597727834112|
+|   the   final  2...|1443109011456|
+|    Monica R. Alonzo|1382979469312|
+|     Lee M. Kleinman|1228360646656|
+|   Jennifer S. Gates|1194000908288|
++--------------------+-------------+
+only showing top 10 rows
+
++--------------------+------+
+|          VOTER NAME|ROW_ID|
++--------------------+------+
+|        Lee Kleinman|    35|
+|  the  final  201...|    34|
+|         Erik Wilson|    33|
+|  the  final   20...|    32|
+| Carolyn King Arnold|    31|
+| Rickey D.  Callahan|    30|
+|   the   final  2...|    29|
+|    Monica R. Alonzo|    28|
+|     Lee M. Kleinman|    27|
+|   Jennifer S. Gates|    26|
++--------------------+------+
+only showing top 10 rows
+```
+
+#### More ID tricks
+
+Once you define a Spark process, you'll likely want to use it many times. Depending on your needs, you may want to start your IDs at a certain value so there isn't overlap with previous runs of the Spark task. This behavior is similar to how IDs would behave in a relational database. You have been given the task to make sure that the IDs output from a monthly Spark task start at the highest value from the previous month.
+
+```python
+# Determine the highest ROW_ID and save it in previous_max_ID
+previous_max_ID = voter_df_march.select('ROW_ID').rdd.max()[0]
+
+# Add a ROW_ID column to voter_df_april starting at the desired value
+voter_df_april = voter_df_april.withColumn('ROW_ID', F.monotonically_increasing_id() + previous_max_ID)
+
+# Show the ROW_ID from both DataFrames and compare
+voter_df_march.select('ROW_ID').show()
+voter_df_april.select('ROW_ID').show()
+```
+```
+>>>
++-------------+
+|       ROW_ID|
++-------------+
+|   8589934592|
+|  25769803776|
+|  34359738368|
+|  42949672960|
+|  51539607552|
+| 103079215104|
+| 111669149696|
+| 231928233984|
+| 240518168576|
+| 360777252864|
+| 395136991232|
+| 601295421440|
+| 635655159808|
+| 670014898176|
+| 807453851648|
+| 850403524608|
+| 944892805120|
+| 962072674304|
+|1005022347264|
+|1047972020224|
++-------------+
+only showing top 20 rows
+
++-------------+
+|       ROW_ID|
++-------------+
+|1717986918400|
+|1735166787584|
+|1743756722176|
+|1752346656768|
+|1760936591360|
+|1812476198912|
+|1821066133504|
+|1941325217792|
+|1949915152384|
+|2070174236672|
+|2104533975040|
+|2310692405248|
+|2345052143616|
+|2379411881984|
+|2516850835456|
+|2559800508416|
+|2654289788928|
+|2671469658112|
+|2714419331072|
+|2757369004032|
++-------------+
+only showing top 20 rows
+```
 
 
 
