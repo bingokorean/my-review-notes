@@ -1,0 +1,589 @@
+# Data Analytics with Spark using Python
+
+빅데이터 분석을 위한 파이썬, 스파크 활용법
+
+제프리 에이븐 (송주경 옮김)
+
+
+### Contents
+* [1. 빅데이터, 하둡 및 스파크 소개](#1.-빅데이터,-하둡-및-스파크-소개)
+* [2. 스파크 배포](#2.-스파크-배포)
+* [3. 스파크 클러스터 아키텍처의 이해](#3.-스파크-클러스터-아키텍처의-이해)
+* [4. 스파크 프로그래밍 기초 학습](#4.-스파크-프로그래밍-기초-학습)
+
+<br>
+
+
+### 옮긴이의 말
+
+* 하둡의 맵리듀스(MapReduce)는 슈퍼컴퓨터 없이 여러 대의 서버를 연결해 빅데이터 분석을 가능하게 한 오픈소스 프레임워크
+* 스파크는 맵리듀스처럼 분산 처리를 수행하지만, 메모리를 활용하여 빠르게 데이터를 처리하는 것이 특징
+* 이에 스파크는 스트리밍 데이터 처리같은 실시간 처리와 머신러닝을 통한 애플리케이션과의 복합적 운영이 필요할 때 적합하다! (ex. 실시간 타겟마켓팅, 고객 분석 및 추천)
+
+
+
+## 1. 빅데이터, 하둡 및 스파크 소개
+
+
+### 1.1. 빅데이터, 분산 컴퓨팅 및 하둡 소개
+
+* 하둡 프로젝트의 핵심 개념
+   * 데이터 지역성(data locality)
+   * 비공유(shared nothing)
+   * 맵리듀스(MapReduce)
+* 하둡의 간단한 역사 (검색 엔진 기업에서 발달)
+   * 구글
+      * The Google File System (2003)
+      * MapReduce: Simplified Data Processing on Large Clusters (2004)
+* 데이터 생선량의 급격한 증가로 하둡이 곽강을 받기 시작. Spark, Kafka(메시징 시스템), HBase, Cassandra 등 NOSQL에 대한 논의가 이뤄졌는데, 이 모든 것은 하둡에서 시작되었음.
+
+
+#### 하둡
+
+* 데이터 지역성이라는 개념을 바탕을 둔 데이터 저장 및 처리 플랫폼.
+* 데이터 지역성이란? 요청한 데이터를 원격 처리 시스템이나 호스트로 보내고 처리하는 기존의 방식 대신 데이터가 있는 곳으로 이동해서 계산하는 방식.
+* 빅데이터의 경우 컴퓨팅 시간에 많은 양의 데이터가 네트워크를 통해 이동하는 시간이 매우 크거나 경우에 따라서 불가능할 수도 있음.
+* 하둡은 대용량 데이터가 비공유 접근을 사용하는 클러스터의 노드에서 지역적으로 처리할 수 있음.
+* 각 노드는 다른 노드들과 통신할 필요 없이 전체 데이터의 훨씬 작은 부분을 독립적으로 처리할 수 있음.
+* 이는 분산 파일 시스템의 구현을 통해 가능함.
+* 'Schema-on-read': 하둡은 기록 연산과 관련된 스키마가 없음. 이는 비구조화 문서, 반구조화 JSON, XML, DBMS의 잘 구조화된 문서 범위에 이르는 광범위한 데이터를 저장하고 처리할 수 있다는 뜻임. ('Schema-on-read'는 'Schema-on-write'와 대조적.)
+* HBase, 카산드라와 같은 NoSQL 플랫폼도 스키마-온-리드.
+* 스키마는 INSERT, UPDATE 또는 UPSERT 작업 시 미리 개념 정리가 되어 시스템에 적용됨.
+* 하둡에서 쓰기 작업을 수행하는 동안에 스키마는 해석되지 않으므로 인덱스, 통계 또는 기타 구조가 없음. 단, 데이터 지역성이 필요. 
+* 하둡은 큰 문제를 작은 문제의 집합으로 나누고 연산하며, 데이터 지역성과 비공유 개념을 적용함.
+
+#### 하둡의 핵심 구성 요소
+
+* 구성 요소
+   * (1) 하둡 분산 파일 시스템(HDFS; Hadoop Distributed File System): HDFS는 하둡의 스토리지 서브시스템 
+   * (2) YARN(Yet Another Resource Negotiator): YARN은 하둡의 리소스 스케줄링 서브시스템
+* 각 구성 요소는 자체 클러스터에서 서로 독립적으로 작동할 수 있음
+* HDFS 클러스터와 YARN 클러스터가 서로 결합된 두 시스템의 조합을 하둡 클러스터라고 함
+* 클러스터는 연산이나 프로세싱 함수를 수행하기 위해 함께 작동하는 시스템 모음. 클러스터 내의 개별 서버는 노드(node)임
+* 클러스터에는 여러 토폴로지 및 통신 모델이 있는데, 그중 하나가 master/slave 모델임
+
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_1_1.PNG" width="60%" height="60%"></p>
+
+
+#### HDFS: 파일, 블록 및 메타데이터
+
+* HDFS는 클러스터의 하나 이상의 노드(node)에 파일이 분산돼 있는 블록(block)으로 구성된 가상 파일시스템이다.
+* Ingestion 프로세스
+   * 파일시스템에 데이터를 업로드할 때 구성된 블록의 크기에 따라 무작위로 파일을 나눈다.
+   * 그 후, 클러스터 노드 간에 블록을 분산 및 복제해서 내결함성(fault tolerance)을 달성하고, 데이터에 계산을 가져오는 목적으로 설계된 로컬에서 데이터를 처리할 수 있도록 한다.
+* HDFS 블록은 DataNode라는 slave 노드 HDFS 클러스터 프로세스에 저장 및 관린된다.
+
+...
+
+
+#### YARN을 이용한 응용 스케줄링
+
+* 하둡은 일반적으로 HDFS에서 데이터를 가져오고, HDFS에 데이터를 기록한다.
+* YARN은 이런 하둡의 데이터 처리를 제어하고 조율한다.
+* YARN 클러스터 아키텍쳐는 HDFS의 master/slave 클러스터 프레임워크와 같다.
+* 여기서, HDFS는 ResourceManager라는 master 노드 데몬과 클러스터의 Worker나 slave 노드에서 실행되는 NodeManager라는 하나 이상의 slave 노드 데몬을 포함한다.
+* ResourceManager는 클러스터에서 실행 중인 응용 프로그램에 클러스터 컴퓨팅 리소스를 부여한다.
+
+...
+
+
+
+### 1.2. 아파치 스파크 소개
+
+* 맵리듀스 구현의 주요 단점은 맵(Map)과 리듀스(Reduce) 처리 단계 사이의 중간 데이터가 디스크에 잔류한다는 것이다.
+* 맵리듀스 대안으로 스파크는 탄력적인 분산 데이터 집합(RDD; Resilient Distributed Dataset)이라는 분산형, 내결함성, 인메모리 구조를 구현한다.
+* 스파크는 여러 컴퓨터에서 메모리 사용을 극대화해 전반적인 성능을 크게 향상시킨다.
+* 스파크의 이러한 인메모리 구조의 재사용은 반복적인 머신러닝 작업 및 대화형 쿼리에 적합하다.
+* 스파크는 JVM과 자바 런타임 위에 구축된 스칼라(Scala)로 작성되었다.
+* 스파크는 개발자가 하드웨어 오류와 같은 인프라 또는 환경 문제가 아닌 논리에 집중할 수 있도록 높은 수준의 API 및 내결함성 프레임워크를 제공해 복잡한 다단계 데이터 처리 루틴을 만들 수 있게 한다.
+
+#### 스파크 프로그램의 제출 유형
+
+* 스파크 프로그램은 대화식 또는 배치 작업 (미니 배치 및 마이크로 배치 작업 포함)으로 실행할 수 있다.
+* 대화형 프로그래밍 shell은 파이썬과 스칼라에서 사용할 수 있다.
+* 비대화형 응용 프로그램은 spark-submit 명령을 사용해 제출할 수 있다.
+
+#### 스파크 응용 프로그램의 입력/출력 유형
+
+* 스파크는 주로 하둡에서 데이터를 처리하는 데 사용되며, 다음과 같은 다양한 소스 및 대상 시스템과도 함께 사용한다.
+   * 로컬 또는 네크워크 파일 시스템
+   * 아마존 S3 또는 Ceph와 같은 객체 저장소
+   * 관계형 데이터베이스 시스템
+   * 카산드라, HBase 등을 포함한 NoSQL 스토어
+   * 카프카 같은 메시징 시스템
+
+#### 스파크 RDD
+
+* 스파크 RDD는 스파크 응용 프로그램의 기본 데이터 추상화 구조이다.
+* 스파크와 다른 클러스터 컴퓨팅 프레임워크 사이의 주요 차별화 요소 중 하나이다.
+* 스파크 RDD는 클러스터에 분산된 인메모리 데이터 모음으로 간주할 수 있다.
+* 스파크 프로그램은 입력 데이터를 RDD에 로드하고 RDD를 후속 RDD로 변환한 다음, 최종 RDD에서 응용 프로그램의 최종 출력을 저장하거나 표시하는 것으로 구성되며, 스파크 코어 API를 사용한다.
+
+#### 스파크와 하둡
+
+* 하둡과 스파크는 비공유 및 데이터 지역성과 같은 핵심 병렬 처리 개념의 정립과 구현 과정에서 서로 밀접한 관련을 가진다.
+* 하둡(일반적으로 HDFS)의 데이터 처리 프레임워크로 스파크를 배포할 수 있다.
+* 스파크는 기본적으로 HDFS에서 파일을 읽고 HDFS로 데이터를 쓰는 기능이 있다.
+
+#### 스파크의 리소스 스케줄러로서의 YARN
+
+* YARN은 스파크 응용 프로그램에서 가장 일반적으로 사용되는 프로세스 스케줄러 중 하나다.
+* YARN은 대개 하둡 클러스터의 HDFS와 함께 있으므로 스파크 응용 프로그램을 관리하기 편리한 플랫폼이다.
+* YARN은 하둡 클러스터의 분산 노드에서 사용할 수 있는 컴퓨팅 리소스를 관리하므로
+   * 스파크 처리 단계를 가능하면 병렬로 실행할 수 있도록 예약할 수 있다.
+   * 또한, 스파크 응용 프로그램의 입력 소스로 HDFS를 사용하는 경우 YARN은 데이터 지역성을 최대한 활용하도록 맵 작업을 예약할 수 있다.
+   * 이는 처리 초기 단계에서 네트워크를 통해 전송해야 하는 데이터의 양을 최소화할 수 있다.
+
+
+### 1.3. 파이썬을 이용한 함수 프로그래밍
+
+* 파이썬은 멀티 패러다임 프로그래밍 언어로서, 명령 지향 프로그래밍 방식 패러다임과 객체 지향 및 함수 패러다임을 완벽하게 지원하는 프로그래밍 패러다임을 결합한다.
+
+#### 파이썬 함수 프로그래밍에서 사용되는 데이터 구조
+
+* 스파크의 파이썬 RDD는 파이썬 객체의 분산 컬렉션을 단순하게 표현한 것으로서 파이썬에서 사용할 수 있는 다양한 데이터 구조를 먼저 이해해야 한다.
+
+##### List 
+
+* 리스트는 세 가지 주요 함수 프로그래밍(map(), reduce(), filter())뿐만 아니라 count(), sort() 등을 포함한 기타 기본 제공 메소드를 지원한다.
+* 스파크 RDD는 본질적으로 파이썬 리스트를 표현한다.
+* map() 함수는 입력 리스트에서 작동하고 새 리스트를 반환한다.
+
+```python
+tempc = [38.4, 19.2, 12.8, 9.6]
+tempc = map(lambda x: (float(9)/5)*x + 32, tempc)
+print(tempc)
+>>>
+[101.12, 66.56, 55.0400000000006, 49.28]
+```
+
+* 파이썬 리스트는 기본적으로 변경할 수 있지만, 스파크의 파이썬 RDD에 포함된 리스트 객체는 변경할 수 없다. (스파크 RDD에서 생성된 객체의 경우도 마찬가지이다)
+* set는 파이썬에서 사용할 수 있는 객체 유형으로, 설정된 수학적 추상화를 기반으로 한다. set는 union(), intersection() 등과 같은 일반적인 수학적 집합 연산을 지원하며, 순서가 정해지지 않은 고유한 값을 모음이다.
+
+##### Tuple
+
+* 단순하게 튜플은 고정 리스트와 비슷하다고 생각할 수 있지만, 그들은 서로 다른 구조를 가지며 목적도 매우 다르다.
+* 튜플은 관계형 데이터베이스 테이블의 레코드와 유사하며, 각 레코드는 구조를 갖고 있다. 구조 안에 순서대로 위치한 각 필드는 모두 의미를 가진다. 리스트 객체의 순서는 기본적으로 변경할 수 있으므로 구조와 직접적인 관련이 없다.
+* 튜플은 스파크 프로그래밍에서 키/값 쌍을 나타내기 위해 사용되므로 스파크의 필수적인 객체이다.
+
+##### Dictionary
+
+* 딕셔너리는 파이썬에서 순서가 정해지지 않은 변경 가능한 키/값 쌍이다.
+* 리스트나 튜플과 달리 요소가 시퀀스에 순차적으로 액세스되므로 딕트의 요소는 키에 의해 액세스된다.
+* 딕셔너리는 미리 정의된 스키마나 순서에 의존하지 않고 요소가 직접 설명한다.
+* 딕셔너리 함수는 파이썬 RDD에서 고정 객체로 사용될 수 있다.
+
+#### 파이썬 객체 직렬화
+
+* 직렬화(serialization)는 같은 시스템이나 다른 시스템에서 객체를 압축 해제(비직렬화)할 수 있는 구조로 변환하는 프로세스이다.
+* 직렬화 또는 데이터 직렬화 및 비직렬화는 배포된 모든 처리 시스템에 필수적인 기능이며, 하둡 및 스파크 프로젝트 전체에서 매우 중요하다.
+
+##### JSON
+
+* JSON(JavaScript Object Notation)은 일반적인 직렬화 형식이다. 거의 모든 프로그래밍 언어에서 지원하는 다양한 플랫폼에서 사용되고, 웹 서비스에서 반환되는 일반적인 응답 구조이다.
+* JSON 객체는 키/값 쌍(딕셔너리) and/or 배열(리스트)로 구성되는데, 이들은 서로 내포될 수 있다.
+* JSON 객체는 PySpark의 RDD에서 사용할 수 있다.
+
+##### Pickle
+
+* 피클은 파이썬의 독점적인 직렬화 메소드로 JSON보다 빠르다. 
+* JSON은 일반적으로 상호 교환이 용이한 직렬화 형식으로 뛰어난 호환성을 가진다. 반면, 피클에서는 그 기능이 떨어진다.
+* 파이썬의 pickle 모듈은 하나 이상의 객체들을 byte stream으로 변환해 전송, 저장 및 원래 상태로 재구성한다.
+* PickleSerializer는 PySpark에서 객체를 피클링된 형식으로 로드하고 언피클 처리하는 데 사용된다. 여기에는 하둡의 SequenceFiles와 같이 다른 시스템에서 미리 직렬화된 객체를 읽고 파이썬에서 사용할 수 있는 형식으로 변환하는 작업이 포함된다.
+* PySpark는 피클된 입출력 파일은 다루는 pickleFile과 saveAsPickleFile.pickleFile 메소드를 포함한다. 이 두 메소드는 PySpark 프로세스 간에 파일을 저장하고 전송하기 위한 효율적인 포맷이다.
+* 피클은 개발자가 명시적으로 사용하는 것 외에도 파이썬에서 스파크 응용 프로그램을 실행할 때 많은 내부 스파크 프로세스에 의해 사용된다.
+
+#### 파이썬 함수형 프로그래밍 기초
+
+* 파이썬의 함수형 지원은 다음을 포함해 가능한 모든 함수 프로그래밍의 패러다임 특성을 구현한다.
+   * first-class 객체로서의 함수와 프로그래밍의 기본 단위
+   * 입출력 전용 함수
+   * 고차원 함수 지원
+   * 익명 함수 지원
+
+##### 익명 함수 및 lambda 구문
+
+* 익명 함수는 이름 없는 함수는 Lisp, Scala, JavaScript, Erlang, Clojure, Go 등의 함수형 프로그래밍 언어의 일관된 특징이다.
+* 파이썬의 익명 함수는 def 키워드 대신에 lambda 구문을 사용해서 구현한다.
+* 익명 함수는 입력 인수의 수에는 제한이 없지만, 하나의 값만 반환된다. 이 값은 다른 함수, 스칼라 값 또는 리스트 같은 데이터 구조일 것이다.
+* 익명 함수의 진정한 힘은 스파크에서 작업하듯이 map(), reduce() 및 filter()와 같은 고차원 함수와 프로세싱 파이프라인의 단일 사용 함수를 함께 연결하기 시작하는 경우에 분명히 나온다.
+
+```python
+# 명명된 함수
+>>> def plusone(x): return x+1
+>>> plusone(1)
+2
+>>> type(plusone)
+<type 'function'>
+>>> plusone.func_name
+'plusone'
+
+# 익명 함수
+>>> plusonefn = lambda x: x+1
+>>> plusonefn(1)
+2
+>>> type(plusonefn)
+<type 'function'>
+>>> plusonefn.func_name
+'<lambda>'
+```
+
+##### 고차원 함수
+
+* 고차원 함수는 함수를 인수로 받아들이고 결과로 함수를 반환한다.
+* 고차원 함수에는 map(), reduce(), filter()가 있는데, 이 함수들은 인수로 함수를 받아들인다.
+* 함수를 리턴값으로 반환하는 함수는 고차원 함수로 간주되는데 이 특성은 비동기 프로그래밍에서 구현되는 콜백을 정의한다.
+
+```python
+# 스파크에서 고차원 함수의 예
+lines = sc.textFile("file:///opt/spark/licences")
+counts = lines.flatMap(lambda x: x.split(' ')) \
+	.filter(lambda x: len(x) > 0) \
+	.map(lambda x: (x, 1)) \
+	.reduceByKey(lambda x, y: x+y) \
+	.collect()
+
+for (word, count) in counts:
+	print(word, count)
+```
+
+##### 클로저(closure)
+
+* 클로저는 인스턴스화된 시간에 범위를 묶는 함수 객체다.
+* 클로저 객체에는 함수가 작성될 때 사용된 외부 변수 또는 함수가 포함될 수 있다.
+* 클로저는 범위를 묶어서 값을 기억한다.
+
+```python
+def generate_message(concept):
+	def ret_message():
+		return 'This is an example of ' + concept
+	return ret_message
+
+>>> call_func = generate_message('closure in Python')
+>>> call_func
+<function ret_message at 0x7fd138aa55f0>
+>>> call_func()
+'This is an example of closures in Python'
+
+# 클로저 검사
+>>> call_func.__closure__
+(<cell at 0xfd138aaa638: str object at 0xfd138aaa638>,)
+>>> type(call_func.__closure__[0])
+<type 'cell'>
+>>> call_func.__closure__[0].cell_contents
+'closure in Python'
+
+# 함수 삭제
+del generate_message
+
+# 클로저 재호출
+call_func()
+'This is an example of closures in Python' # 클로저 여전히 작동함!
+```
+
+* 위 코드에서 ret_message() 함수는 클로저이고, concept 값은 함수 범위로 묶인다.
+* __closure__ 함수 멤버를 사용해 클로저에 관한 정보를 볼 수 있고, 함수에 포함된 참조는 셀의 튜플에 저장된다.
+* 위 코드에 표시된 대로 cell_contents 함수를 사용해 셀 콘텐츠에 액세스할 수 있다.
+* 클로저 개념을 증명하기 위해 외부 함수 generate_message를 삭제해 참조 함수인 call_func이 여전히 작동하는지 확인할 수 있다.
+* 분산된 스파크 응용 프로그램에서 클로저가 중요한 이점을 가질 수 있으므로 클로저 개념을 파악하는 것은 매우 중요하다.
+* 반면, 클로저는 함수가 어떻게 구성되고 호출되는지에 따라 부정적인 영향을 미칠 수도 있다.
+
+
+<br>
+
+## 2. 스파크 배포
+
+
+### 2.1. 스파크 배포 모드
+
+* 스파크에 대한 일반적인 배포 모드
+   * 로컬 모드
+   * 독립실행형(Standalone) 스파크
+   * YARN(하둡)에서의 스파크
+   * 메소스에서의 스파크
+* 각 배포 모드는 스파크 런타임 아키텍쳐를 구현하는 것과 비슷하다. 단, 컴퓨팅 클러스터의 하나 또는 그 이상의 노드에서 리소스를 관리하는 방식만 다르다.
+* YARN 또는 메소스와 같은 외부 스케줄러를 사용해 스파크를 배포하는 경우에는 로컬 모드로 실행하거나 스파크 독립실행형(Standalone) 스케줄러를 사용하면 된다. 단, 이 때 스파크 외부 종속성이 제거된다.
+* 모든 스파크 배포 모드는 스트리밍 응용 프로그램을 포함하여 대화형(shell) 및 비대화형(배치) 응용 프로그램에서 사용할 수 있다.
+
+#### 로컬 모드
+
+* 모든 스파크 프로세스가 단일 시스템에서 실행되도록 한다. 
+* 로컬 시스템의 코어 수를 임의로 선택해 사용한다.
+* 새로 설치된 스파크를 테스트하는 빠른 방법이 될 수 있다. 작은 dataset에 대해 스파크 루틴을 신속하게 테스트할 수 있다.
+
+```console
+# 로컬 모드에서 스파크 작업 제출
+
+$SPARK_HOME/bin/spark-submit \
+--class org.apache.spark.examples.SparkPi \
+--master local \
+
+&SPARK_HOME/examples/jars/spark-examples*.jar 10
+```
+
+* 로컬 모드에서 사용할 코어 수는 local 명령문 뒤 괄호 안에 숫자로 나타낸다. (ex. 2개의 코어를 사용하려면 local[2], 시스템의 모든 코어를 사용하려면 local[`*`]로 표기함.)
+* 로컬 모드에서 스파크를 실행할 때 로컬 시스템에 적절한 구성과 라이브러리를 사용할 수 있다면 로컬 파일 시스템의 모든 데이터와 HDFS, S3 또는 기타 파일 시스템의 데이터에 엑세스할 수 있다.
+* 로컬 모드를 사용하면 빠르게 시작하고 실행할 수 있지만, production use case의 확장 및 효과 측면에서는 제한적이다.
+
+#### 스파크 독립실행형(standalone)
+
+* 스파크 독립실행형은 내장형 또는 '독립실행형' 스케줄러를 나타낸다.
+* 독립실행형(standalone)은 말 그대로 클러스터 토폴로지와 아무 관련이 없다. 완전히 분산된 다중 노드 클러스터에서 독립실행형 모드로 스파크를 배포할 수도 있다. 이 경우 독립실행형은 외부 스케줄러가 필요없다는 뜻이다.
+* 다중 호스트 프로세스 또는 서비스는 스파크 독립실행형 클러스터에서 실행되며, 각 서비스는 클러스터에서 실행 중인 지정된 스파크 응용 프로그램의 계획, 조정 및 관리에 중요한 역할을 한다.
+
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_2_1.PNG" width="60%" height="60%"></p>
+
+* 위 그림은 완전히 분산된 스파크 독립실행형 참조 클러스터 토폴로지를 보여준다.
+* URL 스키마로 스파크를 지정해 지정된 호스트 및 포트와 함께 응용 프로그램을 스파크 독립실행형 클러스터에 제출할 수 있다. 여기서 지정된 호스트 및 포트에서는 스파크 마스터 프로세스가 실행 중이다. 다음 코드는 이 예제를 보여준다.
+
+```console
+# 스파크 독립실행형 클러스터에 스파크 작업 제출
+
+$SPARK_HOME/bin/spark-submit \
+--class org.apache.spark.examples.SparkPi \
+--master spark://mysparkmaster:7077 \
+
+&SPARK_HOME/examples/jars/spark-examples*.jar 10
+```
+
+* 스파크 독립실행형을 사용하면 종속성이나 환경에 대한 깊은 고민 없이 빠르게 시작하고 실행할 수 있다.
+* 각 스파크 릴리즈에는 스파크 독립실행형 클러스터에서 호스트가 지정된 역할을 맡을 수 있게 하는 바이너리 및 구성 파일과 함께 시작하는 데 필요한 모든 것이 포함되어 있다.
+
+#### YARN에서의 스파크
+
+* 스파크의 가장 일반적인 배포 방법은 하둡과 함께 제공되는 YARN 리소스 관리 프레임워크를 사용하는 것이다.
+* YARN은 하둡 클러스터에서 workload를 예약하고 관리할 수 있는 하둡의 핵심 구성 요소이다.
+* Databricks 연례 조사에 따르면 YARN과 독립실행형은 거의 같고, 메소스는 그보다 뒤에 있다. (사용 빈도수)
+* 하둡 에코시스템의 일급 객체(first-class citizens)답게 스파크 응용 프로그램은 최소한의 노력으로 제출하고 관리를 쉽게 할 수 있다.
+* Driver, Master, Executor 와 같은 스파크 프로세스는 리소스 매니저, 노드 매니저, 어플리케이션 마스터와 같이 YARN 프로세스에 의해 호스팅되거나 촉진된다.
+* spark-submit, pyspark, spark-shell 프로그램에는 스파크 응용 프로그램을 YARN 클러스터에 제출하는 데 사용되는 커맨드 라인 인수가 포함된다. (다음 코드 참조)
+* YARN을 스케줄러로 사용할 때 cluster와 client라는 2개의 클러스터 배포 모드가 있다.
+
+```console
+# YARN 클러스터에 스파크 작업 제출
+
+$SPARK_HOME/bin/spark-submit \
+--class org.apache.spark.examples.SparkPi \
+--master yarn \
+--deploy-mode cluster \
+
+&SPARK_HOME/examples/jars/spark-examples*.jar 10
+```
+
+#### 메소스에서의 스파크
+
+* 아파치 메소스는 버클리 캘리포니아 대학에서 개발한 오픈소스 클러스터 매니저이다. 
+* 스파크의 생성을 포함한 lineage의 일부를 공유한다.
+* 여러 유형의 응용 프로그램을 스케줄링할 수 있다.
+* 클러스터의 활용도를 높이기 위해 세분화된 리소스 공유 기능을 제공한다.
+* 다음 코드는 메소스 클러스터에 제출된 스파크 응용 프로그램의 예제이다.
+* 이 책은 스파크 독립실행형 및 YARN에 대한 일반적인 스케줄러에 중점을 둔다. (메소스에 대한 자세한 설명: https://mesos.apache.org)
+
+```console
+# 메소스 클러스터에 스파크 작업 제출
+
+$SPARK_HOME/bin/spark-submit \
+--class org.apache.spark.examples.SparkPi \
+--master mesos://mesosdispatcher:7077 \
+--deploy-mode cluster \
+--supervise \
+--executor-memory 20G \
+--total-executor-cores 100 \
+
+&SPARK_HOME/examples/jars/spark-examples*.jar 1000
+```
+
+### 2.2. 스파크 설치 준비
+
+...
+
+### 2.3. 스파크 설치 탐색
+
+* 스파크 설치 디렉토리(SPARK_HOME)의 내용을 숙지하는 것이 좋다. 
+   * `bin/` - pyspark, spark-shell, spark-sql 및 sparkR과 같은 shell 프로그램을 통해, 또는 spark-submit을 사용하는 일괄 처리 모드에서 대화식으로 스파크 응용 프로그램을 실행하는 모든 명령/스크립트를 포함한다.
+   * `conf/`
+   * `data/`
+   * `examples/`
+   * `jars/`
+   * `licenses/`
+   * `python/`
+   * `R/`
+   * `sbin/`
+   * `yarn/`
+
+### 2.4. 다중노드(Multi-Node) 스파크 독립실행형 클러스터 배포
+
+...
+
+### 2.5. 클라우드에서 스파크 배포
+
+* SaaS(Software as a Service), IaaS(Infrastructure as a Service), PaaS(Platform as a Service)와 같은 공공 및 사설 클라우드 기술의 확산은 조직이 기술을 배포하는 방식의 판도를 바꿨다.
+* 스파크를 클라우드에서 배포하면 빠르고 확장 가능하며, 탄력적인 프로세스 환경을 제공할 수 있다.
+
+...
+
+
+
+<br>
+
+## 3. 스파크 클러스터 아키텍처의 이해
+
+### 3.1. 스파크 응용 프로그램의 해부
+
+* 단일 기기든 수백 수천 개의 노드로 구성된 클러스터든 스파를 실행하는 응용 프로그램은 모두 구성 요소가 있다.
+* 각 구성 요소는 스파크 응용 프로그램을 실행하는 동안 필요하며, 특정한 역할이 있다.
+* client와 같은 일부 구성 요소는 실행 중에 수동적으로 작동하지만, 계산 함수를 포함한 또 다른 구성 요소는 프로그램 실행 중에 활성화된다.
+* 구성 요소는 Driver, Master, Cluster Manager, 작업자 노드를 실행시키는 Executor(실행자), 그리고 Workers(작업자)이다.
+* 다음 그림은 스파크 독립실행형 응용 프로그램 콘텍스트의 모든 스파크 구성 요소를 보여준다.
+
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_3_1.PNG" width="60%" height="60%"></p>
+
+* Driver, Master, Executor 프로세스를 포함한 모든 스파크 구성 요소들은 JVM(Java Virtual Machine)에서 실행된다. 
+* JVM은 자바 바이트코드로 컴파일된 명령어를 실행할 수 있는 크로스 플랫폼 런타임 엔진이다.
+* 스파크로 작성된 Scala는 바이트코드로 컴파일되고 JVM에서 실행된다.
+* 스파크의 런타임 응용 프로그램 구성 요소와 실행되는 위치 및 노드의 유형을 구별할 수 있어야 한다.
+* 이러한 구성 요소들은 다양한 배포 모드를 사용하며, 모두 다른 위치에서 실행되기 때문에 이들을 물리적 노드나 인스턴스 용어로 생각하면 안된다.
+* 예를 들어, YARN에서 스파크를 실행하면 몇 가지 변형은 생기지만, 생성된 모든 구성 요소는 여전히 응용 프로그램에 포함되어 동일한 역할을 수행한다.
+
+#### 스파크 Driver
+
+* 스파크 응용 프로그램의 수명은 스파크 Driver에서 시작하고 끝난다. 
+* Driver는 client가 스파크에서 응용 프로그램을 제출하는 데 사용하는 프로세스이다.
+* Driver는 스파크 프로그램의 실행을 계획 및 조정하고, 상태 및 결과(데이터)를 client에게 반환한다.
+* Driver는 클러스터에 있는 client나 노드에 물리적으로 상주할 수 있다.
+
+##### SparkSession
+
+* 스파크 Driver는 SparkSession을 생성한다.
+* SparkSession 객체는 스파크 클러스터에 대한 연결을 나타낸다.
+* SparkSession은 대화식 shell을 포함해 스파크 응용 프로그램의 시작 부분에서 인스턴스화되며, 프로그램 전체에서 사용된다.
+* 스파크 2.0 이전에는 스파크 핵심 응용 프로그램에 사용된 SparkContext, 스파크 SQL 응용 프로그램과 함께 사용된 SQLContext, HiveContext, 스파크 스트리밍 응용 프로그램에 사용된 StreamingContext가 스파크 응용 프로그램의 entry point에 포함되어 있었다. 스파크 2.0의 SparkSession 객체는 이러한 모든 객체를 단일 entry point로 결합하여 모든 스파크 응용 프로그램에 사용할 수 있다.
+* SparkSession 객체는 SparkContext, SparkConf 자식 객체를 통해 Master, 응용 프로그램 이름, Executors의 개수 등 사용자가 설정한 모든 런타임 구성 속성을 포함한다.
+* 다음 그림은 pyspark shell 내의 SparkSession 객체와 그 구성 속성 중 일부를 보여준다.
+
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_3_1.PNG" width="60%" height="60%"></p>
+
+* 다음 코드는 spark-submit을 사용해 제출된 프로그램과 같은 비대화식 스파크 응용 프로그램 내에서 SparkSession을 생성하는 방법을 보여준다.
+
+```python
+# SparkSession 생성하기
+
+from pyspark.sql import SparkSession
+spark = SparkSession.builder \
+	.master("spark://sparkmaster:7077") \
+	.appName("My Spark Application") |
+	.config("spark.submit.deployMode", "client") \
+	.getOrCreate()
+
+numlines = spark.sparkContext.textFile("file:///opt/spark/licenses") \
+	.count()
+
+print("The total number of lines is " + sr(numlines))
+```
+
+##### 응용 프로그램 계획
+
+* Driver의 주요 기능 중 하나는 응용 프로그램을 계획하는 것이다.
+* Driver는 응용 프로그램 프로세싱 입력에 따라 프로그램을 어떻게 실행할지 계획한다. 
+* Driver는 요청된 모든 transformation 및 action에 따라 노드의 DAG(Directed Acyclic Graph)를 작성한다. 
+   * 여기서 transformation은 데이터 조작 작업을, action은 출력 또는 prompt에 대한 프로그램 실행 요청을, 각 노드는 변형 또는 계산 단계를 나타낸다.
+* DAG(지시된 비순환 그래프)란? 
+   * DAG는 데이터 흐름(data flow)과 그 종속성을 나타내기 위해 컴퓨터 과학에서 일반적으로 사용되는 수학적 구조이다.
+   * DAG는 정점(vertice), 노드 및 에지(edge)로 구성된다.
+   * 데이터 흐픔 콘텍스트의 정점은 프로세스 흐름의 단계이다.
+   * DAG의 에지는 정점을 서로 연결하는데, 순환 참조를 가질 수 없는 방식으로 연결한다.
+* 스파크 응용 프로그램 DAG는 task와 stage로 구성된다. 
+   * task는 스파크 프로그램에서 스케줄링이 가능한 일의 최소 단위
+   * stage는 함께 실행할 수 있는 일련의 작업 모음
+   * stage는 서로 의존하는 stage dependencies(단계 종속성)이 있다.
+* 프로세스 스케줄링에서 DAG는 스파크에만 고유하게 있는 것은 아니다. Tez, Drill, Presto와 같은 다른 빅데이터 에코시스템 프로젝트에서도 스케줄링을 위해 사용한다.
+* DAG는 스파크의 기본 요소이므로 개념을 잘 이해해야 한다.
+
+##### 응용 프로그램 조직화(Orchestration)
+
+* Driver는 DAG에 정의된 stage 및 task의 실행을 설계한다.
+* 스케줄링 및 task 실행과 관련된 Driver의 주요 활동
+   * task 실행에 사용할 수 있는 리소스 추적
+   * 가능한 데이터에 'close'를 실행하는 작업 스케줄링 (데이터 지역성 개념)
+
+##### 기타 함수
+
+* Driver는 스파크 프로그램의 실행을 계획하고 조정하는 것 외에도 응용 프로그램의 결과를 반환하는 책임이 있다.
+* 데이터를 client에 반환하도록 요청되는 action의 경우 반환값은 리턴 코드 또는 데이터가 될 수 있다.
+
+#### 스파크 Executor 및 Worker
+
+* 스파크 Executor는 스파크 DAG 작업이 실행되는 프로세스이다.
+* Executor는 스파크 크러스터에 slave 노드 또는 worker의 CPU 및 메모리 리소스를 예약한다. 이는 특정 스파크 응용 프로그램 전용이며, 응용 프로그램이 완료되면 종료된다.
+* 스파크 프로그램은 보통 많은 Executor로 구성되며, 종종 병렬로 작업한다.
+* 일반적으로 Executor 프로세스를 호스팅하는 Worker 노드에는 유한하거나 고정된 수의 Executor가 특정 시점에 할당된다. 
+   * 따라서, 노드의 수를 알고 있는 클러스터에는 주어진 시간에 실행할 수 있는 Executor의 수가 한정된다.
+   * 응용 프로그램이 클러스터의 실제 용량을 초과해 Executor를 요구하면, 다른 Executor가 리소스를 완료하고 릴리스하는 것으로 시작되도록 예약한다.
+* 스파크 Executor를 호스트하는, Executor용 JVM에는 객체를 저장하고 관리하는 전용 메모리 공간인 heap이 할당된다.
+* Executor의 JVM heap에 커밋된 메모리 양은 spark.executor.memory 속성 또는 pyspark.spark-shell 이나 spark-submit 명령에 대한 --executor-memory 인수로 설정된다.
+* Executor는 task의 출력 데이터를 메모리 또는 디스크에 저장한다.
+* Worker와 Executor는 할당된 task에만 의식하지만, Driver는 응용 프로그램을 구성하는 전체 작업 집합과 관련된 종속성을 파악해야 한다.
+
+#### 스파크 Master와 Cluster Manager
+
+* 스파크 Driver는 스파크 응용 프로그램을 실행하는 데 필요한 일련의 작업을 계획하고 조정한다. Worker 노드에 호스트되는 Executor에서 task가 실행된다.
+* Master 및 Cluster Manager는 Executor가 실행되는 분산 클러스터 리소스(YARN이나 메소스의 경우 컨테이너)를 모니터링하고 예약하고 할당하는 중앙 프로세스이다.
+* Master와 Cluster Manager는 독립된 프로세스로 서로 분리될 수 있고, 독립실행형 모드에서 스파크를 실행할 때처럼 하나의 프로세스로 결합될 수도 있다.
+
+##### 스파크 Master
+
+* 스파크 Master는 클러스터의 리소스를 요청하고 이를 스파크 Driver에서 사용할 수 있게 만드는 프로세스이다.
+* 모든 배포 모드에서, Master는 worker 노드 또는 slave 노드에 리소스나 컨테이너를 할당하고, 그 상태를 추적하고 진행 상황을 모니터링한다.
+* 스파크 독립실행형 모드로 실행하면, 스파크 Master 프로세스는 마스터 호스트의 포트 8080에서 웹 UI를 제공한다.
+* 스파크 Master vs. 스파크 Driver
+   * Driver와 Master의 런타임 함수를 구별하는 것은 매우 중요하다.
+   * Master라는 명칭은 프로세스가 응용 프로그램의 실행을 통제한다는 의미로 추론할 수 있지만, 실제로 그렇지 않다.
+   * Master는 단순히 리소스를 요청해서 Driver가 사용할 수 있게 한다.
+   * Master는 이렇게 리소스의 위치와 상태는 모니터링하지만, 응용 프로그램의 실행 및 해당 작업과 단계의 조정에는 관여하지 않는다. 그것은 Driver의 역할이다.
+
+##### Cluster Manager
+
+* Cluster Manager는 worker 노드를 모니터링하고, Master가 요청하면 이러한 노드의 리소스를 예약하는 프로세스이다.
+* Master는 이렇게 클러스터가 예약한 리소스를 Executor의 형태로 Driver에 제공한다.
+* 메소스나 YARN에서 스파크를 실행할 때, cluster manager는 master 프로세스와 분린된다.
+* 독립실행형 모드로 실행되는 스파크의 경우, master 프로세스는 cluster manager의 함수도 수행하고, cluster manager 역할도 수행한다.
+* cluster manager 함수는 하둡 클러스터에서 실행되는 스파크 응용 프로그램용 YARN 리소스 매니저 프로세스로 적합하다.
+* 리소스 매니저는 YARN 노드 매니저에서 실행되는 컨테이너의 상태를 예약, 할당 및 모니터링한다. 스파크 응용 프로그램은 clutser 모드에서 실행 중인 응용 프로그램의 master 프로세스처럼 이 컨테이너를 사용해 executor 프로세스를 호스트한다.
+
+### 3.2. 독립실행형 스케줄러를 사용하는 스파크 응용 프로그램
+
+...
+
+
+<br>
+
+## 4. 스파크 프로그래밍 기초 학습
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

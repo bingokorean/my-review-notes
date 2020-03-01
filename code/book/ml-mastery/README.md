@@ -16,25 +16,26 @@ Jason Brownlee
 
 ## Machine Learning with Python
 
-* [[contents.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/book/ml-mastery/machine-learning-with-py/contents.ipynb)] * [[projects.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/book/ml-mastery/machine-learning-with-py/projects.ipynb)]
+* [contents.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/book/ml-mastery/machine-learning-with-py/contents.ipynb)
+* [projects.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/book/ml-mastery/machine-learning-with-py/projects.ipynb)
 
 <br>
 
 ## Deep Learning with Python
 
-* [[contents.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/book/ml-mastery/deep-learning-with-py/contents.ipynb)] 
-* [[projects.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/book/ml-mastery/deep-learning-with-py/projects.ipynb)]
+* [contents.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/book/ml-mastery/deep-learning-with-py/contents.ipynb)
+* [projects.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/book/ml-mastery/deep-learning-with-py/projects.ipynb)
 
 <br>
 
 ## Deep Learning for Natural Language Processing
 
 
-# Part2. Foundations
+### Part2. Foundations
 
 Review note for this part is described in [**here**](https://1drv.ms/w/s!AllPqyV9kKUrwAIs7ECAalYKx7Ps).
 
-## Summary
+#### Summary
 
 _Natural Language Processing_
 
