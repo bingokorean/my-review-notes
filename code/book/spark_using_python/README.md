@@ -565,9 +565,294 @@ print("The total number of lines is " + sr(numlines))
 * RDD는 스파크 응용 프로그램 내의 데이터 집합으로, 로드된 초기 데이터 집합, 중간 데이터 집합 및 최종 결과 데이터 집합을 모두 포함한다.
 * 대부분의 스파크 응용 프로그램은 외부 데이터로 RDD를 로드해 연산을 수행한 뒤 새로운 RDD를 생성하는데, 이러한 작업을 transformation이라 한다.
 * 이 transformation 프로세스는 궁극적으로 원하는 결과물이 출력될 때까지 반복된다. 원하는 결과물을 출력하는 작업의 유형을 action이라 한다 (ex. 응용 프로그램의 결과를 파일 시스템에 기록하는 것)
-
+* RDD는 분산된 객체 모음이다. 여기서 객체는 스파크 프로그램에서 사용되는 데이터를 나타낸다.
+   * PySpark의 RDD는 list, tuple, dictionary와 같은 분산 파이썬 객체로 구성된다.
+   * RDD 내의 객체는 list의 요소와 같이 integer, floating, string과 같은 기본 데이터 유형은 물론, tuple, list, dictionary와 같은 복합 유형을 포함한 모든 유형이 된다.
+   * 스칼라 및 자바 API에서 RDD는 각각 스칼라 또는 자바 객체 모음으로 구성된다.
+* RDD를 디스크에 지속시키기 위한 옵션이 있지만, RDD는 주로 메모리에 저장되거나 적어도 가능한 한 메모리에 저장되도록 한다.
+* 스파크의 초기 용도는 머신러닝을 지원하는 것이었으므로, 스파크 RDD는 제한된 형식의 공유 메모리를 제공한다. 이는 연속적이고 반복적인 연산을 수행할 때, 데이터의 효율적인 재사용을 가능하게 한다.
 * 
-* 어ㅏ 
+* 하둡 맵리듀스 구현의 주요 단점 중 하나는 중간 데이터를 디스크에 지속적으로 저장하고, 런타임 중 노드 간에 데이터를 복사하는 것이었다.
+* 이러한 맵리듀스의 데이터 공유 분산 처리 방식은 복원력과 내결함성을 제공하지만, 지연 시간이 발생했다. 이로 인해 스파크의 RDD에 기반을 둔 인-메모리 처리 프레임워크는 인기를 끌었다.
+*
+
+...
+
+
+### 4.2. RDD에 데이터 로드하기
+
+...
+
+#### 데이터 소스에서 RDD 만들기
+
+* 데이터베이스에서 스파크 프로그램의 RDD로 데이터를 로드하기 위해서 historical 데이터, master 데이터, reference 데이터, lookup 데이터의 소스가 필요하다.
+   * 이 데이터는 오라클, MySQL, Postgres 및 SQL 서버를 포함한 다양한 호스트 시스템 및 데이터베이스 플랫폼에서 가져올 수 있다.
+* 외부 파일을 사용해서 만든 RDD처럼 외부 데이터베이스의 데이터를 사용해 생성된 RDD는 여러 작업자의 여러 partition으로 데이터를 이동하려고 시도한다.
+   * 이는 처리 중, 특히 초기 단계에서 병렬 처리를 극대화한다.
+   * 또한, 키 공간을 기준으로 테이블을 다른 partition으로 나눌 경우 partition이 병렬로 로드될 수 있으며, 이때 각 parition은 고유한 행 세트를 가져와야 한다. (다음 그림 참조)
+
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_4_1.png" width="60%" height="60%"></p>
+
+* 관계형 데이터베이스 table 또는 query 에서 RDD를 생성하는 기본 방법은 SparkSession 객체의 함수를 사용하는 것이다. 이것이 스파크 내 모든 유형의 데이터 작업을 위한 주요 entry point이다.
+* SparkSession은 DataFrameReader 객체를 반환하는 read 함수를 제공한다. (SchemaRDD라고 불렸던 RDD의 특수 유형인 DataFrame으로 데이터를 읽기 위해 이 객체를 사용)
+* read() 메소드에는 JDBC 호환 데이터 소스에 연결해 데이터를 수집할 수 있는 jdbc 함수가 있다.
+
+```console
+# pyspark 실행 및 JDBC MySQL 커넥터 JAR 파일 제공
+
+## 대상 데이터베이스에 대한 최신 jdbc 커넥터 다운로드
+$SPARK_HOME/bin/pyspark \
+--driver-class-path mysql-connector-java-5.*-bin.jar \
+--master local
+```
+
+* employees라는 테이블, employees라는 데이터베이스, mysqlserver라는 이름의 MySQL 서버가 있다.
+* employees 테이블에는 emp_no라는 기본키가 있는데, 이 키는 논리적으로 테이블의 키 공간을 여러 partition으로 나누는 데 사용한다.
+* JDBC를 통해 MySQL 데이터베이스에 접근하려면 드라이버 클래스 경로에 mysql-connector.jar를 제공하는 pyspark를 실행해야 한다.
+* mysql-connector.jar와 같은 커넥터는 일반적으로 대상 데이터베이스 플랫폼 공급 업체의 웹 사이트에서 사용할 수 있다. (위 코드 참조)
+* 대상 데이터베이스에 대한 관련 JDBC 연결 라이브러리를 포함해 대화식 또는 비대화식 스파크 응용 프로그램을 실행하면, DataFrame Reader 객체의 jdbc 메소를 사용할 수 있다.
+* 다음 코드는 read.jdbc() 메소드를 사용해 RDD를 생성하는 방법을 보여준다.
+
+```python
+employeesdf = spark.read.jdbc(
+   url="jdbc:mysql://localhost:3306/employees", 
+   table="employees", 
+   column="emp_no", 
+   lowerBound="10001", 
+   upperBound="499999", 
+   numParition="2", 
+   #predicates=None, 
+   properties={"user":"<user>", "password":"<pwd>"})
+
+employeesdf.rdd.getNumPartitions()
+# numParitions=2 이므로 2를 반환한다.
+```
+
+* url 및 table 인수는 읽을 대상 데이터베이스와 테이블을 지정한다.
+* column 인수는 스파크가 numPartitions 에서 지정한 partition 수를 생성하기 위해 적절한 열(선호하는 long 또는 int 데이터 유형)을 선택하는 데 도움이 된다.
+* upperBound와 lowerBound 인수는 스파크의 partition 생성을 돕기 위해 column 인수와 함께 사용된다. 이들은 소스 테이블의 지정된 열에 대한 최솟값과 최댓값을 나타낸다. 이 인수 중 하나라도 read.jdbc() 함수와 함께 제공되면, 모두 값이 정해져야 한다.
+* 선택적 인수 predicates는 파티션을 로드하는 동안 불필요한 레코드를 필터링하기 위해 WHERE 조건을 포함시킨다.
+* properties 인수를 사용해 매개변수를 JDBC API에 전달할 수 있다. 이 인수가 제공되려면 다양한 구성 옵션을 나타내는 일련의 이름/값 쌍이 딕셔너리로 표현되어야 한다.
+* read.jdbc() 함수는 다음 코드와 같이 DataFrame을 반환한다.
+
+```python
+sqlContext.registerDataFrameAsTable(employeesdf, "employees")
+
+df2 = spark.sql("SELECT emp_no, first_nmae, last_name FROM employees LIMIT 2")
+df2.show()
+
+#>>>
+#+------+----------+---------+
+#|emp_no|first_name|last_name|
+#+------+----------+---------+
+#| 10001|   Georigi|  Facello|
+#| 10002|   Bezalel|   Simmel|
+#+------+----------+---------+
+```
+
+* read.jdbc() 함수를 사용해 너무 많은 파이션을 생성하는 경우
+   * 관계형 데이터 소스에서 데이터프레임을 로드할 때 너무 많은 파이션을 지정하지 않도록 주의해야 한다.
+   * 각 개별 작업자 노드에서 실행되는 각 파티션은 DBMS에 독립적으로 연결되고, 데이터세트의 지정된 부분을 쿼리한다.
+   * 수백 또는 수천 개의 파티션이 있는 경우 이는 호스트 데이터베이스 시스템에 대한 분산 서비스 거부(DDoS, Distributed denial-of-service) 공격으로 잘못 해석될 수 있다.
+
+...
+
+
+### 4.3. RDD 연산
+
+#### 주요 RDD 개념
+
+* 스파크의 trnaformation은 RDD에서 작동하고 새로운 RDD를 반환하는 함수인 반면, action은 RDD에 대한 연산 작업 후 값을 반환하거나 출력 연산을 수행하는 함수다.
+
+##### 거친(Coarce-Grained) transformation vs 세분화된(Fine-Grained) transformation
+
+* RDD에 대해 수행되는 연산은 데이터 집합의 모든 요소에 대해 함수(map(), filter())를 적용하고, transformation이 적용된 새 데이터 집합을 반환하므로 '거친' 것으로 간주된다.
+* '거친' transformation과 달리 세분화된 transformation은 관계형 데이터베이스의 단일 행 업데이트 또는 NoSQL 데이터베이스의 put 연산과 같이 단일 레코드나 데이터 셀을 조작할 수 있다.
+* 거친 transformation은 하둡의 맵리듀스 프로그래밍 모델 구현과 개념적으로 비슷하다.
+
+##### Transformations, Actions, and Lazy Evaluation
+
+* Transformation은 RDD에 대해 수행되는 연산으로 새로운 RDD를 생성한다. 
+* 일반적인 transformation에는 map(), filer() 함수가 있다.
+
+```python
+originalrdd = sc.parallelize([0, 1, 2, 3, 4, 5, 6, 7, 8])
+newrdd = originalrdd.fileter(lambda x: x % 2)
+```
+
+* originalrdd는 수의 병렬화된 모음에서 시작한다.
+* filter() transformation을 originalrdd의 각 요소에 적용해 컬렉션의 짝수를 건너뛴다. 이 결과 newrdd라는 RDD가 생성된다.
+* 새로운 RDD 객체를 반환하는 transformation과 달리 action은 값 또는 데이터를 Driver 프로그램에 반환한다.
+* 일반적인 action에는 reduce(), collect(), count(), saveAsTextFile()이 있다.
+
+```python
+newrdd.collect() # will return [1, 3, 5, 7]
+```
+
+* 스파크는 스파크 프로그램을 프로세싱할 때 lazy evaluation을 사용한다.
+* Lazy evaluation은 lazy execution이라고도 하며, action이 호출될 때까지(즉, 출력이 필요할 때) 프로세스를 연기한다.
+* 이는 대화형 shell을 사용해 쉽게 나타낼 수 있다.
+* 대화형 shell에서는 어떤 프로세스도 시작하지 않고 RDD에 대해 하나 이상의 transformation 방법을 차례로 입력할 수 있다.
+* 대신 각 문장은 구문과 객체 참조에 대해서만 구문 분석이 된다.
+* count()나 saveAsTextFile()과 같은 action을 요청하면, 논리적이고 물리적인 실행 계획에 따라 DAG가 만들어진다. Driver는 Executors 간에 이렇나 계획을 조정하고 관리한다.
+* 이러한 lazy evaluation을 통해 스파크는 가능한 한 작업을 결합해 처리 단계를 줄이고, shuffling이라는 프로세스에서 스파크 executor 사이에 전송되는 데이터의 양을 최소화한다.
+
+...
+
+#### 맵리듀스 및 Word Count 연습
+
+* 맵리듀스는 대부분의 빅데이터 및 NoSQL 플랫폼의 중심에 있는 플랫폼 및 언어 독립적 프로그래밍 모델 또는 디자인 패턴이다.
+* Map 또는 Reduce 함수를 명시적으로 구현하지 않고 데이터를 처리할 수 있는 Pig나 Hive와 같이 맵리듀스에는 많은 추상화가 존재한다.
+* 맵리듀스의 개념을 이해하는 것은 스파크에서의 분산 프로그래밍 및 데이터 처리를 진정으로 이해하는 데 필수적이다.
+
+```
+# 1. 단일 노드(single-node) 스파크 설치를 사용해 다음 링크에서 shakespeare.txt 파일을 다운로드한다. (wget or curl)
+   https://s3.amazonaws.com/sparkusingpython
+
+# 2. 스파크 설치의 /opt/spark/data 디렉토리에 파일을 저장한다.
+   $ sudo mv shakespeare.txt /opt/spark/data
+
+   사용 가능한 HDFS가 있는 경우 파일을 HDFS에 업로드하고 대체 파일로 사용할 수 있다.
+
+# 3. 로컬 모드에서 pyspark shell을 연다.
+   $ pyspark --master local
+
+   하둡 클러스터 또는 분산된 스파크 독립실행형 클러스터에 접근할 수 있는 경우, 다음 중 하나를 지정해 자유롭게 사용할 수 있다.
+   --master yarn
+   --master spark://<yoursparkmaster>:7077
+
+   파이썬 바이너리가 python이 아니라면, 스파크로 올바른 파일로 보내야 한다. 이 작업은 다음 환경변수 설정을 사용한다.
+   $ export PYSPARK_PYTHON=python3
+   $ export PYSPARK_DIVER_PYTHON=python3
+```
+
+```python
+# 4.
+import re
+
+# 5.
+doc = sc.textFile("file:///opt/spark/data/shakespeare.txt")
+
+# 6. 빈 줄은 필터링, 공백으로 줄을 나누고, 단어 목록을 하나의 목록으로 평평하게 만든다.
+flattened = doc \
+   .filter(lambda line: len(line) > 0) \
+   .flatMap(lambda line: re.split('\W+', line))
+
+# 7.
+flattened.take(6)
+
+# 8. 텍스트를 소문자로 매핑하고 빈 문자열을 제거한 후, 다음 양식(word, 1)의 키/값 쌍으로 변환한다.
+kvpairs = flattened \
+   .filter(lambda word: len(word) > 0) \
+   .map(lambda word: (word.lower(), 1))
+
+# 9.
+kvpairs.take(5)
+
+# 10. 각 단어를 세고, 결과를 역알파벳 순서로 정렬한다.
+countsbyword = kvpairs \
+   .reduceByKey(lambda v1, v2: v1 + v2) \
+   .sortByKey(ascending=False)
+
+# 11.
+countsbyword.take(5)
+
+# 12. 가장 많이 사용된 상위 5개 단어를 찾는다.
+# 카운트를 키와 정렬로 바꾸러면 kv 쌍을 반전한다.
+topwords = countsbyword \
+   .map(lambda x: (x[1], x[0]))
+   .sortByKey(ascending=False)
+
+# 13. 
+topwords.take(5)
+```
+```
+map() 함수는 키와 값을 반전하는 12단계에서 사용되는 방법을 참고하면 된다.
+이는 기본적으로 정렬되지 않은 값을 정렬하는 수단인 secondary sort라는 연산을 수행하는 일반적인 방법이다.
+
+이제 Ctrl + D 를 눌러서 pyspark 세션을 종료한다.
+```
+
+```console
+# 14. 이제 모든 것을 하나로 합친 다음 spark-submit을 사용해 완전한 파이썬 프로그램으로 실행한다.
+   먼저, 스파크 설치의 conf 디렉토리에 log4j.properties 파일을 생성하고 설정함으로써 로깅의 양을 최소화한다. (다음 명령어 참고)
+
+# minimize_logging.sh
+sed "s/log4j.rootCategory=INFO, console/log4j.rootCategory=ERROR, console/" \
+    $SPARK_HOME/conf/log4j.properties.template > $SPARK_HOME/conf/log4j.properties
+```
+
+```python
+# 15. wordcounts.py 라는 이름의 새 파일을 만들고 다음 코드를 파일에 추가한다.
+
+# Source code for the 'MapReduce and Word Count' Exercise in
+# Data Analytics with Spark Using Python
+# by Jeffrey Aven
+#
+# Execute this program using spark-submit as follows:
+#
+#  $ spark-submit --master local wordcounts.py \
+#     $SPARK_HOME/data/shakespeare.txt \
+#     $SPARK_HOME/data/wordcounts
+#
+
+import sys, re
+from pyspark import SparkConf, SparkContext
+conf = SparkConf().setAppName('Word Counts')
+sc = SparkContext(conf=conf)
+
+# check command line arguments
+if (len(sys.argv) != 3):
+   print("""\
+This program will count occurances of each word in a document or documents
+and return the counts sorted by the most frequently occuring words
+
+Usage:  wordcounts.py <input_file_or_dir> <output_dir>
+""")
+   sys.exit(0)
+else:
+   inputpath = sys.argv[1]
+   outputdir = sys.argv[2]
+
+# count and sort word occurances 
+wordcounts = sc.textFile("file://" + inputpath) \
+            .filter(lambda line: len(line) > 0) \
+            .flatMap(lambda line: re.split('\W+', line)) \
+            .filter(lambda word: len(word) > 0) \
+            .map(lambda word:(word.lower(),1)) \
+            .reduceByKey(lambda v1, v2: v1 + v2) \
+            .map(lambda x: (x[1],x[0])) \
+            .sortByKey(ascending=False) \
+            .persist()
+wordcounts.saveAsTextFile("file://" + outputdir)
+top5words = wordcounts.take(5)
+justwords = []
+for wordsandcounts in top5words:
+   justwords.append(wordsandcounts[1])
+print("The top five words are : " + str(justwords))
+print("Check the complete output in " + outputdir)
+```
+
+```console
+# 16. 다음 명령을 사용해 프로그램을 실행한다.
+
+$ spark-submit \
+   --master local \
+   wordcounts.py \
+   $SPARK_HOME/data/shakespeare.txt \
+   $SPARK_HOME/data/wordcounts
+
+콘솔에 상위 5개 단어가 표시되어야 한다.
+출력 디렉토리는 $ SPARK_HOME/data/wordcounts; 를 확인하자.
+이 연습에서는 파티션 하나만 사용했으므로 이 디렉토리에는 하나의 파일(part-00000)이 나타난다.
+2개 이상의 파티션을 사용하면 추가 파일(part-00001, part-00002)이 표시된다.
+
+# 17. 16단계의 명령을 다시 실행하자. wordcounts 디렉토리가 이미 존재하기 때문에 덮어 쓸 수 없으므로 실패할 수 있다. 이것은 단순히 디렉토리를 제거하거나 이름을 바꾸면 쉽게 해결된다.
+```
+
+...
+
+
 
 
 
