@@ -20,7 +20,7 @@
 * 스파크는 맵리듀스처럼 분산 처리를 수행하지만, 메모리를 활용하여 빠르게 데이터를 처리하는 것이 특징
 * 이에 스파크는 스트리밍 데이터 처리같은 실시간 처리와 머신러닝을 통한 애플리케이션과의 복합적 운영이 필요할 때 적합하다! (ex. 실시간 타겟마켓팅, 고객 분석 및 추천)
 
-
+<br>
 
 ## 1. 빅데이터, 하둡 및 스파크 소개
 
@@ -62,7 +62,7 @@
 * 클러스터는 연산이나 프로세싱 함수를 수행하기 위해 함께 작동하는 시스템 모음. 클러스터 내의 개별 서버는 노드(node)임
 * 클러스터에는 여러 토폴로지 및 통신 모델이 있는데, 그중 하나가 master/slave 모델임
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_1_1.PNG" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_1_1.png" width="60%" height="60%"></p>
 
 
 #### HDFS: 파일, 블록 및 메타데이터
@@ -331,7 +331,7 @@ $SPARK_HOME/bin/spark-submit \
 * 독립실행형(standalone)은 말 그대로 클러스터 토폴로지와 아무 관련이 없다. 완전히 분산된 다중 노드 클러스터에서 독립실행형 모드로 스파크를 배포할 수도 있다. 이 경우 독립실행형은 외부 스케줄러가 필요없다는 뜻이다.
 * 다중 호스트 프로세스 또는 서비스는 스파크 독립실행형 클러스터에서 실행되며, 각 서비스는 클러스터에서 실행 중인 지정된 스파크 응용 프로그램의 계획, 조정 및 관리에 중요한 역할을 한다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_2_1.PNG" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_2_1.png" width="60%" height="60%"></p>
 
 * 위 그림은 완전히 분산된 스파크 독립실행형 참조 클러스터 토폴로지를 보여준다.
 * URL 스키마로 스파크를 지정해 지정된 호스트 및 포트와 함께 응용 프로그램을 스파크 독립실행형 클러스터에 제출할 수 있다. 여기서 지정된 호스트 및 포트에서는 스파크 마스터 프로세스가 실행 중이다. 다음 코드는 이 예제를 보여준다.
@@ -436,7 +436,7 @@ $SPARK_HOME/bin/spark-submit \
 * 구성 요소는 Driver, Master, Cluster Manager, 작업자 노드를 실행시키는 Executor(실행자), 그리고 Workers(작업자)이다.
 * 다음 그림은 스파크 독립실행형 응용 프로그램 콘텍스트의 모든 스파크 구성 요소를 보여준다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_3_1.PNG" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_3_1.png" width="60%" height="60%"></p>
 
 * Driver, Master, Executor 프로세스를 포함한 모든 스파크 구성 요소들은 JVM(Java Virtual Machine)에서 실행된다. 
 * JVM은 자바 바이트코드로 컴파일된 명령어를 실행할 수 있는 크로스 플랫폼 런타임 엔진이다.
@@ -461,7 +461,7 @@ $SPARK_HOME/bin/spark-submit \
 * SparkSession 객체는 SparkContext, SparkConf 자식 객체를 통해 Master, 응용 프로그램 이름, Executors의 개수 등 사용자가 설정한 모든 런타임 구성 속성을 포함한다.
 * 다음 그림은 pyspark shell 내의 SparkSession 객체와 그 구성 속성 중 일부를 보여준다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_3_1.PNG" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_3_1.png" width="60%" height="60%"></p>
 
 * 다음 코드는 spark-submit을 사용해 제출된 프로그램과 같은 비대화식 스파크 응용 프로그램 내에서 SparkSession을 생성하는 방법을 보여준다.
 
@@ -559,10 +559,15 @@ print("The total number of lines is " + sr(numlines))
 
 ## 4. 스파크 프로그래밍 기초 학습
 
+### 4.1. RDD의 소개
 
+* RDD(Resilient Distributed Dataset)은 스파크 프로그래밍에서 사용되는 가장 기본적인 데이터 객체이다.
+* RDD는 스파크 응용 프로그램 내의 데이터 집합으로, 로드된 초기 데이터 집합, 중간 데이터 집합 및 최종 결과 데이터 집합을 모두 포함한다.
+* 대부분의 스파크 응용 프로그램은 외부 데이터로 RDD를 로드해 연산을 수행한 뒤 새로운 RDD를 생성하는데, 이러한 작업을 transformation이라 한다.
+* 이 transformation 프로세스는 궁극적으로 원하는 결과물이 출력될 때까지 반복된다. 원하는 결과물을 출력하는 작업의 유형을 action이라 한다 (ex. 응용 프로그램의 결과를 파일 시스템에 기록하는 것)
 
-
-
+* 
+* 어ㅏ 
 
 
 
