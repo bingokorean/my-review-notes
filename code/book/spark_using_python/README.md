@@ -9,7 +9,10 @@
 * [1. 빅데이터, 하둡 및 스파크 소개](#1.-빅데이터,-하둡-및-스파크-소개)
 * [2. 스파크 배포](#2.-스파크-배포)
 * [3. 스파크 클러스터 아키텍처의 이해](#3.-스파크-클러스터-아키텍처의-이해)
-* [4. 스파크 프로그래밍 기초 학습](#4.-스파크-프로그래밍-기초-학습)
+* [4. 스파크 프로그래밍 기초 학습](#4.-스파크-프로그래밍-기초-학습) (wordcounts.py 연습)
+* 5. 스파크 코어 API를 사용한 고급 프로그래밍
+* 6. 
+
 
 <br>
 
@@ -773,7 +776,7 @@ map() 함수는 키와 값을 반전하는 12단계에서 사용되는 방법을
 이제 Ctrl + D 를 눌러서 pyspark 세션을 종료한다.
 ```
 
-```console
+```
 # 14. 이제 모든 것을 하나로 합친 다음 spark-submit을 사용해 완전한 파이썬 프로그램으로 실행한다.
    먼저, 스파크 설치의 conf 디렉토리에 log4j.properties 파일을 생성하고 설정함으로써 로깅의 양을 최소화한다. (다음 명령어 참고)
 
@@ -824,6 +827,7 @@ wordcounts = sc.textFile("file://" + inputpath) \
             .map(lambda x: (x[1],x[0])) \
             .sortByKey(ascending=False) \
             .persist()
+            
 wordcounts.saveAsTextFile("file://" + outputdir)
 top5words = wordcounts.take(5)
 justwords = []
@@ -833,7 +837,7 @@ print("The top five words are : " + str(justwords))
 print("Check the complete output in " + outputdir)
 ```
 
-```console
+```
 # 16. 다음 명령을 사용해 프로그램을 실행한다.
 
 $ spark-submit \

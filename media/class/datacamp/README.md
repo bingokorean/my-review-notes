@@ -1619,5 +1619,104 @@ only showing top 20 rows
 only showing top 20 rows
 ```
 
+### 3. Improving Performance
+
+Caching in Spark
+
+* Stores DataFrames in memory or on disk
+* Improves speed on later transformations / actions
+* Reduces resource usage
+
+Disadvantages of caching
+
+* Very large data sets may not fit in memory
+* Local disk based caching may not be a performance improvement
+* Cached objects may not be available
+
+Cache Tips
+
+* Cache only if you need it
+* Try caching DataFrames at various points and determine if your performance improves
+* Cache in memory and fast SSD / NVMe storage
+* Cache to slow local disk if needed
+* Use intermediate files!
+* Stop caching objects when finished
+
+#### Caching a DataFrame
+
+You've been assigned a task that requires running several analysis operations on a DataFrame. You've learned that caching can improve performance when reusing DataFrames and would like to implement it.
+
+```python
+start_time = time.time()
+
+# Add caching to the unique rows in departures_df
+departures_df = departures_df.distinct().cache()
+
+# Count the unique rows in departures_df, noting how long the operation takes
+print("Counting %d rows took %f seconds" % (departures_df.count(), time.time() - start_time))
+
+# Count the rows again, noting the variance in time of a cached DataFrame
+start_time = time.time()
+print("Counting %d rows again took %f seconds" % (departures_df.count(), time.time() - start_time))
+```
+```
+Counting 139358 rows took 3.701810 seconds
+Counting 139358 rows again took 0.778054 seconds
+```
+
+#### Removing a DataFrame from cache
+
+You've finished the analysis tasks with the departures_df DataFrame, but have some other processing to do. You'd like to remove the DataFrame from the cache to prevent any excess memory usage on your cluster.
+
+```python
+# Determine if departures_df is in the cache
+print("Is departures_df cached?: %s" % departures_df.is_cached)
+print("Removing departures_df from cache")
+
+# Remove departures_df from the cache
+departures_df.unpersist()
+
+# Check the cache status again
+print("Is departures_df cached?: %s" % departures_df.is_cached)
+```
+```
+Is departures_df cached?: True
+Removing departures_df from cache
+Is departures_df cached?: False
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
