@@ -586,6 +586,18 @@ only showing top 20 rows
 
 <br>
 
+
+
+
+
+
+
+
+
+
+
+
+
 ## Big Data Fundamentals with PySpark
 
 ### 2. Programming in PySpark RDD’s
@@ -616,6 +628,8 @@ RDD = sc.parallelize(["Spark", "is", "a", "framework", "for", "Big Data processi
 
 # Print out the type of the created object
 print("The type of RDD is", type(RDD))
+```
+```
 >>>
 The type of RDD is <class 'pyspark.rdd.RDD'>
 ```
@@ -637,6 +651,9 @@ print("The file type of fileRDD is", type(fileRDD))
 The file_path is /usr/local/share/datasets/README.md
 The file type of fileRDD is <class 'pyspark.rdd.RDD'>
 ```
+
+
+
 
 
 
@@ -1685,23 +1702,241 @@ Removing departures_df from cache
 Is departures_df cached?: False
 ```
 
+Spark clusters are made of two types of processes
 
+* Driver process
+* Worker process
 
+Import parameters
 
+* Number of objects (Files, Network locations, etc)
+   * More objects better than larger ones
+   * Can import via wildcard `airport_df = spark.read.csv('airports-*.txt.gz)`
+* General size of objects
+   * Spark performs better if objects are of similar size
 
+A well-defined schema will drastically improve import performance
 
+* Avoids reading the data multiple times
+* Provides validation on import
 
+How to split objects
 
+* Use OS utilities / scripts (split, cut, awk) `split -l 10000 -d largefile chunk-`
+* Use custom scripts (python)
+* Write out to Parquet
 
+File size optimization
 
+* (현재 상황) 2 Large data files on a cluster with 10 nodes. Each file contains 10M rows of roughly the same size.
+* (문제) the responsiveness is acceptable but the inital read from the files takes a considerable period time.
+* (해결) split the 2 files into 50 files of 400K rows each.
 
+#### File import performance
 
+You have two types of files available: `departures_full.txt.gz` and `departures_xxx.txt.gz` where xxx is 000 - 013. The same number of rows is split between each file.
 
+```python
+# Import the full and split files into DataFrames
+full_df = spark.read.csv('departures_full.txt.gz')
+split_df = spark.read.csv('departures_0*.txt.gz')
 
+# Print the count and run time for each DataFrame
+start_time_a = time.time()
+print("Total rows in full DataFrame:\t%d" % full_df.count())
+print("Time to run: %f" % (time.time() - start_time_a))
 
+start_time_b = time.time()
+print("Total rows in split DataFrame:\t%d" % split_df.count())
+print("Time to run: %f" % (time.time() - start_time_b))
+```
+```
+>>>
+Total rows in full DataFrame:	139359
+Time to run: 0.925659
+Total rows in split DataFrame:	139359
+Time to run: 0.306183
+```
 
+Spark deployment options:
+* Single node
+* Standalone
+* Managed
+   * YARN
+   * Mesos
+   * Kubernetes
 
+Driver
+* Task assignment
+* Result consolidation
+* Shared data access
 
+Driver Tips
+
+* Driver node should double the memory of the worker (useful for task monitoring, consolidation task)
+* Fast local storage helpful
+
+Worker
+
+* Runs actual tasks
+* Ideally has all code, data, and resources for a given task
+
+Worker Recommendations
+
+* More worker nodes is often better than larger workers
+* Test to find the balance
+* Fast local storage extremely useful
+
+#### Reading Spark configurations
+
+```python
+# Name of the Spark application instance
+app_name = spark.conf.get('spark.app.name')
+
+# Driver TCP port
+driver_tcp_port = spark.conf.get('spark.driver.port')
+
+# Number of join partitions
+num_partitions = spark.conf.get('spark.sql.shuffle.partitions')
+
+# Show the results
+print("Name: %s" % app_name)
+print("Driver TCP port: %s" % driver_tcp_port)
+print("Number of partitions: %s" % num_partitions)
+```
+```
+>>>
+Name: pyspark-shell
+Driver TCP port: 41447
+Number of partitions: 200
+```
+
+#### Writing Spark configurations
+
+```python
+# Store the number of partitions in variable
+before = departures_df.rdd.getNumPartitions()
+
+# Configure Spark to use 500 partitions
+spark.conf.set('spark.sql.shuffle.partitions', 500)
+
+# Recreate the DataFrame using the departures data file
+departures_df = spark.read.csv('departures.txt.gz').distinct()
+
+# Print the number of partitions for each instance
+print("Partition count before change: %d" % before)
+print("Partition count after change: %d" % departures_df.rdd.getNumPartitions())
+```
+```
+>>>
+Partition count before change: 200
+Partition count after change: 500
+```
+
+Explaining the Spark execution plan
+* `.explain()`
+
+Suffling: moving data around to various workers to complete task
+* Hides complexity from the user (don't need to know which node has what data)
+* Can be slow to complete
+* Lowers overall throughput
+* Is often necessary, but try to minimize
+
+How to limit shuffling?
+* Limit use of `.repartition(num_partitions)`
+   * Use `.coalesce(num_partitions)` instead
+* Be careful when calling `.join()`
+* Use `.broadcast()`
+* May not need to limit it 
+
+Broadcasting
+
+* Provides a copy of an object to each worker
+* Prevents undue / excess communication between nodes
+* Can drastically speed up `.join()` operations
+* 너무 작거나 또는 너무 큰 데이터를 broadcasting해서 join하면 느려질수도 있음 (내부적으로 최적화하긴 하지만 조심)
+
+#### Normal joins
+
+```python
+# Join the flights_df and aiports_df DataFrames
+normal_df = flights_df.join(airports_df, \
+    flights_df["Destination Airport"] == airports_df["IATA"] )
+
+# Show the query plan
+normal_df.explain()
+```
+```
+>>>
+== Physical Plan ==
+*(5) SortMergeJoin [Destination Airport#249], [IATA#266], Inner
+:- *(2) Sort [Destination Airport#249 ASC NULLS FIRST], false, 0
+:  +- Exchange hashpartitioning(Destination Airport#249, 500)
+:     +- *(1) Project [Date (MM/DD/YYYY)#247, Flight Number#248, Destination Airport#249, Actual elapsed time (Minutes)#250]
+:        +- *(1) Filter isnotnull(Destination Airport#249)
+:           +- *(1) FileScan csv [Date (MM/DD/YYYY)#247,Flight Number#248,Destination Airport#249,Actual elapsed time (Minutes)#250] Batched: false, Format: CSV, Location: InMemoryFileIndex[file:/tmp/tmps550ugm8/AA_DFW_2018_Departures_Short.csv.gz], PartitionFilters: [], PushedFilters: [IsNotNull(Destination Airport)], ReadSchema: struct<Date (MM/DD/YYYY):string,Flight Number:string,Destination Airport:string,Actual elapsed ti...
++- *(4) Sort [IATA#266 ASC NULLS FIRST], false, 0
+   +- Exchange hashpartitioning(IATA#266, 500)
+      +- *(3) Project [AIRPORTNAME#265, IATA#266]
+         +- *(3) Filter isnotnull(IATA#266)
+            +- *(3) FileScan csv [AIRPORTNAME#265,IATA#266] Batched: false, Format: CSV, Location: InMemoryFileIndex[file:/tmp/tmps550ugm8/airportnames.txt.gz], PartitionFilters: [], PushedFilters: [IsNotNull(IATA)], ReadSchema: struct<AIRPORTNAME:string,IATA:string>
+```
+
+#### Using broadcasting on Spark joins
+
+Remember that table joins in Spark are split between the cluster workers. If the data is not local, various shuffle operations are required and can have a negative impact on performance. Instead, we're going to use Spark's broadcast operations to give each node a copy of the specified data.
+
+A couple tips:
+* Broadcast the smaller DataFrame. The larger the DataFrame, the more time required to transfer to the worker nodes.
+* On small DataFrames, it may be better skip broadcasting and let Spark figure out any optimization on its own.
+* If you look at the query execution plan, a broadcastHashJoin indicates you've successfully configured broadcasting.
+
+```python
+# Import the broadcast method from pyspark.sql.functions
+from pyspark.sql.functions import broadcast
+
+# Join the flights_df and airports_df DataFrames using broadcasting
+broadcast_df = flights_df.join(broadcast(airports_df), \
+    flights_df["Destination Airport"] == airports_df["IATA"] )
+
+# Show the query plan and compare against the original
+broadcast_df.explain()
+```
+```
+>>>
+== Physical Plan ==
+*(2) BroadcastHashJoin [Destination Airport#335], [IATA#352], Inner, BuildRight
+:- *(2) Project [Date (MM/DD/YYYY)#333, Flight Number#334, Destination Airport#335, Actual elapsed time (Minutes)#336]
+:  +- *(2) Filter isnotnull(Destination Airport#335)
+:     +- *(2) FileScan csv [Date (MM/DD/YYYY)#333,Flight Number#334,Destination Airport#335,Actual elapsed time (Minutes)#336] Batched: false, Format: CSV, Location: InMemoryFileIndex[file:/tmp/tmps550ugm8/AA_DFW_2018_Departures_Short.csv.gz], PartitionFilters: [], PushedFilters: [IsNotNull(Destination Airport)], ReadSchema: struct<Date (MM/DD/YYYY):string,Flight Number:string,Destination Airport:string,Actual elapsed ti...
++- BroadcastExchange HashedRelationBroadcastMode(List(input[1, string, true]))
+   +- *(1) Project [AIRPORTNAME#351, IATA#352]
+      +- *(1) Filter isnotnull(IATA#352)
+         +- *(1) FileScan csv [AIRPORTNAME#351,IATA#352] Batched: false, Format: CSV, Location: InMemoryFileIndex[file:/tmp/tmps550ugm8/airportnames.txt.gz], PartitionFilters: [], PushedFilters: [IsNotNull(IATA)], ReadSchema: struct<AIRPORTNAME:string,IATA:string>
+```
+
+#### Comparing broadcase vs. normal joins
+
+```python
+start_time = time.time()
+# Count the number of rows in the normal DataFrame
+normal_count = normal_df.count()
+normal_duration = time.time() - start_time
+
+start_time = time.time()
+# Count the number of rows in the broadcast DataFrame
+broadcast_count = broadcast_df.count()
+broadcast_duration = time.time() - start_time
+
+# Print the counts and the duration of the tests
+print("Normal count:\t\t%d\tduration: %f" % (normal_count, normal_duration))
+print("Broadcast count:\t%d\tduration: %f" % (broadcast_count, broadcast_duration))
+```
+```
+>>>
+Normal count:		119910	duration: 4.781047
+Broadcast count:	119910	duration: 0.811799
+```
 
 
 
