@@ -4,10 +4,22 @@
 ### Contents
 
 * [Introduction to PySpark](#Introduction-to-PySpark)
+   1. Getting to know PySpark
+   2. Manipulating data
+   3. Getting started with machine learning pipelines
+   4. Model tuning and selection
 * [Big Data Fundamentals with PySpark](#Big-Data-Fundamentals-with-PySpark)
+   1. ...
+   2. ...
+   3. PySpark SQL & DataFrames
+   4. ...
 * [Clearning Data with PySpark](#Clearning-Data-with-PySpark)
-
-
+   1. DataFrame details
+   2. Manipulating DataFrames in the real world
+   3. Improving Performance
+   4. Complex processing and data pipelines
+* [Building Recommendation Engines with PySpark](#Building-Recommendation-Engines-with-PySpark)
+   1. Recommendations Are Everywhere
 
 
 <br>
@@ -35,7 +47,8 @@ print(sc)
 
 # Print Spark version
 print(sc.version)
->>>
+```
+```
 <SparkContext master=local[*] appName=pyspark-shell>
 2.3.1
 ```
@@ -65,7 +78,8 @@ my_spark = SparkSession.builder.getOrCreate()
 
 # Print my_spark
 print(my_spark)
->>>
+```
+```
 <pyspark.sql.session.SparkSession object at 0x7f0c0ffaa128>
 ```
 
@@ -584,19 +598,317 @@ only showing top 20 rows
 only showing top 20 rows
 ```
 
+### 3. Getting started with machine learning pipelines
+
+#### Machine Learning Pipelines
+
+At the core of the `pyspark.ml` module are the `Transformer` and E`stimator` classes. Almost every other class in the module behaves similarly to these two basic classes.
+
+`Transformer` classes have a `.transform()` method that takes a DataFrame and returns a new DataFrame; usually the original one with a new column appended. For example, you might use the class `Bucketizer` to create discrete bins from a continuous feature or the class `PCA` to reduce the dimensionality of your dataset using principal component analysis.
+
+`Estimator` classes all implement a `.fit()` method. These methods also take a DataFrame, but instead of returning another DataFrame they return a model object. This can be something like a `StringIndexerModel` for including categorical data saved as strings in your models, or a `RandomForestModel` that uses the random forest algorithm for classification or regression.
+
+#### Join the DataFrames
+
+```python
+# Rename year column
+planes = planes.withColumnRenamed("year", "plane_year")
+
+# Join the DataFrames
+model_data = flights.join(planes, on="tailnum", how="leftouter")
+
+model_data.show()
+
+model_data.dtypes
+```
+
+```
++-------+----+-----+---+--------+---------+--------+---------+-------+------+------+----+--------+--------+----+------+----------+--------------------+--------------+-----------+-------+-----+-----+---------+
+|tailnum|year|month|day|dep_time|dep_delay|arr_time|arr_delay|carrier|flight|origin|dest|air_time|distance|hour|minute|plane_year|                type|  manufacturer|      model|engines|seats|speed|   engine|
++-------+----+-----+---+--------+---------+--------+---------+-------+------+------+----+--------+--------+----+------+----------+--------------------+--------------+-----------+-------+-----+-----+---------+
+| N846VA|2014|   12|  8|     658|       -7|     935|       -5|     VX|  1780|   SEA| LAX|     132|     954|   6|    58|      2011|Fixed wing multi ...|        AIRBUS|   A320-214|      2|  182|   NA|Turbo-fan|
+| N559AS|2014|    1| 22|    1040|        5|    1505|        5|     AS|   851|   SEA| HNL|     360|    2677|  10|    40|      2006|Fixed wing multi ...|        BOEING|    737-890|      2|  149|   NA|Turbo-fan|
+| N847VA|2014|    3|  9|    1443|       -2|    1652|        2|     VX|   755|   SEA| SFO|     111|     679|  14|    43|      2011|Fixed wing multi ...|        AIRBUS|   A320-214|      2|  182|   NA|Turbo-fan|
+| N360SW|2014|    4|  9|    1705|       45|    1839|       34|     WN|   344|   PDX| SJC|      83|     569|  17|     5|      1992|Fixed wing multi ...|        BOEING|    737-3H4|      2|  149|   NA|Turbo-fan|
+| N612AS|2014|    3|  9|     754|       -1|    1015|        1|     AS|   522|   SEA| BUR|     127|     937|   7|    54|      1999|Fixed wing multi ...|        BOEING|    737-790|      2|  151|   NA|Turbo-jet|
+| N646SW|2014|    1| 15|    1037|        7|    1352|        2|     WN|    48|   PDX| DEN|     121|     991|  10|    37|      1997|Fixed wing multi ...|        BOEING|    737-3H4|      2|  149|   NA|Turbo-fan|
+| N422WN|2014|    7|  2|     847|       42|    1041|       51|     WN|  1520|   PDX| OAK|      90|     543|   8|    47|      2002|Fixed wing multi ...|        BOEING|    737-7H4|      2|  140|   NA|Turbo-fan|
+| N361VA|2014|    5| 12|    1655|       -5|    1842|      -18|     VX|   755|   SEA| SFO|      98|     679|  16|    55|      2013|Fixed wing multi ...|        AIRBUS|   A320-214|      2|  182|   NA|Turbo-fan|
+| N309AS|2014|    4| 19|    1236|       -4|    1508|       -7|     AS|   490|   SEA| SAN|     135|    1050|  12|    36|      2001|Fixed wing multi ...|        BOEING|    737-990|      2|  149|   NA|Turbo-jet|
+| N564AS|2014|   11| 19|    1812|       -3|    2352|       -4|     AS|    26|   SEA| ORD|     198|    1721|  18|    12|      2006|Fixed wing multi ...|        BOEING|    737-890|      2|  149|   NA|Turbo-fan|
+| N323AS|2014|   11|  8|    1653|       -2|    1924|       -1|     AS|   448|   SEA| LAX|     130|     954|  16|    53|      2004|Fixed wing multi ...|        BOEING|    737-990|      2|  149|   NA|Turbo-jet|
+| N305AS|2014|    8|  3|    1120|        0|    1415|        2|     AS|   656|   SEA| PHX|     154|    1107|  11|    20|      2001|Fixed wing multi ...|        BOEING|    737-990|      2|  149|   NA|Turbo-jet|
+| N433AS|2014|   10| 30|     811|       21|    1038|       29|     AS|   608|   SEA| LAS|     127|     867|   8|    11|      2013|Fixed wing multi ...|        BOEING|  737-990ER|      2|  222|   NA|Turbo-fan|
+| N765AS|2014|   11| 12|    2346|       -4|     217|      -28|     AS|   121|   SEA| ANC|     183|    1448|  23|    46|      1992|Fixed wing multi ...|        BOEING|    737-4Q8|      2|  149|   NA|Turbo-fan|
+| N713AS|2014|   10| 31|    1314|       89|    1544|      111|     AS|   306|   SEA| SFO|     129|     679|  13|    14|      1999|Fixed wing multi ...|        BOEING|    737-490|      2|  149|   NA|Turbo-jet|
+| N27205|2014|    1| 29|    2009|        3|    2159|        9|     UA|  1458|   PDX| SFO|      90|     550|  20|     9|      2000|Fixed wing multi ...|        BOEING|    737-824|      2|  149|   NA|Turbo-fan|
+| N626AS|2014|   12| 17|    2015|       50|    2150|       41|     AS|   368|   SEA| SMF|      76|     605|  20|    15|      2001|Fixed wing multi ...|        BOEING|    737-790|      2|  151|   NA|Turbo-jet|
+| N8634A|2014|    8| 11|    1017|       -3|    1613|       -7|     WN|   827|   SEA| MDW|     216|    1733|  10|    17|      2014|Fixed wing multi ...|        BOEING|    737-8H4|      2|  140|   NA|Turbo-fan|
+| N597AS|2014|    1| 13|    2156|       -9|     607|      -15|     AS|    24|   SEA| BOS|     290|    2496|  21|    56|      2008|Fixed wing multi ...|        BOEING|    737-890|      2|  149|   NA|Turbo-fan|
+| N215AG|2014|    6|  5|    1733|      -12|    1945|      -10|     OO|  3488|   PDX| BUR|     111|     817|  17|    33|      2001|Fixed wing multi ...|BOMBARDIER INC|CL-600-2C10|      2|   80|   NA|Turbo-fan|
++-------+----+-----+---+--------+---------+--------+---------+-------+------+------+----+--------+--------+----+------+----------+--------------------+--------------+-----------+-------+-----+-----+---------+
+only showing top 20 rows
+
+[('tailnum', 'string'),
+ ('year', 'string'),
+ ('month', 'string'),
+ ('day', 'string'),
+ ('dep_time', 'string'),
+ ('dep_delay', 'string'),
+ ('arr_time', 'string'),
+ ('arr_delay', 'string'),
+ ('carrier', 'string'),
+ ('flight', 'string'),
+ ('origin', 'string'),
+ ('dest', 'string'),
+ ('air_time', 'string'),
+ ('distance', 'string'),
+ ('hour', 'string'),
+ ('minute', 'string'),
+ ('plane_year', 'string'),
+ ('type', 'string'),
+ ('manufacturer', 'string'),
+ ('model', 'string'),
+ ('engines', 'string'),
+ ('seats', 'string'),
+ ('speed', 'string'),
+ ('engine', 'string')]
+```
+
+#### Data types
+
+Spark only handles numeric data. That means all of the columns in your DataFrame must be either integers or decimals (called 'doubles' in Spark).
+
+You can see that some of the columns in our DataFrame are strings containing numbers as opposed to actual numeric values.
+
+To remedy this, you can use the `.cast()` method in combination with the `.withColumn()` method. It's important to note that `.cast()` works on columns, while `.withColumn()` works on DataFrames.
+
+The only argument you need to pass to `.cast()` is the kind of value you want to create, in string form. For example, to create integers, you'll pass the argument `"integer"` and for decimal numbers you'll use `"double"`.
+
+#### String to integer
+
+```python
+# Cast the columns to integers
+model_data = model_data.withColumn("arr_delay", model_data.arr_delay.cast("integer"))
+model_data = model_data.withColumn("air_time", model_data.air_time.cast("integer"))
+model_data = model_data.withColumn("month", model_data.month.cast("integer"))
+model_data = model_data.withColumn("plane_year", model_data.plane_year.cast("integer"))
+
+model_data.dtypes
+```
+```
+[('tailnum', 'string'),
+ ('year', 'string'),
+ ('month', 'int'),
+ ('day', 'string'),
+ ('dep_time', 'string'),
+ ('dep_delay', 'string'),
+ ('arr_time', 'string'),
+ ('arr_delay', 'int'),
+ ('carrier', 'string'),
+ ('flight', 'string'),
+ ('origin', 'string'),
+ ('dest', 'string'),
+ ('air_time', 'int'),
+ ('distance', 'string'),
+ ('hour', 'string'),
+ ('minute', 'string'),
+ ('plane_year', 'int'),
+ ('type', 'string'),
+ ('manufacturer', 'string'),
+ ('model', 'string'),
+ ('engines', 'string'),
+ ('seats', 'string'),
+ ('speed', 'string'),
+ ('engine', 'string')]
+```
+
+#### Create a new column
+
+```python
+# Create the column plane_age
+model_data = model_data.withColumn("plane_age", model_data.year - model_data.plane_year)
+```
+
+#### Making a Boolean
+
+```python
+# Create is_late
+model_data = model_data.withColumn("is_late", model_data.arr_delay > 0)
+
+# Convert the boolean column to an integer.
+model_data = model_data.withColumn("label", model_data.is_late.cast("integer"))
+
+# Remove missing values
+model_data = model_data.filter("arr_delay is not NULL and dep_delay is not NULL and air_time is not NULL and plane_year is not NULL")
+```
+
+#### Strings and factors
+
+The airline and the plane's destination as features in your model. These are coded as strings and there isn't any obvious way to convert them to a numeric data type.
+
+Fortunately, PySpark has functions for handling this built into the `pyspark.ml.features` submodule. You can create what are called 'one-hot vectors' to represent the carrier and the destination of each flight. 
+
+The first step to encoding your categorical feature is to create a `StringIndexer`. Members of this class are `Estimator`s that take a DataFrame with a column of strings and map each unique string to a number. Then, the `Estimator` returns a `Transformer` that takes a DataFrame, attaches the mapping to it as metadata, and returns a new DataFrame with a numeric column corresponding to the string column.
+
+The second step is to encode this numeric column as a one-hot vector using a `OneHotEncoder`. This works exactly the same way as the `StringIndexer` by creating an `Estimator` and then a `Transformer`. The end result is a column that encodes your categorical feature as a vector that's suitable for machine learning routines!
+
+##### Carrier
+
+```python
+# Create a StringIndexer
+carr_indexer = StringIndexer(inputCol="carrier", outputCol="carrier_index") 
+# StringIndexer(): Estimator
+# carr_indexer: Transformer
+
+# Create a OneHotEncoder
+carr_encoder = OneHotEncoder(inputCol="carrier_index", outputCol="carrier_fact")
+# OneHotEncoder(): Estimator
+# carr_encoder: Transformer
+```
+
+##### Destination
+
+```python
+# Create a StringIndexer
+dest_indexer = StringIndexer(inputCol="dest", outputCol="dest_index")
+
+# Create a OneHotEncoder
+dest_encoder = OneHotEncoder(inputCol="dest_index", outputCol="dest_fact")
+```
+
+#### Assemble a vector
+
+The last step in the `Pipeline` is to combine all of the columns containing our features into a single column. This has to be done before modeling can take place because every Spark modeling routine expects the data to be in this form. You can do this by storing each of the values from a column as an entry in a vector. Then, from the model's point of view, every observation is a vector that contains all of the information about it and a label that tells the modeler what value that observation corresponds to.
+
+```python
+# Make a VectorAssembler
+# VectorAssembler: This Transformer takes all of the columns you specify and combines them into a new vector column.
+vec_assembler = VectorAssembler(inputCols=["month", "air_time", "carrier_fact", "dest_fact", "plane_age"], outputCol="features")
+```
+
+#### Create the pipeline
+
+`Pipeline` is a class in the `pyspark.ml` module that combines all the `Estimator`s and `Transformer`s that you've already created. This lets you reuse the same modeling process over and over again by wrapping it up in one simple object. Neat, right?
+
+```python
+# Import Pipeline
+from pyspark.ml import Pipeline
+
+# Make the pipeline
+flights_pipe = Pipeline(stages=[dest_indexer, dest_encoder, carr_indexer, carr_encoder, vec_assembler])
+```
+
+#### Test vs. Train
+
+In Spark it's important to make sure you split the data after all the transformations. This is because operations like `StringIndexer` don't always produce the same index even when given the same list of strings.
+
+#### Transform the data
+
+```python
+# Fit and transform the data
+piped_data = flights_pipe.fit(model_data).transform(model_data)
+```
+
+#### Split the data
+
+```python
+# Split the data into training and test sets
+training, test = piped_data.randomSplit([.6, .4])
+```
+
+### 4. Model tuning and selection
+
+#### What is logistic regression?
+
+#### Create the modeler
+
+```python
+# Import LogisticRegression
+from pyspark.ml.classification import LogisticRegression
+
+# Create a LogisticRegression Estimator
+lr = LogisticRegression()
+```
+
+#### Cross validation
+
+You'll be using cross validation to choose the hyperparameters by creating a grid of the possible pairs of values for the two hyperparameters, `elasticNetParam` and `regParam`, and using the cross validation error to compare all the different models so you can choose the best one!
+
+#### Create the evaluator
+
+```python
+# Import the evaluation submodule
+import pyspark.ml.evaluation as evals
+
+# Create a BinaryClassificationEvaluator
+evaluator = evals.BinaryClassificationEvaluator(metricName="areaUnderROC")
+```
+
+#### Make a grid
+
+```python
+# Import the tuning submodule
+import pyspark.ml.tuning as tune
+
+# Create the parameter grid
+grid = tune.ParamGridBuilder()
+
+# Add the hyperparameter
+grid = grid.addGrid(lr.regParam, np.arange(0, .1, .01))
+grid = grid.addGrid(lr.elasticNetParam, [0, 1])
+
+# Build the grid
+grid = grid.build()
+```
+
+#### Make the validator
+
+```python
+# Create the CrossValidator
+cv = tune.CrossValidator(estimator=lr,
+                         estimatorParamMaps=grid,
+                         evaluator=evaluator
+                         )
+```
+
+#### Fit the model(s)
+
+```python
+# Fit cross validation models
+# Call lr.fit()
+best_lr = lr.fit(training)
+
+# Extract the best model
+# Print best_lr
+print(best_lr)
+```
+```
+LogisticRegression_4e4baee65b27b86405e6
+```
+
+#### Evaluating binary classifiers
+
+For this course we'll be using a common metric for binary classification algorithms call the AUC, or area under the curve. In this case, the curve is the ROC, or receiver operating curve. The details of what these things actually measure isn't important for this course. All you need to know is that for our purposes, the closer the AUC is to one (1), the better the model is!
+
+#### Evaluate the model
+
+```python
+# Use the model to predict the test set
+test_results = best_lr.transform(test)
+
+# Evaluate the predictions
+print(evaluator.evaluate(test_results))
+```
+```
+0.7125950520012989
+```
+
+
+
+
+
 <br>
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## Big Data Fundamentals with PySpark
 
@@ -1937,6 +2249,152 @@ print("Broadcast count:\t%d\tduration: %f" % (broadcast_count, broadcast_duratio
 Normal count:		119910	duration: 4.781047
 Broadcast count:	119910	duration: 0.811799
 ```
+
+### 4. Complex processing and data pipelines
+
+
+
+
+
+
+<br>
+
+
+## Building Recommendation Engines with PySpark
+
+### 1. Recommendations Are Everywhere
+
+#### See the power of a recommendation engine
+
+```python
+# View TJ_ratings
+TJ_ratings.show()
+
+# Generate recommendations for users
+get_ALS_recs(["Jane", "Taylor"])
+```
+```
++---------+--------------------+------+
+|user_name|          movie_name|rating|
++---------+--------------------+------+
+|   Taylor|            Twilight|   4.9|
+|   Taylor|  A Walk to Remember|   4.5|
+|   Taylor|        The Notebook|   5.0|
+|   Taylor|Raiders of the Lo...|   1.2|
+|   Taylor|      The Terminator|   1.0|
+|   Taylor|      Mrs. Doubtfire|   1.0|
+|     Jane|            Iron Man|   4.8|
+|     Jane|Raiders of the Lo...|   4.9|
+|     Jane|      The Terminator|   4.6|
+|     Jane|           Anchorman|   1.2|
+|     Jane|        Pretty Woman|   1.0|
+|     Jane|           Toy Story|   1.2|
++---------+--------------------+------+
+
+    userId  pred_rating                 title          genres
+0   Taylor         3.89   Seven Pounds (2008)           Drama
+1   Taylor         3.61      Cure, The (1995)           Drama
+2   Taylor         3.55  Kiss Me, Guido (1997          Comedy
+3   Taylor         3.29  You've Got Mail (199  Comedy|Romance
+4   Taylor         3.27  10 Things I Hate Abo  Comedy|Romance
+5   Taylor         3.26  Corrina, Corrina (19  Comedy|Drama|R
+6     Jane         4.96           Fear (1996)        Thriller
+7     Jane         4.85  Lord of the Rings: T  Adventure|Fant
+8     Jane         4.70  Lord of the Rings: T  Adventure|Fant
+9     Jane         4.55  No Holds Barred (198          Action
+10    Jane         4.54  Lord of the Rings: T  Action|Adventu
+11    Jane         4.30  Band of Brothers (20  Action|Drama|W
+12    Jane         4.26   Transformers (2007)  Action|Sci-Fi|
+```
+
+#### Collaborative vs Content-Based Filtering
+
+아래의 df를 사용해서 Both collaborative and content-based filtering 를 할 수 있음.
+
+
+```
+In [1]: df.show()
++------+-------+-----------------+--------+--------+-------------+------+
+|UserId|MovieId|      Movie_Title|   Genre|Language|Year_Produced|rating|
++------+-------+-----------------+--------+--------+-------------+------+
+| User1|   2112|     Finding Nemo|Animated| English|         2003|     3|
+| User1|   2113|   The Terminator|  Action| English|         1984|     0|
+| User1|   2114|       Spinal Tap|  Satire| English|         1984|     4|
+| User1|   2115|Life Is Beautiful|   Drama| Italian|         1998|     4|
+| User2|   2112|     Finding Nemo|Animated| English|         2003|     4|
+| User2|   2113|   The Terminator|  Action| English|         1984|     0|
+| User2|   2114|       Spinal Tap|  Satire| English|         1984|     0|
+| User2|   2115|Life Is Beautiful|   Drama| Italian|         1998|     4|
+| User3|   2112|     Finding Nemo|Animated| English|         2003|     1|
+| User3|   2113|   The Terminator|  Action| English|         1984|     2|
+| User3|   2114|       Spinal Tap|  Satire| English|         1984|     1|
+| User3|   2115|Life Is Beautiful|   Drama| Italian|         1998|     0|
+| User4|   2112|     Finding Nemo|Animated| English|         2003|     3|
+| User4|   2113|   The Terminator|  Action| English|         1984|     1|
+| User4|   2114|       Spinal Tap|  Satire| English|         1984|     0|
+| User4|   2115|Life Is Beautiful|   Drama| Italian|         1998|     0|
++------+-------+-----------------+--------+--------+-------------+------+
+```
+
+#### Implicit vs Explicit Data
+
+Implicit Data의 모습은 다음과 같다.
+
+```
+In [3]: df1.columns
+Out[3]: ['Movie_Title', 'Genre', 'Num_Views']
+
+In [4]: df1.show()
++--------------------+------------------+---------+
+|         Movie_Title|             Genre|Num_Views|
++--------------------+------------------+---------+
+|        Finding Nemo|Animated Childrens|       12|
+|           Toy Story|Animated Childrens|        6|
+|            Iron Man|            Action|        1|
+|     Captain America|            Action|        1|
+|     The Incredibles|Animated Childrens|        9|
+|              Frozen|Animated Childrens|       22|
+|The Shawshank Red...|             Drama|        2|
+|  Rabbit Proof Fence|             Drama|        2|
+|Searching for Sug...|       Documentary|        3|
+|              Powder|             Drama|        1|
+|        The Fugitive|            Action|        2|
++--------------------+------------------+---------+
+```
+
+#### Ratings data types
+
+```
+In [1]: # Group the data by "Genre"
+        markus_ratings.groupBy("Genre").sum().show()
++------------------+--------------+
+|             Genre|sum(Num_Views)|
++------------------+--------------+
+|             Drama|             5|
+|       Documentary|             3|
+|            Action|             4|
+|Animated Childrens|            49|
++------------------+--------------+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
