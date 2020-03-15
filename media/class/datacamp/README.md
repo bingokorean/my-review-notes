@@ -20,6 +20,8 @@
    4. Complex processing and data pipelines
 * [Building Recommendation Engines with PySpark](#Building-Recommendation-Engines-with-PySpark)
    1. Recommendations Are Everywhere
+   2. How does ALS work?
+
 
 
 <br>
@@ -2264,6 +2266,8 @@ Broadcast count:	119910	duration: 0.811799
 
 ### 1. Recommendations Are Everywhere
 
+일반적인 파라미터 최적화 기법은 Gradient Descent가 있다. 분산처리 환경에서는 GD보다는 ALS(Alternating Least Squares)가 더 효과적이라고 알려져 있다.
+
 #### See the power of a recommendation engine
 
 ```python
@@ -2312,8 +2316,10 @@ get_ALS_recs(["Jane", "Taylor"])
 아래의 df를 사용해서 Both collaborative and content-based filtering 를 할 수 있음.
 
 
+```python
+df.show()
 ```
-In [1]: df.show()
+```
 +------+-------+-----------------+--------+--------+-------------+------+
 |UserId|MovieId|      Movie_Title|   Genre|Language|Year_Produced|rating|
 +------+-------+-----------------+--------+--------+-------------+------+
@@ -2338,13 +2344,16 @@ In [1]: df.show()
 
 #### Implicit vs Explicit Data
 
-Implicit Data의 모습은 다음과 같다.
+`Implicit` Data 의 모습은 다음과 같다. Explici와 달리 아이템에 대한 사용자의 호불호를 정확하게 파악할 수 없다. 예를 들어, 상품을 구매했다고 반드시 그 상품에 호의적인 평가를 내렸다고 볼 수 없다. 그래도 분명 강한 연관성은 있다.
 
+```python
+df1.columns
+
+df1.show()
 ```
-In [3]: df1.columns
-Out[3]: ['Movie_Title', 'Genre', 'Num_Views']
+```
+['Movie_Title', 'Genre', 'Num_Views']
 
-In [4]: df1.show()
 +--------------------+------------------+---------+
 |         Movie_Title|             Genre|Num_Views|
 +--------------------+------------------+---------+
@@ -2364,9 +2373,11 @@ In [4]: df1.show()
 
 #### Ratings data types
 
+```python
+# Group the data by "Genre"
+markus_ratings.groupBy("Genre").sum().show()
 ```
-In [1]: # Group the data by "Genre"
-        markus_ratings.groupBy("Genre").sum().show()
+```
 +------------------+--------------+
 |             Genre|sum(Num_Views)|
 +------------------+--------------+
@@ -2377,23 +2388,345 @@ In [1]: # Group the data by "Genre"
 +------------------+--------------+
 ```
 
+#### Confirm understanding of latent features
+
+Matrix `P` is provided here. Its columns represent movies and its rows represent several latent features. Matrix `Pi` contains a rough approximation of what these latent features could represent. (Row latent feature name은 인위적으로 명시한 것이다. 사실, 아무도 정확히 명명하기는 어렵다.)
+
+```python
+# Examine matrix P using the .show() method
+P.show()
+
+# Examine matrix Pi using the .show() method
+Pi.show()
+```
+```
++--------+------------+--------+---------+------------+------+----------+
+|Iron Man|Finding Nemo|Avengers|Toy Story|Forrest Gump|Wall-E|Green Mile|
++--------+------------+--------+---------+------------+------+----------+
+|     0.2|         2.4|     0.1|      2.4|           0|   2.5|         0|
+|     1.5|         1.4|     1.4|      1.3|         1.8|   1.8|       2.5|
+|     2.5|         1.1|     2.4|      0.9|         0.2|   0.9|      0.09|
+|     1.9|           2|     1.5|      2.2|         1.2|   0.3|      0.01|
+|       0|           0|       0|      2.3|         2.2|     0|       2.5|
++--------+------------+--------+---------+------------+------+----------+
+
++---------+--------+------------+--------+---------+------------+------+----------+
+| Lat Feat|Iron Man|Finding Nemo|Avengers|Toy Story|Forrest Gump|Wall-E|Green Mile|
++---------+--------+------------+--------+---------+------------+------+----------+
+| Animated|     0.2|         2.4|     0.1|      2.4|           0|   2.5|         0|
+|    Drama|     1.5|         1.4|     1.4|      1.3|         1.8|   1.8|       2.5|
+|Superhero|     2.5|         1.1|     2.4|      0.9|         0.2|   0.9|      0.09|
+|   Comedy|     1.9|           2|     1.5|      2.2|         1.2|   0.3|      0.01|
+|Tom Hanks|       0|           0|       0|      1.8|         2.2|     0|       2.5|
++---------+--------+------------+--------+---------+------------+------+----------+
+```
+
+### 2. How does ALS work?
+
+ALS가 row-lank matrix factorization을 하고 난 뒤에, 이를 기반으로 collaborative filtering을 하는 것이다. 처음엔 user latent features를 학습하고, 그 다음엔 movie latent features를 학습한다. 그리고 이를 반복한다. 매 iteration마다 RMSE를 측정할 때는 missing value는 신경쓰지 않는다. 
+
+하나의 거대한 matrix를 두 개의 factor matrices 로 변환하고, ALS로 iterative하게 학습하면, missing value들을 모두 prediction할 수 있다. 하나의 rating이 모든 user, 그리고 모든 movie에 영향을 주기 때문이다. 그리고 두 개의 factor matrices를 통해 user preferences, movie preferences를 분석할 수도 있다. 벡터 유사도 비교.
+
+#### Matrix Multiplication
+
+```python
+# Use the .head() method to view the contents of matrices a and b
+print("Matrix A:")
+print (a.head())
+
+print("Matrix B:")
+print (b.head())
+
+# Complete the matrix with the product of matrices a and b
+product = np.array([[10,12], [15,18]])
+
+# Run this validation to see how your estimate performs
+product == np.dot(a,b)
+```
+```
+Matrix A:
+     0  1
+One  2  2
+Two  3  3
+Matrix B:
+     0  1
+One  1  2
+Two  4  4
+
+Out[1]: 
+array([[ True,  True],
+       [ True,  True]])
+```
+
+#### Matrix Factorization
+
+Matrix `G` is provided here as a Pandas dataframe. Look at the possible factor matrices `H`, `I`, and `J` (also Pandas dataframes), and determine which two matrices will produce the matrix G when multiplied together.
+
+```python
+# Take a look at Matrix G using the following print function
+print("Matrix G:")
+print(G)
+
+# Take a look at the matrices H, I, and J and determine which pair of those matrices will produce G when multiplied together. 
+print("Matrix H:")
+print(H)
+print("Matrix I:")
+print(I)
+print("Matrix J:")
+print(J)
+
+# Multiply the two matrices that are factors of the matrix G
+prod = np.matmul(H,J)
+print(G == prod)
+```
+```
+Matrix G:
+   0  1
+0  6  6
+1  3  3
+Matrix H:
+   0  1
+0  2  2
+1  1  1
+Matrix I:
+   0  1
+0  3  3
+1  3  3
+Matrix J:
+   0  1
+0  1  1
+1  2  2
+
+      0     1
+0  True  True
+1  True  True
+```
+
+#### Non-Negative Matrix Factorization
+
+It's possible for one matrix to have two equally close factorizations where one has all positive values and the other has some negative values.
+
+The matrix `M` has been factored twice using two different factorizations. Take a look at each pair of factor matrices `L` and `U`, and `W` and `H` to see the differences. Then use their products to see that they produce essentially the same product.
+
+```python
+# View the L, U, W, and H matrices.
+print("Matrices L and U:") 
+print(L)
+print(U)
+
+print("Matrices W and H:")
+print(W)
+print(H)
+
+# Calculate RMSE for LU
+print("RMSE of LU: ", getRMSE(LU, M))
+
+# Calculate RMSE for WH
+print("RMSE of WH: ", getRMSE(WH, M))
+```
+```
+Matrices L and U:
+      0         1         2  3
+0  1.00  0.000000  0.000000  0
+1  0.01 -0.421053  0.098316  1
+2  1.00  0.000000  1.000000  0
+3  0.10  1.000000  0.000000  0
+   0     1      2         3
+0  1  2.00  1.000  2.000000
+1  0 -0.19 -0.099 -0.198000
+2  0  0.00  1.000 -1.000000
+3  0  0.00  0.000  0.194947
+
+Matrices W and H:
+      0     1     2     3
+0  2.61  0.24  0.00  0.12
+1  0.00  0.05  0.02  0.17
+2  1.97  0.00  0.58  0.83
+3  0.05  0.00  0.00  0.00
+      0     1     2     3
+0  0.38  0.65  0.34  0.41
+1  0.00  1.20  0.15  3.72
+2  0.42  1.09  1.38  0.07
+3  0.00  0.11  0.65  0.17
+
+RMSE of LU:  0.072
+RMSE of WH:  0.072
+```
+
+#### Estimating Recommendations
+
+Use your knowledge of matrix multiplication to determine which movie will have the highest recommendation for `User_3`. The ratings matrix has been factorized into `U` and `P` with ALS.
+
+```
+# View left factor matrix
+print(U)
+        U_LF_1  U_LF_2  U_LF_3  U_LF_4
+User_1    0.80    0.01    0.30     0.8
+User_2    0.40    0.01    0.06     0.2
+User_3    0.05    2.10    0.01     2.2
+User_4    0.30    0.01    0.20     0.2
+User_5    0.10    1.50    0.90     0.0
+User_6    0.00    0.03    0.40     0.5
+User_7    0.01    0.02    0.66     0.4
+User_8    0.90    0.70    0.00     1.0
+User_9    1.00    2.00    0.04     0.2
+
+In [2]: # View right factor matrix
+        print(P)
+        Movie_1  Movie_2  Movie_3  Movie_4
+P_LF_1      0.5      0.1      0.4     1.10
+P_LF_2      0.2      2.0      0.0     0.01
+P_LF_3      0.3      1.9      0.6     0.90
+P_LF_4      1.0      0.2      1.0     0.89
+```
+
+```python
+# Multiply factor matrices
+UP = np.matmul(U,P)
+
+# Convert to pandas DataFrame
+print(pd.DataFrame(UP, columns = P.columns, index = U.index))
+```
+```
+        Movie_1  Movie_2  Movie_3  Movie_4
+User_1      NaN      NaN      NaN      NaN
+User_2      NaN      NaN      NaN      NaN
+User_3      NaN      NaN      NaN      NaN
+User_4      NaN      NaN      NaN      NaN
+User_5      NaN      NaN      NaN      NaN
+User_6      NaN      NaN      NaN      NaN
+User_7      NaN      NaN      NaN      NaN
+User_8      NaN      NaN      NaN      NaN
+User_9      NaN      NaN      NaN      NaN
+```
+
+#### RMSE As ALS Alternates
+
+As you know, ALS will alternate between the two factor matrices, adjusting their values each time to iteratively come closer and closer to approximating the original ratings matrix. 
+
+Matrix `T` is a ratings matrix, and matrices `F1`, `F2`, `F3`, `F4`, `F5`, and `F6` are the respective products of ALS after iterating 2, 3, 4, 5, and 6 times respectively. Follow the instructions below to see how the RMSE changes as ALS iterates.
+
+```python
+# Use getRMSE(preds, actuals) to calculate the RMSE of matrices T and F1.
+getRMSE(F1, T)
+
+# Create list of F2, F3, F4, F5, and F6
+Fs = [F2, F3, F4, F5, F6]
+
+# Calculate RMSEs for F2 - F6
+getRMSEs(Fs, T)
+```
+```
+F1: 2.4791263858912522
+F2: 0.4389326310548279
+F3: 0.17555006757053257
+F4: 0.15154042416388636
+F5: 0.13191130368008455
+F6: 0.04533823201006271
+```
+
+#### Correct format and distinct users
+
+Take a look at the `R` dataframe. Notice that it is in conventional or "wide" format with a different movie in each column. Also notice that the `User`'s and movie names are not in integer format. 
+
+* Create a dataframe called `users` that contains all the `.distinct()` users from the dataframe and, repartition the dataframe into one partition using the `.coalesce(1)` method.
+* Use the `monotonically_increasing_id()` method inside of `withColumn()` to create a new column in the users dataframe that contains a unique integer for each user. Call this column `userId`. Be sure to call the `.persist()` method on the final dataframe to ensure the new integer IDs persist.
+
+```python
+# Import monotonically_increasing_id and show R
+from pyspark.sql.functions import monotonically_increasing_id
+R.show()
+
+# Use the to_long() function to convert the dataframe to the "long" format.
+ratings = to_long(R)
+ratings.show()
+
+# Get unique users and repartition to 1 partition
+users = ratings.select("User").distinct().coalesce(1)
+
+# Create a new column of unique integers called "userId" in the users dataframe.
+users = users.withColumn("userId", monotonically_increasing_id()).persist()
+users.show()
+```
+```
++----------------+-----+----+----------+--------+
+|            User|Shrek|Coco|Swing Kids|Sneakers|
++----------------+-----+----+----------+--------+
+|    James Alking|    3|   4|         4|       3|
+|Elvira Marroquin|    4|   5|      null|       2|
+|      Jack Bauer| null|   2|         2|       5|
+|     Julia James|    5|null|         2|       2|
++----------------+-----+----+----------+--------+
+
++----------------+----------+------+
+|            User|     Movie|Rating|
++----------------+----------+------+
+|    James Alking|     Shrek|     3|
+|    James Alking|      Coco|     4|
+|    James Alking|Swing Kids|     4|
+|    James Alking|  Sneakers|     3|
+|Elvira Marroquin|     Shrek|     4|
+|Elvira Marroquin|      Coco|     5|
+|Elvira Marroquin|  Sneakers|     2|
+|      Jack Bauer|      Coco|     2|
+|      Jack Bauer|Swing Kids|     2|
+|      Jack Bauer|  Sneakers|     5|
+|     Julia James|     Shrek|     5|
+|     Julia James|Swing Kids|     2|
+|     Julia James|  Sneakers|     2|
++----------------+----------+------+
+
++----------------+------+
+|            User|userId|
++----------------+------+
+|Elvira Marroquin|     0|
+|      Jack Bauer|     1|
+|    James Alking|     2|
+|     Julia James|     3|
++----------------+------+
+```
+
+#### Assigning integer id's to movies
+
+* Use the `.select()` and the `.distinct()` methods to extract all unique `Movies` from the `ratings` dataframe.
+* Repartition the `movies` dataframe to one partition using `coalesce()`.
+* Complete the partial code provided to assign unique integer IDs to each movie. Name the new column `movieId` and call the `.persist()` method on the resulting dataframe.
+* Join the `ratings` dataframe to the `users` dataframe and subsequently to the `movies` dataframe. Call the result `movie_ratings`.
 
 
+```python
+# Extract the distinct movie id's
+movies = ratings.select("Movie").distinct() 
 
+# Repartition the data to have only one partition.
+movies = movies.coalesce(1) 
 
+# Create a new column of movieId integers. 
+movies = movies.withColumn("movieId", monotonically_increasing_id()).persist() 
 
-
-
-
-
-
-
-
-
-
-
-
-
+# Join the ratings, users and movies dataframes
+movie_ratings = ratings.join(users, "User", "left").join(movies, "Movie", "left")
+movie_ratings.show()
+```
+```
++----------+----------------+------+------+-------+
+|     Movie|            User|Rating|userId|movieId|
++----------+----------------+------+------+-------+
+|     Shrek|    James Alking|     3|     2|      3|
+|      Coco|    James Alking|     4|     2|      1|
+|Swing Kids|    James Alking|     4|     2|      2|
+|  Sneakers|    James Alking|     3|     2|      0|
+|     Shrek|Elvira Marroquin|     4|     0|      3|
+|      Coco|Elvira Marroquin|     5|     0|      1|
+|  Sneakers|Elvira Marroquin|     2|     0|      0|
+|      Coco|      Jack Bauer|     2|     1|      1|
+|Swing Kids|      Jack Bauer|     2|     1|      2|
+|  Sneakers|      Jack Bauer|     5|     1|      0|
+|     Shrek|     Julia James|     5|     3|      3|
+|Swing Kids|     Julia James|     2|     3|      2|
+|  Sneakers|     Julia James|     2|     3|      0|
++----------+----------------+------+------+-------+
+```
 
 
 

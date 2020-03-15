@@ -13,6 +13,9 @@
 * 5. 스파크 코어 API를 사용한 고급 프로그래밍
 * 6. 
 
+#### Practices
+* [맵리듀스 및 Word Count 연습](#맵리듀스-및-Word-Count-연습)
+
 
 <br>
 
@@ -699,6 +702,50 @@ newrdd.collect() # will return [1, 3, 5, 7]
 * 대신 각 문장은 구문과 객체 참조에 대해서만 구문 분석이 된다.
 * count()나 saveAsTextFile()과 같은 action을 요청하면, 논리적이고 물리적인 실행 계획에 따라 DAG가 만들어진다. Driver는 Executors 간에 이렇나 계획을 조정하고 관리한다.
 * 이러한 lazy evaluation을 통해 스파크는 가능한 한 작업을 결합해 처리 단계를 줄이고, shuffling이라는 프로세스에서 스파크 executor 사이에 전송되는 데이터의 양을 최소화한다.
+
+##### RDD 지속성 및 재사용
+
+* RDD는 주로 실행자(Executors)의 메모리에 만들어지고 존재한다.
+* RDD는 기본적으로 필요할 때만 존재하는 일시적인 객체다.
+* 새로운 RDD로 변환되고 더 이상 어떤 연산에도 필요하지 않게 되면 영구적으로 제거된다.
+* RDD는 매번 다시 전체적으로 평가되므로 하나 이상의 액션에 RDD가 필요한 경우에 문제가 될 수 있다.
+* 이 문제를 해결하기 위한 방법은 `.persist()` 메소드를 사용해 RDD를 캐시하거나 유지하는 것이다.
+
+```python
+# 코드 4.11. 지속성이 없는 다중 액션에 RDD 사용하기
+
+numbers = sc.range(0, 1000000, 1, 2)
+evens = numbers.filter(lambda x: x % 2)
+noelements = evens.count()
+# evens RDD 처리
+print("There are %s elements in the collection" % (noelements))
+# return "There are 500000 elements in the collection"
+listofelements = evens.collect()
+# evens RDD 재처리
+print("The first five elements include " + (str(listofelements[0:5])))
+# return "The first five elements include [1, 3, 5, 7, 9]"
+```
+
+```python
+# 코드 4.12. 지속성이 있는 다중 액션에 RDD 사용하기
+
+numbers = sc.range(0, 1000000, 1, 2)
+evens = numbers.filter(lambda x: x % 2)
+evens.persist()
+# 다음 액션이 요청될 때마다 evens RDD를 계속 유지하도록 스파크에 지시한다.
+noelements = evens.count()
+# 메모리에서 evens RDD를 처리하고 지속한다.
+print("There are %s elements in the collection" % (noelements))
+# return "There are 500000 elements in the collection"
+listofelements = evens.collect()
+# evens RDD를 재계산할 필요가 없다.
+print("The first five elements include " + (str(listofelements[0:5])))
+# return "The first five elements include [1, 3, 5, 7, 9]"
+```
+
+* persist() 메소드를 사용해 RDD를 유지시키면, 첫 번째 액션이 호출된 후 계산된 클러스터의 모든 노드 안에 있는 각 메모리에 RDD가 남아 있는 것을 확인할 수 있다.
+* cache() 메소드가 이와 비슷한 기능을 한다.
+* 스파크 응용 프로그램 UI의 저장소(storage) 탭을 확인하면 RDD가 남아 있는 것을 알 수 있다.
 
 ...
 

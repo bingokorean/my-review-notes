@@ -52,7 +52,6 @@ Recommender System
       * user가 기준이 되어야 한다. 우리는 user에게 서비스를 제공해야 하기 때문이다.
       * user 1명당 모델을 1개 가진다. 따라서, user들의 성향을 구분할 수 있다.
       * 전체 모델에서 user 기준으로 매우 세세하게 모델링한 것과 같다.
-      * 이는 matrix factorization 과 같다.
       * 추천 시스템에 일반적으로 선택되는 모델 아키텍쳐이다. (아래 content-based, colloborative 모두 포함)
 * 자질 설계 관점 구분
    * Content-based 추천 시스템
@@ -68,9 +67,13 @@ Recommender System
       * 기준은 똑같이 n개의 user 모델이 있다는 것을 기억.
       * collaborative filtering 알고리즘의 한 가지 제한 사항으로 각 user가 다수 영화에 rating 점수가 매겨져 있어야 하고, 각 movie가 다수의 user들에게 rating 점수가 매겨져 있어야 한다. (cold-start 문제가 심할 듯)
       * 학습이 완료된 후에 user 모델 사이는 완전히 독립이다. 
-      * 뭐가 협력적이냐? 
+      * 근데... 뭐가 협력적이냐..?
          * 어떤 사람이 어떤 movie에 rating을 하면 자신의 user feature뿐만 아니라 해당 movie feature에 반영된다. 업데이트되는 movie feature는 모든 user 모델이 사용한다. 그리고 후에 업데이트되는 자신의 user feature도 모든 movie feature에 영향을 준다.
-         * 비슷한 성향의 user 들이 비슷한 user vector를 가지게 될 것이고, 비슷한 장르의 movie 들이 비슷한 movie vector를 가지게 될 것이다. 그리고, 어떤 user vector와 어떤 movie vector의 유사도가 높다는 의미는 무엇일까?
+         * 비슷한 성향의 user 들이 비슷한 user vector를 가지게 될 것이고, 비슷한 장르의 movie 들이 비슷한 movie vector를 가지게 될 것이다. 
+         * 생각해볼 점 - 어떤 user vector와 어떤 movie vector의 유사도가 높다는 의미는 무엇일까?
+   * Matrix Factorization
+      * 선형대수학을 사용해서 feature들을 추출할 수 있다. 위에서는 사람이 manual하게 결정. CF는 feature dim 개수만 사람이 결정.
+      * feature는 latent variables와 같다. 즉, movie feature vector는 movie latent feature vector, user feature vector는 user latent feature vector가 된다.
 
 
 
@@ -82,16 +85,3 @@ Recommender System
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-* 심플하게 생각해서, user 한 명당 하나의 학습 모델이 있다 하자. 그러면 데이터는 X = (장르, 배우, 감독), y = rating 이다. 
