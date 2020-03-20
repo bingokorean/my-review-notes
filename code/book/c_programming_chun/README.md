@@ -2,6 +2,21 @@
 
 천정아, 2009
 
-[[note](https://1drv.ms/w/s!AllPqyV9kKUrwjk_wNK-qM6eJjqd)]
+리뷰 노트 정리: [[**note.doc**](https://1drv.ms/w/s!AllPqyV9kKUrwjk_wNK-qM6eJjqd)]
 
 
+## Contents
+
+* C 언어의 개요
+* C 프로그램 시작하기
+* 변수와 데이터형
+* 연산자
+* 제어문
+* 함수
+* 배열과 문자열
+* 포인터
+* 구조체
+* 함수의 활용
+* 포인터의 활용
+* 고급 기능
+* 입출력 라이브러리

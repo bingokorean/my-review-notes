@@ -23,7 +23,6 @@ _CodeBook_
 * [Grokking Algorithms](https://github.com/gritmind/review/blob/master/code/book/grokking-algorithms/README.md) (Aditya Y. Bhargava, May 2016) - 한국어판
 * [Elements of Programming Interviews in Python](https://github.com/gritmind/review/blob/master/code/book/interview_py/README.md) (Adnan&Tsung-Hsien&Amit, 2018)
 * [Effective Python: 59 Specific Ways to Write Better Python](https://github.com/gritmind/review/blob/master/code/book/effective_py/README.md) (Brett Slatkin, 2016.03) - 한국어판
-* [Machine Learning Mastery](https://github.com/gritmind/review/blob/master/code/book/ml-mastery/README.md) (Jason Brownlee)
 * [알기 쉽게 해설한 JAVA](https://github.com/gritmind/review/blob/master/code/book/java_kim/README.md) (김충석, 2011)
 * [개념을 콕콕 잡아주는 C 프로그래밍](https://github.com/gritmind/review/blob/master/code/book/c_programming_chun/README.md) (천정아, 2009)
 
@@ -91,6 +90,7 @@ _Online_
 
 * [PySpark Courses](https://github.com/gritmind/review/tree/master/media/class/datacamp) (Datacamp)
 * [LinkedIn Learning](https://github.com/gritmind/review/tree/master/media/class/linkedin_learning) (LinkedIn)
+* [Machine Learning Mastery](https://github.com/gritmind/review/blob/master/code/book/ml-mastery/README.md) (Jason Brownlee)
 * [Lazy Programmer](https://github.com/gritmind/review/tree/master/media/class/lazy_programmer) (Udemy)
 * [DEVIEW 2019](https://github.com/gritmind/review/tree/master/media/seminar/deview-2019) (2019.10.28-29)
 * [시즌 Reinforcement Learning](https://github.com/gritmind/review/tree/master/media/seminar/all-mldl-rl) (모두를 위한 머신러닝/딥러닝 강의) | 2017.06.01

@@ -17,6 +17,11 @@ The contents of this class are mostly based on *Speech and Language processing 2
 12. Parsing with Deep Learning [[note](https://1drv.ms/p/s!AllPqyV9kKUrg0mVS9tkWEkORjzL)]
 
 
+## Practice
+* Korean Lexical analyzer with Recursion [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/lexical_recursion.ipynb)]
+* POS tagger with Viterbi algorithm [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/task/codes/pos_viterbi.ipynb)]
+
+
 ## Project
 사전/규칙과 HMM모델(코퍼스확률)을 이용한 한국어 형태소 분석기 및 품사태거 [[github](https://github.com/gritmind/morph_and_pos_analyzer_korean)]
 

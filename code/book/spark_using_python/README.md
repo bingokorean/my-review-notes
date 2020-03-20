@@ -1,7 +1,6 @@
 # Data Analytics with Spark using Python
 
-빅데이터 분석을 위한 파이썬, 스파크 활용법
-
+빅데이터 분석을 위한 파이썬, 스파크 활용법 <br>
 제프리 에이븐 (송주경 옮김)
 
 
@@ -19,12 +18,12 @@
 
 #### Practices
 * [맵리듀스 및 Word Count 연습](#맵리듀스-및-Word-Count-연습)
-
+* [Broadcast 변수 및 accumulator 사용 연습](#Broadcast-변수-및-accumulator-사용-연습)
 
 <br>
 
 
-### 옮긴이의 말
+#### 옮긴이의 말
 
 * 하둡의 맵리듀스(MapReduce)는 슈퍼컴퓨터 없이 여러 대의 서버를 연결해 빅데이터 분석을 가능하게 한 오픈소스 프레임워크
 * 스파크는 맵리듀스처럼 분산 처리를 수행하지만, 메모리를 활용하여 빠르게 데이터를 처리하는 것이 특징
@@ -50,40 +49,56 @@
 
 #### 하둡
 
-* 데이터 지역성이라는 개념을 바탕을 둔 데이터 저장 및 처리 플랫폼.
-* 데이터 지역성이란? 요청한 데이터를 원격 처리 시스템이나 호스트로 보내고 처리하는 기존의 방식 대신 데이터가 있는 곳으로 이동해서 계산하는 방식.
+* 데이터 지역성(data locality)이라는 개념을 바탕을 둔 데이터 저장 및 처리 플랫폼.
+* 데이터 지역성(data locality)이란? 요청한 데이터를 원격 처리 시스템이나 호스트로 보내고 처리하는 기존의 방식 대신 데이터가 있는 곳으로 이동해서 계산하는 방식.
 * 빅데이터의 경우 컴퓨팅 시간에 많은 양의 데이터가 네트워크를 통해 이동하는 시간이 매우 크거나 경우에 따라서 불가능할 수도 있음.
-* 하둡은 대용량 데이터가 비공유 접근을 사용하는 클러스터의 노드에서 지역적으로 처리할 수 있음.
+* 하둡은 대용량 데이터가 비공유(shared nothing) 접근을 사용하는 클러스터의 노드에서 지역적으로 처리할 수 있음.
 * 각 노드는 다른 노드들과 통신할 필요 없이 전체 데이터의 훨씬 작은 부분을 독립적으로 처리할 수 있음.
 * 이는 분산 파일 시스템의 구현을 통해 가능함.
-* 'Schema-on-read': 하둡은 기록 연산과 관련된 스키마가 없음. 이는 비구조화 문서, 반구조화 JSON, XML, DBMS의 잘 구조화된 문서 범위에 이르는 광범위한 데이터를 저장하고 처리할 수 있다는 뜻임. ('Schema-on-read'는 'Schema-on-write'와 대조적.)
-* HBase, 카산드라와 같은 NoSQL 플랫폼도 스키마-온-리드.
+* 'Schema-on-read': 하둡은 기록 연산과 관련된 스키마가 없음. 이는 비구조화 문서, 반구조화 JSON, XML, DBMS의 잘 구조화된 문서 범위에 이르는 광범위한 데이터를 저장하고 처리할 수 있다는 뜻임. ('Schema-on-read'는 'Schema-on-write'와 대조적)
+* HBase, 카산드라와 같은 NoSQL 플랫폼도 'Schema-on-read'.
 * 스키마는 INSERT, UPDATE 또는 UPSERT 작업 시 미리 개념 정리가 되어 시스템에 적용됨.
-* 하둡에서 쓰기 작업을 수행하는 동안에 스키마는 해석되지 않으므로 인덱스, 통계 또는 기타 구조가 없음. 단, 데이터 지역성이 필요. 
-* 하둡은 큰 문제를 작은 문제의 집합으로 나누고 연산하며, 데이터 지역성과 비공유 개념을 적용함.
+* 하둡에서 쓰기 작업을 수행하는 동안에 스키마는 해석되지 않으므로 인덱스, 통계 또는 기타 구조가 없음. 단, 데이터 지역성(data locality)이 필요. 
+* 하둡은 큰 문제를 작은 문제의 집합으로 나누고 연산하며, 데이터 지역성(data locality)과 비공유(shared nothing) 개념을 적용함.
 
 #### 하둡의 핵심 구성 요소
 
-* 구성 요소
-   * (1) 하둡 분산 파일 시스템(HDFS; Hadoop Distributed File System): HDFS는 하둡의 스토리지 서브시스템 
-   * (2) YARN(Yet Another Resource Negotiator): YARN은 하둡의 리소스 스케줄링 서브시스템
+* 하둡의 구성 요소
+   * 하둡 분산 파일 시스템(HDFS; Hadoop Distributed File System): HDFS는 하둡의 스토리지 서브시스템 
+   * YARN(Yet Another Resource Negotiator): YARN은 하둡의 리소스 스케줄링 서브시스템
 * 각 구성 요소는 자체 클러스터에서 서로 독립적으로 작동할 수 있음
 * HDFS 클러스터와 YARN 클러스터가 서로 결합된 두 시스템의 조합을 하둡 클러스터라고 함
-* 클러스터는 연산이나 프로세싱 함수를 수행하기 위해 함께 작동하는 시스템 모음. 클러스터 내의 개별 서버는 노드(node)임
-* 클러스터에는 여러 토폴로지 및 통신 모델이 있는데, 그중 하나가 master/slave 모델임
+* 스파크는 하둡의 이러한 핵심 구성 요소를 모두 활용할 수 있음
+* 클러스터 용어
+   * 클러스터는 연산이나 프로세싱 함수를 수행하기 위해 함께 작동하는 시스템 모음. 클러스터 내의 개별 서버는 노드(node)임
+   * 클러스터에는 여러 토폴로지 및 통신 모델이 있는데, 그중 하나가 master/slave 모델임
+   * master/slave 모델은 한 프로세스가 하나 이상의 다른 프로세스를 제어하는 통신 모델임 (HDFS, YARN 클러스터)
+* Flume이나 Sqoop과 같은 데이터 처리 프로젝트 또는 Pig나 Hive와 같은 데이터 분석 툴처럼 하둡과 상호 작용하거나 통합하는 프로젝트를 하둡 '에코시스템' 프로젝트라고 한다.
 
 <p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_1_1.png" width="60%" height="60%"></p>
 
 
 #### HDFS: 파일, 블록 및 메타데이터
 
-* HDFS는 클러스터의 하나 이상의 노드(node)에 파일이 분산돼 있는 블록(block)으로 구성된 가상 파일시스템이다.
+* HDFS는 클러스터의 하나 이상의 노드(node)에 파일이 분산돼 있는 블록(block)으로 구성된 가상(virtual) 파일시스템이다.
 * Ingestion 프로세스
    * 파일시스템에 데이터를 업로드할 때 구성된 블록의 크기에 따라 무작위로 파일을 나눈다.
-   * 그 후, 클러스터 노드 간에 블록을 분산 및 복제해서 내결함성(fault tolerance)을 달성하고, 데이터에 계산을 가져오는 목적으로 설계된 로컬에서 데이터를 처리할 수 있도록 한다.
-* HDFS 블록은 DataNode라는 slave 노드 HDFS 클러스터 프로세스에 저장 및 관린된다.
+   * 그 후, 클러스터에 있는 노드들에 걸쳐 블록을 분산 및 복제해서 내결함성(fault tolerance)을 달성하고, 데이터에 계산을 가져오는 목적으로 설계된 로컬에서 데이터를 처리할 수 있도록 한다.
+* HDFS 블록은 DataNode 라는 불리우는 'slave 노드 HDFS 클러스터 프로세스'에 저장 및 관리된다.
+* DataNode 프로세스는 HDFS 클러스터의 하나 이상의 노드에서 실행되는 'HDFS slave 노드 데몬'이다.
+* DataNode는 블록 스토리지 관리, 데이터 읽기 및 쓰기를 위한 액세스 및 데이터 ingestion 프로세스의 일부인 블록 복제를 관리한다 (다음 그림 참조)
+
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_1_2.png" width="60%" height="60%"></p>
+
 
 ...
+
+
+
+
+
+
+
 
 
 #### YARN을 이용한 응용 스케줄링
@@ -93,6 +108,10 @@
 * YARN 클러스터 아키텍쳐는 HDFS의 master/slave 클러스터 프레임워크와 같다.
 * 여기서, HDFS는 ResourceManager라는 master 노드 데몬과 클러스터의 Worker나 slave 노드에서 실행되는 NodeManager라는 하나 이상의 slave 노드 데몬을 포함한다.
 * ResourceManager는 클러스터에서 실행 중인 응용 프로그램에 클러스터 컴퓨팅 리소스를 부여한다.
+
+
+
+
 
 ...
 
@@ -120,7 +139,7 @@
    * 아마존 S3 또는 Ceph와 같은 객체 저장소
    * 관계형 데이터베이스 시스템
    * 카산드라, HBase 등을 포함한 NoSQL 스토어
-   * 카프카 같은 메시징 시스템
+   * Kafka 같은 메시징 시스템
 
 #### 스파크 RDD
 
@@ -259,7 +278,7 @@ for (word, count) in counts:
 
 ##### 클로저(closure)
 
-* 클로저는 인스턴스화된 시간에 범위를 묶는 함수 객체다.
+* 클로저는 인스턴스화된 시간에, 범위를 묶는 함수 객체다.
 * 클로저 객체에는 함수가 작성될 때 사용된 외부 변수 또는 함수가 포함될 수 있다.
 * 클로저는 범위를 묶어서 값을 기억한다.
 
@@ -467,7 +486,7 @@ $SPARK_HOME/bin/spark-submit \
 * 스파크 Driver는 SparkSession을 생성한다.
 * SparkSession 객체는 스파크 클러스터에 대한 연결을 나타낸다.
 * SparkSession은 대화식 shell을 포함해 스파크 응용 프로그램의 시작 부분에서 인스턴스화되며, 프로그램 전체에서 사용된다.
-* 스파크 2.0 이전에는 스파크 핵심 응용 프로그램에 사용된 SparkContext, 스파크 SQL 응용 프로그램과 함께 사용된 SQLContext, HiveContext, 스파크 스트리밍 응용 프로그램에 사용된 StreamingContext가 스파크 응용 프로그램의 entry point에 포함되어 있었다. 스파크 2.0의 SparkSession 객체는 이러한 모든 객체를 단일 entry point로 결합하여 모든 스파크 응용 프로그램에 사용할 수 있다.
+* 스파크 2.0 이전에는 스파크 핵심 응용 프로그램에 사용된 `SparkContext`, 스파크 SQL 응용 프로그램과 함께 사용된 `SQLContext`, `HiveContext`, 스파크 스트리밍 응용 프로그램에 사용된 `StreamingContext`가 스파크 응용 프로그램의 entry point에 포함되어 있었다. 스파크 2.0의 SparkSession 객체는 이러한 모든 객체를 단일 entry point로 결합하여 모든 스파크 응용 프로그램에 사용할 수 있다.
 * SparkSession 객체는 SparkContext, SparkConf 자식 객체를 통해 Master, 응용 프로그램 이름, Executors의 개수 등 사용자가 설정한 모든 런타임 구성 속성을 포함한다.
 * 다음 그림은 pyspark shell 내의 SparkSession 객체와 그 구성 속성 중 일부를 보여준다.
 
@@ -911,6 +930,247 @@ $ spark-submit \
 <br>
 
 ## 스파크 코어 API를 사용한 고급 프로그래밍
+
+### 5.1. 스파크의 공유변수
+
+#### Broadcast 변수
+
+* 스파크 드라이버 프로그램에 의해 설정된 read-only 변수이다.
+* 스파크 클러스터에서 작업자 노드가 사용할 수 있다.
+* 스파크 드라이버에 의해 설정된 후에만 읽을 수 있고, 작업자의 실행자에서 실행되는 모든 작업에 사용할 수 있다.
+* BitTorrent를 기반으로 하는 peer-to-peer 공유 프로토콜을 사용하면 작업자 간의 효율적인 공유가 가능하다. 이는 단순히 스파크 드라이버에서 실행자 프로세스로 변수를 직접 푸싱하는 것보다 확장성이 뛰어나다.
+* 다음 그림은 broadcast 변수가 초기화되고 작업자 간에 전파되며, 작업 내의 노드에 의해 액세스되는 방법을 보여준다.
+
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_5_1.png" width="60%" height="60%"></p>
+
+* Broadcast 변수는 SparkContext 밑에 만들어지며 스파크 응용 프로그램의 콘텍스트에서 객체로 접근할 수 있다.
+* broadcast() 구문: `sc.broadcast(value)` 
+   * Broadcast() 메소드는 특정 스파크 콘텍스트 내에 Broadcast 객체의 인스턴스를 생성한다.
+   * value는 Broadcast 객체에서 직렬화되고 캡슐화되며, 유효한 파이썬 객체이다.
+   * 만들어진 변수는 응용 프로그램에서 실행되는 모든 작업에서 사용할 수 있다.
+
+```python
+# 코드 5.1. broadcast() 함수를 사용해 브로드캐스트 변수 초기화하기
+
+stations = sc.broadcast({'83':'Mezes Park', '84':'Ryland Park'})
+stations
+# returns <pyspark.broadcast.Broadcast object at 0x...>
+```
+
+* 브로드캐스트 변수는 로컬, 네트워크 또는 분산 파일 시스템의 파일 콘텐츠에서 만들 수 있다.
+
+```python
+# 코드 5.2. 파일에서 브로드캐스트 변수 만들기
+
+#< stations.csv >
+# 83, Mezes Park, 37, ... 
+# 84, Ryland Park, 37, ...
+
+stationfile = '/opt/spark/data/stations.csv'
+stationdata = dict(map(lambda x: (x[0], x[1]), \
+                   map(lambda x: x.split(','), \
+                   open(stationsfile))))
+stations = sc.broadcast(stationsdata)
+stations.value['83'] # broadcast 변수값을 value() 메소드를 통해 반환
+# return 'Mezes Park'
+```
+
+* value() 구문: `Broadcast.value()`
+   * value 값은 해당 키를 사용해 map의 값에 접근할 수 있는 dict(또는 map)이다.
+   * value() 함수는 스파크 프로그램의 map() 또는 filter() 연산의 lambda 함수 내에서 사용할 수 있다.
+* unpersist() 구문: `Broadcast.unpersist(blocking=False`
+   * 브로드캐스트 객체의 unpersist() 메소드는 존재하는 클러스터의 모든 작업자 메모리에서 브로드캐스트 변수를 제거하는 데 사용된다.
+   * blocking 인수는 변수가 모든 노드에서 분리될 때까지 이 연산이 차단돼야 하는지 아니면 연산이 비동기 비차단이 될 수 있는지를 지정한다. 메모리를 즉시 릴리즈해야 하는 경우 이 인수를 True로 설정한다.
+
+```python
+# 코드 5.3. unpersist() 메소드
+
+stations = sc.broadcast({'83':'Mezes Park', '84':'Ryland Park'})
+stations.value['84']
+# returns 'Ryland Park'
+stations.unpersist()
+# 브로드캐스트 변수는 결국 캐시에서 축출된다.
+```
+
+* 브로드캐스트 변수와 관련된 스파크 구성 옵션이 몇 가지 있다. (필요시 살펴보자.)
+   * spark.broadcast.compress: 브로드캐스트 변수를 작업자에게 전송하기 전에 압축할지 여부를 결정한다. 기본값은 True(권장)
+   * spark.broadcast.blockSize: 브로드캐스트 변수의 각 블록 크기를 지정한다. 기본값은 4MB
+   * ...
+* 브로드캐스트 변수의 장점은 무엇이고, 어떤 경우에 유요하며 필요할까? 종종 2개의 데이터세트를 결합해 결과 데이터세트를 생성하는데 사용함.
+* stations(작은 데이터세트)와 status(큰 데이터세트)를 자연 키인 station_id에 조인하는 문제를 생각해보자.
+
+```python
+# 코드 5.4. RDD join()을 사용해 조회 데이터 조인하기
+status = sc.textFile('file:///opt/spark/data/bike-share/status') \
+           .map(lambda x: x.split(',')) \
+           .keyBy(lambda x: x[0])
+stations = sc.textFile('file:///opt/spark/data/bike-share/stations') \
+             .map(lambda x:x.split(',')) \
+             .keyBy(lambda x: x[0])
+status.join(stations) \
+      .map(lambda x: (x[1][0][3], x[1][1][1], x[1][0][1], x[1][0][2])) \
+      .count()
+# return 907200
+```
+
+* 코드 5.4. 는 비싼 shuffle연산을 초래한다. 따라서, 테이블 변수는 stations 드라이버에서 설정하는 것이 좋다.
+* 다음 코드에서 stations는 map() 연산을 구현하는 스파크 작업의 런타임 변수로 사용되며, shuffle에 대한 요구사항을 제거한다.
+
+```python
+# 코드 5.5. 드라이버 변수를 사용해 조회 데이터 조인하기
+
+stationsfile = '/opt/spark/data/bike-share/stations/stations.csv' # 여기는 .csv 파일이네?
+# sdata 라는 드라이버 변수에 station 데이터 할당
+sdata = dict(map(lambda x: (x[0], x[1]), \
+             map(lambda x: x.split(','), \
+             open(stationsfile))))
+status = sc.textFile('file:///opt/spark/data/bike-share/status') \
+           .map(lambda x: x.split(',')) \
+           .keyBy(lambda x: x[0])
+status.map(lambda x:(x[1][3], sdata[x[0]], x[1][1], x[1][2])) \
+      .count()
+# return 907200
+```
+
+* 위 방법은 첫 번째 옵션보다 대부분 더 효과적이지만 확장성이 부족하다. 이 경우 변수는 참조 함수 내 클로서(closure)의 일부로 작업자 노드에서의 데이터 전송 및 복제를 비효율적이며 불필요하게 만든다.
+* 따라서, 작은 stations 테이블의 브로드캐스트 변수를 초기화해야 한다.
+* Peer-to-peer 복제를 사용해 모든 작업자가 변수를 사용할 수 있게 하고, 단일 복사본은 실행 중인 응용 프로그램에 속한 모든 실행자의 모든 작업에서 사용할 수 있게 한다. 그런 다음 두 번째 옵션처럼 map() 연산의 변수를 사용한다. (다음 코드 참조)
+
+```python
+# 코드 5.6. 브로드캐스트 변수를 사용해 조회 데이터 조인하기
+stationsfile = '/opt/spark/data/bike-share/stations/stations.csv' # 여기는 .csv 파일이네?
+# sdata 라는 드라이버 변수에 station 데이터 할당
+sdata = dict(map(lambda x: (x[0], x[1]), \
+             map(lambda x: x.split(','), \
+             open(stationsfile))))
+
+stations = sc.broadcast(sdata) # sdata를 브래드캐스트
+status = sc.textFile('file:///opt/spark/data/bike-share/status') \
+           .map(lambda x: x.split(',')) \
+           .keyBy(lambda x: x[0])
+status.map(lambda x:(x[1][3], stations.value[x[0]], x[1][1], x[1][2])) \
+      .count()
+# return 907200
+```
+
+* 이처럼 브로드캐스트 변수의 사용은 런타인 동안 스파크 클러스터의 서로 다른 노드에서 실행되는 프로세스 사이에 데이터를 공유하는 효율적인 방법이다.
+* 브로드캐스트 변수의 특징
+   * 브로드캐스트 변수를 사용하면 shuffle 연산이 필요없다.
+   * 효율적이고 확장 가능한 peer-to-peer 배포 메커니즘을 사용한다.
+   * 작업(job)당 한 번씩 복제하는 대신 작업자(executor)당 한 번씩 데이터를 복제한다. 스파크 응용 프로그램에 수천 개의 작업이 있을 수 있으므로 이것은 매우 중요하다.
+   * 많은 작업을 여러 번 다시 할 수 있다.
+   * 직렬화된 객체로 효율적으로 읽힌다.
+
+
+#### Accumulator
+
+* 스파크의 또 다른 유형의 공유변수는 accumulator이다.
+* accumulator는 broadcase 변수와 달리 업데이트할 수 있다. (증가되는 숫자 값)
+* accumulator는 스파크 프로그래밍에서 여러 가지 방법으로 사용할 수 있는 카운터로 생각할 수 있다.
+* accumulator를 사용하면 프로그램이 실행되는 동안 여러 값을 집계할 수 있다.
+* accumulator는 드라이버에 의해 설정되고, 각각의 Spark Context에서 작업을 담당하는 실행자에 의해 업데이트된다.
+* 드라이버는 보통 accumulator의 최종 값을 프로그램의 끝에서 다시 읽을 수 있게 한다.
+* acuumulator는 스파크 응용 프로그램에서 성공적으로 완료된 작업마다 한 번만 업데이트된다.
+* 작업자 노드는 accumulator의 업데이트를 드라이버(accumulator 값을 읽을 수 있는 유일한 프로세스)로 다시 보낸다.
+* accumulator는 정수 또는 부동 소수점 값을 사용할 수 있다.
+* 다음 코드와 그림은 accumulator가 어떻게 생성되고, 업데이트되며, 잃히는지를 보여 준다.
+
+```python
+# 코드 5.7. Accumulator 생성 및 액세스
+
+acc = sc.accumulator(0)
+def addone(x):
+   global acc
+   acc += 1
+   return x + 1
+myrdd = sc.parallelize([1,2,3,4,5])
+myrdd.map(lambda x: addone(x)).collect()
+# returns [2,3,4,5,6]
+print('records processed: ' + str(acc.value))
+# returns 'records processed: 5' 
+```
+
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_5_2.png" width="60%" height="60%"></p>
+
+* 구문 - accumulator()
+   * sc.accumulator(value, accum_param=None)
+   * accumulator() 메소드는 특정 스파크 콘텍스트 내에 Accumulator 객체의 인스턴스를 만들고, value 인수에 의해 지정된 값으로 초기화한다.
+   * accum_param 인수는 사용자 정의 accumulator를 정한다.
+* 구문 - value()
+   * Accumulator.value()
+   * value() 메소드는 accumulator 값을 가져온다.
+   * 이 방법은 드라이버 프로그램에서만 사용할 수 있다.
+
+##### 사용자 정의 Accumulator
+
+* Spark Context로 작성된 표준 accumulator는 int 및 float를 포함한 기본적인 숫자 데이터 유형을 지원한다.
+* 사용자 정의 accumulator는 스칼라 숫자 값이 아닌 다른 유형의 변수에 대해 집계 연산을 수행할 수 있다.
+* 사용자 정의 accumulator는 AccumulatorParam 도우미 객체를 사용해 생성된다.
+* 이때 수행되는 연산은 결합 및 교환이 가능해야 한다 (요구사항). 즉, 수의 순서와 연산의 순서는 무관하다.
+* 사용자 정의 accumulator는 벡터를 리스트나 딕셔너리로 accumulate하는 것이 일반적이다.
+* 비수학적 컨텍스트에서 비숫자 연산에 동일한 원리가 개념적으로 적용되는데, 문자열 값을 연결하는 사용자 정의 accumulator를 만드는 경우를 예로 들 수 있다.
+* 다음은 벡터를 파이썬 딕셔너리로 합치는 데 사용되는 사용자 정의 accumulator의 예제다 
+   * addInPlace() 함수: 사용자 정의 accumulator 데이터 유형의 두 객체에 대해 연산하고 새 값을 반환한다.
+   * zero() 함수: map 유형에 빈 map을 제공하는 것처럼 각 유형에 0 값을 제공한다.
+
+```python
+# 코드 5.8. 사용자 정의 accumulator
+
+from pyspark import AccumulatorParam
+class VectorAccumulatorParam(AccumulatorParam):
+   def zero(self, value):
+      dict1 = {}
+      for i in range(0, len(value)):
+         dict1[i] = 0
+      return dict1
+   def addInPlace(self, val1, val2):
+      for i in val1.keys():
+         val1[i] += val2[i]
+      return val1
+
+rdd1 = sc.parallelize([{0: 0.3, 1: 0.5, 2: 0.4}, {0: 0.2, 1: 0.4, 2: 0.2}])
+vector_acc = sc.accumulator({0: 0, 1: 0, 2: 0}, VectorAccumulatorParam())
+def mapping_fn(x):
+   global vector_acc
+   vector_acc += x
+# 다른 rdd 처리를 수행해야 한다.
+rdd1.foreach(mapping_fn)
+print(vector_acc.value)
+# returns {0: 0.5, 1: 1.2000000000000002, 2: 0.6000000000000001}
+```
+
+##### Accumulator 용도
+
+* 일반적으로 accumulator는 처리된 레코드 수를 계산하거나 조작된 레코드 수를 추적하는 등의 용도로 사용된다.
+* 또한, 다른 유형의 레코드를 의도적으로 계산할 때도 사용할 수 있다. (ex. 로그 이벤트의 매핑 중에 발견된 여러 응답 코드의 수)
+* 경우에 따라 응용 프로그램 내의 프로세싱을 위해 accumulator를 사용하기도 한다.
+* Accumulator에서 잘못된 결과를 초래할 수 있는 경우
+   * map() 연산 내에서 결과를 계산하기 위해 add-in-place 연산을 사용하는데, 이렇게 add-in-place 연산을 수행하려는 목적으로 accumulator를 호출할 때와 같이 accumulator가 변환에 사용되는 경우 잘못된 결과가 나올 수 있다.
+   * 단계 재시도나 추측 실행으로 인해 accumulator 값이 두 번 이상 카운트될 수 있다.
+   * 절대적인 정확성이 필요한 경우, foreach() 액션과 같이 스파크 드라이버에 의해 계산된 액션 내에서만 accumulator를 사용해야 한다.
+   * 매우 큰 데이터세트의 개념적이거나 지표적인 계수만 고려한다면, 변환된 accumulator를 업데이트해도 된다. (주의 - 사용자 책임임)
+
+
+
+#### Broadcast 변수 및 accumulator 사용 연습
+
+* 이 연습에서는 broadcase 변수를 사용해, 불용어를 제거한 다음, accumulator를 사용해 평균 단어 길이를 계산한다.
+
+```
+# 1. 사용할 수 있는 모드(로컬, YARN, 클라이언트 또는 독립실행형)를 선택해 pyspark shell을 연다. (여기서는 로컬 모드에서 단일 인스턴스 스파크 배포를 사용)
+
+$ pyspark --master local
+```
+
+```python
+# 2. 
+
+
+```
+
+
+
+
 
 ...
 
