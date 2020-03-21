@@ -16,7 +16,7 @@
 ## Book
 
 _TextBook_
-* [기계 학습](https://github.com/gritmind/review/tree/master/paper/book/machine-learning-oh/README.md) (오일석, 2017.12)
+* [기계 학습](https://github.com/gritmind/review/tree/master/paper/book/machine-learning-oh) (오일석, 2017.12)
 
 _CodeBook_
 * [Data Analytics with Spark using Python](https://github.com/gritmind/review/blob/master/code/book/spark_using_python/README.md) (Jeffrey Aven, 2018.06) - 한국어판
