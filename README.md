@@ -19,7 +19,7 @@ _Theory based books_
 * [기계 학습](https://github.com/gritmind/review/tree/master/paper/book/machine-learning-oh) (오일석, 2017.12)
 
 _Programming based books_
-* [파이썬 머신러닝 완벽 가이드]()
+* [파이썬 머신러닝 완벽 가이드](https://github.com/gritmind/review/blob/master/code/book/pymldg/README.md) (권철민, 2020.02)
 * [Data Analytics with Spark using Python](https://github.com/gritmind/review/blob/master/code/book/spark_using_python/README.md) (Jeffrey Aven, 2018.06) - 한국어판
 * [Grokking Algorithms](https://github.com/gritmind/review/blob/master/code/book/grokking-algorithms/README.md) (Aditya Y. Bhargava, May 2016) - 한국어판
 * [Elements of Programming Interviews in Python](https://github.com/gritmind/review/blob/master/code/book/interview_py/README.md) (Adnan&Tsung-Hsien&Amit, 2018)
