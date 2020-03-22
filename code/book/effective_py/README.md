@@ -9,11 +9,10 @@
 4. 메타클래스와 속성
 5. [병행성과 병렬성](#병행성과-병렬성)
 6. [내장 모듈](#내장-모듈)
-7. 협력
-8. 제품화
+7. [협력](#협력)
+8. [제품화](#제품화)
 
 <br>
-
 
 ## 파이썬다운 생각
 
@@ -1607,7 +1606,6 @@ Took 0.102 seconds
 
 <br>
 
-
 ## 내장 모듈
 
 몇몇 표준 내장 패키지는 언어 사양의 일부이므로 파이썬의 특징과 밀접하게 관련있다. 이런 기본적인 내장 모듈은 복잡한 트로그램을 작성하거나 오류가 발생할 가능성이 큰 프로그램을 작성할 때 특히 중요하다.
@@ -1787,6 +1785,278 @@ i = bisect_left(x, 991234)
 ### 47.
 
 ### 48. 
+
+
+
+
+<br>
+
+## 협력
+
+* 파이썬은 명확한 인터페이스 경계로 잘 정의된 API를 만드는 데 도움을 주는 언어 기능을 갖췄다.
+* 파이썬 커뮤니티는 시간이 지나도 코드의 유지보수성을 극대화할 수 있는 가장 좋은 방법을 확립했다.
+* 서로 다른 환경으로 일하는 대규모 팀들이 협력할 수 있게 해주는 표준 도구들도 파이썬에 같이 실려온다.
+
+### 49. 모든 함수, 클래스, 모듈에 docstring을 작성하자
+
+* 파이썬에서 문서화는 언어의 동적 특성 때문에 극히 중요하다.
+* 파이썬은 코드 블록에 문서를 첨부하는 기능을 기본으로 지원한다.
+* 대부분의 다른 언어와는 다르게 프로그램 실행 중에 소스 코드에 첨부한 문서에 직접 접근할 수 있다.
+* 다음은 함수 docstring.
+
+```python
+def palindrome(word):
+    """Return True if the given word is a palindrome."""
+    return word == word[::-1]
+
+print(repr(palindrome.__doc__))
+>>>
+Return True if the given word is a palindrome.
+``` 
+
+* docstring은 함수, 클래스, 모듈에 붙일 수 있다. 이와 같은 연결은 파이썬 프로그램을 컴파일하고 실행하는 과정의 일부다.
+* docstring과 __doc__ 속성을 지원하는 덕분에 다음 세 가지 효과를 얻는다.
+   * 문서의 접근성 덕분에 대화식으로 개발하기가 더 쉽다. 
+      * 파이썬 대화식 인터프리터(파이썬 쉘, 주피터 노트북)과 같은 도구
+      * 내장 함수 help로 함수, 클래스, 모듈을 조사하여 문서를 볼 수 있다.
+   * 문서를 정의하는 표준 방법이 있으면 텍스트를 더 쉽게 이해할 수 있는 포맷(HTML)으로 변환하는 도구를 쉽게 만들 수 있다.
+      * 파이썬 커뮤니티의 Sphinx와 같은 훌륭한 문서 생성 도구가 있음.
+      * 파이썬 프로젝트의 멋진 문서를 제공하는 Read the Docs와 같은 커뮤니티 펀딩 사이트도 있음.
+   * 파이썬의 일급 클래스(first-class), 접근성, 잘 정리된 문서는 사람들이 문서를 더 많이 작성할 수 있도록 북돋아준다.
+      * '좋은 코드'는 문서화가 잘 된 코드이다.
+      * 대부분의 오픈 소스 파이썬 라이브러리가 잘 작성된 문서를 갖추고 있다.
+* 이러한 훌륭한 문서화에 동참하려면 docstirng을 작성할 때 몇 가지 지침을 따라야 한다. -> PEP 257
+
+#### 모듈 문서화
+
+* 각 모듈에는 최상위(top-level) docstring이 있어야 한다. (소스 파일에서 첫 번째 문장에 있는 문자열)
+* 최상위 docstring에는 큰따옴표 세 계(""")를 사용해야 한다.
+* 이 docstring의 목적은 모듈과 모듈의 내용에 대한 소개다.
+* 모듈 docstring 내용
+   * 첫 번째 줄: 모듈의 목적을 기술하는 한 문장으로 구성
+   * 그 이후의 문단
+      * 모듈의 모든 사용자가 알아야 하는 모듈의 동작을 자세히 설명한 내용을 포함
+      * 모듈 내의 중요 클래스나 함수를 강조
+* 모듈이 명령줄 유틸리티라면 모듈 docstring이야 말로 명령줄에서 도구를 실행하는 방법을 보여주기에 적합한 곳이다.
+
+```python
+# words.py
+# !/usr/bin/env python3
+"""Library for testing words for various linguistic patterns.
+
+Testing how words related to each other can be tricky sometimes!
+THis module provides easy ways to determine when wods you've
+found have special properties.
+
+Available functions:
+- palindrome: Determine if a word is a palindrome.
+- check_anagram: Detmine if two words are anagrams.
+...
+```
+
+#### 클래스 문서화
+
+* 각 클래스에는 클래스 수준 docstring이 있어야 한다. (모듈 수준 docstring과 거의 같은 패턴)
+* 클래스 docstring 내용
+   * 클래스의 중요한 공개 속성과 메서드 강조
+   * 서브클래스가 보호 속성, 슈퍼클래스의 메서드와 올바르게 상호 작용하는 방법을 안내 (Better way 27 참고)
+
+```python
+class Player(object):
+    """Represents a player of the game.
+
+    Subclasses may override the 'tick' method to provide
+    custom animations for the player's movement depending
+    on their power level, etc.
+
+    Public attributes:
+    - power: Unused power-ups (float between 0 and 1).
+    - coins: Coins found during the level (integer).
+    """
+
+    # ...
+```
+
+#### 함수 문서화
+
+* 각 공개 함수와 메서드에는 docstring이 있어야 한다.
+* 이 docstring도 모듈이나 클래스와 같은 패턴을 따름.
+  * 반환값 언급
+  * 호출하는 쪽에서 함수 인터페이스의 일부로 처리해야 하는 예외도 설명
+
+```python
+def find_anagrams(word, dictionary):
+    """Find all anagrams for a word.
+
+    This function only runs as fast as the test for
+    membership in the 'dictionary' container. It will
+    be slow if the dictionary is a list and fast if
+    it's a set.
+
+    Args:
+        word: String of the target word.
+        dictionary: Container with all strings that
+            are known to be actual words.
+
+    Returns:
+        List of anagrams that were found. Empty if
+        none were found.
+    """
+
+    # ...
+```
+
+함수 docstring을 작성할 때 몇 가지 특별한 경우
+
+* 함수가 인수는 받지 않고 간단한 값만 반환할 때는 한 줄짜리 설명으로 충분하다.
+* 함수가 아무것도 반환하지 않으면 `return None` 보다는 반환값을 언급하지 않는 게 낮다.
+* 함수가 일반적인 동작에서는 예외를 일으키지 않는다고 생각한다면 이에 대해서는 언급하지 말자.
+* 함수가 받는 인수의 개수가 가변적(Better way 18)이거나 키워드 인수(Better way 19)를 사용한다면 문서의 인수 목록에 `*args`와 `**kwargs`를 사용해서 그 목적을 설명하자.
+* 함수가 기본값이 있는 인수를 받는다면 해당 기본값을 설명해야 한다(Better way 20).
+* 함수가 generator(Better way 16)라면 generator가 순환될 때 무엇을 넘겨주는지 설명해야 한다.
+* 함수가 코루틴(Better way 40)이라면 코루틴이 무엇을 넘겨주는지, yield 표현식으로부터 무엇을 얻는지, 언제 순회가 끝나는지를 설명해야 한다.
+
+Note
+
+* 모듈의 docstring을 작성한 후에는 문서를 계속 업데이트하는 게 중요하다.
+* 내장 모듈 doctest는 docstring에 포함된 사용 예제를 실행하기 쉽게 해줘서 여러분이 작성한 소스 코드와 문서가 시간이 지나면서 여러 버전으로 나뉘지 않게 해준다.
+
+핵심 정리
+
+* 모든 모듈, 클래스, 함수를 docstring으로 문서화하자. 코드를 업데이트할 때마다 관련 문서도 업데이트하자.
+* 모듈: 모듈의 내용과 모든 사용자가 알아둬야 할 중요한 클래스와 함수를 설명한다.
+* 클래스: class 문 다음의 docstring에서 클래스의 동작, 중요한 속성, 서브클래스의 동작을 설명한다.
+* 함수와 메서드: def 문 다음의 docstring에서 모든 인수, 반환 값, 일어나는 예외, 다른 동작들을 문서화한다.
+
+### 50.
+
+...
+
+
+<br>
+
+## 제품화
+
+* 작성한 파이썬 프로그램을 사용하려면 개발 환경에서 재품 환경으로 옮겨야 한다.
+* 다양한 상황에서 신뢰할 만한 프로그램을 만드는 것은 올바르게 동작하는 프로그램을 만드는 것만큼이나 중요하다.
+* 목표는 파이썬 프로그램을 제품화해서 프로그램을 사용하는 동안 문제가 없게 하는 것이다.
+* 파이썬은 프로그램을 견고하게 해주는 내장 모듈을 갖추고 있고, 이 모듈은 디버깅, 최적화, 실행 시 프로그램의 품질과 성능을 극대화하는 테스트 기능을 제공한다.
+
+### 54. 배포 환경을 구성하는 데는 모듈 스코프 코드를 고려하자
+
+* 모든 프로그램에는 적어도 하나의 배포 환경(deployment environment)과 제품 환경(production environment)이 있다.
+* 배포 환경은 프로그램을 실행하는 구성을 말한다.
+* 프로그램을 작성하는 첫 번째 목적은 제품 환경에서 프로그램이 동작하도록 하고 결과를 얻게 하는 것이다.
+* 프로그램을 작성하거나 수정하려면 개발에 사용 중인 컴퓨터에서 프로그램이 동작하게 해야 한다.
+* 개발 환경(development environment)의 설정은 제품 환경과는 많이 다르다. (ex. 리눅스 워크스테이션으로 슈퍼컴퓨터용 프로그램을 작성)
+* pyvenv(Better way 53) 같은 도구를 이용하면 모든 환경에 같은 파이썬 패키지가 설치되도록 보장하기가 쉽다.
+* 문제는 제품 환경에서는 종종 개발 환경에서 재현하기 어려운 많은 외부 기능을 요구한다는 점이다.
+   * 예를 들어, 프로그램이 웹 서버 컨테이너에서 실행되고 데이터베이스에 접근해야 한다고 하자. 
+   * 프로그램을 수정할 때마다 서버 컨테이너를 실행해야 하고, 데이터베이스를 적절하게 설정해야 한다.
+* 이런 문제를 해결하는 가장 좋은 방법은 시작할 때 프로그램의 일부를 override해서 배포 환경에 따라 서로 다른 기능을 제공하는 것이다.
+   * 예를 들면, 서로 다른 __main__ 파일을 두 개 만든다. 하나는 제품용, 하나는 개발용으로 사용한다.
+
+```python
+# dev_main.py
+TESTING = True
+import db_connection
+db = db_connection.Database()
+
+# prod_main.py
+TESTING = False
+import db_connection
+db = db_connection.Database()
+
+# ---
+
+# db_connection.py
+import __main__
+
+class TestingDatabase(object):
+    # ...
+
+class RealDatabase(object):
+    # ...
+
+if __main__.TESTING:
+    Database = TestingDatabase
+else:
+    Database = RealDatabase
+```
+
+* 여기서 알아야 할 중요한 동작은 (함수나 메서드 내부가 아닌) 모듈 스코프에서 동작하는 코드는 일반 파이썬 코드라는 점이다.
+* 모듈 수준에서 if 문을 이용하여 모듈이 이름을 정의하는 방법을 결정할 수 있다.
+* 이 방법으로 모듈을 다양한 배포 환경에 알맞게 만들 수 있다.
+* 또한, 데이터베이스 설정 등이 필요 없을 때 재현해야 하는 수고를 덜 수 있다.
+* 목(mock)이나 가짜 구현을 주입하여 대화식 개발과 테스트를 요잉하게 할 수도 있다(Better way 56)
+* Note
+   * 배포환경이 복잡해지면 (TESTING 같은) 파이썬 상수에서 별도의 설정 파일로 옮기는 방안을 고려해야 한다.
+   * 내장 모듈 configparser와 같은 도구를 이용하면 제품 설정을 코드와 분리해서 관리할 수 있으며, 운영팀과 협력할 때는 반드시 이렇게 분리해야 한다.
+* 이 방법을 외부의 전제를 우회하는 목적 이외에도 사용할 수 있다.
+   * 예를 들어, 프로그램이 호스트 플랫폼에 따라 다르게 동작해야 한다면 모듈의 최상위 구성 요소를 정의하기 전에 sys 모듈을 조사하면 된다.
+
+```python
+# db_connection.py
+import sys
+
+class Win32Database(object):
+    # ...
+
+class PosixDatabase(object):
+    # ...
+
+if sys.platform.startswith('win32'):
+    Database = Win32Database
+else:
+    Database = PosixDatabase
+```
+
+* 이와 유사하게 os.environ에 들어 있는 환경 변수를 기반으로 모듈을 정의할 수 있다.
+
+핵심 정리 
+
+* 종종 프로그램을 여러 배포 환경에서 실행해야 하며, 각 환경마다 고유한 전제와 설정이 있다.
+* 모듈 스코프에서 일반 파이썬 문장을 사용하여 모듈 컨텐츠를 다른 배포 환경에 맞출 수 있다.
+* 모듈 컨텐츠는 sys와 os 모듈을 이용한 호스트 조사 내역 같은 외부 조건의 결과물이 될 수 있다.
+
+### 55.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -23,7 +23,7 @@
 11. ConvNets for NLP [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture11-convnets_gritmind.pdf)]
 12. Information from parts of words: Subword Models [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture12-subwords_gritmind.pdf)]
 13. Modeling contexts of use: Contextual Representations and Pretraining [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture13-contextual-representations_gritmind.pdf)]
-14. Transformers and Self-Attention For Generative Models
+14. Transformers and Self-Attention For Generative Models [[annotated-slide](https://github.com/gritmind/review/blob/master/media/class/cs224n-nlp-with-dl/annotated_slides/cs224n-2019-lecture14-transformers_gritmind.pdf)]
 15. Natural Language Generation
 16. Reference in Language and Coreference Resolution
 17. Multitask Learning: A general model for NLP?
