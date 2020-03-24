@@ -6,14 +6,16 @@
 
 ### Contents
 
-1. [빅데이터, 하둡 및 스파크 소개](#빅데이터,-하둡-및-스파크-소개)
-2. [스파크 배포](#스파크-배포)
-3. [스파크 클러스터 아키텍처의 이해](#스파크-클러스터-아키텍처의-이해)
-4. [스파크 프로그래밍 기초 학습](#스파크-프로그래밍-기초-학습)
-5. [스파크 코어 API를 사용한 고급 프로그래밍](#스파크-코어-API를-사용한-고급-프로그래밍)
-6. [스파크로 SQL 및 NoSQL 프로그래밍하기](#스파크로-SQL-및-NoSQL-프로그래밍하기)
-7. [스파크를 사용한 스트림 처리 및 메시징](#스파크를-사용한-스트림-처리-및-메시징)
-8. [스파크를 사용한 데이터 과학 및 머신 러닝 소개](#스파크를-사용한-데이터-과학-및-머신-러닝-소개)
+<div id='contents'/>
+
+1. [빅데이터, 하둡 및 스파크 소개](#1.)
+2. [스파크 배포](#2.)
+3. [스파크 클러스터 아키텍처의 이해](#3.)
+4. [스파크 프로그래밍 기초 학습](#4.)
+5. [스파크 코어 API를 사용한 고급 프로그래밍](#5.)
+6. [스파크로 SQL 및 NoSQL 프로그래밍하기](#6.)
+7. [스파크를 사용한 스트림 처리 및 메시징](#7.)
+8. [스파크를 사용한 데이터 과학 및 머신 러닝 소개](#8.)
 
 
 #### Practices
@@ -31,8 +33,9 @@
 
 <br>
 
-## 빅데이터, 하둡 및 스파크 소개
+<div id='1.'/>
 
+## 1. 빅데이터, 하둡 및 스파크 소개
 
 ### 1.1. 빅데이터, 분산 컴퓨팅 및 하둡 소개
 
@@ -317,11 +320,14 @@ call_func()
 * 분산된 스파크 응용 프로그램에서 클로저가 중요한 이점을 가질 수 있으므로 클로저 개념을 파악하는 것은 매우 중요하다.
 * 반면, 클로저는 함수가 어떻게 구성되고 호출되는지에 따라 부정적인 영향을 미칠 수도 있다.
 
+[top](#contents)
+
 
 <br>
 
-## 스파크 배포
+<div id='2.'/>
 
+## 2. 스파크 배포
 
 ### 2.1. 스파크 배포 모드
 
@@ -451,11 +457,13 @@ $SPARK_HOME/bin/spark-submit \
 
 ...
 
-
+[top](#contents)
 
 <br>
 
-## 스파크 클러스터 아키텍처의 이해
+<div id='3.'/>
+
+## 3. 스파크 클러스터 아키텍처의 이해
 
 ### 3.1. 스파크 응용 프로그램의 해부
 
@@ -507,7 +515,7 @@ spark = SparkSession.builder \
 numlines = spark.sparkContext.textFile("file:///opt/spark/licenses") \
 	.count()
 
-print("The total number of lines is " + sr(numlines))
+print("The total number of lines is " + str(numlines))
 ```
 
 ##### 응용 프로그램 계획
@@ -583,10 +591,13 @@ print("The total number of lines is " + sr(numlines))
 
 ...
 
+[top](#contents)
 
 <br>
 
-## 스파크 프로그래밍 기초 학습
+<div id='4.'/>
+
+## 4. 스파크 프로그래밍 기초 학습
 
 ### 4.1. RDD의 소개
 
@@ -926,10 +937,13 @@ $ spark-submit \
 
 ...
 
+[top](#contents)
 
 <br>
 
-## 스파크 코어 API를 사용한 고급 프로그래밍
+<div id='5.'/>
+
+## 5. 스파크 코어 API를 사용한 고급 프로그래밍
 
 ### 5.1. 스파크의 공유변수
 
@@ -1159,38 +1173,249 @@ print(vector_acc.value)
 ```
 # 1. 사용할 수 있는 모드(로컬, YARN, 클라이언트 또는 독립실행형)를 선택해 pyspark shell을 연다. (여기서는 로컬 모드에서 단일 인스턴스 스파크 배포를 사용)
 
-$ pyspark --master local
+$ pyspark --master local average_word_length.py
 ```
 
 ```python
-# 2. 
+# 2. 내장된 urllib2 모듈을 사용해 책의 S3 버킷에서 영어 불용어 리스트를 가져온 다음, split() 함수를 사용해 리스트로 변환한다.
 
+import urllib.request
+stopwordsurl = "https://s3.amazonaws.com/sparkusingpython/stopwords/stop-word-list.csv"
+req = urllib.request.Request(stopwordsurl)
+with urllib.request.urlopen(req) as response:
+   stopwordsdata = response.read().decode('utf-8')
+stopwordslist = stopwordsdata.split(',')
 
+# 3. stopwordslist 객체에 대한 브로드캐스트 변수를 만든다.
+stopwords = sc.broadcast(stopwordslist)
+
+# 4. 모든 단어의 누적 단어 수 및 누적 총 길이에 대한 accumulator를 초기화한다.
+word_count = sc.accumulator(0)
+total_len = sc.accumulator(0.0) # float인 이유: 결과의 정밀도를 유지하기 위함. 나중에 나눗셈 연산에서 분자로 사용할 수 있음.
+
+# 5. 단어 수와 전체 단어 길이를 누적하는 함수를 만든다.
+def add_values(word, word_count, total_len):
+   word_count += 1
+   total_len += len(word)
+
+# 6. 셰익스피어 텍스트를 로드하고, 문서의 모든 텍스트를 토큰화하고 정규화한다. stopwords 브로드캐스트 변수를 사용해 불용어를 필터링해 RDD를 만든다.
+words = sc.textFile('file:///opt/spark/data/shakespeare.txt') \
+   .flatMap(lambda line: line.split()) \
+   .map(lambda x: x.lower()) \
+   .filter(lambda x: x not in stopwords.value)
+
+# 7. foreach 액션을 사용해 결과 RDD를 반복하고, add_values 함수를 호출한다.
+words.foreach(lambda x: add_values(x, word_count, total_len))
+
+# 8. Accumulator 공유변수에서 평균 단어 길이를 계산하고 최종 결과를 표시한다.
+avgwordlen = total_len.value/word_count.value
+print("Total Number of Words: " + str(word_count.value))
+print("Average Word Length: " + str(avgwordlen))
 ```
 
+```python
+# 9. 모든 코드를 average_word_length.py 파일에 넣고, spark-submit을 사용해 프로그램을 실행하자.
 
+#
+# Source code for the 'Using Broadcast Variables and Accumulators' Exercise in
+# Data Analytics with Spark Using Python
+# by Jeffrey Aven
+#
+#  $ spark-submit --master local average_word_length.py
+#
 
+from pyspark import SparkConf, SparkContext
+conf = SparkConf().setAppName('Using Broadcast Variables and Accumulators')
+sc = SparkContext(conf=conf)
 
+# step 2
+import urllib.request
+stopwordsurl = "https://s3.amazonaws.com/sparkusingpython/stopwords/stop-word-list.csv"
+req = urllib.request.Request(stopwordsurl)
+with urllib.request.urlopen(req) as response:
+   stopwordsdata = response.read().decode("utf-8") 
+stopwordslist = stopwordsdata.split(",")
+# step 3
+stopwords = sc.broadcast(stopwordslist)
+# step 4
+word_count = sc.accumulator(0)
+total_len = sc.accumulator(0.0)
+# step 5
+def add_values(word,word_count,total_len):
+   word_count += 1
+   total_len += len(word)
+# step 6
+words = sc.textFile('file:///opt/spark/data/shakespeare.txt') \
+   .flatMap(lambda line: line.split()) \
+   .map(lambda x: x.lower()) \
+   .filter(lambda x: x not in stopwords.value)
+# step 7
+words.foreach(lambda x: add_values(x, word_count, total_len)) 
+# step 8
+avgwordlen = total_len.value/word_count.value
+print("Total Number of Words: " + str(word_count.value))
+print("Average Word Length: " + str(avgwordlen))
+```
+```
+$ spark-submit --master local average_word_length.py
+```
+
+### 5.2. 스파크의 데이터 파티셔닝
+
+* 파티셔닝은 대부분 스파크 프로세스에 필수적이다.
+* 효율적인 파티셔닝은 응용 프로그램 성능을 수십 배 향상시킬 수 있지만, 비효율적인 파티셔닝은 프로그램을 완료하기 힘들게 만든다.
+* 과도하게 큰 파티션으로 인해 Executor-out-of-memory 오류와 같은 문제가 발생할 수 있다.
+* RDD 파티션 내용을 요약하고, 파티셔닝에 영향을 주거나 파티션 내의 데이터에 보다 효과적으로 액세스할 수 있는 API 메소드르 알아보자.
+
+#### 파티셔닝 개요
+
+* RDD 변환에서 생성할 파티션 수는 일반적으로 구성할 수 있다.
+* 파티셔닝의 몇 가지 기본 동작을 알 필요가 있다.
+
+```python
+# HDFS를 사용하면 블록마다 RDD 파티션을 만든다. (일반적으로 HDFS의 블록 크기는 128MB)
+
+myrdd = sc.textFile("hdfs:///dir/filescontaining10blocks")
+myrdd.getNumPartitions()
+# returns 10
+```
+```python
+# ByKey 연산(groupByKey(), reduceByKey()) 같은 셔플연산과 
+# numPartitions 값이 메소드에 대한 인수로 제공되지 않는 다른 연산들은 
+# spark.default.parallelism 구성 값과 같은 파티션 개수를 만든다.
+
+# with spark.default.parallelism=4
+myrdd = sc.textFile("hdfs:///dir/filescontaining10blocks")
+mynewrdd = myrdd.flatMap(lambda x: x.split()) \
+   .map(lambda x: (x,1)) \
+   .reduceByKey(lambda x, y: x+y)
+mynewrdd.getNumPartitions()
+# returns 4
+```
+```python
+# spark.default.parallelism 구성 매개변수가 설정되지 않은 경우,
+# 변환에 의해 만들어지는 파티션 수는 현재 RDD 리니지의 업스트림 RDD에 의해 정의된 파티션의 최대 수와 같다.
+
+# spark.default.parallelism이 설정되지 않은 상태
+myrdd = sc.textFile("hdfs:///dir/filescontaining10blocks")
+mynewrdd = myrdd.flatMap(lambda x: x.split()) \
+   .map(lambda x: (x,1)) \
+   .reduceByKey(lambda x, y: x+y)
+mynewrdd.getNumPartitions()
+# returns 10
+```
+
+* 스파크에서 사용하는 기본 파티션 클래스는 HashPartitioner이다. 
+   * 이는 결정적 해시 함수를 사용해 모든 키를 해시한 다음, 키 해시를 사용해 거의 동일한 버킷을 만든다.
+   * 목표는 키를 기반으로 지정된 파티션 수에 데이터를 균등하게 분산시키는 것이다.
+* filter() 변환과 같은 일부 스파크 변환은 결과 RDD의 분할 동작을 변경할 수 없다.
+   * 예를 들어, 4개의 파티션이 있는 RDD에 filter() 함수를 적용하면, 원래의 RDD와 동일한 분할 스키마(해시 분할)를 사용해, 4개의 파티션이 있는 필터링된 새 RDD를 생성한다.
+* 기본 동작은 일반적으로 사용할 수 있지만, 어떤 경우에는 비효율적이다.
+   * 다행히도 스파크는 이러한 잠재적 문제를 해결할 수 있는 몇 가지 메커니즘을 제공한다.
+
+#### 파티션 제어
+
+* RDD에는 몇 개의 파티션이 있어야 할까?
+* 문제는 다음 두 가지 양극단의 스펙트럼에서 발생한다.
+   * 매우 적은 파티션 개수를 가진다면, 매우 큰 크기의 파티션이 실행자에게 메모리 부족 문제가 발생한다.
+   * 매우 많은 파티션 개수를 가진다면, 매우 작은 크기의 파티션 때문에 작은 입력애도 작업이 발생한다. (쓸데없이 작업량이 증가됨)
+* 크고 작은 파티션을 혼합하면, 추측 실행(speculative execution)이 불필요하게 발생한다.
+   * 추측 실행은 클러스터 스케줄러가 늘리게 실행되는 프로세스를 선점하기 위해 사용되는 메커니즘이다.
+* 스파크 응용 프로그램에서 하나 이상의 프로세스가 느려지는 근본적인 원인이 비효율적인 파티셔닝이라면, 추측 실행은 도움이 되지 않는다.
+
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_5_3.png" width="60%" height="60%"></p>
+
+* filter() 연산은 필터 조건을 만족하는 레코드만 사용해 일대일 기반으로 모든 입력 파티션에 대해 새 파티션을 만든다. (위 그림)
+* 이로 인해 일부 파티션의 데이터가 다른 파티션보다 훨씬 적어 데이터 왜곡, 추측 실행 가능성 및 다음 단계에서 최적이 아닌 성능과 같은 나쁜 결과를 초래할 수 있다.
+* 이러한 경우 스파크 API에서 재분할 방법 중 하나를 사용할 수 있다.
+   * partitionBy(), coalesce(), repartition(), repartitionAndSortWithinPartitions()
+   * 이 함수들은 파티션이 완료된 입력 RDD를 가지고 n개의 파티션을 가진 새로운 RDD를 생성한다.
+   * 여기서 n은 원래 파티션 수보다 많거나 적을 수 있다.
+* repartition() 함수는 4개의 고르지 않은 분산 파티션을 기본 'HashPartitioner'를 사용해 2개의 '고르게' 분산된 파티션으로 통합하는 데 적용된다. (아래 그림)
+
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_5_4.png" width="60%" height="60%"></p>
+
+* 최적의 파티션 수 결정
+   * 최적의 파티션 수를 결정할 때 종종 반환값을 줄이는 시점(각 추가 파티션이 성능을 떨어뜨리기 시작하는 시점)을 찾을 때까지 다른 값들을 실험해야 한다.
+   * 시작점에서의 간단한 공리는 클러스터 코어 수의 2배, 즉, 모든 작업자 노드의 총 코어 수의 2배를 사용하는 것이다.
+   * 데이터세트가 변경되면 사용되는 파티션 수를 다시 검토하는 것이 좋다.
+
+#### Repartitioning 함수
+
+* RDD를 재분할하는 데 사용되는 주요 함수는 다음과 같다.
+<br>
+
+* `partitionBy()`
+   * 구문: `RDD.partitionBy(numPartitions, partitionFunc=protable_hash)`
+   * paritionBy() 메소드는 기본적으로 portable_hash 함수(HashPartitioner)를 사용해 입력 RDD와 동일한 데이터를 포함하지만, numParitions 인수로 지정된 파티션 수와 함께 새 RDD를 반환한다. 
+
+```python
+# partitionBy 함수
+
+kvrdd = sc.parallelize([(1, 'A'), (2, 'B'), (3, 'C'), (4, 'D')], 4)
+kvrdd = getNumPartitions()
+# return 4
+kvrdd.partitionBy(2).getNumPartitions()
+# return 2
+```
+
+* partitionBy() 함수는 protable_hash 함수 대신 rangePartitioner를 사용해 paritionBy()를 호출하는 다른 함수(ex. sortByKey())에 의해 호출된다.
+* rangePartitioner는 키별로 정렬된 레코드를 동일한 크기의 범위로 분할한다. 이것은 해시 파티셔닝의 대안이다.
+* partitionBy() 변환은 웹 로그를 매월 파티션으로 bucket하는 함수와 같이 사용자 정의 파티셔너를 구현하는 데 유용한 함수이기도 하다.
+* 사용자 정의 파티션 함수는 키를 입력으로 가져와 partitionBy() 함수에 지정된 numPartitions와 0사이의 숫자를 반환한 다음 해당 반환값을 사용해 요소를 대상 파티션으로 전달한다.
+<br>
+
+* `repartition()`
+   * 구문: `RDD.repartition(numPartitions)`
+   * repartition() 메소드는 입력 RDD와 동일한 데이터를 갖는 새로운 RDD를 반환하며 numPartitions 인수로 지정된 파티션 수와 정확하게 일치한다.
+   * repartition() 메소드는 셔플을 필요로 할 수 있으며, partitionBy()와 달리 파티셔너 또는 분할 함수를 변경하는 옵션이 없다.
+   * repartition() 메소드를 사용하면 입력 RDD에 있는 것보다 대상 RDD에 더 많은 파티션을 만들 수 있다.
+
+```python
+# 코드 5.10. repartition() 함수
+
+kvrdd = sc.parallelize([(1, 'A'), (2, 'B'), (3, 'C'), (4, 'D')], 4)
+kvrdd.repartition(2).getNumPartitions()
+# return 2
+```
+
+* `coalesce()`
+   * 구문: `RDD.coalesce(numPartitions, shuffle=False)`
+   * ...
 
 ...
 
 
+
+
+[top](#contents)
+
 <br>
 
-## 스파크로 SQL 및 NoSQL 프로그래밍하기
+<div id='6.'/>
+
+## 6. 스파크로 SQL 및 NoSQL 프로그래밍하기
 
 ...
 
 
+[top](#contents)
+
 <br>
 
-## 스파크를 사용한 스트림 처리 및 메시징
+<div id='7.'/>
+
+## 7. 스파크를 사용한 스트림 처리 및 메시징
 
 ...
 
+[top](#contents)
+
 <br>
 
-## 스파크를 사용한 데이터 과학 및 머신 러닝 소개
+<div id='8.'/>
+
+## 8. 스파크를 사용한 데이터 과학 및 머신 러닝 소개
 
 ...
 
