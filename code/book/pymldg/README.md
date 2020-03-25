@@ -8,9 +8,9 @@ ipynb 파일에 예제 코드와 함께 책의 중요한 내용을 정리하였�
 
 ### Contents
 
-1. 파이썬 기반의 머신러닝과 생태계 이해 [[ch1_note.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/book/pymldg/note_ipynb/ch1/ch1_note.ipynb)]
-2. 사이킷런으로 시작하는 머신러닝 [[ch2_note.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/book/pymldg/note_ipynb/ch2/ch2_note.ipynb)]
-3. 평가
+1. 파이썬 기반의 머신러닝과 생태계 이해 [[ch1_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch1/ch1_note.ipynb)]
+2. 사이킷런으로 시작하는 머신러닝 [[ch2_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch2/ch2_note.ipynb)]
+3. 평가 [[ch3_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch3/ch3_note.ipynb)]
 4. 분류
 5. 회귀
 6. 차원 축소
