@@ -103,9 +103,9 @@ my_values = parse_qs('red=5&blue=0&green=', keep_blank_values=True)
 쿼리 문자열 파라미터에 따라 값이 여러 개 있을 수도 있고 값이 한 개만 있을 수도 있으며, 파라미터는 존재하지만 값이 비어 있을 수 있고, 파라미터가 아예 빠진 경우도 있다. 파라미터가 없거나 비어 있으면 기본값으로 0을 할당하면 좋다. 다음 처리 방식을 보자.
 
 ```python
-red = my_values.get('red', [''])[0] or 0  # '5'
-green = my_values.get('green', [''])[0] or 0 # 0
-opacity = my_values.get('opacity', [''])[0] or 0 # 0
+red = my_values.get('red', [''])[0] or 0            # '5'
+green = my_values.get('green', [''])[0] or 0        # 0
+opacity = my_values.get('opacity', [''])[0] or 0    # 0
 ```
 
 숫자 변환을 위해 `red = int(my_values.get('red', [''])[0] or 0)`으로 할 수도 있다. 이들의 코드를 읽기는 쉽지 않다. if/else 문이 훨씬 더 직감적일 것이다.
@@ -219,6 +219,8 @@ w = '漢字'
 x = w.encode('utf-8')
 y = x[::-1]
 z = y.decode('utf-8')
+```
+```
 >>> 
 UnicodeDecodeError: 'utf-8' codec can't decode byte 0x9d in 
 position 0: invalid start byte
@@ -248,6 +250,8 @@ slicing부터 하고 striding을 하면 데이터의 shallow copy가 추가로 �
 a = [1,2,3,4,5,6,7,8,9,10]
 squares = [x**2 for x in a]
 print(squares)
+```
+```
 >>>
 [1,4,9,16,25,36,49,64,81,100]
 ```
@@ -263,6 +267,8 @@ list comprehension은 map과 달리 입력 리스트에 있는 아이템을 간�
 ```python
 even_squares = [x**2 for x in a if x % 2 == 0]
 print(even_squares)
+```
+```
 >>>
 [4,16,36,64,100]
 ```
@@ -281,6 +287,8 @@ rank_dict = {rank: name for name, rank in chile_ranks.items()}
 chile_len_set = {len(name) for name in rank_dict.values()}
 print(rank_dict)
 print(chile_len_set)
+```
+```
 >>>
 {1: 'ghost', 2: 'habanero', 3: 'cayenne'}
 {8, 5, 7}
@@ -298,6 +306,8 @@ List comprehension은 기본 사용법(ref.7)뿐만 아니라 다중 루프도 �
 matrix = [[1,2,3], [4,5,6], [7,8,9]]
 flat = [x for row in matrix for x in row]
 print(flat)
+```
+```
 >>>
 [1,2,3,4,5,6,7,8,9]
 ```
@@ -307,6 +317,8 @@ print(flat)
 ```python
 squared = [[x**2 for x in row] for row in matrix]
 print(squared)
+```
+```
 >>>
 [[1,4,9], [16,25,36], [49,64,81]]
 ```
@@ -347,6 +359,8 @@ matrix = [[1,2,3], [4,5,6], [7,8,9]]
 filtered = [[x for x in row if x % 3 == 0]
             for row in matrix if sum(row) >= 10]
 print(filtered)
+```
+```
 >>>
 [[6], [9]]
 ```
@@ -364,6 +378,8 @@ List comprehension의 문제점(7.참고)은 입력 시퀀스에 있는 각 값�
 ```python
 value = [len(x) for x in open('/tmp/my_file.txt')]
 print(value)
+```
+```
 >>>
 [100, 57, 15, 1, 12, 75, 5, 86, 89, 11]
 ```
@@ -373,6 +389,8 @@ print(value)
 ```python
 it = (len(x) for x in open('/tmp/my_file.txt'))
 print(it)
+```
+```
 >>>
 <generator object <genexpr> at 0x101b81480>     # 값이 아니라 주소를 바라보고 있으므로, 주소를 출력하는 것 같다.
 ```
@@ -382,6 +400,8 @@ print(it)
 ```python
 print(next(it))
 print(next(it))
+```
+```
 >>>
 100
 75
@@ -392,6 +412,8 @@ Generator expression의 또 다른 강력한 기능은 다른 geneartor expressi
 ```python
 root = ((x, x**0.5) for x in it)
 print(next(roots))
+```
+```
 >>>
 (15, 3.872983346207417)
 ```
@@ -480,6 +502,8 @@ for i in range(3):
    #   break
 else:
    print('Else block')
+```
+```
 >>>
 Loop 0
 Loop 1 
@@ -501,6 +525,8 @@ for i in range(2, min(a,b) + 1):
         break
 else:
     print('Coprime')
+```
+```
 >>>
 Testing 2
 Testing 3
@@ -641,7 +667,8 @@ except ValueError:
     print('Invalid inputs')
 else:
     print('Result is %.1f' % result)
-
+```
+```
 >>> 
 Result is 2.5
 ```
@@ -667,6 +694,8 @@ numbers = [8,3,1,2,5,4,7,6]
 group = {2,3,5,7}
 sort_priority(numbers, group)
 print(numbers)
+```
+```
 >>>
 [2,3,5,7,1,4,6,8]
 ```
@@ -692,6 +721,8 @@ def sort_priority2(numbers, group):
 found  = sort_priority2(numbers, group)
 print('Found:', found)
 print(numbers)
+```
+```
 >>>
 Found: false
 [2,3,5,7,1,4,6,8]
