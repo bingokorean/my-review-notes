@@ -6,7 +6,7 @@
 
 2020.03.03 ~ 04.05 (03.03 ~ 17 리딩. 03.17 ~ 04.07 - 복습 & 실습)
 
-ipynb 파일에 예제 코드와 함께 책의 중요한 내용을 정리하였습니다.
+`chx_note.ipynb` 파일에 예제 코드와 함께 책의 중요한 내용을 정리하였습니다.
 
 ### Contents
 
@@ -20,7 +20,6 @@ ipynb 파일에 예제 코드와 함께 책의 중요한 내용을 정리하였�
 8. 텍스트 분석 [[ch8_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch8/ch8_note.ipynb)]
 9. 추천 시스템 [[ch9_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch9/ch9_note.ipynb)]
 
-<br>
 
 ### Comments
 
