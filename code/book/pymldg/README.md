@@ -10,8 +10,8 @@
 
 ### Contents
 
-1. [파이썬 기반의 머신러닝과 생태계 이해](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_md/ch1/ch1_note.md)]
-2. 사이킷런으로 시작하는 머신러닝 [[ch2_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch2/ch2_note.ipynb)]
+1. [파이썬 기반의 머신러닝과 생태계 이해](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_md/ch1/ch1_note.md)
+2. [사이킷런으로 시작하는 머신러닝](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_md/ch2/ch2_note.md)
 3. 평가 [[ch3_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch3/ch3_note.ipynb)]
 4. 분류 [[ch4_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch4/ch4_note.ipynb)]
 5. 회귀 [[ch5_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch5/ch5_note.ipynb)]
