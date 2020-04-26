@@ -10,7 +10,7 @@
 
 ### Contents
 
-1. 파이썬 기반의 머신러닝과 생태계 이해 [[ch1_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch1/ch1_note.ipynb)]
+1. 파이썬 기반의 머신러닝과 생태계 이해 [[ch1_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_md/ch1/ch1_note.md)]
 2. 사이킷런으로 시작하는 머신러닝 [[ch2_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch2/ch2_note.ipynb)]
 3. 평가 [[ch3_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch3/ch3_note.ipynb)]
 4. 분류 [[ch4_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch4/ch4_note.ipynb)]
@@ -30,10 +30,5 @@
     * 주요 하이퍼 파라미터 설명 및 사용법 제시
     * 실제 캐글 예제를 통해 배운 개념을 어느 부분에서 적용할 수 있는지 설명
 * (-) 간결한 이론적 설명이 좋으나 자세함이 부족함.
-    * 용어의 통일성 부족 & 장황한 문장 (간혹 있음)
-    * 같은 내용의 반복이 빈번 (독자의 이해력을 높이기 위한 설명 방식일 수 있음)
-    * 혼동되는 부분이 있어 다시 정리함 (본인의 이해력 부족일 수 있음)
 
 코드 레벨로 기계학습을 익히기 좋습니다. 초급자뿐만 아니라 중급자분들도 정리 차원에서 한 번쯤 독파하기에 괜찮은 책이라 생각합니다.
-
-위 내용은 지극히 저의 개인적인 생각인 점을 고려해주세요.
