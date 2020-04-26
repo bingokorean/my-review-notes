@@ -20,7 +20,6 @@
 8. 텍스트 분석 [[ch8_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch8/ch8_note.ipynb)]
 9. 추천 시스템 [[ch9_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch9/ch9_note.ipynb)]
 
-
 ### Comments
 
 본인이 생각하는 책의 장단점

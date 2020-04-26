@@ -13,9 +13,9 @@
 3. [스파크 클러스터 아키텍처의 이해](#3.)
 4. [스파크 프로그래밍 기초 학습](#4.)
 5. [스파크 코어 API를 사용한 고급 프로그래밍](#5.)
-6. [스파크로 SQL 및 NoSQL 프로그래밍하기](#6.)
-7. [스파크를 사용한 스트림 처리 및 메시징](#7.)
-8. [스파크를 사용한 데이터 과학 및 머신 러닝 소개](#8.)
+6. 스파크로 SQL 및 NoSQL 프로그래밍하기
+7. 스파크를 사용한 스트림 처리 및 메시징
+8. 스파크를 사용한 데이터 과학 및 머신 러닝 소개
 
 
 #### Practices
@@ -43,10 +43,9 @@
    * 데이터 지역성(data locality)
    * 비공유(shared nothing)
    * 맵리듀스(MapReduce)
-* 하둡의 간단한 역사 (검색 엔진 기업에서 발달)
-   * 구글
-      * The Google File System (2003)
-      * MapReduce: Simplified Data Processing on Large Clusters (2004)
+* 하둡의 간단한 역사 (검색 엔진 기업(구글)에서 발달)
+   * The Google File System (2003)
+   * MapReduce: Simplified Data Processing on Large Clusters (2004)
 * 데이터 생선량의 급격한 증가로 하둡이 곽강을 받기 시작. Spark, Kafka(메시징 시스템), HBase, Cassandra 등 NOSQL에 대한 논의가 이뤄졌는데, 이 모든 것은 하둡에서 시작되었음.
 
 
@@ -61,7 +60,7 @@
 * 'Schema-on-read': 하둡은 기록 연산과 관련된 스키마가 없음. 이는 비구조화 문서, 반구조화 JSON, XML, DBMS의 잘 구조화된 문서 범위에 이르는 광범위한 데이터를 저장하고 처리할 수 있다는 뜻임. ('Schema-on-read'는 'Schema-on-write'와 대조적)
 * HBase, 카산드라와 같은 NoSQL 플랫폼도 'Schema-on-read'.
 * 스키마는 INSERT, UPDATE 또는 UPSERT 작업 시 미리 개념 정리가 되어 시스템에 적용됨.
-* 하둡에서 쓰기 작업을 수행하는 동안에 스키마는 해석되지 않으므로 인덱스, 통계 또는 기타 구조가 없음. 단, 데이터 지역성(data locality)이 필요. 
+* 하둡에서 쓰기 작업을 수행하는 동안에 스키마는 해석되지 않으므로 인덱스, 통계, 기타 구조가 없음. 단, 데이터 지역성(data locality)이 필요. 
 * 하둡은 큰 문제를 작은 문제의 집합으로 나누고 연산하며, 데이터 지역성(data locality)과 비공유(shared nothing) 개념을 적용함.
 
 #### 하둡의 핵심 구성 요소
@@ -123,7 +122,7 @@
 ### 1.2. 아파치 스파크 소개
 
 * 맵리듀스 구현의 주요 단점은 맵(Map)과 리듀스(Reduce) 처리 단계 사이의 중간 데이터가 디스크에 잔류한다는 것이다.
-* 맵리듀스 대안으로 스파크는 탄력적인 분산 데이터 집합(RDD; Resilient Distributed Dataset)이라는 분산형, 내결함성, 인메모리 구조를 구현한다.
+* 맵리듀스 대안으로 스파크는 탄력적인 분산 데이터 집합(**RDD**; Resilient Distributed Dataset)이라는 분산형, 내결함성, 인메모리 구조를 구현한다.
 * 스파크는 여러 컴퓨터에서 메모리 사용을 극대화해 전반적인 성능을 크게 향상시킨다.
 * 스파크의 이러한 인메모리 구조의 재사용은 반복적인 머신러닝 작업 및 대화형 쿼리에 적합하다.
 * 스파크는 JVM과 자바 런타임 위에 구축된 스칼라(Scala)로 작성되었다.
@@ -185,6 +184,8 @@
 tempc = [38.4, 19.2, 12.8, 9.6]
 tempc = map(lambda x: (float(9)/5)*x + 32, tempc)
 print(tempc)
+```
+```
 >>>
 [101.12, 66.56, 55.0400000000006, 49.28]
 ```
@@ -241,23 +242,23 @@ print(tempc)
 * 익명 함수의 진정한 힘은 스파크에서 작업하듯이 map(), reduce() 및 filter()와 같은 고차원 함수와 프로세싱 파이프라인의 단일 사용 함수를 함께 연결하기 시작하는 경우에 분명히 나온다.
 
 ```python
-# 명명된 함수
->>> def plusone(x): return x+1
->>> plusone(1)
-2
->>> type(plusone)
-<type 'function'>
->>> plusone.func_name
-'plusone'
+## 명명된 함수
+def plusone(x): return x+1
+plusone(1) 
+# 2
+type(plusone)
+# <type 'function'>
+plusone.func_name
+# 'plusone'
 
-# 익명 함수
->>> plusonefn = lambda x: x+1
->>> plusonefn(1)
-2
->>> type(plusonefn)
-<type 'function'>
->>> plusonefn.func_name
-'<lambda>'
+## 익명 함수
+plusonefn = lambda x: x+1
+plusonefn(1)
+# 2
+type(plusonefn)
+# <type 'function'>
+plusonefn.func_name
+# '<lambda>'
 ```
 
 ##### 고차원 함수
@@ -320,7 +321,7 @@ call_func()
 * 분산된 스파크 응용 프로그램에서 클로저가 중요한 이점을 가질 수 있으므로 클로저 개념을 파악하는 것은 매우 중요하다.
 * 반면, 클로저는 함수가 어떻게 구성되고 호출되는지에 따라 부정적인 영향을 미칠 수도 있다.
 
-[top](#contents)
+[[top](#contents)]
 
 
 <br>
@@ -457,7 +458,7 @@ $SPARK_HOME/bin/spark-submit \
 
 ...
 
-[top](#contents)
+[[top](#contents)]
 
 <br>
 
@@ -480,7 +481,7 @@ $SPARK_HOME/bin/spark-submit \
 * 스파크로 작성된 Scala는 바이트코드로 컴파일되고 JVM에서 실행된다.
 * 스파크의 런타임 응용 프로그램 구성 요소와 실행되는 위치 및 노드의 유형을 구별할 수 있어야 한다.
 * 이러한 구성 요소들은 다양한 배포 모드를 사용하며, 모두 다른 위치에서 실행되기 때문에 이들을 물리적 노드나 인스턴스 용어로 생각하면 안된다.
-* 예를 들어, YARN에서 스파크를 실행하면 몇 가지 변형은 생기지만, 생성된 모든 구성 요소는 여전히 응용 프로그램에 포함되어 동일한 역할을 수행한다.
+   * 예를 들어, YARN에서 스파크를 실행하면 몇 가지 변형은 생기지만, 생성된 모든 구성 요소는 여전히 응용 프로그램에 포함되어 동일한 역할을 수행한다.
 
 #### 스파크 Driver
 
@@ -500,7 +501,7 @@ $SPARK_HOME/bin/spark-submit \
 
 <p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_3_1.png" width="60%" height="60%"></p>
 
-* 다음 코드는 spark-submit을 사용해 제출된 프로그램과 같은 비대화식 스파크 응용 프로그램 내에서 SparkSession을 생성하는 방법을 보여준다.
+* 다음 코드는 spark-submit으로 제출된 프로그램과 같은 비대화식 스파크 응용 프로그램 내에서 SparkSession을 생성하는 방법을 보여준다.
 
 ```python
 # SparkSession 생성하기
@@ -591,7 +592,7 @@ print("The total number of lines is " + str(numlines))
 
 ...
 
-[top](#contents)
+[[top](#contents)]
 
 <br>
 
@@ -603,20 +604,60 @@ print("The total number of lines is " + str(numlines))
 
 * RDD(Resilient Distributed Dataset)은 스파크 프로그래밍에서 사용되는 가장 기본적인 데이터 객체이다.
 * RDD는 스파크 응용 프로그램 내의 데이터 집합으로, 로드된 초기 데이터 집합, 중간 데이터 집합 및 최종 결과 데이터 집합을 모두 포함한다.
-* 대부분의 스파크 응용 프로그램은 외부 데이터로 RDD를 로드해 연산을 수행한 뒤 새로운 RDD를 생성하는데, 이러한 작업을 transformation이라 한다.
-* 이 transformation 프로세스는 궁극적으로 원하는 결과물이 출력될 때까지 반복된다. 원하는 결과물을 출력하는 작업의 유형을 action이라 한다 (ex. 응용 프로그램의 결과를 파일 시스템에 기록하는 것)
+* 대부분의 스파크 응용 프로그램은 외부 데이터로 RDD를 로드해 연산을 수행한 뒤 새로운 RDD를 생성하는데, 이러한 작업을 변환(transformation)이라 한다.
+* transformation 프로세스는 궁극적으로 원하는 결과물이 출력될 때까지 반복된다. 원하는 결과물을 출력하는 작업의 유형을 action이라 한다.
+   * 응용 프로그램의 결과를 파일 시스템에 기록하는 것 등을 액션의 예로 들 수 있다.
+<br>
+
 * RDD는 분산된 객체 모음이다. 여기서 객체는 스파크 프로그램에서 사용되는 데이터를 나타낸다.
    * PySpark의 RDD는 list, tuple, dictionary와 같은 분산 파이썬 객체로 구성된다.
    * RDD 내의 객체는 list의 요소와 같이 integer, floating, string과 같은 기본 데이터 유형은 물론, tuple, list, dictionary와 같은 복합 유형을 포함한 모든 유형이 된다.
    * 스칼라 및 자바 API에서 RDD는 각각 스칼라 또는 자바 객체 모음으로 구성된다.
 * RDD를 디스크에 지속시키기 위한 옵션이 있지만, RDD는 주로 메모리에 저장되거나 적어도 가능한 한 메모리에 저장되도록 한다.
 * 스파크의 초기 용도는 머신러닝을 지원하는 것이었으므로, 스파크 RDD는 제한된 형식의 공유 메모리를 제공한다. 이는 연속적이고 반복적인 연산을 수행할 때, 데이터의 효율적인 재사용을 가능하게 한다.
-* 
-* 하둡 맵리듀스 구현의 주요 단점 중 하나는 중간 데이터를 디스크에 지속적으로 저장하고, 런타임 중 노드 간에 데이터를 복사하는 것이었다.
-* 이러한 맵리듀스의 데이터 공유 분산 처리 방식은 복원력과 내결함성을 제공하지만, 지연 시간이 발생했다. 이로 인해 스파크의 RDD에 기반을 둔 인-메모리 처리 프레임워크는 인기를 끌었다.
-*
+<br>
 
-...
+* 하둡 맵리듀스 구현의 주요 단점 중 하나는 중간 데이터를 디스크에 지속적으로 저장하고, 런타임 중 노드 간에 데이터를 복사하는 것이었다.
+* 이러한 맵리듀스의 데이터 공유 분산 처리 방식은 복원력과 내결함성을 제공하지만, 지연 시간이 발생했다. 
+* 데이터 양이 증가함에 따라 실시간 데이터 처리 및 통찰력이 필요해지고, 이로 인해 스파크의 RDD에 기반을 둔 인-메모리 처리 프레임워크는 인기를 끌었다.
+<br>
+
+* 복원 분산 데이터 집합(RDD, Resilient Distributed Dataset)이라는 용어는 그 자체로 개념이 정확하고 간결하다.
+   * 복원(Resilient) - RDD는 탄력적이다. 
+      * 스파크에서 작업을 수행하다가 노드가 손실될 경우 데이터 집합을 재구성할 수 있다.
+      * 이것은 스파크가 각 RDD 리니지(RDD를 만드는 일련의 단체)를 알고 있기에 가능하다.
+   * 분산(Distributed) - RDD는 분산된다.
+      * 파티션을 하나 또는 여러 개로 나누고, 클러스터의 작업자 노드를 통해 RDD의 데이터를 메모리 내 객체의 모음으로 분산한다.
+      * RDD는 서로 다른 노드(작업자)의 프로세스(실행자) 사이에 데이터를 교환하기 위한 효율적인 공유 메모리 형태를 제공한다.
+   * 데이터 집합(Dataset) - RDD는 레코드로 구성된 데이터 집합이다.
+      * 레코드는 데이터 집합 안의 고유하고 식별 가능한 데이터 모음으로, 관계형 데이터베이스의 테이블에 있는 행이나 파일 내 텍스트의 줄 또는 여러 다른 형식의 필드와 유사한 필드 모음을 말한다.
+      * RDD는 각 파티션이 고유한 레코드 세트를 포함하도록 작성되며, 독립적으로 동작할 수 있다. 이것이 비공유(shared nothing) 접근법이다.
+<br>
+
+* RDD의 또 다른 주요 특성은 '불변성'이다.
+   * RDD가 일단 인스턴스화되고 데이터로 채워진 후에는 업데이트할 수 없다는 것을 의미한다.
+   * 대신에, map 또는 filter 함수와 같은 변환(tranformations) 연산을 통해 기존 RDD를 기반으로 새로운 RDD를 만들 수는 있다.
+<br>
+
+* 액션은 RDD에서 수행되는 다른 연산이다.
+   * 액션은 드라이버 프로그램으로 반환된 RDD에서 데이터 형식으로 존재할 수 있는 출력을 만들거나, RDD의 콘텐츠를 파일 시스템(로컬, HDFS, S3, ...)에 저장한다.
+   * 이 밖에도 RDD 내의 레코드 수를 반환하는 등 많은 다른 액션이 있다.
+<br>
+
+* 다음 코드는 RDD에 데이터를 로드하고 filter 변환을 사용해 새로운 RDD를 생성한 다음, 액션을 사용해 결과 RDD를 디스크에 저장하는 스파크 프로그램 샘플을 보여준다.
+
+```python
+# 코드 4.1. 로그 파일에서 오류를 검색하는 pyspark 프로그램 샘플
+
+# 로컬 파일 시스템에서 로그 파일 로드
+logfilesrdd = sc.textFile("file:///var/log/hadoop/hdfs/hadoop-hdfs-*")
+# 오류에 대해서만 로그 레코드 필터링
+onlyerrorsrdd = logfilesrdd.filter(lambda line: "ERROR" in line)
+# onlyerrorsrdd를 파일로 저장
+onlyerrorsrdd.saveAsTextFile("file:///tmp/onlyerrorsrdd")
+```
+
+* RDD 개념에 대한 자세한 내용은 Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing 논문을 살펴봐라.
 
 
 ### 4.2. RDD에 데이터 로드하기
@@ -937,7 +978,7 @@ $ spark-submit \
 
 ...
 
-[top](#contents)
+[[top](#contents)]
 
 <br>
 
@@ -1267,7 +1308,7 @@ $ spark-submit --master local average_word_length.py
 * 과도하게 큰 파티션으로 인해 Executor-out-of-memory 오류와 같은 문제가 발생할 수 있다.
 * RDD 파티션 내용을 요약하고, 파티셔닝에 영향을 주거나 파티션 내의 데이터에 보다 효과적으로 액세스할 수 있는 API 메소드르 알아보자.
 
-#### 파티셔닝 개요
+#### 5.2.1. 파티셔닝 개요
 
 * RDD 변환에서 생성할 파티션 수는 일반적으로 구성할 수 있다.
 * 파티셔닝의 몇 가지 기본 동작을 알 필요가 있다.
@@ -1313,7 +1354,7 @@ mynewrdd.getNumPartitions()
 * 기본 동작은 일반적으로 사용할 수 있지만, 어떤 경우에는 비효율적이다.
    * 다행히도 스파크는 이러한 잠재적 문제를 해결할 수 있는 몇 가지 메커니즘을 제공한다.
 
-#### 파티션 제어
+#### 5.1.2. 파티션 제어
 
 * RDD에는 몇 개의 파티션이 있어야 할까?
 * 문제는 다음 두 가지 양극단의 스펙트럼에서 발생한다.
@@ -1340,7 +1381,7 @@ mynewrdd.getNumPartitions()
    * 시작점에서의 간단한 공리는 클러스터 코어 수의 2배, 즉, 모든 작업자 노드의 총 코어 수의 2배를 사용하는 것이다.
    * 데이터세트가 변경되면 사용되는 파티션 수를 다시 검토하는 것이 좋다.
 
-#### Repartitioning 함수
+#### 5.1.3. Repartitioning Functions
 
 * RDD를 재분할하는 데 사용되는 주요 함수는 다음과 같다.
 <br>
@@ -1386,9 +1427,20 @@ kvrdd.repartition(2).getNumPartitions()
 ...
 
 
+### 5.3. RDD 저장 옵션
+
+* 지금까지 RDD를 클러스터 작업자 노드의 메모리에 있는 분산 불변 객체 모음으로 설명했다.
+* 그러나 여러 가지로 유익한 RDD의 다른 저장 옵션이 있다.
+* 다양한 스토리지 레벨과 캐싱 및 지속성을 보기 전에 RDD 리니지 개념을 먼저 보자.
+
+#### 5.3.1. RDD Lineage 재검토
 
 
-[top](#contents)
+
+
+
+
+[[top](#contents)]
 
 <br>
 
@@ -1399,7 +1451,7 @@ kvrdd.repartition(2).getNumPartitions()
 ...
 
 
-[top](#contents)
+[[top](#contents)]
 
 <br>
 
@@ -1409,7 +1461,7 @@ kvrdd.repartition(2).getNumPartitions()
 
 ...
 
-[top](#contents)
+[[top](#contents)]
 
 <br>
 
@@ -1418,17 +1470,5 @@ kvrdd.repartition(2).getNumPartitions()
 ## 8. 스파크를 사용한 데이터 과학 및 머신 러닝 소개
 
 ...
-
-
-
-
-
-
-
-
-
-
-
-
 
 
