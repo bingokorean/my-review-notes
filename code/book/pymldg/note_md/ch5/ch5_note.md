@@ -259,7 +259,7 @@ for i , feature in enumerate(lm_features):
     sns.regplot(x=feature , y='PRICE',data=bostonDF , ax=axs[row][col])
 ```
 
-<img src="./images/plot_5_3.png" width="50%" height="50%">
+<img src="./images/plot_5_3.png" width="90%" height="90%">
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -514,7 +514,7 @@ Degree 15 회귀 계수는 [-2.98300000e+03  1.03900000e+05 -1.87417100e+06  2.0
 Degree 15 MSE 는 182815433.56 입니다.
 ```
 
-<img src="./images/plot_5_4.png" width="50%" height="50%">
+<img src="./images/plot_5_4.png" width="80%" height="80%">
 
 * Degree 15의 회귀 계수는 Degree 1, 4와 비교할 수 없을 정도로 매우 큰 값이다.
 
@@ -608,7 +608,7 @@ for pos , alpha in enumerate(alphas) :
 plt.show()
 ```
 
-<img src="./images/plot_5_5.png" width="50%" height="50%">
+<img src="./images/plot_5_5.png" width="80%" height="80%">
 
 
 ```python
@@ -924,7 +924,7 @@ print('최적 하이퍼 파라미터:{0}, 최적 평균 정확도:{1:.3f}'.forma
 * 다만, 비선형 회귀는 회귀 계수의 결합이 비선형일 뿐이다.
 * 머신러닝 기반의 회귀는 회귀 계수를 기반으로 하는 최적 회귀 함수를 도출하는 것이 주요 목표이다.
 * 회귀 트리는 회귀 함수를 기반으로 하지 않고 결정 트리와 같은 트리를 기반으로 한다.
-
+<br>
 
 * 회귀 트리가 어떻게 동작하는지 살펴보자.
 
@@ -1076,7 +1076,7 @@ ax3.scatter(bostonDF_sample.RM, bostonDF_sample.PRICE, c="darkorange")
 ax3.plot(X_test, pred_rf7, label="max_depth:7", linewidth=2)
 ```
 
-<img src="./images/plot_5_8.png" width="50%" height="50%">
+<img src="./images/plot_5_8.png" width="80%" height="80%">
 
 <br>
 
@@ -1338,7 +1338,7 @@ coef_sort = coef.sort_values(ascending=False)[:20]
 sns.barplot(x=coef_sort.values , y=coef_sort.index)
 ```
 
-<img src="./images/plot_5_12.png" width="50%" height="50%">
+<img src="./images/plot_5_12.png" width="80%" height="80%">
 
 ```python
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
@@ -1603,7 +1603,7 @@ models = [lr_reg, ridge_reg, lasso_reg]
 visualize_coefficient(models)
 ```
 
-<img src="./images/plot_5_15.png" width="50%" height="50%">
+<img src="./images/plot_5_15.png" width="90%" height="90%">
 
 * OLS 기반의 LinearRegression과 Ridge의 경우는 회귀 계수가 유사한 형태로 분포되어 있다.
 * 하지만, 라쏘는 전체적으로 회귀 계수 값이 매우 작고, 그중에 YearBuilt가 가장 크고 다른 피처의 회귀 계수는 너무 작다.
@@ -1686,7 +1686,7 @@ Ridge 로그 변환된 RMSE: 0.124
 Lasso 로그 변환된 RMSE: 0.12
 ```
 
-<img src="./images/plot_5_16.png" width="50%" height="50%">
+<img src="./images/plot_5_16.png" width="90%" height="90%">
 
 * alpha 값 최적화 후 테스트 데이터 세트의 예측 성능이 더 좋아졌다.
 * 이번에는 릿지와 라쏘 모델에서 비슷한 피처의 회귀 계수가 높다. 다만, 라쏘 모델의 경우 릿지에 비해 동일한 피처라도 회귀 계수의 값이 상당히 작다.
@@ -1781,7 +1781,7 @@ Ridge 로그 변환된 RMSE: 0.122
 Lasso 로그 변환된 RMSE: 0.119
 ```
 
-<img src="./images/plot_5_17.png" width="50%" height="50%">
+<img src="./images/plot_5_17.png" width="90%" height="90%">
 
 * 세 모델 모두 GrLivArea, 즉 주거 공간 크기가 회귀 계수가 가장 높은 피처가 되었다. 
 * 주거 공간의 크기가 주택 가겨에 미치는 영햐잉 당연히 제일 높을 것이라는 상식선에서의 결과가 이제야 도출되었다.
@@ -1920,7 +1920,7 @@ models = [best_xgb, best_lgbm]
 visualize_ftr_importances(models)
 ```
 
-<img src="./images/plot_5_19.png" width="50%" height="50%">
+<img src="./images/plot_5_19.png" width="90%" height="90%">
 
 ### 회귀 모델의 예측 결과 혼합을 통한 최종 예측
 
