@@ -19,7 +19,7 @@
 
 * 이번 장에서는 앙상블 방법을 집중적으로 다룸.
 * 이미지, 영상, 음성, NLP 영역에서 신경망에 기반한 딥러닝이 머신러닝계를 선도하지만, 이를 제외한 정형 데이터의 예측 분석 영역에서는 앙상블이 매우 높은 예측 성능을 보임.
-
+<br>
 
 * 앙상블
    * 배깅(Bagging)
@@ -30,7 +30,7 @@
       * LightGBM
 * 앙상블의 앙상블
    * 스태킹(Stacking)
-
+<br>
 
 * 앙상블은 서로 다른/또는 같은 알고리즘을 결합한다고 했는데, 대부분은 동일한 알고리즘을 결합한다.
 * 앙상블의 기본 알고리즘으로 일반적으로 사용하는 것은 '결정 트리'이다.
@@ -38,7 +38,7 @@
    * 결정 트리는 데이터의 스케일링이나 정규화 등의 사전 가공의 영향이 매우 적다.
    * 하지만, 예측 성능을 향상시키기 위해 복잡한 규칙 구조를 가지여야 하며, 이로 인한 과적합이 발생할 기도 한다.
    * 이러한 단점은 앙상블에서는 오히려 장점으로 작용한다.
-   
+<br>
    
 * 앙상블은 매우 많은 여러 개의 약한 학습기(즉, 예측 성능이 상대적으로 떨어지는 학습 알고리즘)를 결합해 확률적 보완과 오류가 발생한 부분에 대한 가중치를 계속 업데이트하면서 예측 성능을 향상시키는데, 결정 트리가 좋은 약한 학습기가 된다.
 
@@ -206,7 +206,7 @@ petal length (cm) : 0.555
 petal width (cm) : 0.420
 ```
 
-<img src="./images/plot_4_2.png" width="70%" height="70%">
+<img src="./images/plot_4_2.png" width="4%" height="40%">
 
 * 일반적으로 다른 알고리즘이 블랙박스로 불리듯이 알고리즘 내부의 동작 원리가 복잡한 데 반해 결정 트리는 알고리즘 자체가 직관적이고 해석적이기 때문에 알고리즘과 관련된 요소를 시각적으로 표현할 수 있는 다양한 방안이 있다.
 
@@ -230,7 +230,7 @@ X_features, y_labels = make_classification(n_features=2, n_redundant=0, n_inform
 plt.scatter(X_features[:, 0], X_features[:, 1], marker='o', c=y_labels, s=25, cmap='rainbow', edgecolor='k')
 ```
 
-<img src="./images/plot_4_3.png" width="70%" height="70%">
+<img src="./images/plot_4_3.png" width="40%" height="40%">
 
 
 ```python
@@ -529,7 +529,7 @@ plt.show()
 * 앙상블 학습의 목표는 다양한 분류기의 예측 결과를 결합함으로써 단일 분류기보다 신뢰성이 높은 예측값을 얻는 것.
 * 대부분의 정형 데이터 분류 시에는 앙상블이 뛰어난 성능을 가지고 있음.
 * XGBoost 그리고 LightGBM과 같은 최신의 앙상블 모델 한두 개만 잘 알고 있어도 정형 데이터의 분류나 회귀 문제에서 예측 성능이 뛰어난 모델을 만들 수 있음.
-
+<br>
 
 * 앙상블 학습의 유형
    * Voting
@@ -846,7 +846,7 @@ GBM 정확도: 0.9396
 * XGBoost는 트리 기반의 앙상블 학습에서 가장 각광받고 있는 알고리즘 중 하나이다.
 * XGBoost는 GBM에 기반하고 있지만, GBM의 단점인 느린 수행 시간 및 과적합 규제 부재 등의 문제를 해결했다.
 * 특히, XGBoost는 병렬 CPU 환경에서 병렬 학습이 가능해 기존 GBM보다 빠르게 학습할 수 있다.
-
+<br>
 
 * XGBoost 장점
    * 뛰어난 예측 성능
@@ -862,7 +862,7 @@ GBM 정확도: 0.9396
       * XGBoost는 반복 수행 시마다 내부적으로 학습/평가 데이터 세트에 대한 교차 검증을 수행해 최적화된 반복 수행 횟수를 가질 수 있다.
       * 지정된 반복 횟수가 아니라 교차 검증을 통해 평가 데이터 세트의 평가 값이 최적화 되면 반복을 중간에 멈출 수 있는 조기 중단 기능이 있다.
    * 결손값 자체 처리
-   
+<br>
    
 * XGBoost의 핵심 라이브러리는 C/C++로 작성.
 * XGBoost 개발 그룹은 파이썬 API 제공
@@ -877,7 +877,7 @@ GBM 정확도: 0.9396
    * $ codna install -c anaconda py-xgboost
 * 하이퍼 파라미터
    * 사이킷런 래퍼 XGBoost 모듈과 파라미터명이 다르다 (주의)
-   
+<br>
    
 * 과적합 문제가 심각하다면 다음을 고려하자.
    * eta 값을 낮춘다 (0.01 ~ 0.1). eta 값을 낮출 경우 num_round(또는 n_estimators)는 반대로 높여줘야 한다.
@@ -1064,11 +1064,11 @@ plot_importance(xgb_model, ax=ax)
 * XGBoost 개발 그룹은 사이킷런의 프레임워크와 연동하기 위해 사이킷런 전용의 XGBoost 래퍼 클래스를 개발했다.
 * 사이킷런의 기본 Estimator를 그대로 상속했기 때문에 다른 Estimator와 동일하게 fit( )과 predict( )만으로 학습과 예측이 가능하다.
 * 그리고 GridSearchCV, Pipeline 등 사이킷런의 다른 유틸리티를 그대로 사용할 수 있기 때문에 XGBoost 래퍼 클래스만 바꾸면 기존 프로그램을 그대로 사용할 수 있다.
-
+<br>
 
 * XGBClassifier
 * XGBRegressor
-
+<br>
 
 * XGBClassifier는 기존 사이킷런에서 사용하는 하이퍼 파라미터와 호환성을 유지하기 위해 기존의 xgboost 모듈에서 사용하던 네이티브 하이퍼 파라미터 몇 개를 다음과 같이 변경했다.
    * eta -> learning_rate
@@ -1222,16 +1222,16 @@ plot_importance(xgb_wrapper, ax=ax)
       * feature_fraction (colsample_bytree): 개별 트리를 학습할 때마다 무작위로 선택하는 피처의 비율
       * lambda_l2: L2 제어 값
       * lambda_l1: L1 제어 값
-   
 <br>
+
 * 하이퍼 파라미터 튜닝 방안
    * num_leaves의 개수를 중심으로 min_child_samples(min_data_in_leaf), max_depth를 함께 조정하면서 모델의 복잡도를 줄이는 것이 기본 뉴팅 방안이다.
    * learning_rate를 작게 하면서 n_estimators를 크게 하는 것은 부스팅 계열 튜닝에서 가장 기본적인 튜닝 방안이다. (너무 큰 n_estimators는 과적합 주의)
    * 과적합을 제어하기 위해서 
       * reg_lambda, reg_alpha와 같은 regularization을 적용한다.
       * 학습 데이터에 사용할 피처의 개수나 데이터 샘플링 레코드 개수를 줄이기 위해 colsample_bytree, subsample 파라미터를 적용한다.
- 
 <br>
+
 * 파이썬 래퍼 LightGBM 과 사이킷런 래퍼 XGBoost, LightGBM 하이퍼 파라미터 비교
 
 <img src="./images/pic_4_10.png" width="80%" height="80%">

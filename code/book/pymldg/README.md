@@ -12,8 +12,8 @@
 
 1. [파이썬 기반의 머신러닝과 생태계 이해](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_md/ch1/ch1_note.md)
 2. [사이킷런으로 시작하는 머신러닝](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_md/ch2/ch2_note.md)
-3. 평가 [[ch3_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch3/ch3_note.ipynb)]
-4. 분류 [[ch4_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch4/ch4_note.ipynb)]
+3. [평가](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_md/ch3/ch3_note.md)
+4. [분류](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_md/ch4/ch4_note.md)
 5. 회귀 [[ch5_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch5/ch5_note.ipynb)]
 6. 차원 축소 [[ch6_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch6/ch6_note.ipynb)]
 7. 군집화 [[ch7_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch7/ch7_note.ipynb)]
