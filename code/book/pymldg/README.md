@@ -6,7 +6,7 @@
 
 2020.03.03 ~ 04.05 (03.03 ~ 17 리딩. 03.17 ~ 04.07 - 복습 & 실습)
 
-`chx_note.ipynb` 파일에 예제 코드와 함께 책의 중요한 내용을 정리하였습니다.
+예제 코드를 실행해보며 책의 중요한 내용을 정리했습니다.
 
 ### Contents
 
@@ -15,7 +15,7 @@
 3. [평가](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_md/ch3/ch3_note.md)
 4. [분류](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_md/ch4/ch4_note.md)
 5. [회귀](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_md/ch5/ch5_note.md)
-6. 차원 축소 [[ch6_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch6/ch6_note.ipynb)]
+6. [차원 축소](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_md/ch6/ch6_note.md)
 7. 군집화 [[ch7_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch7/ch7_note.ipynb)]
 8. 텍스트 분석 [[ch8_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch8/ch8_note.ipynb)]
 9. 추천 시스템 [[ch9_note.ipynb](https://github.com/gritmind/my-review-notes/blob/master/code/book/pymldg/note_ipynb/ch9/ch9_note.ipynb)]
