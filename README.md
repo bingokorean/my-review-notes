@@ -8,7 +8,7 @@
 * [Tutorial](#Tutorial)
 * [Tech-Blog](#Tech-Blog)
 * [Snippet](#Snippet)
-* [Reference](#References)
+* [Useful-Link](#Useful-Link)
 
 
 <br>
@@ -150,12 +150,18 @@ _Offline_
 
 <br>
 
-## References
+## Useful-Link
 
-* [Top 20 NLP Blogs](https://blog.feedspot.com/natural_language_processing_blogs/) / [Google AI Blog](https://ai.googleblog.com/) / [Microsoft Research](https://www.microsoft.com/en-us/research/) / [Uber Engineering Blog](https://eng.uber.com/) / [Walmartlabs Tech Blog](https://medium.com/walmartlabs)
-* [Coursera](https://www.coursera.org/) / [edX](https://www.edx.org/) / [Udacity](https://www.udacity.com/) / [Standford Online](https://online.stanford.edu/)
-* [Lazy Programmer](https://lazyprogrammer.me/) / [Distill](https://distill.pub/) / [MachineLearningMastery](https://machinelearningmastery.com/) / [다크프로그래머](http://darkpgmr.tistory.com/)
-* [Tensorflow Tutorials](https://www.tensorflow.org/tutorials) / [PyTorch Tutorials](https://github.com/gritmind/review-code/tree/master/class/pytorch) / [Keras Examples](https://github.com/gritmind/review-code/tree/master/class/keras)
-* [nbviewer](https://nbviewer.jupyter.org/) / [PapersWithCode](https://paperswithcode.com/sota) / [Online-Debugger](https://www.onlinegdb.com/)
-* [Awesome Korean NLP](https://github.com/datanada/Awesome-Korean-NLP) / [Kor-NLP Dataset](https://insikk.github.io/awesome-korean-nlp/#dataset) / [AI API DATA](http://aiopen.etri.re.kr/) / [Public Datasets for AI](https://medium.com/startup-grind/fueling-the-ai-gold-rush-7ae438505bc2) / [MS Open Data](https://msropendata.com/) / [NLP Datasets](https://github.com/niderhoff/nlp-datasets) / [English NLP SOTA](https://github.com/magizbox/underthesea/wiki/English-NLP-SOTA#text-classification) / [Awesome Public Dataset](https://github.com/awesomedata/awesome-public-datasets)
-* [한글 및 한국어 정보처리 학술대회](http://hclt.kr/symp/?lnb=conference) / [언어공학연구회](http://hclt.kr/) / [Arxiv Sanity Preserver](http://www.arxiv-sanity.com/) / [Open-Review](https://openreview.net/) / [ACL Anthology](https://aclanthology.coli.uni-saarland.de/)
+
+* [NLP-progress](http://nlpprogress.com/english/text_classification.html) - Repository to track the progress in NLP, including the datasets and the current SOTA for the most common NLP tasks.
+* [Deep Learning Based Text Classification: A Comprehensive Review](https://arxiv.org/pdf/2004.03705.pdf)
+* [파이썬 알고리즘 구현 모음 - TheAlgorithms](https://github.com/TheAlgorithms/Python/blob/master/DIRECTORY.md)
+<br>
+
+* 온라인수업 - [Coursera](https://www.coursera.org/) / [edX](https://www.edx.org/) / [Udacity](https://www.udacity.com/) / [Standford Online](https://online.stanford.edu/) [K-MOOC](http://www.kmooc.kr/) / [edwith](https://www.edwith.org/) / [udemy](https://www.udemy.com/) / [inflearn](https://www.inflearn.com/) / [Lazy Programmer](https://lazyprogrammer.me/)
+* 라이브러리 - [Spark NLP](https://nlp.johnsnowlabs.com/) / [spaCy](https://spacy.io/)
+* 블로그 - [Top 20 NLP Blogs](https://blog.feedspot.com/natural_language_processing_blogs/) / [Google AI Blog](https://ai.googleblog.com/) / [Microsoft Research](https://www.microsoft.com/en-us/research/) / [Uber Engineering Blog](https://eng.uber.com/) / [Walmartlabs Tech Blog](https://medium.com/walmartlabs) / [Distill](https://distill.pub/) / [MachineLearningMastery](https://machinelearningmastery.com/) / [다크프로그래머](http://darkpgmr.tistory.com/)
+* 튜토리얼 - [Tensorflow Tutorials](https://www.tensorflow.org/tutorials) / [PyTorch Tutorials](https://pytorch.org/tutorials/) / [Keras Examples](https://github.com/keras-team/keras/tree/master/examples)
+* 데이터셋 - [Awesome Korean NLP](https://github.com/datanada/Awesome-Korean-NLP) / [Kor-NLP Dataset](https://insikk.github.io/awesome-korean-nlp/#dataset) / [AI API DATA](http://aiopen.etri.re.kr/) / [Public Datasets for AI](https://medium.com/startup-grind/fueling-the-ai-gold-rush-7ae438505bc2) / [MS Open Data](https://msropendata.com/) / [NLP Datasets](https://github.com/niderhoff/nlp-datasets) / [English NLP SOTA](https://github.com/magizbox/underthesea/wiki/English-NLP-SOTA#text-classification) / [Awesome Public Dataset](https://github.com/awesomedata/awesome-public-datasets)
+* 논문 - [한글 및 한국어 정보처리 학술대회](http://hclt.kr/symp/?lnb=conference) / [언어공학연구회](http://hclt.kr/) / [Arxiv Sanity Preserver](http://www.arxiv-sanity.com/) / [Open-Review](https://openreview.net/) / [ACL Anthology](https://aclanthology.coli.uni-saarland.de/) / [PapersWithCode](https://paperswithcode.com/sota)
+* 기타 - [nbviewer](https://nbviewer.jupyter.org/) / [Online-Debugger](https://www.onlinegdb.com/)
