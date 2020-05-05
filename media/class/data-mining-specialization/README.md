@@ -5,6 +5,7 @@ Jiawei Han, ChengXiang Zhai, John C. Hart <br>
 
 
 ## Pattern Discovery in Data Mining
+
 1. [A Brief Introduction to Data Mining](https://www.dropbox.com/s/k1bxrxqyo6pa3la/1_intro.pdf?dl=0)
 2. [Pattern Discovery Basic Concepts](https://www.dropbox.com/s/4ickp9c0oqwd99u/2_bisic_concepts.pdf?dl=0)
 3. [Efficient Pattern Mining Methods](https://www.dropbox.com/s/ep67dlxqxtlzz8h/3_efficient_methods.pdf?dl=0)
@@ -14,11 +15,17 @@ Jiawei Han, ChengXiang Zhai, John C. Hart <br>
 7. [Sequential Pattern Mining](https://www.dropbox.com/s/u9s7ay75aa3l878/7_sequential_pattern.pdf?dl=0)
 8. [Graph Pattern Mining](https://www.dropbox.com/s/cxk6fgkojrg3opb/8_graph_pattern.pdf?dl=0)
 9. [Pattern-Based Classification](https://www.dropbox.com/s/b0oo31hnhbvft5r/9_pattern_classification.pdf?dl=0)
-10. [Exploring Pattern Mining Applications](https://www.dropbox.com/s/qnturawhpudrj1v/10_pattern_application.pdf?dl=0) [[add](https://www.dropbox.com/s/ehmnzihyzq8o4uh/Lecture_7_PatternMiningApplications.pdf?dl=0)]
+10. [Exploring Pattern Mining Applications](https://www.dropbox.com/s/qnturawhpudrj1v/10_pattern_application.pdf?dl=0), [add](https://www.dropbox.com/s/ehmnzihyzq8o4uh/Lecture_7_PatternMiningApplications.pdf?dl=0)
 11. [Advanced Topics on Pattern Discovery](https://www.dropbox.com/s/1hebqud15vvf5zt/11_advanced_topic.pdf?dl=0)
+
+Programming Assignment
+
+* Frequent Itemset Mining Using Apriori
+* Mining Contiguous Sequential Patterns in Text
 
 
 ## Text Retrieval and Search Engines
+
 * Natural Language Techniques, Basic of Retrieval Model and Vector Space Model
 * Vector Space Model, Implement Information Retrieval System
 * Evaluation of TR Systems
