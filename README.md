@@ -35,13 +35,11 @@ _Books for nonprofessional_
 ## Course
 
 _Online_
-* [CS224n: Natural Language Processing with Deep Learning](https://github.com/gritmind/review/tree/master/media/class/cs224n-nlp-with-dl) (Stanford / Winter 2019) | 2019.9-12
-* [Deep Learning Nanodegree Foundation](https://github.com/gritmind/deep_learning_nanodegree_foundation) (Udacity) | 2017.01-06
-* [Data Mining Specialization](https://github.com/gritmind/review/tree/master/media/class/data-mining-specialization) (Coursera) | 2015.03-07, 2018.06-07
-   * Pattern Discovery in Data Mining & Cluster Analysis in Data Mining
-   * Text Retrieval and Search Engines & Text Mining and Analytics
-* [Machine Learning](https://github.com/gritmind/review/tree/master/media/class/machine-learning-coursera) (Coursera, Andrew Y.Ng) | 2015.08-10
-* [The Analytics Edge](https://github.com/gritmind/review/tree/master/media/class/analytics-edge) (edX) | 2015.07-09
+* [CS224n: Natural Language Processing with Deep Learning](https://github.com/gritmind/review/tree/master/media/class/cs224n-nlp-with-dl) (Stanford, Chris Manning, Winter 2019)
+* [Deep Learning Nanodegree Foundation](https://github.com/gritmind/deep_learning_nanodegree_foundation) (Udacity, 2017)
+* [Data Mining Specialization](https://github.com/gritmind/review/tree/master/media/class/data-mining-specialization) (Coursera, 2015)
+* [Machine Learning](https://github.com/gritmind/review/tree/master/media/class/machine-learning-coursera) (Coursera, Andrew Y.Ng, 2015)
+* [The Analytics Edge](https://github.com/gritmind/review/tree/master/media/class/analytics-edge) (edX, 2015)
 
 
 _Offline_
