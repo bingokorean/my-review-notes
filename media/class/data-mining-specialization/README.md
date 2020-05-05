@@ -8,14 +8,17 @@ Certificate of Data Mining Specialization is in [here](https://github.com/gritmi
 
 
 ## Pattern Discovery in Data Mining
-* Week1.
-   * Pattern Discovery Basic Concepts [[annotated-slides](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/annotated_slides/pattern_discovery/Lecture_1_BasicConcepts.pdf)]
-   * Efficient Pattern Mining Methods 
-* Pattern Evaluation, Mining Diverse Frequent Patterns
-* Sequential Pattern Mining, Mining Spatiotemporal and Trajectory Patterns
-* Week4.
-   * Mining Quality Phrases from Text Data [[annotated-slides](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/annotated_slides/pattern_discovery/Lecture_7_PatternMiningApplications.pdf)]
-   * Advanced Topics on Pattern Discovery
+1. [A Brief Introduction to Data Mining](https://www.dropbox.com/s/k1bxrxqyo6pa3la/1_intro.pdf?dl=0)
+2. [Pattern Discovery Basic Concepts](https://www.dropbox.com/s/4ickp9c0oqwd99u/2_bisic_concepts.pdf?dl=0)
+3. [Efficient Pattern Mining Methods](https://www.dropbox.com/s/ep67dlxqxtlzz8h/3_efficient_methods.pdf?dl=0)
+4. [Pattern Evaluation](https://www.dropbox.com/s/qtfcdtwpxu2vi1n/4_pattern_evaluation.pdf?dl=0)
+5. [Mining Diverse Patterns](https://www.dropbox.com/s/7epvpl56du0dwkt/5_diverse_pattern.pdf?dl=0)
+6. [Constraint-Based Pattern Mining](https://www.dropbox.com/s/s3nykyjd5pfcqhd/6_constaint_pattern.pdf?dl=0)
+7. [Sequential Pattern Mining](https://www.dropbox.com/s/u9s7ay75aa3l878/7_sequential_pattern.pdf?dl=0)
+8. [Graph Pattern Mining](https://www.dropbox.com/s/cxk6fgkojrg3opb/8_graph_pattern.pdf?dl=0)
+9. [Pattern-Based Classification](https://www.dropbox.com/s/b0oo31hnhbvft5r/9_pattern_classification.pdf?dl=0)
+10. [Exploring Pattern Mining Applications](https://www.dropbox.com/s/qnturawhpudrj1v/10_pattern_application.pdf?dl=0) [[pdf](https://www.dropbox.com/s/ehmnzihyzq8o4uh/Lecture_7_PatternMiningApplications.pdf?dl=0)]
+11. [Advanced Topics on Pattern Discovery](https://www.dropbox.com/s/1hebqud15vvf5zt/11_advanced_topic.pdf?dl=0)
 
 
 ## Text Retrieval and Search Engines
