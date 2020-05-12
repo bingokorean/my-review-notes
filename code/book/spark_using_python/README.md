@@ -92,6 +92,34 @@
 
 <p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_1_2.png" width="60%" height="60%"></p>
 
+* 일반적으로 많은 호스트는 완전히 분산된 하둡 클러스터에서 데이터 노드 프로세스를 실행한다.
+* 데이터 노드 프로세스는 하둡에 구축된 스파크 응용 프로그램을 위한 분산 스파크 작업자(worker) 프로세스에 파티션 형식의 입력 데이터를 제공한다.
+<br>
+
+* 파일시스템과 가상 디렉토리, 파일 및 파일을 구성하는 물리적 블록에 대한 정보는 파일 시스템 메타데이터(metadata)에 저장된다.
+* 파일시스템 메타데이터는 네임노드(NameNode)라는 HDFS 마스터 노드 프로세스의 상주 메모리에 저장된다.
+* HDFS 클러스터의 네임노드는 관계형 데이터베이스 트랜잭션 로그와 유사한 저널링(journaling) 함수를 통해 메타데이터에 대한 내구성을 제공하고, HDFS 클라이언트에 읽기 및 쓰기 작업을 위한 블록 위치를 제공한다.
+* 클라이언트는 데이터 연산을 위해 데이터노드(DataNode)와 직접 통신한다.
+* 그림 1.3은 HDFS 읽기 작업 구조를, 그림 1.4는 HDFS의 쓰기 작업의 구조를 나타낸다.
+
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_1_3.png" width="60%" height="60%"></p>
+
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_1_4.png" width="60%" height="60%"></p>
+
+#### YARN 을 이용한 응용 스케줄링
+
+* 하둡은 일반적으로 HDFS에서 데이터를 가져오고, HDFS에 데이터를 기록한다. YARN은 이런 하둡의 데이터 처리를 제어하고 조율한다.
+* YARN 클러스터 아키텍쳐는 HDFS의 master/slave 클러스터 프레임워크와 같다.
+   * 여기서 HDFS는 리소스 매니저(Resource Manager)라는 마스터 노드 데몬과
+   * 클러스터의 작업자(Worker)나 slave 노드에서 실행되는 노드 매니저(Node Manager)라는 하나 이상의 slave 노드 데몬을 포함한다.
+<br>
+
+* 리소스 매니저는 클러스터에서 실행 중인 응용 프로그램에 클러스터 컴퓨팅 리소스를 부여한다.
+   * 리소스는 컨테이너(container)라는 단위로 미리 정의된 CPU 코어와 메모리 조합이다.
+   * 컨테이너는 최소 임곗값 및 최대 임곗값을 포함해 할당되고 클러스터에서 구성되며, 하나 이상의 프로세스 전용 리소스를 분리하는 데 사용된다.
+
+
+
 
 ...
 
@@ -499,7 +527,7 @@ $SPARK_HOME/bin/spark-submit \
 * SparkSession 객체는 SparkContext, SparkConf 자식 객체를 통해 Master, 응용 프로그램 이름, Executors의 개수 등 사용자가 설정한 모든 런타임 구성 속성을 포함한다.
 * 다음 그림은 pyspark shell 내의 SparkSession 객체와 그 구성 속성 중 일부를 보여준다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_3_1.png" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_3_2.png" width="60%" height="60%"></p>
 
 * 다음 코드는 spark-submit으로 제출된 프로그램과 같은 비대화식 스파크 응용 프로그램 내에서 SparkSession을 생성하는 방법을 보여준다.
 
@@ -589,6 +617,94 @@ print("The total number of lines is " + str(numlines))
 * 리소스 매니저는 YARN 노드 매니저에서 실행되는 컨테이너의 상태를 예약, 할당 및 모니터링한다. 스파크 응용 프로그램은 clutser 모드에서 실행 중인 응용 프로그램의 master 프로세스처럼 이 컨테이너를 사용해 executor 프로세스를 호스트한다.
 
 ### 3.2. 독립실행형 스케줄러를 사용하는 스파크 응용 프로그램
+
+...
+
+### 3.3. YARN에서 실행되는 스파크 응용 프로그램의 배포 모드
+
+#### Client 모드
+
+* Client 모드에서 Driver 프로세스는 응용 프로그램을 제출하는 client에서 실행된다.
+* 기본적으로 관리되지 않으므로 Driver 호스트가 실패하면 그 응용 프로그램도 실패한다.
+* Client 모드는 대화식 셸 세션(pyspark, spark-shell)과 비대화식 응용 프로그램 제출(spark-submit) 모두 지원한다.
+* 다움 코드는 Client 배포 모드를 사용해 pyspark 세션을 시작하는 방법을 보여 준다.
+
+```
+# 코드 3.2. YARN Client 배포 모드
+
+$SPARK_HOME/bin/pyspark \
+--master yarn-client \
+--num-executors 1 \
+--driver-memory 512m \
+--executor-memory 512m \
+--executor-cores 1
+
+# OR
+
+$SPARK_HOME/bin/pyspark \
+--master yarn \
+--deploy-mode client \
+--num-executors 1 \
+--driver-memory 512m \
+--executor-memory 512m \
+--executor-cores 1
+```
+
+* 다음 그림은 client 모드로 YARN에서 실행되는 스파크 응용 프로그램의 개요를 보여 준다.
+
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_3_3.png" width="60%" height="60%"></p>
+
+1. 클라이언트는 스파크 응용 프로그램을 클러스터 매니저(YARN 리소스 매니저)에 제출한다. Driver 프로세스, SparkSession 및 SparkContext가 만들어지고, 클라이언트에서 실행된다.
+2. 리소스 매니저는 응용 프로그램에 대해 애플리케이션 마스터(스파크 마스터)를 할당한다.
+3. 애플리케이션 마스터는 리소스 매니저에게 실행자로 사용될 컨테이너를 요청한다. 할당된 컨테이너로 실행자가 생성된다.
+4. 클라이언트에 속한 Driver는 스파크 프로그램의 작업 및 단계 프로세스를 감시하기 위해 실행자와 통신한다. Driver는 진행률, 결과 및 상태를 클라이언트에 보고한다.
+<br>
+
+* Client 배포 모드는 사용하기에 가장 간단한 모드이지만, 대부분의 프로덕션 응용 프로그램에 필요한 복원력은 부족하다.
+
+#### Cluster 모드
+
+* Client 모드 배포 모드와 달리, YARN 클러스터 모드에서 실행되는 스파크 응용 프로그램과 Driver는 애플리케이션 마스터의 하위 프로세스로 클러스터에서 실행된다.
+* 만약 Driver를 호스팅하는 애플리케이션 마스터 프로세스가 실패하면, 클러스터의 다른 노드에서 다시 인스턴스화될 수 있다. 이처럼 Cluster 모드는 탄력적이다.
+* Driver가 클러스터에서 실행 중인 비동기 프로세스이므로 Cluster 모드는 대화형 셸 응용 프로그램(pyspark 및 spark-shell)에서 지원되지 않는다.
+* 다음 코드는 spark-submit과 YARN 클러스터 배포 모드를 사용해 응용 프로그램을 제출하는 방법을 보여 준다.
+
+```
+# 코드 3.3. YARN Cluster 배포 모드
+
+$SPARK_HOME/bin/spark-submit \
+--master yarn-cluster \
+--num-executors 1 \
+--driver-memory 512m \
+--executor-memory 512m \
+--executor-cores 1
+$SPARK_HOME/examples/src/main/python/pi.py 10000
+
+# OR
+
+$SPARK_HOME/bin/spark-submit \
+--master yarn \
+--deploy-mode cluster \
+--num-executors 1 \
+--driver-memory 512m \
+--executor-memory 512m \
+--executor-cores 1
+$SPARK_HOME/examples/src/main/python/pi.py 10000
+```
+
+* 다음 그림은 Cluster 모드의 YARN에서 실행되는 스파크 응용 프로그램의 개요를 나타낸다.
+
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_3_4.png" width="60%" height="60%"></p>
+
+1. 클라이언트(spark-submit을 호출하는 사용자 프로세스)는 스파크 응용 프로그램을 클러스터 매니저(YARN 리소스 매니저)에 제출한다.
+2. 리소스 매니저는 응용 프로그램에 적합한 애플리케이션 마스터(스파크 마스터)를 할당한다. 그러면 동일한 클러스터 노드에서 Driver 프로세스가 생성된다.
+3. 애플리케이션 마스터는 리소스 매니저에게 실행자용 컨테이너를 요청한다.
+   * 실행자는 리소스 매니저에 의해 애플리케이션 마스터에 할당된 컨테이너 안에 생성된다.
+   * 그런 다음 Driver는 스파크 프로그램의 작업 및 단계 프로세스를 감시하기 위해 실행자와 통신한다.
+4. 클러스터 노드에서 실행 중인 Driver는 진행률, 결과 및 상태를 클라이언트에 보고한다.
+
+* 이와 같이 스파크 응용 프로그램 웹 UI는 클러스터의 애플리케이션 마스터 호스트에서 사용할 수 있다.
+* 이 사용자 인터페이스에 대한 링크는 YARN 리소스 매니저 UI를 통해 이용할 수 있다.
 
 ...
 
@@ -1354,12 +1470,12 @@ mynewrdd.getNumPartitions()
 * 기본 동작은 일반적으로 사용할 수 있지만, 어떤 경우에는 비효율적이다.
    * 다행히도 스파크는 이러한 잠재적 문제를 해결할 수 있는 몇 가지 메커니즘을 제공한다.
 
-#### 5.1.2. 파티션 제어
+#### 5.2.2. 파티션 제어
 
 * RDD에는 몇 개의 파티션이 있어야 할까?
 * 문제는 다음 두 가지 양극단의 스펙트럼에서 발생한다.
    * 매우 적은 파티션 개수를 가진다면, 매우 큰 크기의 파티션이 실행자에게 메모리 부족 문제가 발생한다.
-   * 매우 많은 파티션 개수를 가진다면, 매우 작은 크기의 파티션 때문에 작은 입력애도 작업이 발생한다. (쓸데없이 작업량이 증가됨)
+   * 매우 많은 파티션 개수를 가진다면, 매우 작은 크기의 파티션 때문에 작은 입력에도 작업이 발생한다. (쓸데없이 작업량이 증가됨)
 * 크고 작은 파티션을 혼합하면, 추측 실행(speculative execution)이 불필요하게 발생한다.
    * 추측 실행은 클러스터 스케줄러가 늘리게 실행되는 프로세스를 선점하기 위해 사용되는 메커니즘이다.
 * 스파크 응용 프로그램에서 하나 이상의 프로세스가 느려지는 근본적인 원인이 비효율적인 파티셔닝이라면, 추측 실행은 도움이 되지 않는다.
