@@ -499,7 +499,7 @@ $SPARK_HOME/bin/spark-submit \
 * 단일 기기든 수백 수천 개의 노드로 구성된 클러스터든 스파를 실행하는 응용 프로그램은 모두 구성 요소가 있다.
 * 각 구성 요소는 스파크 응용 프로그램을 실행하는 동안 필요하며, 특정한 역할이 있다.
 * client와 같은 일부 구성 요소는 실행 중에 수동적으로 작동하지만, 계산 함수를 포함한 또 다른 구성 요소는 프로그램 실행 중에 활성화된다.
-* 구성 요소는 Driver, Master, Cluster Manager, 작업자 노드를 실행시키는 Executor(실행자), 그리고 Workers(작업자)이다.
+* 구성 요소는 Driver, Master, Cluster Manager, 작업자 노드를 실행시키는 Executor(실행자), 그리고 Worker(작업자)이다.
 * 다음 그림은 스파크 독립실행형 응용 프로그램 콘텍스트의 모든 스파크 구성 요소를 보여준다.
 
 <p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_3_1.png" width="60%" height="60%"></p>
@@ -580,7 +580,7 @@ print("The total number of lines is " + str(numlines))
 #### 스파크 Executor 및 Worker
 
 * 스파크 Executor는 스파크 DAG 작업이 실행되는 프로세스이다.
-* Executor는 스파크 크러스터에 slave 노드 또는 worker의 CPU 및 메모리 리소스를 예약한다. 이는 특정 스파크 응용 프로그램 전용이며, 응용 프로그램이 완료되면 종료된다.
+* Executor는 스파크 크러스터에 worker(=slave) 노드의 CPU 및 메모리 리소스를 예약한다. 이는 특정 스파크 응용 프로그램 전용이며, 응용 프로그램이 완료되면 종료된다.
 * 스파크 프로그램은 보통 많은 Executor로 구성되며, 종종 병렬로 작업한다.
 * 일반적으로 Executor 프로세스를 호스팅하는 Worker 노드에는 유한하거나 고정된 수의 Executor가 특정 시점에 할당된다. 
    * 따라서, 노드의 수를 알고 있는 클러스터에는 주어진 시간에 실행할 수 있는 Executor의 수가 한정된다.
@@ -658,7 +658,6 @@ $SPARK_HOME/bin/pyspark \
 2. 리소스 매니저는 응용 프로그램에 대해 애플리케이션 마스터(스파크 마스터)를 할당한다.
 3. 애플리케이션 마스터는 리소스 매니저에게 실행자로 사용될 컨테이너를 요청한다. 할당된 컨테이너로 실행자가 생성된다.
 4. 클라이언트에 속한 Driver는 스파크 프로그램의 작업 및 단계 프로세스를 감시하기 위해 실행자와 통신한다. Driver는 진행률, 결과 및 상태를 클라이언트에 보고한다.
-<br>
 
 * Client 배포 모드는 사용하기에 가장 간단한 모드이지만, 대부분의 프로덕션 응용 프로그램에 필요한 복원력은 부족하다.
 

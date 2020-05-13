@@ -26,12 +26,22 @@ Programming Assignment
 
 ## Text Retrieval and Search Engines
 
-* Natural Language Techniques, Basic of Retrieval Model and Vector Space Model
-* Vector Space Model, Implement Information Retrieval System
-* Evaluation of TR Systems
-* Probabilistic Retrieval Model, Statistical Language Model, Smoothing Methods,
-* Feedback techniques, Systems for Web, Link Analysis
-* Learning to Rank, Recommender Systems
+1. Natural Language Content Analysis
+2. [Text Access](https://www.dropbox.com/s/8lnxdtfvcc5y931/2_text_access.pdf?dl=0)
+3. [Text Retrieval Problem](https://www.dropbox.com/s/o1eovxcpb65mpvp/3_tex_retr_problem.pdf?dl=0)
+4. [Text Retrieval Methods](https://www.dropbox.com/s/i9q8fcyiurb28he/4_text_retr_methods.pdf?dl=0)
+5. [Vector Space Model](https://www.dropbox.com/s/3xirrh1s28t82pt/5_vector_space_model.pdf?dl=0)
+6. [System Implementation](https://www.dropbox.com/s/4at39mnnzwi8xkh/6_system_impl.pdf?dl=0)
+7. [Evaluation](https://www.dropbox.com/s/io7dwlpquatauv6/7_evaluation.pdf?dl=0)
+8. [Probabilistic Model](https://www.dropbox.com/s/sjz7ikg6swlmpfe/8_prob_model.pdf?dl=0)
+9. [Feedback](https://www.dropbox.com/s/iftlb0lpcy9lu0b/9_feedback.pdf?dl=0)
+10. [Web Search](https://www.dropbox.com/s/avjlvzh42xujhfm/10_web_search.pdf?dl=0)
+11. [Recommendation](https://www.dropbox.com/s/5r6ox5s1c920u1m/11_recommendation.pdf?dl=0)
+
+Programming Assignment
+
+* MeTA Overview
+* Search Engine Competition
 
 
 ## Cluster Analysis in Data Mining
