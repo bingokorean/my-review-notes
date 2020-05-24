@@ -45,15 +45,28 @@ Programming Assignment
 
 
 ## Cluster Analysis in Data Mining
-* Week1.
-   * Introduction [[annotated-slides](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/annotated_slides/cluster_analysis/Lecture_1_Introduction.pdf)]
-   * Similarity Measures for Cluster Analysis [[annotated-slides](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/annotated_slides/cluster_analysis/Lecture_2_Similarity_Measures_for_Cluster_Analysis.pdf)]
-* Partitioning-Based Clustering Methods, Hierarchical Clustering Methods, ClusterEnG
-* Hierarchical Clustering Methods, Density-Based and Grid-Based Clustering Methods
-* Methods for Clustering Validation
 
+1. [Cluster Analysis: An Introduction](https://www.dropbox.com/s/kil0rnaozinlxqz/1_introduction.pdf?dl=0)
+2. [Similarity Measures for Cluster Analysis](https://www.dropbox.com/s/kzoi7m9aaupcc0e/2_similarity_measures.pdf?dl=0)
+3. [Partitioning-Based Clustering Methods](https://www.dropbox.com/s/myt2nnz0wqoee35/3_partitioning_clustering.pdf?dl=0)
+4. [Hierarchical Clustering Methods](https://www.dropbox.com/s/odtzy2soca4sic4/4_hierarchical_clustering.pdf?dl=0)
+5. [Density-Based and Grid-Based Clustering Methods](https://www.dropbox.com/s/72404nm5p1q6w1d/5_density_grid_clustering.pdf?dl=0)
+6. [Probabilistic Model-Based Clustering Methods](https://www.dropbox.com/s/l0me7efzh0et4oc/6_probabilistic_model_clustering.pdf?dl=0)
+7. [Methods for Clustering Validation](https://www.dropbox.com/s/vz5w8msw631j706/7_clustering_validation.pdf?dl=0)
+8. [Clustering High-Dimensional Data](https://www.dropbox.com/s/ej9s3rivg8adw6b/8_high_dimensional_data.pdf?dl=0)
+9. [Constraint-Based Clustering](https://www.dropbox.com/s/2nxlukfne29au3s/9_constraint_clustering.pdf?dl=0)
+10. [Clustering Graphs and Networked Data](https://www.dropbox.com/s/k9gerl29fc428la/10_graph_network_data.pdf?dl=0)
+11. [Cluster Analysis in Heterogeneous Networks](https://www.dropbox.com/s/c46grcvfwk3lu11/11_heterogeneous_network.pdf?dl=0)
+12. [Advanced Topics and Applications](https://www.dropbox.com/s/t2x5kydf8cz0euk/12_advanced_topics_apps.pdf?dl=0)
+
+Programming Assignment
+
+* Implementing the K-means Clustering Algorithm
+* Implementing Clustering Validation Measures
+* K-Means vs. Kernel K-Means for non-spherical data and Evaluation [[report](https://1drv.ms/w/s!AllPqyV9kKUrgW1ThnUfolJBO7c2)][[code](https://github.com/gritmind/review-media/tree/master/class/data-mining-specialization/assignments/kmeans)]
 
 ## Text Mining and Analytics
+
 * Week1. Overview TM&NLP, Text Representation, Word Association Mining, Paradigmatic Relation Discovery [[**Note**](https://1drv.ms/w/s!AllPqyV9kKUrwVNdWlV5fIogmuQp)]
 * Week2. Syntagmatic Relation Discovery, Topic Mining and Analysis, Probabilistic Topic Models
 * Week3. Probabilistic Topic Models, Probabilistic Latent Semantic Analysis, Latent Dirichlet Allocation
@@ -63,8 +76,6 @@ Programming Assignment
 
 
 
-## Programming Assignments
-* K-Means vs. Kernel K-Means for non-spherical data and Evaluation [[report](https://1drv.ms/w/s!AllPqyV9kKUrgW1ThnUfolJBO7c2)][[code](https://github.com/gritmind/review-media/tree/master/class/data-mining-specialization/assignments/kmeans)]
 
 
 ## Capstone Project

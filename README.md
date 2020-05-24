@@ -138,6 +138,9 @@ _Offline_
 
 ## Snippet
 
+* [Intuitive Explanations](https://www.dropbox.com/s/9tmno105u30y5vu/intuitive_exaplanations.pdf?dl=0)
+* [Singular Value Decomposition Application](https://www.dropbox.com/s/9cfyl0xznkcwfkq/singular_value_decomposition_applications.pdf?dl=0)
+* [Fourier Transform in 1D and 2D](https://www.dropbox.com/s/oudlhjss6jnh7nh/fourier_transform_1d2d.pdf?dl=0) 
 * Syntax Comparison between Python and Java [[note](https://1drv.ms/w/s!AllPqyV9kKUrwxOo9L1syWAnlRoh)] | 2018.10
 * Visualizing Layer Representations in Neural Networks [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/tutorial/Visualizing-Layer-Representations-in-Neural-Networks.ipynb)] | 
 * 한국어 감정 분석 by PyCon Korea 2015, LucyPark [[.ipynb](https://nbviewer.jupyter.org/github/gritmind/review/blob/master/code/tutorial/korean_lucypark/Korean_Sentiment_Analysis.ipynb)]
