@@ -15,7 +15,7 @@ Jiawei Han, ChengXiang Zhai, John C. Hart <br>
 7. [Sequential Pattern Mining](https://www.dropbox.com/s/u9s7ay75aa3l878/7_sequential_pattern.pdf?dl=0)
 8. [Graph Pattern Mining](https://www.dropbox.com/s/cxk6fgkojrg3opb/8_graph_pattern.pdf?dl=0)
 9. [Pattern-Based Classification](https://www.dropbox.com/s/b0oo31hnhbvft5r/9_pattern_classification.pdf?dl=0)
-10. [Exploring Pattern Mining Applications](https://www.dropbox.com/s/qnturawhpudrj1v/10_pattern_application.pdf?dl=0), [add](https://www.dropbox.com/s/ehmnzihyzq8o4uh/Lecture_7_PatternMiningApplications.pdf?dl=0)
+10. [Exploring Pattern Mining Applications](https://www.dropbox.com/s/qnturawhpudrj1v/10_pattern_application.pdf?dl=0), ([add](https://www.dropbox.com/s/ehmnzihyzq8o4uh/Lecture_7_PatternMiningApplications.pdf?dl=0))
 11. [Advanced Topics on Pattern Discovery](https://www.dropbox.com/s/1hebqud15vvf5zt/11_advanced_topic.pdf?dl=0)
 
 Programming Assignment
@@ -67,12 +67,17 @@ Programming Assignment
 
 ## Text Mining and Analytics
 
-* Week1. Overview TM&NLP, Text Representation, Word Association Mining, Paradigmatic Relation Discovery [[**Note**](https://1drv.ms/w/s!AllPqyV9kKUrwVNdWlV5fIogmuQp)]
-* Week2. Syntagmatic Relation Discovery, Topic Mining and Analysis, Probabilistic Topic Models
-* Week3. Probabilistic Topic Models, Probabilistic Latent Semantic Analysis, Latent Dirichlet Allocation
-* Week4. Text Clustering, Text Categorization
-* Week5. Text Categorization, Opinion Mining and Sentiment Analysis
-* Week6. Opinion Mining and Sentiment Analysis, Text-Based Prediction, Contextual Text Mining
+0. [Overview Text Mining and Analytics](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/notes/overview_text_mining.md), ([note](https://onedrive.live.com/view.aspx?resid=2BA5907D25AB4F59!8403&ithint=file%2cdocx&authkey=!AF1aVXl8iiCa5Ck))
+1. [Natural Language Processing](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/notes/natural_language_content_analysis.md)
+2. [Text Representation](https://www.dropbox.com/s/pdgrn2mt4vjcsce/2_text_representation.pdf?dl=0)
+3. [Word Association Mining and Analysis](https://www.dropbox.com/s/i6nsx1btcpejxoe/3_word_association_mining_and_analysis.pdf?dl=0)
+4. Topic Mining and Analysis
+5. Text Clustering
+6. Text Categorization
+7. [Opinion Mining and Sentiment Analysis](https://www.dropbox.com/s/2pim9afpr7pfl8f/7_opinion_mining_and_sentiment_analysis.pdf?dl=0)
+8. [Text-Based Prediction](https://www.dropbox.com/s/gojyq6b82f583bo/8_text_based_prediction.pdf?dl=0)
+9. [Contextual Text Mining](https://www.dropbox.com/s/bv8mdd0dganb51x/9_contextual_text_mining.pdf?dl=0)
+
 
 
 
@@ -91,6 +96,3 @@ Programming Assignment
 * [Data Visualization](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/certificate/Coursera%20datavisualization.pdf)
 * [Data Mining Capstone Project](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/certificate/data_mining_project.pdf)
 * [Data Mining Specialization](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/certificate/data_mining_specialization.pdf)
-
-
-
