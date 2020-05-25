@@ -37,7 +37,7 @@ _Books for nonprofessional_
 _Online_
 * [CS224n: Natural Language Processing with Deep Learning](https://github.com/gritmind/review/tree/master/media/class/cs224n-nlp-with-dl) (Stanford, Chris Manning, Winter 2019)
 * [Deep Learning Nanodegree Foundation](https://github.com/gritmind/deep_learning_nanodegree_foundation) (Udacity, 2017)
-* [Statistics in Medicine](https://github.com/gritmind/review/tree/master/media/class/statistics_in_medicine)
+* [Statistics in Medicine](https://github.com/gritmind/review/tree/master/media/class/statistics_in_medicine) (Standford Online, 2015)
 * [**Data Mining Specialization**](https://github.com/gritmind/review/tree/master/media/class/data-mining-specialization) (Coursera, 2015)
 * [Machine Learning](https://github.com/gritmind/review/tree/master/media/class/machine-learning-coursera) (Coursera, Andrew Y.Ng, 2015)
 * [The Analytics Edge](https://github.com/gritmind/review/tree/master/media/class/analytics-edge) (edX, 2015)

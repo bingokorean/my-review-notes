@@ -7,7 +7,7 @@ Natural Language Content Analysis is the foundation of text mining. In particula
 한 문장을 예를 들어서, NLP의 기본 개념들을 살펴보자.
 다음과 같은 문장을 보았을 때, (영어권) 사람은 특별한 고민 없이 잘 이해할 수 있다. 반면, 컴퓨터는 다음과 같은 문장을 이해하기 위해서 몇 단계의 프로세스를 거쳐야 한다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/media/class/data-mining-specialization/notes/images/nlp_process.PNG" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/media/class/data-mining-specialization/notes/images/nlp_process.png" width="60%" height="60%"></p>
 
 1. Tokenization: knowing what are the words: how to segment the words in English / 그냥 공백 기준으로 나누기만 하면 된다.
 2. Lexical analysis (Part-of-speech tagging): knowing the syntactical categories of the token words / for example dog is a noun, chasing is a verb, etc / 단어 단위의 프로세싱
@@ -54,7 +54,7 @@ Yet for a computer these would be very difficult because a computer does not hav
 
 위와 같은 문제점 때문에 (특히 ambiguity) the-state-of-the-art 알고리즘이라 하더라도 정확하게 처리하지 못한다. (2015년 기준) 간단한 task인 POS도 100% 정확도를 못 가진다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/media/class/data-mining-specialization/notes/images/nlp_score.PNG" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/media/class/data-mining-specialization/notes/images/nlp_score.png" width="60%" height="60%"></p>
 
 심지어 특정 데이터셋에 한정해서 성능평가를 했기 때문에 위의 수치들이 잘 나온 것이라고 볼 수 있다. 데이터셋을 일반화시키면 위와 같은 성능은 나오지 않을 것이다. 
 
@@ -109,13 +109,3 @@ But, this course will cover the general statistical approaches that don’t requ
    * Shallow NLP based on statistical methods can be done in large scale and is thus more broadly applicable to a lot of applications. 
 * In practice: statistical NLP as the basis, while humans provide help as needed in various ways.
  
-
-
-
-
-
-
-
-
-
-

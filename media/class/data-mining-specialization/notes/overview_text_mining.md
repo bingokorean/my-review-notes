@@ -19,7 +19,7 @@
 * Text data와 non-text data의 유사점(analogy)이 무엇인지 살펴보자. 
 * 사람(=subject sensor)을 온도계처럼 physical sensor처럼 생각해보자.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/media/class/data-mining-specialization/notes/images/human_sensor.PNG" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/media/class/data-mining-specialization/notes/images/human_sensor.png" width="60%" height="60%"></p>
 
 * (물리적인) 센서들은 세상을 자기들만의 방식으로 보고, 자기들만의 format으로 저장한다. 이들과 유사하게 (주관적인) 센서인 사람들 역시 자기들만의 관점(perspective)에서 세상을 바라보고 text format으로 저장한다. 
 * 이렇게 사람을 일종의 센서라고 정의하면 위의 그림과 같이 모든 데이터 종류에 상관없이 하나의 똑같은 framework로 만들 수 있다.
@@ -29,7 +29,7 @@
 * Data mining을 해결하는데 위와 같이 (text와 non-text 관계없이) 모든 데이터를 통합적으로 생각하는 방법이 필요하다. 
 * Non text data 못지않게 text data도 중요한데, 이유는 text data contain semantic contents, knowledge about the users especially preferences and opinions of users.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/media/class/data-mining-specialization/notes/images/data_mining_problem.PNG" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/media/class/data-mining-specialization/notes/images/data_mining_problem.png" width="60%" height="60%"></p>
 
 * 데이터 마이닝 문제는 모든 데이터를 (문제 해결에 용이한) actionable knowledge (=decision making)로 바꾸는 것이다. 
 * Data Mining Software 모듈에는 다양한 데이터 타입을 처리할 수 있는 다양한 종류의 데이터 마이닝 알고리즘들이 존재한다. 
@@ -38,7 +38,7 @@
 
 Text mining 문제 역시 일반 데이터 마이닝 문제와 비슷하다. 따라서, text 뿐만 아니라 non-text data도 같이 처리해줘야 한다. (Joint Mining)
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/media/class/data-mining-specialization/notes/images/non_text_data.PNG" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/media/class/data-mining-specialization/notes/images/non_text_data.png" width="60%" height="60%"></p>
 
 ### Landscape of Text Mining and Analytics
 
@@ -46,7 +46,7 @@ Text mining 문제 역시 일반 데이터 마이닝 문제와 비슷하다. 따
    * 단계가 진행될수록 (1->5) mining하기 어렵다. 
    * 단계들의 결과를 재사용하거나 non-text data를 사용하면 다음 단계들의 knowledge를 잘 mining할 수 있다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/media/class/data-mining-specialization/notes/images/text_mining_landscape.PNG" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/media/class/data-mining-specialization/notes/images/text_mining_landscape.png" width="60%" height="60%"></p>
 
 사람마다 자기만의 관점으로 세상을 바라보면서 글로 표현한다. 또한, 같은 사람일지라도 시간에 따라 다른 관점을 가질 수도 있다. So, humans are able to perceive the world from some perspective and then the human sensor would form a view of the world called observed world. Of course, this would be different from the real world because the perspective the person has taken can often be biased. 
 
@@ -74,4 +74,4 @@ So, in this sense, non-text data can actually provide interesting angles or pers
 
 위에서 제시한 Mining 방법들이 다음과 같이 연결된다. 여기는 application과 같다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/media/class/data-mining-specialization/notes/images/text_mining_app.PNG" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/media/class/data-mining-specialization/notes/images/text_mining_app.png" width="60%" height="60%"></p>
