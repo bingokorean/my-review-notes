@@ -71,15 +71,19 @@ Programming Assignment
 1. [Natural Language Processing](https://github.com/gritmind/review/blob/master/media/class/data-mining-specialization/notes/natural_language_content_analysis.md)
 2. [Text Representation](https://www.dropbox.com/s/pdgrn2mt4vjcsce/2_text_representation.pdf?dl=0)
 3. [Word Association Mining and Analysis](https://www.dropbox.com/s/i6nsx1btcpejxoe/3_word_association_mining_and_analysis.pdf?dl=0)
-4. Topic Mining and Analysis
-5. Text Clustering
-6. Text Categorization
+4. [Topic Mining and Analysis](https://www.dropbox.com/s/wcdl2gr86wyvwtm/4_topic_mining_and_analysis.pdf?dl=0)
+5. [Text Clustering](https://www.dropbox.com/s/ku2ccbjv26esxs1/5_text_clustering.pdf?dl=0)
+6. [Text Categorization](https://www.dropbox.com/s/ptrlkune026w4q0/6_text_categorization.pdf?dl=0)
 7. [Opinion Mining and Sentiment Analysis](https://www.dropbox.com/s/2pim9afpr7pfl8f/7_opinion_mining_and_sentiment_analysis.pdf?dl=0)
 8. [Text-Based Prediction](https://www.dropbox.com/s/gojyq6b82f583bo/8_text_based_prediction.pdf?dl=0)
 9. [Contextual Text Mining](https://www.dropbox.com/s/bv8mdd0dganb51x/9_contextual_text_mining.pdf?dl=0)
 
+Programming Assignment
 
-
+* Task 1 (Part of Speech Tagging) where you will apply POS tagging on a document
+* Task 2 (Word Association Mining) in which you will implement mutual information and extract the top syntagmatically related words from the corpus
+* Task 3 (Topic Modeling) where you will code a part of PLSA and experiment with its parameters
+* Task 4 (Text Mining Classification) where you are going to use Yelp restaurant reviews to predict whether each restaurant is clean or not as judged by health inspectors
 
 
 
