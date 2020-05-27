@@ -80,10 +80,10 @@ Programming Assignment
 
 Programming Assignment
 
-* Task 1 (Part of Speech Tagging) where you will apply POS tagging on a document
-* Task 2 (Word Association Mining) in which you will implement mutual information and extract the top syntagmatically related words from the corpus
-* Task 3 (Topic Modeling) where you will code a part of PLSA and experiment with its parameters
-* Task 4 (Text Mining Classification) where you are going to use Yelp restaurant reviews to predict whether each restaurant is clean or not as judged by health inspectors
+* Part of Speech Tagging - you will apply POS tagging on a document
+* Word Association Mining - you will implement mutual information and extract the top syntagmatically related words from the corpus
+* Topic Modeling - you will code a part of PLSA and experiment with its parameters
+* Text Mining Classification - you are going to use Yelp restaurant reviews to predict whether each restaurant is clean or not as judged by health inspectors
 
 
 
