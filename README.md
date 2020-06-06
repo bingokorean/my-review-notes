@@ -20,7 +20,7 @@ _Theory based books_
 
 _Programming based books_
 
-* [한국어 임베딩](https://www.dropbox.com/scl/fi/hbnm9pwqqshi7inj67txf/Review.paper?dl=0&rlkey=fmw79w419k2qqb17h2m6i1oxh) (이기창, 2019)
+* [한국어 임베딩](https://github.com/gritmind/review/blob/master/code/book/kor_embedding/README.md) (이기창, 2019)
 * [파이썬 머신러닝 완벽 가이드](https://github.com/gritmind/review/blob/master/code/book/pymldg/README.md) (권철민, 2020.02)
 * [Data Analytics with Spark using Python](https://github.com/gritmind/review/blob/master/code/book/spark_using_python/README.md) (Jeffrey Aven, 2018.06) - 한국어판
 * [Grokking Algorithms](https://github.com/gritmind/review/blob/master/code/book/grokking-algorithms/README.md) (Aditya Y. Bhargava, May 2016) - 한국어판
