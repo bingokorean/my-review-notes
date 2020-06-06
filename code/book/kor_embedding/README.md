@@ -229,9 +229,22 @@
 
 - TF-IDF 역시 단어 등장 순서를 고려하지 않는다는 점에서 백오브워즈 임베딩이라고 이해할 수 있다.
 
-![](http://www.sciweavers.org/upload/Tex2Img_1591461644/eqn.png)
+![](http://www.sciweavers.org/upload/Tex2Img_1591463340/eqn.png)
 
+<details>
+  <summary>latex math</summary>
+  ```
+  TFIDF(word_i, doc_i) = c(word_i, doc_i) \times log( {N + 1\over df(word_i)})
+  ```
+</details>
 
+- TF(word): 특정 document에서 해당 word의 Term Frequency 
+- N: 전체 말뭉치에서 전체 document 개수
+- DF(word): 전체 말뭉치에서 해당 word가 포함된 document 개수
+- DF가 클수록 다수 문서에 쓰이는 범용적인 단어이다.
+- TF는 같은 단어라도 문서마다 다른 값을 가진다.
+- DF는 문서가 달라지더라도 단어가 같다면 동일한 값을 가진다.
+- IDF가 클수록 특이한 단어라는 뜻이다. 이는 단어의 주제 예측 능력(해당 단어만 보고 문서의 주제를 가늠해볼 수 있는 정도)과 직결된다.
 
 
 
