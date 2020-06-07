@@ -229,14 +229,7 @@
 
 - TF-IDF 역시 단어 등장 순서를 고려하지 않는다는 점에서 백오브워즈 임베딩이라고 이해할 수 있다.
 
-![](http://www.sciweavers.org/upload/Tex2Img_1591463340/eqn.png)
-
-<details>
-  <summary>latex math</summary>
-  ```
-  TFIDF(word_i, doc_i) = c(word_i, doc_i) \times log( {N + 1\over df(word_i)})
-  ```
-</details>
+<p align="center"><img src="http://www.sciweavers.org/upload/Tex2Img_1591496037/eqn.png" width="70%" height="70%"></p>
 
 - TF(word): 특정 document에서 해당 word의 Term Frequency 
 - N: 전체 말뭉치에서 전체 document 개수
