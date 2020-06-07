@@ -229,7 +229,7 @@
 
 - TF-IDF 역시 단어 등장 순서를 고려하지 않는다는 점에서 백오브워즈 임베딩이라고 이해할 수 있다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_1.png" width="80%" height="80%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_1.png" width="60%" height="60%"></p>
 
 - TF(word): 특정 document에서 해당 word의 Term Frequency 
 - N: 전체 말뭉치에서 전체 document 개수
@@ -243,7 +243,7 @@
 
 * Deep Averaging Network(Iyyer el al., 2015)는 백오브워즈 가정의 뉴럴 네트워크 버전이다. (TF-IDF도 백오브워즈 가정에 속한다는 것을 잊지 말자)
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/pic_1_3.png" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/pic_1_3.png" width="80%" height="80%"></p>
 
 - Iyyer et al. (2015)가 백오브워즈 가정과 연결 지점은 단어의 순서를 고려하지 않는다는 점이다.
 - 최종 문장 임베딩은 모든 단어의 임베딩의 평균을 취한다.
@@ -263,7 +263,7 @@
 
 * ‘Chance favors the prepared’라는 표현 다음에 ‘mind’라는 단어가 나타날 확률을 조건부확률(Conditional Probability)의 정의를 활용해 최대우도추정법(Maximum Likelihood Estimation)으로 유도하면 다음 식과 같다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2.png" width="80%" height="80%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2.png" width="60%" height="60%"></p>
 
 - 이렇게 전체 시퀀스를 대상으로 확률을 구하면 시퀀스가 길어질수록 말뭉치에서 해당 시퀀스가 없는 경우가 많다.
 - 분자, 분모에 있는 시퀀스 Count가 1개로라도 없으면 확률은 0이 되어 무의미한 값이 되어 버린다.
@@ -274,11 +274,11 @@
 - 이는 한 상태(state)의 확률은 그 직전 상태에만 의존한다는 마코프 가정(Markov Assumption)에 기반한 것이다.
 - ‘Chance favors the prepared mind’라는 단어 시퀀스가 나타날 확률을 바이그램 모델로 근사하면 다음과 같다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_3.png" width="80%" height="80%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_3.png" width="60%" height="60%"></p>
 
 - 바이그램 모델을 일반화한 식은 다음과 같다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_4.png" width="80%" height="80%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_4.png" width="60%" height="60%"></p>
 
 - 바이그램 모델을 통해 많은 시퀀스의 경우를 생성할 수 있다.
 - 하지만, 바이그램이라 하더라도 말뭉치에 한 번도 등장하지 않을 수도 있다.
