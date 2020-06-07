@@ -274,6 +274,12 @@
 - 이는 한 상태(state)의 확률은 그 직전 상태에만 의존한다는 마코프 가정(Markov Assumption)에 기반한 것이다.
 - ‘Chance favors the prepared mind’라는 단어 시퀀스가 나타날 확률을 바이그램 모델로 근사하면 다음과 같다.
 
+ddd
+
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_1_1.png" width="100%" height="100%"></p>
+
+dddd
+
 <p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2.png" width="100%" height="100%"></p>
 
 ddd
