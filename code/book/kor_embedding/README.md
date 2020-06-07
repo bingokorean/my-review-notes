@@ -229,7 +229,7 @@
 
 - TF-IDF 역시 단어 등장 순서를 고려하지 않는다는 점에서 백오브워즈 임베딩이라고 이해할 수 있다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_1.png" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_1.png" width="60%" height="60%"></p>
 
 - TF(word): 특정 document에서 해당 word의 Term Frequency 
 - N: 전체 말뭉치에서 전체 document 개수
@@ -263,7 +263,7 @@
 
 * ‘Chance favors the prepared’라는 표현 다음에 ‘mind’라는 단어가 나타날 확률을 조건부확률(Conditional Probability)의 정의를 활용해 최대우도추정법(Maximum Likelihood Estimation)으로 유도하면 다음 식과 같다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2.png" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_2.png" width="60%" height="60%"></p>
 
 - 이렇게 전체 시퀀스를 대상으로 확률을 구하면 시퀀스가 길어질수록 말뭉치에서 해당 시퀀스가 없는 경우가 많다.
 - 분자, 분모에 있는 시퀀스 Count가 1개로라도 없으면 확률은 0이 되어 무의미한 값이 되어 버린다.
@@ -274,11 +274,11 @@
 - 이는 한 상태(state)의 확률은 그 직전 상태에만 의존한다는 마코프 가정(Markov Assumption)에 기반한 것이다.
 - ‘Chance favors the prepared mind’라는 단어 시퀀스가 나타날 확률을 바이그램 모델로 근사하면 다음과 같다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_3.png" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_3.png" width="60%" height="60%"></p>
 
 - 바이그램 모델을 일반화한 식은 다음과 같다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_4.png" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_4.png" width="60%" height="60%"></p>
 
 - 바이그램 모델을 통해 많은 시퀀스의 경우를 생성할 수 있다.
 - 하지만, 바이그램이라 하더라도 말뭉치에 한 번도 등장하지 않을 수도 있다.
@@ -290,6 +290,12 @@
 
 
 
+- alpha와 beta는 실제 빈도와의 차이를 보정해주는 파라미터이다.
+
+
+- 스무딩은 등장 빈도 표에 모두 k만큼을 더하는 기법이다. 이 때문에 Add-k 스무딩 이라고 부르기도 한다.
+- 만약 k를 1로 설정한다면 이를 특별히 라플라스 스무딩(Laplace Smoothing)이라고 한다.
+- 스무딩을 시행하면 높은 빈도를 가진 문자열 등장 확률을 일부 깍고 학습 데이터에 전혀 등장하지 아않는 케이스들에는 아주 작으나마 일부 확률을 부여한다.
 
 
 
