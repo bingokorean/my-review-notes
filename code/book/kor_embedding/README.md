@@ -280,4 +280,6 @@ ddd
 
 <p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_2.png" width="100%" height="100%"></p>
 
+ddd
 
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_3.png" width="100%" height="100%"></p>
