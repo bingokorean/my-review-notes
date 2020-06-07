@@ -276,7 +276,7 @@
 
 ddd
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_1_1.png" width="100%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_1_1.png" width="60%" height="60%"></p>
 
 dddd
 
@@ -284,8 +284,8 @@ dddd
 
 ddd
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_2.png" width="100%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_2.png" width="60%" height="60%"></p>
 
 ddd
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_3.png" width="100%" height="80%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_3.png" width="80%" height="80%"></p>
