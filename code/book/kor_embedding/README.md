@@ -276,7 +276,7 @@
 
 * ‘Chance favors the prepared’라는 표현 다음에 ‘mind’라는 단어가 나타날 확률을 조건부확률(Conditional Probability)의 정의를 활용해 최대우도추정법(Maximum Likelihood Estimation)으로 유도하면 다음 식과 같다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_2.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_2.png" width="80%" height="80%"></p>
 
 - 이렇게 전체 시퀀스를 대상으로 확률을 구하면 시퀀스가 길어질수록 말뭉치에서 해당 시퀀스가 없는 경우가 많다.
 - 분자, 분모에 있는 시퀀스 Count가 1개로라도 없으면 확률은 0이 되어 무의미한 값이 되어 버린다.
@@ -287,11 +287,11 @@
 - 이는 한 상태(state)의 확률은 그 직전 상태에만 의존한다는 마코프 가정(Markov Assumption)에 기반한 것이다.
 - ‘Chance favors the prepared mind’라는 단어 시퀀스가 나타날 확률을 바이그램 모델로 근사하면 다음과 같다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_3.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_3.png" width="80%" height="80%"></p>
 
 - 바이그램 모델을 일반화한 식은 다음과 같다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_4.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_4.png" width="65%" height="65%"></p>
 
 - 바이그램 모델을 통해 많은 시퀀스의 경우를 생성할 수 있다.
 - 하지만, 바이그램이라 하더라도 말뭉치에 한 번도 등장하지 않을 수도 있다.
@@ -300,7 +300,7 @@
 - 이를 위해 백오프(back-off), 스무딩(smoothing) 등의 방식이 제안됐다.
 - 백오프란 n-gram 등장 빈도를 n보다 작은 범위의 단어 시퀀스 빈도로 근사하는 방식이다. n을 크게 하면 할수록 등장하지 않는 케이스가 많아질 가능성이 높다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_5.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_5.png" width="60%" height="60%"></p>
 
 
 - alpha와 beta는 실제 빈도와의 차이를 보정해주는 파라미터이다.
@@ -317,7 +317,7 @@
 * 뉴럴 네트워크는 주어진 단어 시퀀스를 가지고 다음 단어를 맞추는(prediction) 과정에서 학습된다.
 * 학습이 완료되면 이들 모델의 중간 혹은 말단 계산 결과물을 단어나 문장의 임베딩으로 활용한다. (ex. ELMo, GPT 등)
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/pic_2_1.png" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/pic_2_1.png" width="55%" height="55%"></p>
 
 * 마스크 언어 모델(masked language model)은 언어 모델 기반 기법과 큰 틀에서 유사하지만 조금 다르다.
 * 다음 그림처럼 문장 중간에 마스크를 씌워 놓고, 해당 마스크 위치에 어떤 단어가 올지 예측하는 과정에서 학습한다.
@@ -325,7 +325,7 @@
 * 마스크 언어 모델 기반 기법은 문장 전체를 다 보고 중간에 있는 단어를 예측하기 때문에 양방향(bi-directional) 학습이 가능하다.
 * 이 때문에 마스크 언어 모델 기반의 방법들은 기존 언어 모델 기법들 대비 임베딩 품질이 더 좋다. BERT가 이 부류에 속한다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/pic_2_2.png" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/pic_2_2.png" width="50%" height="50%"></p>
 
 
 ### 2.4. 어떤 단어가 같이 쓰였는가
@@ -433,7 +433,7 @@
 * 반대로 단어 A가 등장할 때 단어 B와 자주 같이 나타난다면 PMI 값은 커진다.
 * 요컨대 PMI는 두 단어의 등장이 독립일 때 대비해 얼마나 자주 같이 등장하는지를 수치화한 것이다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_6.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_6.png" width="60%" height="60%"></p>
 
 * PMI는 분포 가정에 따른 단어 가중치 할당 기법이다. 두 단어가 얼마나 자주 같이 등장하는지에 관한 정보를 수치화했다.
 * 이렇게 구축한 PMI 행렬의 행 벡터 자체를 해당 단어의 임베딩으로 사용할 수도 있다.
@@ -446,7 +446,7 @@
 * 모든 단어를 훑어 단어-문맥 행렬을 모두 구했다고 해보자. 전체 빈도 수는 1000회, '빨래'가 등장한 횟수는 20회, '속옷'이 등장한 횟수는 15회, '빨래'와 '속옷'이 동시에 등장한 빈도는 10회라 해보자.
 * '빨래'-'속옷'의 PMI 값은 다음과 같다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_7.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_7.png" width="60%" height="60%"></p>
 
 
 #### 2.4.5. Word2Vec
