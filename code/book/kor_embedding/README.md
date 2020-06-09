@@ -7,7 +7,7 @@
 
 ### Contents
 
-<div id='contents'/>
+<div id='top.'/>
 
 1. [서론](#1.)
 2. [벡터가 어떻게 의미를 가지게 되는가](#2.)
@@ -195,6 +195,7 @@
 * 임베딩 기법은 크게 행렬 분해 모델, 예측 기반 방법, 토픽 기반 기법 등으로 나눠진다.
 * 이 책에서 다루는 데이터의 최소 단위는 토큰이다. 문장은 토큰의 집합, 문서는 문장의 집합, 말뭉치는 문서의 집합을 가리킨다. 토크나이즈란 문장을 토큰으로 분석하는 과정을 의미한다. 어휘 집합은 말뭉치에 있는 모든 문서를 문장으로 나누고 여기에 토크나이즈를 실시한 후 중복을 제거한 토큰들의 집합이다.
 
+[[top](#top.)]
 
 <br>
 
@@ -300,7 +301,7 @@
 - 이를 위해 백오프(back-off), 스무딩(smoothing) 등의 방식이 제안됐다.
 - 백오프란 n-gram 등장 빈도를 n보다 작은 범위의 단어 시퀀스 빈도로 근사하는 방식이다. n을 크게 하면 할수록 등장하지 않는 케이스가 많아질 가능성이 높다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_5.png" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_5.png" width="55%" height="55%"></p>
 
 
 - alpha와 beta는 실제 빈도와의 차이를 보정해주는 파라미터이다.
@@ -325,7 +326,7 @@
 * 마스크 언어 모델 기반 기법은 문장 전체를 다 보고 중간에 있는 단어를 예측하기 때문에 양방향(bi-directional) 학습이 가능하다.
 * 이 때문에 마스크 언어 모델 기반의 방법들은 기존 언어 모델 기법들 대비 임베딩 품질이 더 좋다. BERT가 이 부류에 속한다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/pic_2_2.png" width="50%" height="50%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/pic_2_2.png" width="45%" height="45%"></p>
 
 
 ### 2.4. 어떤 단어가 같이 쓰였는가
@@ -338,7 +339,7 @@
 * 분포 가정은 "단어의 의미는 곧 그 언어에서의 활용이다(the meaning of a word is its use in the language)"라는 언어학자 비트겐슈타인(1889-1951)의 철학에 기반해 있다.
 * 즉, 모국어 화자들이 해당 단어를 실제 어떻게 사용하고 있는지 문맥(주변 단어)을 살핌으로써 그 단어의 의미를 밝힐 수 있다는 이야기이다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/pic_2_3.png" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/pic_2_3.png" width="65%" height="65%"></p>
 
 * '빨래', '세탁'이라는 단어의 의미를 전혀 모른다고 하자.
 * 두 단어의 의미를 파악하기 위해서는 이들 단어가 실제 어떻게 쓰이고 있는지 관찰하면 된다.
@@ -433,7 +434,7 @@
 * 반대로 단어 A가 등장할 때 단어 B와 자주 같이 나타난다면 PMI 값은 커진다.
 * 요컨대 PMI는 두 단어의 등장이 독립일 때 대비해 얼마나 자주 같이 등장하는지를 수치화한 것이다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_6.png" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_6.png" width="55%" height="55%"></p>
 
 * PMI는 분포 가정에 따른 단어 가중치 할당 기법이다. 두 단어가 얼마나 자주 같이 등장하는지에 관한 정보를 수치화했다.
 * 이렇게 구축한 PMI 행렬의 행 벡터 자체를 해당 단어의 임베딩으로 사용할 수도 있다.
@@ -446,7 +447,7 @@
 * 모든 단어를 훑어 단어-문맥 행렬을 모두 구했다고 해보자. 전체 빈도 수는 1000회, '빨래'가 등장한 횟수는 20회, '속옷'이 등장한 횟수는 15회, '빨래'와 '속옷'이 동시에 등장한 빈도는 10회라 해보자.
 * '빨래'-'속옷'의 PMI 값은 다음과 같다.
 
-<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_7.png" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/kor_embedding/images/math_2_7.png" width="55%" height="55%"></p>
 
 
 #### 2.4.5. Word2Vec
@@ -468,6 +469,7 @@
 * 분포 가정에서는 문장에서 어떤 단어가 같이 쓰였는지를 중요하게 따진다.
 * 백오브워즈 가정, 언어 모델, 분포 가정은 말뭉치의 통계적 패턴을 서로 다른 각도에서 분석하는 것이며 상호 보완적이다.
 
+[[top](#top.)]
 
 <br>
 
@@ -475,10 +477,23 @@
 
 ## 3. 한국어 전처리
 
+### 3.1. 
 
+#### 3.1.1. 한국어 위키백과
 
+```
+$ bash preprocess.sh dump-raw-wiki
+```
 
-
+```shell
+case $COMMAND in
+    dump-raw-wiki)
+        echo "download ko-wikipedia..."
+        wget https://dumps.wikimedia.org/kowiki/latest/kowiki-latest-pages-articles.xml.bz2 -P /notebooks/embedding/data/raw
+        mkdir -p /notebooks/embedding/data/processed
+        ;;
+esac
+```
 
 
 
