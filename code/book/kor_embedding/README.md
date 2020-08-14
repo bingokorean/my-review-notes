@@ -643,8 +643,44 @@ def process_nsmc(corpus_path, output_fname, process_json=True, with_label=True):
                     f2.writelines(sentence + "\n")
 ```
 
+### 3.2. 지도 학습 기반 형태소 분석
 
+* 한국어는 조사와 어미가 발달한 교착어(agglutinative language)이기 때문에 문장이나 단어의 경계 처리를 섬세하게 해야 한다.
+* '가겠다', '가더라', '가겠더라', '가다' 를 그대로 어휘 집합에 넣기 보다는 '가', '겠', '다', '더라' 로 형태소 단위로 구성하는 게 좋다. 
+* 형태소로 어휘 집합을 구성하면 다양한 활용어들을 최소한의 핵심적인 어휘들로 인지할 수 있다.
+* 교착어인 한국어는 한정된 종류의 조사와 어미를 자주 이용하기 때문에 각각에 대응하는 명사, 용언(형용사, 동사), 어간만 어휘 집합에 추가하면 취급 단어 개수를 꽤 줄일 수 있다.
+* 즉, 형태소 분석을 잘해야 자연어 처리의 효율성을 높일 수 있다.
 
+#### 3.2.1. KoNLPy 사용법
+
+* [KoNLPy](http://konlpy.org/en/latest)는 은전한닢, 꼬꼬마, 한나눔, Okt, 코로나 등 5개 오픈소스 형태소 분석기를 파이썬 환경에 제공한다.
+
+```python
+from konlpy.tag import Okt, Komoran, Mecab, Hannanum, Kkma
+
+def get_tokenizer(tokenizer_name):
+    if tokenizer_name == "komoran":
+        tokenizer = Komoran()
+    elif tokenizer_name == "okt":
+        tokenizer = Okt()
+    elif tokenizer_name == "mecab":
+        tokenizer = Mecab()
+    elif tokenizer_name == "hannanum":
+        tokenizer = Hannanum()
+    elif tokenizer_name == "kkma":
+        tokenizer = Kkma()
+    elif tokenizer_name == "khaiii":
+        tokenizer = KhaiiiApi()
+    else:
+        tokenizer = Mecab()
+    return tokenizer
+
+tokenizer = get_tokenizer("komoran")
+tokenizer.morphs("아버지가방에들어가신다")
+tokenizer.pos("아버지가방에들어가신다")
+```
+
+#### 3.2.2. Khaii 사용법
 
 
 
