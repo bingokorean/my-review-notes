@@ -110,40 +110,51 @@
 
 * 하둡은 일반적으로 HDFS에서 데이터를 가져오고, HDFS에 데이터를 기록한다. YARN은 이런 하둡의 데이터 처리를 제어하고 조율한다.
 * YARN 클러스터 아키텍쳐는 HDFS의 master/slave 클러스터 프레임워크와 같다.
-   * 여기서 HDFS는 리소스 매니저(Resource Manager)라는 마스터 노드 데몬과
-   * 클러스터의 작업자(Worker)나 slave 노드에서 실행되는 노드 매니저(Node Manager)라는 하나 이상의 slave 노드 데몬을 포함한다.
+   * 여기서 HDFS는 
+      * 리소스 매니저(Resource Manager)라는 마스터 노드 데몬과
+      * 클러스터의 작업자(Worker)나 slave 노드에서 실행되는 노드 매니저(Node Manager)라는 하나 이상의 slave 노드 데몬을 포함한다.
 <br>
 
 * 리소스 매니저는 클러스터에서 실행 중인 응용 프로그램에 클러스터 컴퓨팅 리소스를 부여한다.
    * 리소스는 컨테이너(container)라는 단위로 미리 정의된 CPU 코어와 메모리 조합이다.
    * 컨테이너는 최소 임곗값 및 최대 임곗값을 포함해 할당되고 클러스터에서 구성되며, 하나 이상의 프로세스 전용 리소스를 분리하는 데 사용된다.
 
+* 응용 프로그램이 예약된 리소스를 완료하고 릴리즈할 때 리소스 매니저는 클러스터에서 실행 중인 응용 프로그램의 상태와 사용 가능한 용량을 추적한다.
+* 리소스 매니저는 데몬을 실행하는 호스트의 포트 8088에 내장된 웹 UI를 제공한다. 이 웹 UI는 다음 그림과 같이 클러스터에서 실행, 완료 또는 실패한 응용 프로그램의 상태를 표시한다. YARN 클러스터에서 실행되는 스파크 응용 프로그램의 상태를 관리할 때 이 사용자 인터페이스를 자주 사용한다.
 
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_1_5.png" width="60%" height="60%"></p>
 
+* 클라이언트는 스파크와 같은 응용 프로그램을 리소스 매니저에 등록한다.
+* 리소스 매니저는 애플리케이션 마스터(ApplicationMaster)라는 응용 프로그램의 위임 프로세스로서 클러스터에서 사용할 수 있는 노드 매니저에 첫 번째 컨테이너를 할당한다.
+<br>
 
-...
+* 노드 매니저는 slave 노드 호스트의 컨테이너를 관리하는 slave 노드 YARN 데몬이다.
+* 컨테이너는 응용 프로그램과 관련된 작업을 실행하는 데 사용된다.
+* 하둡의 대규모 문제 해결 방식은 'divide and conquer' 것이다. 이러한 문제 해결 방식은 대규모 문제를 일련의 작업으로 나누고, 그중 많은 부분을 병렬로 실행한다. (여기서 비공유 개념을 상기해야 한다)
+* 이러한 작업은 노드 매니저 프로세스를 실행하는 호스트의 컨테이너에서 실행한다.
+<br>
 
+* 대부분의 컨테이너는 단순 작업을 수행한다.
+* 애플리케이션 마스터는 
+   * 리소스 매니저가 노드 매니저를 실행하기 위해 할당한 첫 번째 컨테이너로 응용 프로그램 관리에 대한 추가 책임을 진다.
+   * 필요한 리소스(대개 처리 중인 데이터 양에 따라 결정)를 포함한 응용 프로그램을 계획하고, 각 단계의 리소스를 확보한다.
+   * 응용 프로그램을 대신해 리소스 매니저로부터 이러한 리소스를 요청한다.
+* 리소스 매니저는
+   * 애플리케이션 마스터에게 특정 응용 프로그램이 사용할, 동일한 또는 다른 노드 매니저의 리소스를 부여한다.
+<br>
 
+* 스파크의 경우 애플리케이션 마스터는 작업의 진행률, 병렬로 수행할 수 있는 작업 그룹의 단계 및 종속성을 모니터링한다.
+* 요약된 정보는 사용자 인터페이스에 표시할 수 있도록 리소스 매니저에게 제공된다.
+* 다음 그림은 YARN 응용 프로그램 제출, 스케줄링 및 실행 프로세스의 일반화를 나타낸다.
 
+<p align="center"><img src="https://github.com/gritmind/my-review-notes/blob/master/code/book/spark_using_python/images/pic_1_6.png" width="60%" height="60%"></p>
 
-
-
-
-
-
-#### YARN을 이용한 응용 스케줄링
-
-* 하둡은 일반적으로 HDFS에서 데이터를 가져오고, HDFS에 데이터를 기록한다.
-* YARN은 이런 하둡의 데이터 처리를 제어하고 조율한다.
-* YARN 클러스터 아키텍쳐는 HDFS의 master/slave 클러스터 프레임워크와 같다.
-* 여기서, HDFS는 ResourceManager라는 master 노드 데몬과 클러스터의 Worker나 slave 노드에서 실행되는 NodeManager라는 하나 이상의 slave 노드 데몬을 포함한다.
-* ResourceManager는 클러스터에서 실행 중인 응용 프로그램에 클러스터 컴퓨팅 리소스를 부여한다.
-
-
-
-
-
-...
+1. 클라이언트가 리소스 매니저에게 응용 프로그램을 제출한다.
+2. 리소스 매니저는 이 역할을 할당할 수 있는 충분한 용량을 가진 노드 매니저에 애플리케이션 마스터 프로세스를 할당한다.
+3. 애플리케이션 마스터는 노드 매니저(애플리케이션 마스터가 실행 중인 노드 매니저도 포함할 수 있음)에서 실행할 리소스 매니저와 작업 컨테이너를 협상하고, 응용 프로그램의 작업 컨테이너를 호스팅하는 노드 매니저로 프로세스를 전달한다.
+4. 노드 매니저는 작업 시도 상태와 진행 상황을 애플리케이션 마스터에 보고한다.
+5. 애플리케이션 마스터는 진행률과 응용 프로그램의 상태를 리소스 매니저에 보고한다.
+6. 리소스 매니저는 응용 프로그램 진행률, 상태 및 결과를 클라이언트에 보고한다.
 
 
 
@@ -1314,6 +1325,8 @@ print(vector_acc.value)
 * 일반적으로 accumulator는 처리된 레코드 수를 계산하거나 조작된 레코드 수를 추적하는 등의 용도로 사용된다.
 * 또한, 다른 유형의 레코드를 의도적으로 계산할 때도 사용할 수 있다. (ex. 로그 이벤트의 매핑 중에 발견된 여러 응답 코드의 수)
 * 경우에 따라 응용 프로그램 내의 프로세싱을 위해 accumulator를 사용하기도 한다.
+<br>
+
 * Accumulator에서 잘못된 결과를 초래할 수 있는 경우
    * map() 연산 내에서 결과를 계산하기 위해 add-in-place 연산을 사용하는데, 이렇게 add-in-place 연산을 수행하려는 목적으로 accumulator를 호출할 때와 같이 accumulator가 변환에 사용되는 경우 잘못된 결과가 나올 수 있다.
    * 단계 재시도나 추측 실행으로 인해 accumulator 값이 두 번 이상 카운트될 수 있다.
@@ -1427,19 +1440,19 @@ $ spark-submit --master local average_word_length.py
 
 * RDD 변환에서 생성할 파티션 수는 일반적으로 구성할 수 있다.
 * 파티셔닝의 몇 가지 기본 동작을 알 필요가 있다.
+<br>
+
+* HDFS를 사용하면 블록마다 RDD 파티션을 만든다. (일반적으로 HDFS의 블록 크기는 128MB)
 
 ```python
-# HDFS를 사용하면 블록마다 RDD 파티션을 만든다. (일반적으로 HDFS의 블록 크기는 128MB)
-
 myrdd = sc.textFile("hdfs:///dir/filescontaining10blocks")
 myrdd.getNumPartitions()
 # returns 10
 ```
-```python
-# ByKey 연산(groupByKey(), reduceByKey()) 같은 셔플연산과 
-# numPartitions 값이 메소드에 대한 인수로 제공되지 않는 다른 연산들은 
-# spark.default.parallelism 구성 값과 같은 파티션 개수를 만든다.
 
+* ByKey 연산(groupByKey(), reduceByKey()) 같은 셔플연산과 numPartitions 값이 메소드에 대한 인수로 제공되지 않는 다른 연산들은 spark.default.parallelism 구성 값과 같은 파티션 개수를 만든다.
+
+```python
 # with spark.default.parallelism=4
 myrdd = sc.textFile("hdfs:///dir/filescontaining10blocks")
 mynewrdd = myrdd.flatMap(lambda x: x.split()) \
@@ -1448,10 +1461,10 @@ mynewrdd = myrdd.flatMap(lambda x: x.split()) \
 mynewrdd.getNumPartitions()
 # returns 4
 ```
-```python
-# spark.default.parallelism 구성 매개변수가 설정되지 않은 경우,
-# 변환에 의해 만들어지는 파티션 수는 현재 RDD 리니지의 업스트림 RDD에 의해 정의된 파티션의 최대 수와 같다.
 
+* spark.default.parallelism 구성 매개변수가 설정되지 않은 경우, 변환에 의해 만들어지는 파티션 수는 현재 RDD 리니지의 업스트림 RDD에 의해 정의된 파티션의 최대 수와 같다.
+
+```python
 # spark.default.parallelism이 설정되지 않은 상태
 myrdd = sc.textFile("hdfs:///dir/filescontaining10blocks")
 mynewrdd = myrdd.flatMap(lambda x: x.split()) \
@@ -1483,6 +1496,8 @@ mynewrdd.getNumPartitions()
 
 * filter() 연산은 필터 조건을 만족하는 레코드만 사용해 일대일 기반으로 모든 입력 파티션에 대해 새 파티션을 만든다. (위 그림)
 * 이로 인해 일부 파티션의 데이터가 다른 파티션보다 훨씬 적어 데이터 왜곡, 추측 실행 가능성 및 다음 단계에서 최적이 아닌 성능과 같은 나쁜 결과를 초래할 수 있다.
+<br>
+
 * 이러한 경우 스파크 API에서 재분할 방법 중 하나를 사용할 수 있다.
    * partitionBy(), coalesce(), repartition(), repartitionAndSortWithinPartitions()
    * 이 함수들은 파티션이 완료된 입력 RDD를 가지고 n개의 파티션을 가진 새로운 RDD를 생성한다.
@@ -1494,7 +1509,7 @@ mynewrdd.getNumPartitions()
 * 최적의 파티션 수 결정
    * 최적의 파티션 수를 결정할 때 종종 반환값을 줄이는 시점(각 추가 파티션이 성능을 떨어뜨리기 시작하는 시점)을 찾을 때까지 다른 값들을 실험해야 한다.
    * 시작점에서의 간단한 공리는 클러스터 코어 수의 2배, 즉, 모든 작업자 노드의 총 코어 수의 2배를 사용하는 것이다.
-   * 데이터세트가 변경되면 사용되는 파티션 수를 다시 검토하는 것이 좋다.
+   * 데이터 종류가 바뀌면 사용되는 파티션 수를 다시 검토하는 것이 좋다.
 
 #### 5.1.3. Repartitioning Functions
 
@@ -1537,7 +1552,18 @@ kvrdd.repartition(2).getNumPartitions()
 
 * `coalesce()`
    * 구문: `RDD.coalesce(numPartitions, shuffle=False)`
-   * ...
+   * coalesce() 메소드는 numPartitions 인수로 지정된 파티션 수로 구성된 새로운 RDD를 반환한다.
+   * coalesce() 메소드를 사용하면 재분할이 부울 shuffle 인수를 사용해 셔플을 트리거하는지 여부를 컨트롤할 수 있다.
+   * coalesce(n, shuffle=True) 연산은 repartition(n)과 기능적으로 동일하다.
+   * coalesce() 메소드는 repartition()의 구현을 최적화한다. 그러나 repartition()과 달리 coalesce()는 셔플 동작을 보다 강력하게 제어하며, 많은 경우에 있어 데이터 이동을 피할 수 있다. 또한 입력 RDD의 파티션 수에서 대상 파티션 수를 줄일 수 있다.
+
+```python
+# 코드 5.11 coalesce() 함수
+
+kvrdd = sc.parallelize([(1, 'A'), (2, 'B'), (3, 'C'), (4, 'D')], 4)
+kvrdd.coalesce(2, shuffle=False).getNumPartitions()
+# returns 2
+```
 
 ...
 
