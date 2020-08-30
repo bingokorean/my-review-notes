@@ -46,7 +46,8 @@
 * 하둡의 간단한 역사 (검색 엔진 기업(구글)에서 발달)
    * The Google File System (2003)
    * MapReduce: Simplified Data Processing on Large Clusters (2004)
-* 데이터 생선량의 급격한 증가로 하둡이 곽강을 받기 시작. Spark, Kafka(메시징 시스템), HBase, Cassandra 등 NOSQL에 대한 논의가 이뤄졌는데, 이 모든 것은 하둡에서 시작되었음.
+* 데이터 생선량의 급격한 증가로 하둡이 곽강을 받기 시작. 
+* Spark, Kafka(메시징 시스템), HBase, Cassandra 등 NOSQL에 대한 논의가 이뤄졌는데, 이 모든 것은 하둡에서 시작됨.
 
 
 #### 하둡
@@ -1565,8 +1566,95 @@ kvrdd.coalesce(2, shuffle=False).getNumPartitions()
 # returns 2
 ```
 
-...
+* `repartitionAndSortWithinPartitions()`
+   * 구문: `RDD.repartitionAndSortWithinPartitions(numPartitions=None, partitionFunc=portable_hash, ascending=True, keyfunc=<lambda function>)`
+   * repartitionAndSortWithinPartitions() 메소드는 
+      * 입력 RDD를 numPartitions 인수로 지정된 파티션 수로 다시 분할하고, partitionFunc 인수로 지정된 함수에 따라 분할된다.
+      * 각 결과 파티션 내에서 레코드는 keyfunc 인수에 의해 정의된 대로 해당 키에 따라 ascending 인수로 결정된 정렬 순서로 정렬된다.
+   * 일반적으로 보조 정렬을 구현하는 데 사용된다.
+      * 키/값 쌍 RDD에 대한 정렬 기능은 보통 임의의 키 해시 또는 범위를 기반으로 하는데, ((k1, k2), v)와 같이 복합 키가 있는 키/값 쌍에서는 이것이 더욱 어려워진다.
+      * 먼저 k1에서 정렬하고 파티션 내에서 각 k1에 대한 k2 값을 정렬하려면 보조 정렬을 사용해야 한다.
+   * 다음 코드는 repartitionAndSortWithinPartitions() 메소드를 사용해 키/값 쌍 RDD에 대해 복합 키를 사용해 보조 정렬을 수행하는 방법을 보여준다.
+      * 키의 첫 번째 부분은 별도의 파티션으로 그룹화되고, 키의 두 번째 부분이 내림차순으로 정렬된다.
+	  * glom() 함수를 사용해 파티션을 검사한다.
 
+```python
+# 코드 5.12 repartitionAndSortWithinPartitions() 함수
+
+kvrdd = sc.parallelize([((1,99), 'A'), ((1,101), 'B'), ((2,99), 'C'), ((2,101), 'D')], 2)
+kvrdd.glom().collect()
+# returns:
+# [((1,99), 'A'), ((1,101), 'B'), ((2,99), 'C'), ((2,101), 'D')]
+
+kvrdd2 = repartitionAndSortWithinPartitions(numPartitions=2, ascending=False, keyfunc=lambda x: x[1])
+kvrdd2.glom().collect()
+# returns:
+# [((1,101), 'B'), ((1,99), 'A'),  ((2,101), 'D'), ((2,99), 'C')]
+```
+
+#### 5.1.4. 파티션별 또는 파티션 인식 API 메소드
+
+* 스파크의 많은 메소드는 파티션과 원자 단위로 상호작용하도록 설계되었다. 여기에는 액션과 변환이 모두 포함되는데, 그중 일부 메소드에 관해 살펴보자.
+<br>
+
+* `foreachPartition()`
+   * 구문: `RDD.foreachPartition(func)`
+   * foreachPartition() 메소드는 foreach() 액션과 비슷한 액션으로 func 인수로 지정된 함수를 RDD의 각 파티션에 적용한다.
+   * foreachPartition() 은 변환이 아닌 액션이므로 입력 RDD와 전체 리니지에 대한 평가를 트리거한다.
+   * 또한, 이 함수를 사용하면 데이터가 드라이버로 전송되므로 이 함수를 실행할 때 최종 RDD 데이터의 볼륨을 염두에 두어야 한다.
+
+```python
+# 코드 5.13 foreachPartition() 액션
+
+def f(x):
+    for rec in x:
+	    print(rec)
+
+kvrdd = sc.parallelize([((1,99), 'A'), ((1,101), 'B'), ((2,99), 'C'), ((2,101), 'D')], 2)
+kvrdd.foreachPatition(f)
+
+# returns:
+# ((1,99), 'A')
+# ((1,101), 'B')
+# ((2,99), 'C')
+# ((2,101), 'D')
+```
+
+* `glom()`
+   * 구문: `RDD.glom()`
+   * glom() 메소드는 각 파티션 내의 모든 요소를 리스트로 병합해 만든 RDD를 반환한다.
+   * 이것은 RDD 파티션을 조합 리스트로 검사할 때 유용하다.
+   * 예제는 위의 코드 5.12를 참고하자.
+<br>
+
+* `lookup()`
+   * 구문: `RDD.lookup(key)`
+   * lookup() 메소드는  key 인수로 참조된 키에 대한 RDD의 값 리스트를 반환한다.
+   * 알려진 파티셔너로 분할된 RDD에 대해 사용하는 경우 lookup()은 파티셔너를 사용해 키가 있는 파티션으로만 검색 범위를 좁힌다.
+
+```python
+kvrdd = sc.parallelize([(1,'A'), (1,'B'), (2,'C'), (2,'D')], 2)
+kvrdd.lookup(1)
+# returns ['A', 'B']
+```
+
+* `mapPartitions()`
+   * 구문: `RDD.mapPartitions(func, preservesPartitioning=False)`
+   * mapPartitions() 메소드는 이 RDD의 각 파티션에 함수(func 인수)를 적용해 새로운 RDD를 반환한다.
+   * mapParititions() 메소드의 가장 큰 장점 중 하나는 참조된 함수가 요소당 한 번이 아니라 파티션당 한 번 호출된다는 것이다. 이것은 함수가 눈에 띄는 오버헤드를 가지고 만들어질 때 특히 유용할 수 있다.
+   * 스파크의 많은 변환 함수는 내부적으로 mapPartitions() 함수를 사용한다.
+   * MapPartitionsWithIndex() 라는 관련 변환 함수가 있는데, 이는 비슷한 함수를 반환하지만 원래 파티션의 인덱스를 추적한다.
+   * 다음 코드는 mapParititions() 메소드를 사용해 각 파티션 내에서 키와 값을 반전하는 방법을 보여준다.
+   
+```python
+kvrdd = sc.parallelize([(1,'A'), (1,'B'), (2,'C'), (2,'D')], 2)
+
+def f(iterator):
+    yield [(b,a) for (a,b) in iterator]
+	
+kvrdd.mapParititions(f).collect()
+# returns [('A', 1), ('B', 1), ('C', 2), ('D', 2)]
+```
 
 ### 5.3. RDD 저장 옵션
 

@@ -18,7 +18,7 @@ _Data Structures and Algorithms_
 * Sorting
 * Binary Search Trees
 * Recursion
-* Dynamic Programming
+* [Dynamic Programming](#Dynamic-Programming)
 * Greedy Algorithms and Invariants
 * Graphs
 * Parallel Computing
@@ -580,9 +580,85 @@ Best-case time complexity를 가질 수 있다: 새로운 string 길이를 top o
 * heapq.heappushpop(h, a): pushs 'a' on the heap and then pops and returns the smallest element
 * e = h[0]: returns the smallest element on the heap without popping it
 
-`heapq`는 오로지 min-heap functionality만 제공하는 것을 기억하자. (integer 또는 float을 사용하는) Max-heap을 만들고 싶으면, 그들의 negative값을 insert하라. Object를 위해서는 __lt()__를 적절히 구현해라. Problem 10.4에 max-heap을 어떻게 사용하는지 나타내고 있다.
+`heapq`는 오로지 min-heap functionality만 제공하는 것을 기억하자. (integer 또는 float을 사용하는) Max-heap을 만들고 싶으면, 그들의 negative값을 insert하라. Object를 위해서는 `__lt()__`를 적절히 구현해라. Problem 10.4에 max-heap을 어떻게 사용하는지 나타내고 있다.
 
 
+
+
+<br>
+
+
+
+## Dynamic Programming
+
+다이나믹 프로그래밍(DP)은 부분-문제(subproblems)로 쪼개질 수 있는 최적화, 검색, 카운팅 문제를 풀기 위한 일반적인 솔루션이다. 만약, 찾고자 하는 솔루션이 부분-문제(subproblems)와 연관되어 있다면, DP를 사용하는 것을 고려해야 한다. 
+
+분할 정복 알고리즘과 비슷하게도, DP는 여러 개의 작은 문제들의 솔루션을 결합하면서 문제를 푼다. 다른 점은 똑같은 부분-문제(subproblems)가 재등장하는 것이다. 그러므로 효율적인 DP를 만드는 핵심은 중간 연산 결과물을 캐싱하는 데 있다. 
+
+DP의 내면에 숨겨진 아이디어를 묘사하기 위해서 Fibonacci numbers를 계산하는 문제를 보자. 첫 두 개의 피보나치 숫자는 0과 1이다. 연속된 숫자들은 두 개의 이전 숫자들의 합으로 표현된다. 예를 들어, 0, 1, 1, 2, 3, 5, 8, 13, 21, ... 와 같이 나열된다. 피보나치 숫자는 다양한 어플리케이션에서 활용된다 - 바이오, 데이터 구조 분석, 병렬 컴퓨팅 등
+
+수학적으로 n번째의 피보나치 숫자 F(n)은 F(n) = F(n-1) + F(n-2)로 표기되며, 여기서 F(0)=0 그리고 F(1)=1이다. F(n)을 재귀적으로 계산하는 함수는 n의 길이가 늘어날수록 기하급수적(exponential)으로 시간 복잡도(time complexity)가 증가한다. 왜냐하면 재귀적 함수는 F(i)들을 반복적으로 계산하기 때문이다. 다음 그림을 보면 F(i) 함수가 똑같은 인자를 가지고 반복적으로 콜하는 것을 확인할 수 있다.
+
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/code/book/interview_py/images/dp_tree.PNG" width="100%" height="100%"></p>
+
+중간 결과물을 캐싱하는 것은 피보나치 숫자의 시간 복잡도를 n 기준 선형으로 만들 수 있다. 여기서 저장 비용은 O(n)을 가진다.
+
+```python
+def fibonacci(n, cache={}):
+	if n <= 1:
+		return n
+	elif n not in cache:
+		cache[n] = fibonacci(n-1) + fibonacci(n-2)
+	return cache[n]
+```
+
+캐싱 스페이스를 줄이는 것은 DP에서 반복해서 다루는 주제이다. 이제 F(n) 함수를 O(n) 시간과 O(1) 공간 복잡도를 가지는 프로그램을 알아보자. 위의 프로그램과 비교해서 아래의 프로그램은 캐쉬의 공간 복잡도를 줄이기 위해서 "bottom-up" 방식으로 캐쉬를 반복해서 채운다. 이는 캐쉬를 재사용 가능하게 해준다.
+
+아하! 위의 프로그램은 재귀형이고 아래는 반복형이다. 근데 반복형이 공간 복잡도에서 더 이득을 가지네.? 재귀형은 "top-down" 방식이고 반복형은 "bottom-up" 방식이다.
+
+```python
+def fibonacci(n):
+	if n <= 1:
+		return n
+	f_minus_2, f_minus_1 = 0, 1
+	for _ in range(1, n):
+		f = f_minus_2 + f_minus_1
+		f_minus_2, f_minus_1 = f_minus_1, f
+	return f_minus_1
+```
+
+DP 문제의 솔루션을 찾는 핵심은 다음과 같은 조건에서 문제를 부분-문제(subproblems)로 쪼갤 수 있는 방법을 찾는 것이다. 
+
+* 문제를 부분-문제로 풀 수 있으면 상대적으로 문제를 풀기가 쉬워진다. 
+* 이러한 부분-문제들은 캐시된다.
+
+보통 (항상 그렇지는 않지만) 부분-문제는 찾기는 어렵지 않다.
+
+여기에 조금 더 복잡한 DP 문제가 있다. 주어진 integer의 array에서 sub-arrays의 최대 합을 구하는 문제이다. 다음 그림에서 최대 subarray를 찾으면 인덱스 0에서 인덱스 3이다.
+
+<p align="center"><img src="https://github.com/gritmind/review/blob/master/code/book/interview_py/images/dp_array.PNG" width="80%" height="80%"></p>
+
+모든 경우의 수의 subarray의 sum을 계산하는 brute-force 알고리즘은 O(n^3) 시간 복잡도를 가진다. subarray의 개수는 n(n+1)/2 가 있고, 각 subarray를 sum을 계산하는 것은 O(n) time이 걸린다.
+
+이 brute-force 알고리즘은 O(n^2)으로 성능에 O(n)의 추가적인 저장 공간으로 성능이 향상될 수 있다. S[k] = 모든 k에 대한 A[0,k] 합. 을 미리 계산하고 저장함으로써...
+
+A[i,j]의 합은 S[j] - S[j-1]로 계산된다. 여기서 S[-1]은 0이 된다. 
+
+이것은 사실 divide-and-conquer 알고리즘이다. A의 정중앙 인덱스 m을 n/2로 얻는다. subarray L=A[0,m] 과 R=A[m+1,n-1] 을 계산하면서 문제를 해결한다. 각각에 대해 문제를 푸는 것뿐만 아니라 subarray sum의 최대 l을 구하고 (여기서 subarray의 마지막 엔트리는 항상 L의 마지막 엔트리이다), subarray sum의 최대 r을 구한다 (여기서 subarray의 첫 번째 엔트리는 항상 R의 첫 번째 엔트리이다).
+
+A에 대한 최대 subarray sum
+
+
+
+
+
+
+
+## Dynamic Programming boot camp
+
+위에서 언급한 Fibonacci numbers와 maximum subarray sum이 DP의 좋은 예시가 된다.
+
+## Top Tips for Dynamic Programming
 
 
 
